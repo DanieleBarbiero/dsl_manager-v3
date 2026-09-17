@@ -1,0 +1,20 @@
+{
+  "fixture": "manuale_vega.pdf",
+  "mocked": false,
+  "result": {
+    "artifact_dir": "artifacts/PARSE_34d4d5495f82ded06b33db53",
+    "diagnostics": [],
+    "duration_seconds": 202.097,
+    "evidence_count": 1,
+    "log": "logs/PARSE_34d4d5495f82ded06b33db53.log",
+    "metadata": {},
+    "parse_id": "PARSE_34d4d5495f82ded06b33db53",
+    "parser": "docling/2.128.0",
+    "resource_enforcement": "parent_monitored",
+    "revision_id": "REV_8f564e19e1a9673de0489367",
+    "status": "success"
+  },
+  "status": "passed",
+  "text": "Vega Ricambi - PDF verificabile La richiesta P1 deve essere presa in carico entro 30 minuti. valid\\_from: 2026-09-01",
+  "timestamp": "2026-09-17T09:01:14.492853+00:00"
+}

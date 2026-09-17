@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/f8392732e1af/dslm3/scripts/browser_check.py", line 39, in <module>
+    run(page.get_by_role('button',name='Elabora il corpus'))
+  File "/workspace/scratch/f8392732e1af/dslm3/scripts/browser_check.py", line 33, in run
+    assert job['status']=='success',job
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'id': 'JOB_1208fee419994ee9', 'operation': 'pipeline', 'status': 'running', 'created_at': '2026-09-17T07:34:49.344560+00:00'}

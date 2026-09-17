@@ -1,0 +1,174 @@
+* Getting build dependencies for wheel...
+running egg_info
+writing src/dslm3.egg-info/PKG-INFO
+writing dependency_links to src/dslm3.egg-info/dependency_links.txt
+writing entry points to src/dslm3.egg-info/entry_points.txt
+writing requirements to src/dslm3.egg-info/requires.txt
+writing top-level names to src/dslm3.egg-info/top_level.txt
+reading manifest file 'src/dslm3.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+warning: no previously-included files matching '__pycache__' found anywhere in distribution
+warning: no previously-included files matching '*.pyc' found anywhere in distribution
+writing manifest file 'src/dslm3.egg-info/SOURCES.txt'
+* Building wheel...
+running bdist_wheel
+running build
+running build_py
+copying src/dslm3/__main__.py -> build/lib/dslm3
+copying src/dslm3/cli.py -> build/lib/dslm3
+copying src/dslm3/__init__.py -> build/lib/dslm3
+copying src/dslm3/ai.py -> build/lib/dslm3
+copying src/dslm3/service.py -> build/lib/dslm3
+copying src/dslm3/knowledge.py -> build/lib/dslm3
+copying src/dslm3/lab.py -> build/lib/dslm3
+copying src/dslm3/temporal.py -> build/lib/dslm3
+copying src/dslm3/web.py -> build/lib/dslm3
+copying src/dslm3/exports.py -> build/lib/dslm3
+copying src/dslm3/worker.py -> build/lib/dslm3
+copying src/dslm3/common.py -> build/lib/dslm3
+copying src/dslm3/storage.py -> build/lib/dslm3
+copying src/dslm3/vendor/workbook_regions.py -> build/lib/dslm3/vendor
+copying src/dslm3/vendor/__init__.py -> build/lib/dslm3/vendor
+copying src/dslm3/vendor/canonical.py -> build/lib/dslm3/vendor
+copying src/dslm3/vendor/ooxml_preflight.py -> build/lib/dslm3/vendor
+copying src/dslm3/parsers/__init__.py -> build/lib/dslm3/parsers
+copying src/dslm3/parsers/documents.py -> build/lib/dslm3/parsers
+copying src/dslm3/parsers/sql.py -> build/lib/dslm3/parsers
+copying src/dslm3/parsers/base.py -> build/lib/dslm3/parsers
+running egg_info
+writing src/dslm3.egg-info/PKG-INFO
+writing dependency_links to src/dslm3.egg-info/dependency_links.txt
+writing entry points to src/dslm3.egg-info/entry_points.txt
+writing requirements to src/dslm3.egg-info/requires.txt
+writing top-level names to src/dslm3.egg-info/top_level.txt
+reading manifest file 'src/dslm3.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+warning: no previously-included files matching '__pycache__' found anywhere in distribution
+warning: no previously-included files matching '*.pyc' found anywhere in distribution
+writing manifest file 'src/dslm3.egg-info/SOURCES.txt'
+copying src/dslm3/static/app.js -> build/lib/dslm3/static
+copying src/dslm3/static/index.html -> build/lib/dslm3/static
+copying src/dslm3/static/style.css -> build/lib/dslm3/static
+copying src/dslm3/resources/gexf/gexf.xsd -> build/lib/dslm3/resources/gexf
+copying src/dslm3/resources/gexf/viz.xsd -> build/lib/dslm3/resources/gexf
+copying src/dslm3/resources/gexf/dynamics.xsd -> build/lib/dslm3/resources/gexf
+copying src/dslm3/resources/gexf/manifest.json -> build/lib/dslm3/resources/gexf
+copying src/dslm3/resources/gexf/LICENSE.txt -> build/lib/dslm3/resources/gexf
+copying src/dslm3/resources/vega/forms/frm_richiesta.xml -> build/lib/dslm3/resources/vega/forms
+copying src/dslm3/resources/vega/plsql/logica_vega.sql -> build/lib/dslm3/resources/vega/plsql
+copying src/dslm3/resources/vega/documenti/matrice_priorita_vega_2026.xlsx -> build/lib/dslm3/resources/vega/documenti
+copying src/dslm3/resources/vega/documenti/manuale_operativo_vega_2026.docx -> build/lib/dslm3/resources/vega/documenti
+copying src/dslm3/resources/vega/database/schema_vega.sql -> build/lib/dslm3/resources/vega/database
+copying src/dslm3/resources/vega/logs/vega_2026.log -> build/lib/dslm3/resources/vega/logs
+copying src/dslm3/static/app.js -> build/lib/dslm3/static
+copying src/dslm3/static/index.html -> build/lib/dslm3/static
+copying src/dslm3/static/style.css -> build/lib/dslm3/static
+copying src/dslm3/resources/gexf/LICENSE.txt -> build/lib/dslm3/resources/gexf
+copying src/dslm3/resources/gexf/dynamics.xsd -> build/lib/dslm3/resources/gexf
+copying src/dslm3/resources/gexf/gexf.xsd -> build/lib/dslm3/resources/gexf
+copying src/dslm3/resources/gexf/manifest.json -> build/lib/dslm3/resources/gexf
+copying src/dslm3/resources/gexf/viz.xsd -> build/lib/dslm3/resources/gexf
+copying src/dslm3/resources/vega/forms/frm_richiesta.xml -> build/lib/dslm3/resources/vega/forms
+copying src/dslm3/resources/vega/plsql/logica_vega.sql -> build/lib/dslm3/resources/vega/plsql
+copying src/dslm3/resources/vega/documenti/manuale_operativo_vega_2026.docx -> build/lib/dslm3/resources/vega/documenti
+copying src/dslm3/resources/vega/documenti/matrice_priorita_vega_2026.xlsx -> build/lib/dslm3/resources/vega/documenti
+copying src/dslm3/resources/vega/database/schema_vega.sql -> build/lib/dslm3/resources/vega/database
+copying src/dslm3/resources/vega/logs/vega_2026.log -> build/lib/dslm3/resources/vega/logs
+installing to build/bdist.linux-x86_64/wheel
+running install
+running install_lib
+creating build/bdist.linux-x86_64/wheel
+creating build/bdist.linux-x86_64/wheel/dslm3
+copying build/lib/dslm3/__main__.py -> build/bdist.linux-x86_64/wheel/./dslm3
+copying build/lib/dslm3/cli.py -> build/bdist.linux-x86_64/wheel/./dslm3
+creating build/bdist.linux-x86_64/wheel/dslm3/resources
+creating build/bdist.linux-x86_64/wheel/dslm3/resources/gexf
+copying build/lib/dslm3/resources/gexf/gexf.xsd -> build/bdist.linux-x86_64/wheel/./dslm3/resources/gexf
+copying build/lib/dslm3/resources/gexf/viz.xsd -> build/bdist.linux-x86_64/wheel/./dslm3/resources/gexf
+copying build/lib/dslm3/resources/gexf/dynamics.xsd -> build/bdist.linux-x86_64/wheel/./dslm3/resources/gexf
+copying build/lib/dslm3/resources/gexf/manifest.json -> build/bdist.linux-x86_64/wheel/./dslm3/resources/gexf
+copying build/lib/dslm3/resources/gexf/LICENSE.txt -> build/bdist.linux-x86_64/wheel/./dslm3/resources/gexf
+creating build/bdist.linux-x86_64/wheel/dslm3/resources/vega
+creating build/bdist.linux-x86_64/wheel/dslm3/resources/vega/forms
+copying build/lib/dslm3/resources/vega/forms/frm_richiesta.xml -> build/bdist.linux-x86_64/wheel/./dslm3/resources/vega/forms
+creating build/bdist.linux-x86_64/wheel/dslm3/resources/vega/plsql
+copying build/lib/dslm3/resources/vega/plsql/logica_vega.sql -> build/bdist.linux-x86_64/wheel/./dslm3/resources/vega/plsql
+creating build/bdist.linux-x86_64/wheel/dslm3/resources/vega/documenti
+copying build/lib/dslm3/resources/vega/documenti/matrice_priorita_vega_2026.xlsx -> build/bdist.linux-x86_64/wheel/./dslm3/resources/vega/documenti
+copying build/lib/dslm3/resources/vega/documenti/manuale_operativo_vega_2026.docx -> build/bdist.linux-x86_64/wheel/./dslm3/resources/vega/documenti
+creating build/bdist.linux-x86_64/wheel/dslm3/resources/vega/database
+copying build/lib/dslm3/resources/vega/database/schema_vega.sql -> build/bdist.linux-x86_64/wheel/./dslm3/resources/vega/database
+creating build/bdist.linux-x86_64/wheel/dslm3/resources/vega/logs
+copying build/lib/dslm3/resources/vega/logs/vega_2026.log -> build/bdist.linux-x86_64/wheel/./dslm3/resources/vega/logs
+creating build/bdist.linux-x86_64/wheel/dslm3/vendor
+copying build/lib/dslm3/vendor/workbook_regions.py -> build/bdist.linux-x86_64/wheel/./dslm3/vendor
+copying build/lib/dslm3/vendor/__init__.py -> build/bdist.linux-x86_64/wheel/./dslm3/vendor
+copying build/lib/dslm3/vendor/canonical.py -> build/bdist.linux-x86_64/wheel/./dslm3/vendor
+copying build/lib/dslm3/vendor/ooxml_preflight.py -> build/bdist.linux-x86_64/wheel/./dslm3/vendor
+copying build/lib/dslm3/__init__.py -> build/bdist.linux-x86_64/wheel/./dslm3
+copying build/lib/dslm3/ai.py -> build/bdist.linux-x86_64/wheel/./dslm3
+creating build/bdist.linux-x86_64/wheel/dslm3/parsers
+copying build/lib/dslm3/parsers/__init__.py -> build/bdist.linux-x86_64/wheel/./dslm3/parsers
+copying build/lib/dslm3/parsers/documents.py -> build/bdist.linux-x86_64/wheel/./dslm3/parsers
+copying build/lib/dslm3/parsers/sql.py -> build/bdist.linux-x86_64/wheel/./dslm3/parsers
+copying build/lib/dslm3/parsers/base.py -> build/bdist.linux-x86_64/wheel/./dslm3/parsers
+copying build/lib/dslm3/service.py -> build/bdist.linux-x86_64/wheel/./dslm3
+copying build/lib/dslm3/knowledge.py -> build/bdist.linux-x86_64/wheel/./dslm3
+copying build/lib/dslm3/lab.py -> build/bdist.linux-x86_64/wheel/./dslm3
+copying build/lib/dslm3/temporal.py -> build/bdist.linux-x86_64/wheel/./dslm3
+copying build/lib/dslm3/web.py -> build/bdist.linux-x86_64/wheel/./dslm3
+copying build/lib/dslm3/exports.py -> build/bdist.linux-x86_64/wheel/./dslm3
+copying build/lib/dslm3/worker.py -> build/bdist.linux-x86_64/wheel/./dslm3
+copying build/lib/dslm3/common.py -> build/bdist.linux-x86_64/wheel/./dslm3
+creating build/bdist.linux-x86_64/wheel/dslm3/static
+copying build/lib/dslm3/static/app.js -> build/bdist.linux-x86_64/wheel/./dslm3/static
+copying build/lib/dslm3/static/index.html -> build/bdist.linux-x86_64/wheel/./dslm3/static
+copying build/lib/dslm3/static/style.css -> build/bdist.linux-x86_64/wheel/./dslm3/static
+copying build/lib/dslm3/storage.py -> build/bdist.linux-x86_64/wheel/./dslm3
+running install_egg_info
+Copying src/dslm3.egg-info to build/bdist.linux-x86_64/wheel/./dslm3-3.0.0-py3.12.egg-info
+running install_scripts
+creating build/bdist.linux-x86_64/wheel/dslm3-3.0.0.dist-info/WHEEL
+creating '/workspace/scratch/f8392732e1af/dslm3/dist/.tmp-eulasd4y/dslm3-3.0.0-py3-none-any.whl' and adding 'build/bdist.linux-x86_64/wheel' to it
+adding 'dslm3/__init__.py'
+adding 'dslm3/__main__.py'
+adding 'dslm3/ai.py'
+adding 'dslm3/cli.py'
+adding 'dslm3/common.py'
+adding 'dslm3/exports.py'
+adding 'dslm3/knowledge.py'
+adding 'dslm3/lab.py'
+adding 'dslm3/service.py'
+adding 'dslm3/storage.py'
+adding 'dslm3/temporal.py'
+adding 'dslm3/web.py'
+adding 'dslm3/worker.py'
+adding 'dslm3/parsers/__init__.py'
+adding 'dslm3/parsers/base.py'
+adding 'dslm3/parsers/documents.py'
+adding 'dslm3/parsers/sql.py'
+adding 'dslm3/resources/gexf/LICENSE.txt'
+adding 'dslm3/resources/gexf/dynamics.xsd'
+adding 'dslm3/resources/gexf/gexf.xsd'
+adding 'dslm3/resources/gexf/manifest.json'
+adding 'dslm3/resources/gexf/viz.xsd'
+adding 'dslm3/resources/vega/database/schema_vega.sql'
+adding 'dslm3/resources/vega/documenti/manuale_operativo_vega_2026.docx'
+adding 'dslm3/resources/vega/documenti/matrice_priorita_vega_2026.xlsx'
+adding 'dslm3/resources/vega/forms/frm_richiesta.xml'
+adding 'dslm3/resources/vega/logs/vega_2026.log'
+adding 'dslm3/resources/vega/plsql/logica_vega.sql'
+adding 'dslm3/static/app.js'
+adding 'dslm3/static/index.html'
+adding 'dslm3/static/style.css'
+adding 'dslm3/vendor/__init__.py'
+adding 'dslm3/vendor/canonical.py'
+adding 'dslm3/vendor/ooxml_preflight.py'
+adding 'dslm3/vendor/workbook_regions.py'
+adding 'dslm3-3.0.0.dist-info/METADATA'
+adding 'dslm3-3.0.0.dist-info/WHEEL'
+adding 'dslm3-3.0.0.dist-info/entry_points.txt'
+adding 'dslm3-3.0.0.dist-info/top_level.txt'
+adding 'dslm3-3.0.0.dist-info/RECORD'
+removing build/bdist.linux-x86_64/wheel
+Successfully built dslm3-3.0.0-py3-none-any.whl

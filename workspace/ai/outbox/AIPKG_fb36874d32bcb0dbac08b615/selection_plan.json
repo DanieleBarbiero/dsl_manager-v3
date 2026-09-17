@@ -1,0 +1,950 @@
+{
+  "budgets": {
+    "max_chars": 10000000,
+    "max_evidence": 10000
+  },
+  "id": "AISEL_355b9507c86217e8ea0f511f",
+  "items": [
+    {
+      "chars": 796,
+      "coverage": "no_candidate",
+      "evidence_id": "EV_9a6d6ccaa86083d021452d9a",
+      "kind": "chunk",
+      "outcome": "included",
+      "path": "vega/documenti/manuale_operativo_vega_2026.docx",
+      "rank": [
+        0,
+        "vega/documenti/manuale_operativo_vega_2026.docx",
+        "EV_9a6d6ccaa86083d021452d9a"
+      ],
+      "reason_codes": [
+        "included_by_policy"
+      ],
+      "revision_id": "REV_09e1e1f0ce61ef5ba76f64e4",
+      "type": "document_text"
+    },
+    {
+      "chars": 923,
+      "coverage": "no_candidate",
+      "evidence_id": "EV_9b4a807256f8f681c4905444",
+      "kind": "chunk",
+      "outcome": "included",
+      "path": "vega/documenti/matrice_priorita_vega_2026.xlsx",
+      "rank": [
+        0,
+        "vega/documenti/matrice_priorita_vega_2026.xlsx",
+        "EV_9b4a807256f8f681c4905444"
+      ],
+      "reason_codes": [
+        "included_by_policy"
+      ],
+      "revision_id": "REV_ccdd4404f4e4a2c752ee2659",
+      "type": "document_text"
+    },
+    {
+      "chars": 3558,
+      "coverage": "confirmed",
+      "evidence_id": "EV_af0833b4e7a1854a095b01ce",
+      "kind": "fragment",
+      "outcome": "included",
+      "path": "vega/documenti/matrice_priorita_vega_2026.xlsx",
+      "rank": [
+        1,
+        "vega/documenti/matrice_priorita_vega_2026.xlsx",
+        "EV_af0833b4e7a1854a095b01ce"
+      ],
+      "reason_codes": [
+        "included_by_policy"
+      ],
+      "revision_id": "REV_ccdd4404f4e4a2c752ee2659",
+      "type": "excel_region"
+    },
+    {
+      "chars": 314,
+      "coverage": "confirmed",
+      "evidence_id": "EV_18cdfce597666e265d1f7d87",
+      "kind": "fragment",
+      "outcome": "included",
+      "path": "vega/database/schema_vega.sql",
+      "rank": [
+        2,
+        "vega/database/schema_vega.sql",
+        "EV_18cdfce597666e265d1f7d87"
+      ],
+      "reason_codes": [
+        "included_by_policy"
+      ],
+      "revision_id": "REV_ce46e3f8ea3543f6f4b5d7bb",
+      "type": "ddl_column"
+    },
+    {
+      "chars": 172,
+      "coverage": "confirmed",
+      "evidence_id": "EV_57f19f99f0e09eaa7736421c",
+      "kind": "fragment",
+      "outcome": "included",
+      "path": "vega/database/schema_vega.sql",
+      "rank": [
+        2,
+        "vega/database/schema_vega.sql",
+        "EV_57f19f99f0e09eaa7736421c"
+      ],
+      "reason_codes": [
+        "included_by_policy"
+      ],
+      "revision_id": "REV_ce46e3f8ea3543f6f4b5d7bb",
+      "type": "ddl_column"
+    },
+    {
+      "chars": 172,
+      "coverage": "confirmed",
+      "evidence_id": "EV_644b4c4de6cd6a31b9ceabc9",
+      "kind": "fragment",
+      "outcome": "included",
+      "path": "vega/database/schema_vega.sql",
+      "rank": [
+        2,
+        "vega/database/schema_vega.sql",
+        "EV_644b4c4de6cd6a31b9ceabc9"
+      ],
+      "reason_codes": [
+        "included_by_policy"
+      ],
+      "revision_id": "REV_ce46e3f8ea3543f6f4b5d7bb",
+      "type": "ddl_table"
+    },
+    {
+      "chars": 172,
+      "coverage": "confirmed",
+      "evidence_id": "EV_77d0e87723610dd8ac0eae44",
+      "kind": "fragment",
+      "outcome": "included",
+      "path": "vega/database/schema_vega.sql",
+      "rank": [
+        2,
+        "vega/database/schema_vega.sql",
+        "EV_77d0e87723610dd8ac0eae44"
+      ],
+      "reason_codes": [
+        "included_by_policy"
+      ],
+      "revision_id": "REV_ce46e3f8ea3543f6f4b5d7bb",
+      "type": "ddl_column"
+    },
+    {
+      "chars": 314,
+      "coverage": "confirmed",
+      "evidence_id": "EV_81feb777cd7c681ca84a17c2",
+      "kind": "fragment",
+      "outcome": "included",
+      "path": "vega/database/schema_vega.sql",
+      "rank": [
+        2,
+        "vega/database/schema_vega.sql",
+        "EV_81feb777cd7c681ca84a17c2"
+      ],
+      "reason_codes": [
+        "included_by_policy"
+      ],
+      "revision_id": "REV_ce46e3f8ea3543f6f4b5d7bb",
+      "type": "ddl_column"
+    },
+    {
+      "chars": 172,
+      "coverage": "confirmed",
+      "evidence_id": "EV_903887000fc215a2ab4fc453",
+      "kind": "fragment",
+      "outcome": "included",
+      "path": "vega/database/schema_vega.sql",
+      "rank": [
+        2,
+        "vega/database/schema_vega.sql",
+        "EV_903887000fc215a2ab4fc453"
+      ],
+      "reason_codes": [
+        "included_by_policy"
+      ],
+      "revision_id": "REV_ce46e3f8ea3543f6f4b5d7bb",
+      "type": "ddl_column"
+    },
+    {
+      "chars": 172,
+      "coverage": "confirmed",
+      "evidence_id": "EV_9864766c352ededda210596d",
+      "kind": "fragment",
+      "outcome": "included",
+      "path": "vega/database/schema_vega.sql",
+      "rank": [
+        2,
+        "vega/database/schema_vega.sql",
+        "EV_9864766c352ededda210596d"
+      ],
+      "reason_codes": [
+        "included_by_policy"
+      ],
+      "revision_id": "REV_ce46e3f8ea3543f6f4b5d7bb",
+      "type": "ddl_column"
+    },
+    {
+      "chars": 314,
+      "coverage": "confirmed",
+      "evidence_id": "EV_c24188bc38c875f41caebf2e",
+      "kind": "fragment",
+      "outcome": "included",
+      "path": "vega/database/schema_vega.sql",
+      "rank": [
+        2,
+        "vega/database/schema_vega.sql",
+        "EV_c24188bc38c875f41caebf2e"
+      ],
+      "reason_codes": [
+        "included_by_policy"
+      ],
+      "revision_id": "REV_ce46e3f8ea3543f6f4b5d7bb",
+      "type": "ddl_column"
+    },
+    {
+      "chars": 314,
+      "coverage": "confirmed",
+      "evidence_id": "EV_cf2604e6e0ba5b6a0680b839",
+      "kind": "fragment",
+      "outcome": "included",
+      "path": "vega/database/schema_vega.sql",
+      "rank": [
+        2,
+        "vega/database/schema_vega.sql",
+        "EV_cf2604e6e0ba5b6a0680b839"
+      ],
+      "reason_codes": [
+        "included_by_policy"
+      ],
+      "revision_id": "REV_ce46e3f8ea3543f6f4b5d7bb",
+      "type": "ddl_column"
+    },
+    {
+      "chars": 314,
+      "coverage": "confirmed",
+      "evidence_id": "EV_e1ebf3e49a1722713b83c531",
+      "kind": "fragment",
+      "outcome": "included",
+      "path": "vega/database/schema_vega.sql",
+      "rank": [
+        2,
+        "vega/database/schema_vega.sql",
+        "EV_e1ebf3e49a1722713b83c531"
+      ],
+      "reason_codes": [
+        "included_by_policy"
+      ],
+      "revision_id": "REV_ce46e3f8ea3543f6f4b5d7bb",
+      "type": "ddl_table"
+    },
+    {
+      "chars": 314,
+      "coverage": "confirmed",
+      "evidence_id": "EV_ea6fd78dcbb480984636f5c9",
+      "kind": "fragment",
+      "outcome": "included",
+      "path": "vega/database/schema_vega.sql",
+      "rank": [
+        2,
+        "vega/database/schema_vega.sql",
+        "EV_ea6fd78dcbb480984636f5c9"
+      ],
+      "reason_codes": [
+        "included_by_policy"
+      ],
+      "revision_id": "REV_ce46e3f8ea3543f6f4b5d7bb",
+      "type": "ddl_constraint"
+    },
+    {
+      "chars": 314,
+      "coverage": "confirmed",
+      "evidence_id": "EV_f9891db7fafc3b02db607705",
+      "kind": "fragment",
+      "outcome": "included",
+      "path": "vega/database/schema_vega.sql",
+      "rank": [
+        2,
+        "vega/database/schema_vega.sql",
+        "EV_f9891db7fafc3b02db607705"
+      ],
+      "reason_codes": [
+        "included_by_policy"
+      ],
+      "revision_id": "REV_ce46e3f8ea3543f6f4b5d7bb",
+      "type": "ddl_column"
+    },
+    {
+      "chars": 110,
+      "coverage": "confirmed",
+      "evidence_id": "EV_3e495a10e162932326caba67",
+      "kind": "fragment",
+      "outcome": "included",
+      "path": "vega/documenti/matrice_priorita_vega_2026.xlsx",
+      "rank": [
+        2,
+        "vega/documenti/matrice_priorita_vega_2026.xlsx",
+        "EV_3e495a10e162932326caba67"
+      ],
+      "reason_codes": [
+        "included_by_policy"
+      ],
+      "revision_id": "REV_ccdd4404f4e4a2c752ee2659",
+      "type": "excel_workbook"
+    },
+    {
+      "chars": 8,
+      "coverage": "confirmed",
+      "evidence_id": "EV_8fe04ffa1659213c5de24684",
+      "kind": "fragment",
+      "outcome": "included",
+      "path": "vega/documenti/matrice_priorita_vega_2026.xlsx",
+      "rank": [
+        2,
+        "vega/documenti/matrice_priorita_vega_2026.xlsx",
+        "EV_8fe04ffa1659213c5de24684"
+      ],
+      "reason_codes": [
+        "included_by_policy"
+      ],
+      "revision_id": "REV_ccdd4404f4e4a2c752ee2659",
+      "type": "excel_sheet"
+    },
+    {
+      "chars": 55,
+      "coverage": "confirmed",
+      "evidence_id": "EV_011507284cbc8e6474a7b870",
+      "kind": "fragment",
+      "outcome": "included",
+      "path": "vega/forms/frm_richiesta.xml",
+      "rank": [
+        2,
+        "vega/forms/frm_richiesta.xml",
+        "EV_011507284cbc8e6474a7b870"
+      ],
+      "reason_codes": [
+        "included_by_policy"
+      ],
+      "revision_id": "REV_e3ec4e2e41adca524aaadc56",
+      "type": "xml_form"
+    },
+    {
+      "chars": 88,
+      "coverage": "confirmed",
+      "evidence_id": "EV_1bfa40e755916fe8d926952b",
+      "kind": "fragment",
+      "outcome": "included",
+      "path": "vega/forms/frm_richiesta.xml",
+      "rank": [
+        2,
+        "vega/forms/frm_richiesta.xml",
+        "EV_1bfa40e755916fe8d926952b"
+      ],
+      "reason_codes": [
+        "included_by_policy"
+      ],
+      "revision_id": "REV_e3ec4e2e41adca524aaadc56",
+      "type": "xml_field"
+    },
+    {
+      "chars": 86,
+      "coverage": "confirmed",
+      "evidence_id": "EV_274623196f529f1b3011e377",
+      "kind": "fragment",
+      "outcome": "included",
+      "path": "vega/forms/frm_richiesta.xml",
+      "rank": [
+        2,
+        "vega/forms/frm_richiesta.xml",
+        "EV_274623196f529f1b3011e377"
+      ],
+      "reason_codes": [
+        "included_by_policy"
+      ],
+      "revision_id": "REV_e3ec4e2e41adca524aaadc56",
+      "type": "xml_dependency"
+    },
+    {
+      "chars": 76,
+      "coverage": "confirmed",
+      "evidence_id": "EV_36058b6a427add9f34718a8e",
+      "kind": "fragment",
+      "outcome": "included",
+      "path": "vega/forms/frm_richiesta.xml",
+      "rank": [
+        2,
+        "vega/forms/frm_richiesta.xml",
+        "EV_36058b6a427add9f34718a8e"
+      ],
+      "reason_codes": [
+        "included_by_policy"
+      ],
+      "revision_id": "REV_e3ec4e2e41adca524aaadc56",
+      "type": "xml_field"
+    },
+    {
+      "chars": 82,
+      "coverage": "confirmed",
+      "evidence_id": "EV_4affc4e2688893d9829e0110",
+      "kind": "fragment",
+      "outcome": "included",
+      "path": "vega/forms/frm_richiesta.xml",
+      "rank": [
+        2,
+        "vega/forms/frm_richiesta.xml",
+        "EV_4affc4e2688893d9829e0110"
+      ],
+      "reason_codes": [
+        "included_by_policy"
+      ],
+      "revision_id": "REV_e3ec4e2e41adca524aaadc56",
+      "type": "xml_field"
+    },
+    {
+      "chars": 88,
+      "coverage": "confirmed",
+      "evidence_id": "EV_6f4f526b9e1822a7fb49d38a",
+      "kind": "fragment",
+      "outcome": "included",
+      "path": "vega/forms/frm_richiesta.xml",
+      "rank": [
+        2,
+        "vega/forms/frm_richiesta.xml",
+        "EV_6f4f526b9e1822a7fb49d38a"
+      ],
+      "reason_codes": [
+        "included_by_policy"
+      ],
+      "revision_id": "REV_e3ec4e2e41adca524aaadc56",
+      "type": "xml_dependency"
+    },
+    {
+      "chars": 63,
+      "coverage": "confirmed",
+      "evidence_id": "EV_7207c3bab9b6abe3eef239df",
+      "kind": "fragment",
+      "outcome": "included",
+      "path": "vega/forms/frm_richiesta.xml",
+      "rank": [
+        2,
+        "vega/forms/frm_richiesta.xml",
+        "EV_7207c3bab9b6abe3eef239df"
+      ],
+      "reason_codes": [
+        "included_by_policy"
+      ],
+      "revision_id": "REV_e3ec4e2e41adca524aaadc56",
+      "type": "xml_block"
+    },
+    {
+      "chars": 76,
+      "coverage": "confirmed",
+      "evidence_id": "EV_7c381711dd089e0423d6596a",
+      "kind": "fragment",
+      "outcome": "included",
+      "path": "vega/forms/frm_richiesta.xml",
+      "rank": [
+        2,
+        "vega/forms/frm_richiesta.xml",
+        "EV_7c381711dd089e0423d6596a"
+      ],
+      "reason_codes": [
+        "included_by_policy"
+      ],
+      "revision_id": "REV_e3ec4e2e41adca524aaadc56",
+      "type": "xml_dependency"
+    },
+    {
+      "chars": 80,
+      "coverage": "confirmed",
+      "evidence_id": "EV_8a1d4d5156822ebe363722c2",
+      "kind": "fragment",
+      "outcome": "included",
+      "path": "vega/forms/frm_richiesta.xml",
+      "rank": [
+        2,
+        "vega/forms/frm_richiesta.xml",
+        "EV_8a1d4d5156822ebe363722c2"
+      ],
+      "reason_codes": [
+        "included_by_policy"
+      ],
+      "revision_id": "REV_e3ec4e2e41adca524aaadc56",
+      "type": "xml_button"
+    },
+    {
+      "chars": 82,
+      "coverage": "confirmed",
+      "evidence_id": "EV_c0302438a9b241da95a9fc5e",
+      "kind": "fragment",
+      "outcome": "included",
+      "path": "vega/forms/frm_richiesta.xml",
+      "rank": [
+        2,
+        "vega/forms/frm_richiesta.xml",
+        "EV_c0302438a9b241da95a9fc5e"
+      ],
+      "reason_codes": [
+        "included_by_policy"
+      ],
+      "revision_id": "REV_e3ec4e2e41adca524aaadc56",
+      "type": "xml_dependency"
+    },
+    {
+      "chars": 80,
+      "coverage": "confirmed",
+      "evidence_id": "EV_c7247bf40cc0154fc32f3f6c",
+      "kind": "fragment",
+      "outcome": "included",
+      "path": "vega/forms/frm_richiesta.xml",
+      "rank": [
+        2,
+        "vega/forms/frm_richiesta.xml",
+        "EV_c7247bf40cc0154fc32f3f6c"
+      ],
+      "reason_codes": [
+        "included_by_policy"
+      ],
+      "revision_id": "REV_e3ec4e2e41adca524aaadc56",
+      "type": "xml_dependency"
+    },
+    {
+      "chars": 63,
+      "coverage": "confirmed",
+      "evidence_id": "EV_ce526da037ffdf775873db1e",
+      "kind": "fragment",
+      "outcome": "included",
+      "path": "vega/forms/frm_richiesta.xml",
+      "rank": [
+        2,
+        "vega/forms/frm_richiesta.xml",
+        "EV_ce526da037ffdf775873db1e"
+      ],
+      "reason_codes": [
+        "included_by_policy"
+      ],
+      "revision_id": "REV_e3ec4e2e41adca524aaadc56",
+      "type": "xml_dependency"
+    },
+    {
+      "chars": 86,
+      "coverage": "confirmed",
+      "evidence_id": "EV_e63aa75ffbb8846e680f8381",
+      "kind": "fragment",
+      "outcome": "included",
+      "path": "vega/forms/frm_richiesta.xml",
+      "rank": [
+        2,
+        "vega/forms/frm_richiesta.xml",
+        "EV_e63aa75ffbb8846e680f8381"
+      ],
+      "reason_codes": [
+        "included_by_policy"
+      ],
+      "revision_id": "REV_e3ec4e2e41adca524aaadc56",
+      "type": "xml_field"
+    },
+    {
+      "chars": 92,
+      "coverage": "confirmed",
+      "evidence_id": "EV_06bc0cc1cabd6127de1482ee",
+      "kind": "fragment",
+      "outcome": "included",
+      "path": "vega/logs/vega_2026.log",
+      "rank": [
+        2,
+        "vega/logs/vega_2026.log",
+        "EV_06bc0cc1cabd6127de1482ee"
+      ],
+      "reason_codes": [
+        "included_by_policy"
+      ],
+      "revision_id": "REV_43b0d873a605f76aa74f610e",
+      "type": "log_event"
+    },
+    {
+      "chars": 88,
+      "coverage": "confirmed",
+      "evidence_id": "EV_3c9fabdd60da328e93640e3c",
+      "kind": "fragment",
+      "outcome": "included",
+      "path": "vega/logs/vega_2026.log",
+      "rank": [
+        2,
+        "vega/logs/vega_2026.log",
+        "EV_3c9fabdd60da328e93640e3c"
+      ],
+      "reason_codes": [
+        "included_by_policy"
+      ],
+      "revision_id": "REV_43b0d873a605f76aa74f610e",
+      "type": "log_event"
+    },
+    {
+      "chars": 68,
+      "coverage": "confirmed",
+      "evidence_id": "EV_7db2a2072a4aadd2d37305ef",
+      "kind": "fragment",
+      "outcome": "included",
+      "path": "vega/logs/vega_2026.log",
+      "rank": [
+        2,
+        "vega/logs/vega_2026.log",
+        "EV_7db2a2072a4aadd2d37305ef"
+      ],
+      "reason_codes": [
+        "included_by_policy"
+      ],
+      "revision_id": "REV_43b0d873a605f76aa74f610e",
+      "type": "log_event"
+    },
+    {
+      "chars": 70,
+      "coverage": "confirmed",
+      "evidence_id": "EV_a3e973b29852e1ff80cbef12",
+      "kind": "fragment",
+      "outcome": "included",
+      "path": "vega/logs/vega_2026.log",
+      "rank": [
+        2,
+        "vega/logs/vega_2026.log",
+        "EV_a3e973b29852e1ff80cbef12"
+      ],
+      "reason_codes": [
+        "included_by_policy"
+      ],
+      "revision_id": "REV_43b0d873a605f76aa74f610e",
+      "type": "log_event"
+    },
+    {
+      "chars": 102,
+      "coverage": "confirmed",
+      "evidence_id": "EV_d770f3a7d8f01853e8acfcfb",
+      "kind": "fragment",
+      "outcome": "included",
+      "path": "vega/logs/vega_2026.log",
+      "rank": [
+        2,
+        "vega/logs/vega_2026.log",
+        "EV_d770f3a7d8f01853e8acfcfb"
+      ],
+      "reason_codes": [
+        "included_by_policy"
+      ],
+      "revision_id": "REV_43b0d873a605f76aa74f610e",
+      "type": "log_event"
+    },
+    {
+      "chars": 204,
+      "coverage": "confirmed",
+      "evidence_id": "EV_04d934e03c016a4e2ff44b61",
+      "kind": "fragment",
+      "outcome": "included",
+      "path": "vega/plsql/logica_vega.sql",
+      "rank": [
+        2,
+        "vega/plsql/logica_vega.sql",
+        "EV_04d934e03c016a4e2ff44b61"
+      ],
+      "reason_codes": [
+        "included_by_policy"
+      ],
+      "revision_id": "REV_c541599e315757cabfedd178",
+      "type": "sql_dependency"
+    },
+    {
+      "chars": 97,
+      "coverage": "confirmed",
+      "evidence_id": "EV_078f99da7a638813b0c880b3",
+      "kind": "fragment",
+      "outcome": "included",
+      "path": "vega/plsql/logica_vega.sql",
+      "rank": [
+        2,
+        "vega/plsql/logica_vega.sql",
+        "EV_078f99da7a638813b0c880b3"
+      ],
+      "reason_codes": [
+        "included_by_policy"
+      ],
+      "revision_id": "REV_c541599e315757cabfedd178",
+      "type": "sql_dependency"
+    },
+    {
+      "chars": 204,
+      "coverage": "confirmed",
+      "evidence_id": "EV_12be17abe6adcbafc0b4e3cb",
+      "kind": "fragment",
+      "outcome": "included",
+      "path": "vega/plsql/logica_vega.sql",
+      "rank": [
+        2,
+        "vega/plsql/logica_vega.sql",
+        "EV_12be17abe6adcbafc0b4e3cb"
+      ],
+      "reason_codes": [
+        "included_by_policy"
+      ],
+      "revision_id": "REV_c541599e315757cabfedd178",
+      "type": "sql_dependency"
+    },
+    {
+      "chars": 97,
+      "coverage": "confirmed",
+      "evidence_id": "EV_2a92eafaf1f773f076f8aa57",
+      "kind": "fragment",
+      "outcome": "included",
+      "path": "vega/plsql/logica_vega.sql",
+      "rank": [
+        2,
+        "vega/plsql/logica_vega.sql",
+        "EV_2a92eafaf1f773f076f8aa57"
+      ],
+      "reason_codes": [
+        "included_by_policy"
+      ],
+      "revision_id": "REV_c541599e315757cabfedd178",
+      "type": "sql_dependency"
+    },
+    {
+      "chars": 204,
+      "coverage": "confirmed",
+      "evidence_id": "EV_3b2da6a825d252cd48b0f313",
+      "kind": "fragment",
+      "outcome": "included",
+      "path": "vega/plsql/logica_vega.sql",
+      "rank": [
+        2,
+        "vega/plsql/logica_vega.sql",
+        "EV_3b2da6a825d252cd48b0f313"
+      ],
+      "reason_codes": [
+        "included_by_policy"
+      ],
+      "revision_id": "REV_c541599e315757cabfedd178",
+      "type": "sql_dependency"
+    },
+    {
+      "chars": 282,
+      "coverage": "confirmed",
+      "evidence_id": "EV_4412cd351fbaa8035b4fecfe",
+      "kind": "fragment",
+      "outcome": "included",
+      "path": "vega/plsql/logica_vega.sql",
+      "rank": [
+        2,
+        "vega/plsql/logica_vega.sql",
+        "EV_4412cd351fbaa8035b4fecfe"
+      ],
+      "reason_codes": [
+        "included_by_policy"
+      ],
+      "revision_id": "REV_c541599e315757cabfedd178",
+      "type": "sql_dependency"
+    },
+    {
+      "chars": 204,
+      "coverage": "confirmed",
+      "evidence_id": "EV_4f083269cac4f05745d5dc43",
+      "kind": "fragment",
+      "outcome": "included",
+      "path": "vega/plsql/logica_vega.sql",
+      "rank": [
+        2,
+        "vega/plsql/logica_vega.sql",
+        "EV_4f083269cac4f05745d5dc43"
+      ],
+      "reason_codes": [
+        "included_by_policy"
+      ],
+      "revision_id": "REV_c541599e315757cabfedd178",
+      "type": "sql_dependency"
+    },
+    {
+      "chars": 204,
+      "coverage": "confirmed",
+      "evidence_id": "EV_7138303b0b9301b9ba7b4c9e",
+      "kind": "fragment",
+      "outcome": "included",
+      "path": "vega/plsql/logica_vega.sql",
+      "rank": [
+        2,
+        "vega/plsql/logica_vega.sql",
+        "EV_7138303b0b9301b9ba7b4c9e"
+      ],
+      "reason_codes": [
+        "included_by_policy"
+      ],
+      "revision_id": "REV_c541599e315757cabfedd178",
+      "type": "sql_dependency"
+    },
+    {
+      "chars": 97,
+      "coverage": "no_candidate",
+      "evidence_id": "EV_b0ee39146fdb10e756fc9a44",
+      "kind": "fragment",
+      "outcome": "included",
+      "path": "vega/plsql/logica_vega.sql",
+      "rank": [
+        2,
+        "vega/plsql/logica_vega.sql",
+        "EV_b0ee39146fdb10e756fc9a44"
+      ],
+      "reason_codes": [
+        "included_by_policy"
+      ],
+      "revision_id": "REV_c541599e315757cabfedd178",
+      "type": "sql_statement"
+    },
+    {
+      "chars": 282,
+      "coverage": "confirmed",
+      "evidence_id": "EV_b9ce3b7fc9239e7adc07c4cc",
+      "kind": "fragment",
+      "outcome": "included",
+      "path": "vega/plsql/logica_vega.sql",
+      "rank": [
+        2,
+        "vega/plsql/logica_vega.sql",
+        "EV_b9ce3b7fc9239e7adc07c4cc"
+      ],
+      "reason_codes": [
+        "included_by_policy"
+      ],
+      "revision_id": "REV_c541599e315757cabfedd178",
+      "type": "sql_dependency"
+    },
+    {
+      "chars": 204,
+      "coverage": "confirmed",
+      "evidence_id": "EV_d5817f5a91a68584653518bc",
+      "kind": "fragment",
+      "outcome": "included",
+      "path": "vega/plsql/logica_vega.sql",
+      "rank": [
+        2,
+        "vega/plsql/logica_vega.sql",
+        "EV_d5817f5a91a68584653518bc"
+      ],
+      "reason_codes": [
+        "included_by_policy"
+      ],
+      "revision_id": "REV_c541599e315757cabfedd178",
+      "type": "sql_dependency"
+    },
+    {
+      "chars": 37,
+      "coverage": "confirmed",
+      "evidence_id": "EV_d917be3609c264a857ec2a45",
+      "kind": "fragment",
+      "outcome": "included",
+      "path": "vega/plsql/logica_vega.sql",
+      "rank": [
+        2,
+        "vega/plsql/logica_vega.sql",
+        "EV_d917be3609c264a857ec2a45"
+      ],
+      "reason_codes": [
+        "included_by_policy"
+      ],
+      "revision_id": "REV_c541599e315757cabfedd178",
+      "type": "sql_dependency"
+    },
+    {
+      "chars": 97,
+      "coverage": "confirmed",
+      "evidence_id": "EV_db7d4bc6001c921eac070f00",
+      "kind": "fragment",
+      "outcome": "included",
+      "path": "vega/plsql/logica_vega.sql",
+      "rank": [
+        2,
+        "vega/plsql/logica_vega.sql",
+        "EV_db7d4bc6001c921eac070f00"
+      ],
+      "reason_codes": [
+        "included_by_policy"
+      ],
+      "revision_id": "REV_c541599e315757cabfedd178",
+      "type": "sql_dependency"
+    },
+    {
+      "chars": 398,
+      "coverage": "confirmed",
+      "evidence_id": "EV_e66cb31f395ded6fc2dcb0b6",
+      "kind": "fragment",
+      "outcome": "included",
+      "path": "vega/plsql/logica_vega.sql",
+      "rank": [
+        2,
+        "vega/plsql/logica_vega.sql",
+        "EV_e66cb31f395ded6fc2dcb0b6"
+      ],
+      "reason_codes": [
+        "included_by_policy"
+      ],
+      "revision_id": "REV_c541599e315757cabfedd178",
+      "type": "sql_procedure"
+    },
+    {
+      "chars": 282,
+      "coverage": "confirmed",
+      "evidence_id": "EV_f73e3125e76e0cf1e9b509ae",
+      "kind": "fragment",
+      "outcome": "included",
+      "path": "vega/plsql/logica_vega.sql",
+      "rank": [
+        2,
+        "vega/plsql/logica_vega.sql",
+        "EV_f73e3125e76e0cf1e9b509ae"
+      ],
+      "reason_codes": [
+        "included_by_policy"
+      ],
+      "revision_id": "REV_c541599e315757cabfedd178",
+      "type": "sql_trigger"
+    },
+    {
+      "chars": 204,
+      "coverage": "confirmed",
+      "evidence_id": "EV_f8c5368331ff7ea7a2ed59e3",
+      "kind": "fragment",
+      "outcome": "included",
+      "path": "vega/plsql/logica_vega.sql",
+      "rank": [
+        2,
+        "vega/plsql/logica_vega.sql",
+        "EV_f8c5368331ff7ea7a2ed59e3"
+      ],
+      "reason_codes": [
+        "included_by_policy"
+      ],
+      "revision_id": "REV_c541599e315757cabfedd178",
+      "type": "sql_dependency"
+    },
+    {
+      "chars": 204,
+      "coverage": "no_candidate",
+      "evidence_id": "EV_faa58f5a85eaf9c190ae5f7b",
+      "kind": "fragment",
+      "outcome": "included",
+      "path": "vega/plsql/logica_vega.sql",
+      "rank": [
+        2,
+        "vega/plsql/logica_vega.sql",
+        "EV_faa58f5a85eaf9c190ae5f7b"
+      ],
+      "reason_codes": [
+        "included_by_policy"
+      ],
+      "revision_id": "REV_c541599e315757cabfedd178",
+      "type": "sql_statement"
+    }
+  ],
+  "policy_version": "3",
+  "route": "domain_interpretation",
+  "selected_chars": 13179,
+  "selected_count": 52,
+  "state_hash": "4ce8fbfcac44dd9c96d984bbb76826ed7b2b6521b326828144d7b8ce864fc522"
+}

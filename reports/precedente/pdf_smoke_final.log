@@ -1,0 +1,16 @@
+BEGIN PDF
+[INFO] 2026-09-17 09:30:39,077 [RapidOCR] base.py:23: Using engine_name: torch
+[INFO] 2026-09-17 09:30:39,079 [RapidOCR] device_config.py:57: Using CPU device
+[INFO] 2026-09-17 09:30:39,087 [RapidOCR] download_file.py:60: File exists and is valid: /workspace/scratch/f8392732e1af/.venv/lib/python3.12/site-packages/rapidocr/models/PP-OCRv6_det_small.pth
+[INFO] 2026-09-17 09:30:39,087 [RapidOCR] main.py:50: Using /workspace/scratch/f8392732e1af/.venv/lib/python3.12/site-packages/rapidocr/models/PP-OCRv6_det_small.pth
+[INFO] 2026-09-17 09:30:39,195 [RapidOCR] base.py:23: Using engine_name: torch
+[INFO] 2026-09-17 09:30:39,196 [RapidOCR] device_config.py:57: Using CPU device
+[INFO] 2026-09-17 09:30:39,197 [RapidOCR] download_file.py:60: File exists and is valid: /workspace/scratch/f8392732e1af/.venv/lib/python3.12/site-packages/rapidocr/models/ch_ptocr_mobile_v2.0_cls_mobile.pth
+[INFO] 2026-09-17 09:30:39,197 [RapidOCR] main.py:50: Using /workspace/scratch/f8392732e1af/.venv/lib/python3.12/site-packages/rapidocr/models/ch_ptocr_mobile_v2.0_cls_mobile.pth
+[INFO] 2026-09-17 09:30:39,251 [RapidOCR] base.py:23: Using engine_name: torch
+[INFO] 2026-09-17 09:30:39,252 [RapidOCR] device_config.py:57: Using CPU device
+[INFO] 2026-09-17 09:30:39,266 [RapidOCR] download_file.py:60: File exists and is valid: /workspace/scratch/f8392732e1af/.venv/lib/python3.12/site-packages/rapidocr/models/PP-OCRv6_rec_small.pth
+[INFO] 2026-09-17 09:30:39,267 [RapidOCR] main.py:50: Using /workspace/scratch/f8392732e1af/.venv/lib/python3.12/site-packages/rapidocr/models/PP-OCRv6_rec_small.pth
+Loading weights:   0%|          | 0/770 [00:00<?, ?it/s]Loading weights:  59%|█████▉    | 455/770 [00:00<00:00, 4527.27it/s]Loading weights: 100%|██████████| 770/770 [00:00<00:00, 5157.74it/s]
+PDF success 1
+Vega Ricambi - PDF verificabile La richiesta P1 deve essere presa in carico entro 30 minuti. valid\_from: 2026-09-01

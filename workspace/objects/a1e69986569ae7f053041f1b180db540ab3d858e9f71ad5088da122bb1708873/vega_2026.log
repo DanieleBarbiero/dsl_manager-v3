@@ -1,0 +1,5 @@
+2026-09-01 08:00:00 INFO scanner Start richiesta=RV-1001 priorita=P1
+2026-09-01 08:00:01 INFO scanner Processed richiesta=RV-1001 articolo=RIC-774 quantita=2
+2026-09-01 08:00:02 WARNING magazzino missing richiesta=RV-1002 articolo=RIC-118 priorita=P2
+2026-09-01 08:00:03 INFO magazzino Processed richiesta=RV-1002 articolo=RIC-118 disponibilita=parziale
+2026-09-01 08:00:04 INFO scanner End richiesta=RV-1001 esito=inoltrata

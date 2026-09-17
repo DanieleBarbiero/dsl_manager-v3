@@ -1,0 +1,248 @@
+F401 [*] `pathlib.Path` imported but unused
+ --> dslm3/src/dslm3/ai.py:6:21
+  |
+4 | import zipfile
+5 | from collections import defaultdict
+6 | from pathlib import Path
+  |                     ^^^^
+7 |
+8 | from dslm3.common import DomainError,canonical,digest,dump_json,atomic_write,now,uid
+  |
+help: Remove unused import: `pathlib.Path`
+  |
+5 | from collections import defaultdict
+  - from pathlib import Path
+6 |
+  |
+
+F401 [*] `collections.defaultdict` imported but unused
+ --> dslm3/src/dslm3/exports.py:3:25
+  |
+1 | from __future__ import annotations
+2 | import json
+3 | from collections import defaultdict
+  |                         ^^^^^^^^^^^
+4 | from pathlib import Path
+5 | from datetime import datetime
+  |
+help: Remove unused import: `collections.defaultdict`
+  |
+2 | import json
+  - from collections import defaultdict
+3 | from pathlib import Path
+  |
+
+F401 [*] `datetime.datetime` imported but unused
+ --> dslm3/src/dslm3/exports.py:5:22
+  |
+3 | from collections import defaultdict
+4 | from pathlib import Path
+5 | from datetime import datetime
+  |                      ^^^^^^^^
+6 |
+7 | import yaml
+  |
+help: Remove unused import: `datetime.datetime`
+  |
+4 | from pathlib import Path
+  - from datetime import datetime
+5 |
+  |
+
+F841 Local variable `derived` is assigned to but never used
+  --> dslm3/src/dslm3/lab.py:28:5
+   |
+26 |     check('sql_nessuna_colonna_inventata',not any(e['data'].get('target') in {'ARTICOLO.ID_RICHIESTA','ARTICOLO.RICHIESTA_RICAMBIO'} f…
+27 |     check('excel_manifest_e_docling',any(e['type']=='excel_region' for e in evidence) and any(e['kind']=='chunk' and e['path'].endswit…
+28 |     derived=k.derive();check('nessun_merge_senza_review',k.merge()['created']==0)
+   |     ^^^^^^^
+29 |     app.store.configure({'automatic_policies':list(POLICIES.values())});k.auto_review();k.merge();check('log_nessun_falso_conflitto',n…
+30 |     original=export.snapshot();technical=ai.select('technical_extraction');domain=ai.select('domain_interpretation')
+   |
+help: Remove assignment to unused variable `derived`
+
+F401 [*] `zipfile` imported but unused
+ --> dslm3/src/dslm3/parsers/documents.py:6:8
+  |
+4 | import json
+5 | import re
+6 | import zipfile
+  |        ^^^^^^^
+7 | from dataclasses import asdict
+8 | from email import policy
+  |
+help: Remove unused import: `zipfile`
+  |
+5 | import re
+  - import zipfile
+6 | from dataclasses import asdict
+  |
+
+F401 [*] `dataclasses.asdict` imported but unused
+ --> dslm3/src/dslm3/parsers/documents.py:7:25
+  |
+5 | import re
+6 | import zipfile
+7 | from dataclasses import asdict
+  |                         ^^^^^^
+8 | from email import policy
+9 | from email.parser import BytesParser
+  |
+help: Remove unused import: `dataclasses.asdict`
+  |
+6 | import zipfile
+  - from dataclasses import asdict
+7 | from email import policy
+  |
+
+F401 [*] `os` imported but unused
+ --> dslm3/src/dslm3/service.py:5:8
+  |
+3 | import fnmatch
+4 | import json
+5 | import os
+  |        ^^
+6 | import re
+7 | import shutil
+  |
+help: Remove unused import: `os`
+  |
+4 | import json
+  - import os
+5 | import re
+  |
+
+F401 [*] `shutil` imported but unused
+ --> dslm3/src/dslm3/service.py:7:8
+  |
+5 | import os
+6 | import re
+7 | import shutil
+  |        ^^^^^^
+8 | import subprocess
+9 | import sys
+  |
+help: Remove unused import: `shutil`
+  |
+6 | import re
+  - import shutil
+7 | import subprocess
+  |
+
+F401 [*] `dslm3.common.digest` imported but unused
+  --> dslm3/src/dslm3/temporal.py:13:48
+   |
+12 | from lxml import etree
+13 | from dslm3.common import DomainError,canonical,digest,now,uid
+   |                                                ^^^^^^
+14 | from dslm3.knowledge import Knowledge
+   |
+help: Remove unused import: `dslm3.common.digest`
+   |
+12 | from lxml import etree
+   - from dslm3.common import DomainError,canonical,digest,now,uid
+13 + from dslm3.common import DomainError,canonical,now,uid
+14 | from dslm3.knowledge import Knowledge
+   |
+
+F401 [*] `dslm3.common.digest` imported but unused
+  --> dslm3/src/dslm3/web.py:16:38
+   |
+15 | from dslm3 import __version__
+16 | from dslm3.common import DomainError,digest,within,now
+   |                                      ^^^^^^
+17 | from dslm3.service import Application
+18 | from dslm3.knowledge import Knowledge,POLICIES
+   |
+help: Remove unused import: `dslm3.common.digest`
+   |
+15 | from dslm3 import __version__
+   - from dslm3.common import DomainError,digest,within,now
+16 + from dslm3.common import DomainError,within,now
+17 | from dslm3.service import Application
+   |
+
+F841 Local variable `before` is assigned to but never used
+  --> dslm3/tests/test_ai_exports.py:57:47
+   |
+56 | def test_export_reconciliation_and_cross_schema_gate(ready):
+57 |     k=Knowledge(ready);exports=Exports(ready);before=exports.snapshot();cid=k.candidates('confirmed')[0]['id']
+   |                                               ^^^^^^
+58 |     k.review(cid,'rejected')
+59 |     with pytest.raises(DomainError,match='riconciliazione'):exports.snapshot()
+   |
+help: Remove assignment to unused variable `before`
+
+F401 [*] `json` imported but unused
+ --> dslm3/tests/test_knowledge.py:1:8
+  |
+1 | import json
+  |        ^^^^
+2 | from pathlib import Path
+3 | import pytest
+  |
+help: Remove unused import: `json`
+  |
+  - import json
+1 | from pathlib import Path
+  |
+
+F841 Local variable `rev` is assigned to but never used
+  --> dslm3/tests/test_knowledge.py:28:5
+   |
+26 |     cid=r['candidate_ids'][0]
+27 |     head=next(c['decision_id'] for c in k.candidates() if c['id']==cid)
+28 |     rev=k.review(cid,'rejected',reason='regression',expected_head=head,check_head=True,idempotency_key='revoke_1')
+   |     ^^^
+29 |     assert k.review(cid,'rejected',reason='regression',idempotency_key='revoke_1')['replay']
+30 |     with pytest.raises(DomainError,match='Chiave'):k.review(cid,'confirmed',idempotency_key='revoke_1')
+   |
+help: Remove assignment to unused variable `rev`
+
+F841 Local variable `r` is assigned to but never used
+  --> dslm3/tests/test_knowledge.py:66:22
+   |
+65 | def test_source_revision_and_append_only(app):
+66 |     k=Knowledge(app);r=k.derive();app.store.configure({'automatic_policies':list(POLICIES.values())});k.auto_review();k.merge()
+   |                      ^
+67 |     with app.store.connect(True) as c:
+68 |         with pytest.raises(Exception,match='append_only'):c.execute('DELETE FROM candidates')
+   |
+help: Remove assignment to unused variable `r`
+
+F401 [*] `dslm3.parsers.documents.parse_workbook` imported but unused
+ --> dslm3/tests/test_parsers.py:6:57
+  |
+4 | import pytest
+5 | from dslm3.parsers.sql import parse_sql,identify,catalog
+6 | from dslm3.parsers.documents import parse_xml,parse_log,parse_workbook,EXCEL_DEFAULTS
+  |                                                         ^^^^^^^^^^^^^^
+7 | from dslm3.vendor.ooxml_preflight import ExcelLimits,preflight_ooxml,build_workbook_manifest,OoxmlPreflightError
+  |
+help: Remove unused import: `dslm3.parsers.documents.parse_workbook`
+  |
+5 | from dslm3.parsers.sql import parse_sql,identify,catalog
+  - from dslm3.parsers.documents import parse_xml,parse_log,parse_workbook,EXCEL_DEFAULTS
+6 + from dslm3.parsers.documents import parse_xml,parse_log,EXCEL_DEFAULTS
+7 | from dslm3.vendor.ooxml_preflight import ExcelLimits,preflight_ooxml,build_workbook_manifest,OoxmlPreflightError
+  |
+
+F401 [*] `dslm3.temporal.validate_interval` imported but unused
+ --> dslm3/tests/test_temporal.py:4:43
+  |
+2 | from dslm3.service import Application
+3 | from dslm3.knowledge import Knowledge
+4 | from dslm3.temporal import Temporal,point,validate_interval
+  |                                           ^^^^^^^^^^^^^^^^^
+5 | from dslm3.common import DomainError
+  |
+help: Remove unused import: `dslm3.temporal.validate_interval`
+  |
+3 | from dslm3.knowledge import Knowledge
+  - from dslm3.temporal import Temporal,point,validate_interval
+4 + from dslm3.temporal import Temporal,point
+5 | from dslm3.common import DomainError
+  |
+
+Found 16 errors.
+[*] 12 fixable with the `--fix` option (4 hidden fixes can be enabled with the `--unsafe-fixes` option).

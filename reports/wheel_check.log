@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "import_path": "/tmp/dslm3_wheel_ao9eau0q/installed/dslm3",
+  "sources": 6,
+  "snapshot_counts": {
+    "entities": 31,
+    "facts": 28,
+    "relations": 24,
+    "conflicts": 0,
+    "intervals": 0
+  },
+  "graph_validation": "offline_xsd_and_semantic",
+  "static_resources": true,
+  "outside_source_tree": true
+}

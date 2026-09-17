@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "pages": [
+    "sources",
+    "review",
+    "ai",
+    "temporal",
+    "knowledge",
+    "exports",
+    "settings"
+  ],
+  "js_errors": [],
+  "flow": "Vega -> parse/derive/policy/merge -> two routes -> AI JSONL -> review -> merge -> snapshot -> download -> GEXF",
+  "viewports": [
+    "1440x1080",
+    "390x844"
+  ]
+}

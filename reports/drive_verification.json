@@ -1,0 +1,1162 @@
+{
+  "file_count": 141,
+  "files": [
+    {
+      "drive_file_id": "1SVOlfQ4asodY-zJyl-gxdFVV8_n_LC3d",
+      "expected_size": 285,
+      "name_matches": true,
+      "passed": true,
+      "path": "MANIFEST.in",
+      "remote_size": 285
+    },
+    {
+      "drive_file_id": "1AGCanyOC_Z1FytVE9pBLfA0VTFTtjZ2L",
+      "expected_size": 3353,
+      "name_matches": true,
+      "passed": true,
+      "path": "README.md",
+      "remote_size": 3353
+    },
+    {
+      "drive_file_id": "1NOvwQeR3f3XXh2YbC9-2QR0HG8lIVCHW",
+      "expected_size": 1301,
+      "name_matches": true,
+      "passed": true,
+      "path": "START_HERE.md",
+      "remote_size": 1301
+    },
+    {
+      "drive_file_id": "1uwS0QFGX2mveEFVnF5vjyGbGKveT_5Ni",
+      "expected_size": 1649,
+      "name_matches": true,
+      "passed": true,
+      "path": "THIRD_PARTY_NOTICES.md",
+      "remote_size": 1649
+    },
+    {
+      "drive_file_id": "1NozOCvdRgEuhBR_S1zztmpRSn1S8O4cY",
+      "expected_size": 229,
+      "name_matches": true,
+      "passed": true,
+      "path": "avvia.cmd",
+      "remote_size": 229
+    },
+    {
+      "drive_file_id": "17GE3hlTDSWMsBoqjkbR8E1MO_aMWePvB",
+      "expected_size": 219,
+      "name_matches": true,
+      "passed": true,
+      "path": "avvia.sh",
+      "remote_size": 219
+    },
+    {
+      "drive_file_id": "1PSY4gTppCoBoUpGFs4QF75wiZep5tODh",
+      "expected_size": 3773,
+      "name_matches": true,
+      "passed": true,
+      "path": "docs/architettura.md",
+      "remote_size": 3773
+    },
+    {
+      "path": "docs/diario_tecnico.md",
+      "drive_file_id": "1deLwU6gn7xVjOPyPGtAuAF5z0FMxLYXT",
+      "expected_size": 11679,
+      "remote_size": 11679,
+      "name_matches": true,
+      "passed": true
+    },
+    {
+      "drive_file_id": "1ySAo4HeBkKpFapK_Hr2zE3HxgYHZLVE8",
+      "expected_size": 5111,
+      "name_matches": true,
+      "passed": true,
+      "path": "docs/formati_e_limiti.md",
+      "remote_size": 5111
+    },
+    {
+      "drive_file_id": "1q1e11kd4HdJUxPzgJFn9JTnWWkorWIJG",
+      "expected_size": 11595,
+      "name_matches": true,
+      "passed": true,
+      "path": "docs/manuale_operativo.md",
+      "remote_size": 11595
+    },
+    {
+      "drive_file_id": "1lpPdl5rofQhjnAO3frEDaWiXP-vuft0k",
+      "expected_size": 6210,
+      "name_matches": true,
+      "passed": true,
+      "path": "docs/matrice_parita.md",
+      "remote_size": 6210
+    },
+    {
+      "path": "docs/obiettivi.md",
+      "drive_file_id": "1UC6VxQnftH0OUjnNgg2OVrKjhe22C3VI",
+      "expected_size": 3730,
+      "remote_size": 3730,
+      "name_matches": true,
+      "passed": true
+    },
+    {
+      "drive_file_id": "1GSxMABCAWLcpTGJw4JliiW9QptDbGmwj",
+      "expected_size": 9085,
+      "name_matches": true,
+      "passed": true,
+      "path": "docs/protocollo_ripresa_precedente.md",
+      "remote_size": 9085
+    },
+    {
+      "path": "docs/rapporto_finale.md",
+      "drive_file_id": "1o-IsJRT_aCQZPoEwQhFzbl9cfD-qHAdi",
+      "expected_size": 5030,
+      "remote_size": 5030,
+      "name_matches": true,
+      "passed": true
+    },
+    {
+      "drive_file_id": "1IydrLSVgqMxyHP_AuztgbOzBhfzmId9h",
+      "expected_size": 40286,
+      "name_matches": true,
+      "passed": true,
+      "path": "docs/rapporto_v1_allegato.md",
+      "remote_size": 40286
+    },
+    {
+      "drive_file_id": "1oxslVz2g7eI9bYynVKva4QVhLtXqeEuc",
+      "expected_size": 1038,
+      "name_matches": true,
+      "passed": true,
+      "path": "installa.cmd",
+      "remote_size": 1038
+    },
+    {
+      "drive_file_id": "1sPolmm50TghH-CPHolV3BKkmO0zaermh",
+      "expected_size": 362,
+      "name_matches": true,
+      "passed": true,
+      "path": "installa.sh",
+      "remote_size": 362
+    },
+    {
+      "drive_file_id": "1WUerm3ktctg__nz1Rj-lDV3xBcsuzXEU",
+      "expected_size": 1128,
+      "name_matches": true,
+      "passed": true,
+      "path": "pyproject.toml",
+      "remote_size": 1128
+    },
+    {
+      "drive_file_id": "15qlQMIg-J_O2H2lVpcpmWccfouYPsl43",
+      "expected_size": 1045,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/acceptance_tests.log",
+      "remote_size": 1045
+    },
+    {
+      "drive_file_id": "1pIkgnufOfq_OnUqFDxjW3Bc_8e22Hs9n",
+      "expected_size": 1045,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/acceptance_tests_final.log",
+      "remote_size": 1045
+    },
+    {
+      "drive_file_id": "15SzUiLhJdqbyiiEYPR9wkVrVpOdFGavA",
+      "expected_size": 81,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/browser_release.log",
+      "remote_size": 81
+    },
+    {
+      "drive_file_id": "1LOKQYacbCp1Gj2qL3y-bmTEHNypoNXXp",
+      "expected_size": 81,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/browser_release_final.log",
+      "remote_size": 81
+    },
+    {
+      "drive_file_id": "1QkynP6sWLRXianr2adnfBs4vo-5QfEDU",
+      "expected_size": 340,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/browser_result.json",
+      "remote_size": 340
+    },
+    {
+      "drive_file_id": "1LBDYPcF_lmundRQmSpaOjn2VVFMz7N_h",
+      "expected_size": 10983,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/build_wheel.log",
+      "remote_size": 10983
+    },
+    {
+      "drive_file_id": "15DEt_5Ftixw5ditEYNSmoOjcyj-SuvNj",
+      "expected_size": 30,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/dependency_check.log",
+      "remote_size": 30
+    },
+    {
+      "drive_file_id": "1CKEuAUufnUoouITvIO5V9SRAns0ewB3O",
+      "expected_size": 45,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/format.log",
+      "remote_size": 45
+    },
+    {
+      "drive_file_id": "1RF7z1TQ6OtBiEgJ8dDQZXauQ-yyaQUBr",
+      "expected_size": 19,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/lint.log",
+      "remote_size": 19
+    },
+    {
+      "drive_file_id": "1lnhD_qKOg6WE2yZQDzTCvunuu0db9eXB",
+      "expected_size": 41,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/lint_fix.log",
+      "remote_size": 41
+    },
+    {
+      "drive_file_id": "1yY5tk5VCP_V1_GDGGkj9wF0jWVdp2y4b",
+      "expected_size": 12,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/pdf_release.log",
+      "remote_size": 12
+    },
+    {
+      "drive_file_id": "1Rvv_h4zvdXh5JiTS5CQIq-ZqVqPazW8G",
+      "expected_size": 12,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/pdf_release_final.log",
+      "remote_size": 12
+    },
+    {
+      "drive_file_id": "1Diad0q3_KRSlGC_k8dMBtLiaURulVUID",
+      "expected_size": 703,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/pdf_result.json",
+      "remote_size": 703
+    },
+    {
+      "drive_file_id": "1uy8a-0sSHLpFiUbBXGOpZPdTkHn1S4hx",
+      "expected_size": 735,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/pdf_result_final.json",
+      "remote_size": 735
+    },
+    {
+      "drive_file_id": "17iMQrodz0o6P3JzFpEQJ7cKlIFh6Zy0t",
+      "expected_size": 99,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/precedente/ai_export_tests.log",
+      "remote_size": 99
+    },
+    {
+      "drive_file_id": "1o_bo2gl-y-SRhVBWoSSuwCzVC_i7XBtw",
+      "expected_size": 1567,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/precedente/browser_check.log",
+      "remote_size": 1567
+    },
+    {
+      "drive_file_id": "1plF3UznpyY8RXW86LCPIkUPJ401Vjpg5",
+      "expected_size": 498,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/precedente/browser_check_02.log",
+      "remote_size": 498
+    },
+    {
+      "drive_file_id": "1APJGX6D81KbDwqxnHI8Q44lyKziF8dCp",
+      "expected_size": 81,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/precedente/browser_check_03.log",
+      "remote_size": 81
+    },
+    {
+      "drive_file_id": "1yEmrqN6hJTCL_DV8SRfbGsVVrBZ7Lf_B",
+      "expected_size": 7288,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/precedente/browser_compatible_install.log",
+      "remote_size": 7288
+    },
+    {
+      "drive_file_id": "1eSWgS7tTp_Q-UWMD62ROND4nVHHKUQq8",
+      "expected_size": 4898,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/precedente/browser_install.log",
+      "remote_size": 4898
+    },
+    {
+      "drive_file_id": "1iSCGXY8FUYycCNpCP6iDwyMveOWef6-n",
+      "expected_size": 340,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/precedente/browser_result.json",
+      "remote_size": 340
+    },
+    {
+      "drive_file_id": "143BiHBR_elIMOHimcUjhp10zPyvxvC6J",
+      "expected_size": 49976,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/precedente/environment_install.log",
+      "remote_size": 49976
+    },
+    {
+      "drive_file_id": "1qg-_G1f84GxAexKuZY-2RV2wb4yrplON",
+      "expected_size": 964,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/precedente/expanded_tests.log",
+      "remote_size": 964
+    },
+    {
+      "drive_file_id": "18dT0LPc8UOSeF_Bgok-a9Pb_8cs9Hzkc",
+      "expected_size": 99,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/precedente/governance_tests.log",
+      "remote_size": 99
+    },
+    {
+      "drive_file_id": "1z74wMBRjMOjQIiLZSrbDKQvXvjRPk1QI",
+      "expected_size": 8040,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/precedente/lint.log",
+      "remote_size": 8040
+    },
+    {
+      "drive_file_id": "1mBkP6Zq0UjSGuuSISUlEhG8wtfnUEMHq",
+      "expected_size": 432,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/precedente/lint_install.log",
+      "remote_size": 432
+    },
+    {
+      "drive_file_id": "1JZ9q60NMG4fKIhk_infWlkdpMz2NjzBE",
+      "expected_size": 796,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/precedente/manuale_operativo_vega_2026_docling.md",
+      "remote_size": 796
+    },
+    {
+      "drive_file_id": "1gxLpbu-zC6Inx5idG5m1FX_d8ltO6EmQ",
+      "expected_size": 926,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/precedente/matrice_priorita_vega_2026_docling.md",
+      "remote_size": 926
+    },
+    {
+      "drive_file_id": "1IqjHoZUuGQPKXg730KhEcnh5_AuQ7F5b",
+      "expected_size": 2074,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/precedente/opencv_fix.log",
+      "remote_size": 2074
+    },
+    {
+      "drive_file_id": "1b_y8hKbCj29HwaKqTjZIHnqmr4_4dzml",
+      "expected_size": 99,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/precedente/parser_tests.log",
+      "remote_size": 99
+    },
+    {
+      "drive_file_id": "1qw60hh7HkSqcIedElmqOCbruDxUQYlPd",
+      "expected_size": 2081,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/precedente/pdf_integration.log",
+      "remote_size": 2081
+    },
+    {
+      "drive_file_id": "1P1MVJtqUb4CdOlkxxovegRs6fRZqRRp9",
+      "expected_size": 1018,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/precedente/pdf_proxy_fix.log",
+      "remote_size": 1018
+    },
+    {
+      "drive_file_id": "1A3wjPDMZhqPAkkArjXA5QgSmJ5wSPFaN",
+      "expected_size": 174,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/precedente/pdf_result.json",
+      "remote_size": 174
+    },
+    {
+      "drive_file_id": "10BVB0rAHhabTxX4pcDnppKN0YJv_QvJf",
+      "expected_size": 1955,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/precedente/pdf_smoke_final.log",
+      "remote_size": 1955
+    },
+    {
+      "drive_file_id": "14urmSx4GSYB0b2bPNNWLPG2oBnCTy1_y",
+      "expected_size": 22593,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/precedente/project_install.log",
+      "remote_size": 22593
+    },
+    {
+      "drive_file_id": "10srJdxELEUhPzKvW2h9ksEdxaFDWmEt8",
+      "expected_size": 99,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/precedente/sql_extended_tests.log",
+      "remote_size": 99
+    },
+    {
+      "drive_file_id": "1uuGk-5sBh2gbtvqWF_VaN5klY2XQjddR",
+      "expected_size": 99,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/precedente/temporal_tests.log",
+      "remote_size": 99
+    },
+    {
+      "drive_file_id": "1O1e_vXVcnFBgAT93sh3Zyki14GqpLp_9",
+      "expected_size": 1312,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/precedente/torch_cpu_install.log",
+      "remote_size": 1312
+    },
+    {
+      "drive_file_id": "1HDj07es53h2-pp-r5HCO2r_TiuSkjmqR",
+      "expected_size": 95108,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/precedente/ui_knowledge.png",
+      "remote_size": 95108
+    },
+    {
+      "drive_file_id": "1yZvRZdwkdKbvX_Xyyi2RfvzxBqLn9iLk",
+      "expected_size": 144945,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/precedente/ui_mobile.png",
+      "remote_size": 144945
+    },
+    {
+      "drive_file_id": "1TDJUwXLvI0alA9-rh1LB7AqxHzEiV5y7",
+      "expected_size": 159603,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/precedente/ui_overview.png",
+      "remote_size": 159603
+    },
+    {
+      "drive_file_id": "10FWqKBNa8Zjo4KINBUpasrmpthqesDwl",
+      "expected_size": 646615,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/precedente/ui_review.png",
+      "remote_size": 646615
+    },
+    {
+      "drive_file_id": "1304iqkI9YZ4hzMgNyWvxZgHa6LEd-T7n",
+      "expected_size": 429,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/precedente/vega_ai_controllata/risposta_01.jsonl",
+      "remote_size": 429
+    },
+    {
+      "drive_file_id": "1DxUR0GbVWhKo1UGoE6fV129NisUOFKzX",
+      "expected_size": 521,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/precedente/vega_ai_controllata/risposta_02.jsonl",
+      "remote_size": 521
+    },
+    {
+      "drive_file_id": "101DZWyaDxXUyVZO1d6PnuP6oU2y0hGNg",
+      "expected_size": 7056,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/precedente/vega_m3.json",
+      "remote_size": 7056
+    },
+    {
+      "drive_file_id": "1uyjeQbng0VKmuhStdrHs4p7RDL8tfC6x",
+      "expected_size": 1329,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/precedente/vega_m3_run.log",
+      "remote_size": 1329
+    },
+    {
+      "drive_file_id": "1chfTMgiRsxrKO-K8cRFtAQh9nQN8NPpK",
+      "expected_size": 966,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/precedente/vega_m3_run_02.log",
+      "remote_size": 966
+    },
+    {
+      "drive_file_id": "1Y6EB6JRRvxK8VxUa5qeCmmW8v-4MNHhx",
+      "expected_size": 169,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/precedente/vega_m3_run_03.log",
+      "remote_size": 169
+    },
+    {
+      "drive_file_id": "1g89trZnTosAiCWOF_RQT-X3Wd2X5IU0B",
+      "expected_size": 3280,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/precedente/vega_parse_first.json",
+      "remote_size": 3280
+    },
+    {
+      "drive_file_id": "1P9ckC4qwGRIBv_l4oTGHMpvxZLTDjiZO",
+      "expected_size": 964,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/precedente/web_tests.log",
+      "remote_size": 964
+    },
+    {
+      "drive_file_id": "1_RFS-1TQxs0KWRUL_KkXdSXJyp8INSiV",
+      "expected_size": 6299,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/resume_browser_install.log",
+      "remote_size": 6299
+    },
+    {
+      "drive_file_id": "18QB87lZu5Ea3q5CkjLgiFwHq34JhBgp5",
+      "expected_size": 40473,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/resume_environment_install.log",
+      "remote_size": 40473
+    },
+    {
+      "drive_file_id": "1nvRPohFzzOZ3_TfsUQjaazwKypE8rCMZ",
+      "expected_size": 783,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/resume_numpy_fix.log",
+      "remote_size": 783
+    },
+    {
+      "drive_file_id": "1G8NP3SoY8uh0uWbj0pF0QYmxZMv_PO4T",
+      "expected_size": 2750,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/resume_tests_01.log",
+      "remote_size": 2750
+    },
+    {
+      "drive_file_id": "17Baxh5rY1t4M0xLiOCDQSMjgtwO5BQr9",
+      "expected_size": 2853,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/resume_tests_02.log",
+      "remote_size": 2853
+    },
+    {
+      "drive_file_id": "117Z8XnrwT3mQvKoO8Ydz9hSXd4stGp9b",
+      "expected_size": 4681,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/resume_torch_install.log",
+      "remote_size": 4681
+    },
+    {
+      "drive_file_id": "1soDbghW2pPp2eoOvn-xzAbjnOW6Y3BgI",
+      "expected_size": 100386,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/ui_knowledge.png",
+      "remote_size": 100386
+    },
+    {
+      "drive_file_id": "19Aab5rnV31K92LLn7nlUVN4UJERf0Sj0",
+      "expected_size": 57593,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/ui_mobile.png",
+      "remote_size": 57593
+    },
+    {
+      "drive_file_id": "1xl9E7ySA9IdM0VfpQ9zSqX1e63zHPrtl",
+      "expected_size": 159416,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/ui_overview.png",
+      "remote_size": 159416
+    },
+    {
+      "drive_file_id": "1y-Fzh4-Ym_pNotdi3m4UhSK7h_y2GqkK",
+      "expected_size": 168799,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/ui_review.png",
+      "remote_size": 168799
+    },
+    {
+      "drive_file_id": "1KJ_DeeRC9nP1a5m9zcxQ-EeL8IFSavIp",
+      "expected_size": 166814,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/ui_review_detail.png",
+      "remote_size": 166814
+    },
+    {
+      "drive_file_id": "1Oy8JkGzNHLrlr-OTorqcxwpfPu8JARiU",
+      "expected_size": 429,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/vega_ai_controllata/risposta_01.jsonl",
+      "remote_size": 429
+    },
+    {
+      "drive_file_id": "1pcEm2okDr-s-v2Wxs2pSn7dJ3zqpuZaj",
+      "expected_size": 521,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/vega_ai_controllata/risposta_02.jsonl",
+      "remote_size": 521
+    },
+    {
+      "drive_file_id": "1cK3CkZ8dUYdWhmU_KBmGDX6gPRZT4HlD",
+      "expected_size": 7157,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/vega_release_01.json",
+      "remote_size": 7157
+    },
+    {
+      "drive_file_id": "1rKSo6wbXlNkNZKgAeho_DVHRR0yFayeE",
+      "expected_size": 169,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/vega_release_01.log",
+      "remote_size": 169
+    },
+    {
+      "drive_file_id": "11WKm3tn4WRpEGNUg9OHuQJKnPW7B2EgT",
+      "expected_size": 7159,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/vega_release_final.json",
+      "remote_size": 7159
+    },
+    {
+      "drive_file_id": "1oKy2rs_HSdciTfSc3GNvH31DQcqFzhoJ",
+      "expected_size": 169,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/vega_release_final.log",
+      "remote_size": 169
+    },
+    {
+      "drive_file_id": "1yEIH7uIpqU8Nn2aWBVGJuPCAssD4swq_",
+      "expected_size": 337,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/wheel_check.log",
+      "remote_size": 337
+    },
+    {
+      "drive_file_id": "11WxzctRtrWLzdhODOQU3eDtSFd9bCwiE",
+      "expected_size": 431,
+      "name_matches": true,
+      "passed": true,
+      "path": "reports/wheel_result.json",
+      "remote_size": 431
+    },
+    {
+      "drive_file_id": "1JPyKtl4hoie_t3j5z-eFzshgYikkqoiX",
+      "expected_size": 2346,
+      "name_matches": true,
+      "passed": true,
+      "path": "requirements-tested-linux.txt",
+      "remote_size": 2346
+    },
+    {
+      "drive_file_id": "1leNlBLx66SAmGBxHS4Xat3YgBGoFKmwW",
+      "expected_size": 6787,
+      "name_matches": true,
+      "passed": true,
+      "path": "scripts/browser_check.py",
+      "remote_size": 6787
+    },
+    {
+      "drive_file_id": "1M71y06SBalxNr-m2CwHoPSVfSwEGikvT",
+      "expected_size": 1554,
+      "name_matches": true,
+      "passed": true,
+      "path": "scripts/pdf_check.py",
+      "remote_size": 1554
+    },
+    {
+      "drive_file_id": "1HD7P7CtCMy_vDe5Wkw3dCUhMQB1spQPE",
+      "expected_size": 2717,
+      "name_matches": true,
+      "passed": true,
+      "path": "scripts/wheel_check.py",
+      "remote_size": 2717
+    },
+    {
+      "drive_file_id": "1tgFM0L0eJ5ZnjLtBwZn5lIt2SWsuvwST",
+      "expected_size": 64,
+      "name_matches": true,
+      "passed": true,
+      "path": "src/dslm3/__init__.py",
+      "remote_size": 64
+    },
+    {
+      "drive_file_id": "1Au6MZUWM9kXKT8iNNuZWBYGIpGsozoUv",
+      "expected_size": 53,
+      "name_matches": true,
+      "passed": true,
+      "path": "src/dslm3/__main__.py",
+      "remote_size": 53
+    },
+    {
+      "drive_file_id": "1WDPrQWAOWg3WJVfiaNADB8yxGhwkaKey",
+      "expected_size": 13912,
+      "name_matches": true,
+      "passed": true,
+      "path": "src/dslm3/ai.py",
+      "remote_size": 13912
+    },
+    {
+      "drive_file_id": "19S_WiqdRNlCn_ZHNKghXUTKQOVvDcXe7",
+      "expected_size": 5211,
+      "name_matches": true,
+      "passed": true,
+      "path": "src/dslm3/cli.py",
+      "remote_size": 5211
+    },
+    {
+      "drive_file_id": "1J_nW7i9M0wq4psIntszShzksaj-fktRz",
+      "expected_size": 2500,
+      "name_matches": true,
+      "passed": true,
+      "path": "src/dslm3/common.py",
+      "remote_size": 2500
+    },
+    {
+      "drive_file_id": "17vjS2evwP_pvhw1-2vyY4Sv6J7wdY2AV",
+      "expected_size": 26089,
+      "name_matches": true,
+      "passed": true,
+      "path": "src/dslm3/exports.py",
+      "remote_size": 26089
+    },
+    {
+      "drive_file_id": "1ySeXHhMGLykRJ7IHmOpRz6z7pHXCec4o",
+      "expected_size": 33740,
+      "name_matches": true,
+      "passed": true,
+      "path": "src/dslm3/knowledge.py",
+      "remote_size": 33740
+    },
+    {
+      "drive_file_id": "1Bd0C-2hVSHuZUDR6fH6bh3DRuW72OSOo",
+      "expected_size": 7942,
+      "name_matches": true,
+      "passed": true,
+      "path": "src/dslm3/lab.py",
+      "remote_size": 7942
+    },
+    {
+      "drive_file_id": "1WgrwHDNpewmLgyY7JFOfuyFeljT8zpmA",
+      "expected_size": 40,
+      "name_matches": true,
+      "passed": true,
+      "path": "src/dslm3/parsers/__init__.py",
+      "remote_size": 40
+    },
+    {
+      "drive_file_id": "1yufZ8xNOxTD10Q4j7GphhVT7lWJruKFt",
+      "expected_size": 1823,
+      "name_matches": true,
+      "passed": true,
+      "path": "src/dslm3/parsers/base.py",
+      "remote_size": 1823
+    },
+    {
+      "drive_file_id": "1-8o7SzcRJ9yDMG0xV7g8fLfj-IbMNgaS",
+      "expected_size": 21758,
+      "name_matches": true,
+      "passed": true,
+      "path": "src/dslm3/parsers/documents.py",
+      "remote_size": 21758
+    },
+    {
+      "drive_file_id": "1CnA7m99pSlxnKDwiDai6sI4CKFxlGG8I",
+      "expected_size": 27483,
+      "name_matches": true,
+      "passed": true,
+      "path": "src/dslm3/parsers/sql.py",
+      "remote_size": 27483
+    },
+    {
+      "drive_file_id": "1mgKkz2gnd9Ubjby9eerIr8Kfw6sUQCJO",
+      "expected_size": 330,
+      "name_matches": true,
+      "passed": true,
+      "path": "src/dslm3/resources/gexf/LICENSE.txt",
+      "remote_size": 330
+    },
+    {
+      "drive_file_id": "1DyqIDE3ZLTuVKkrUQ7RGiFNrtTGZ9_UJ",
+      "expected_size": 6931,
+      "name_matches": true,
+      "passed": true,
+      "path": "src/dslm3/resources/gexf/dynamics.xsd",
+      "remote_size": 6931
+    },
+    {
+      "drive_file_id": "1SZBzgIPSC_Iveuwpq0RlfjKv6N2ZUIU7",
+      "expected_size": 5949,
+      "name_matches": true,
+      "passed": true,
+      "path": "src/dslm3/resources/gexf/gexf.xsd",
+      "remote_size": 5949
+    },
+    {
+      "drive_file_id": "16SIFM4y4DJx39Netlj4Ve6z4OMga6WAJ",
+      "expected_size": 933,
+      "name_matches": true,
+      "passed": true,
+      "path": "src/dslm3/resources/gexf/manifest.json",
+      "remote_size": 933
+    },
+    {
+      "drive_file_id": "1mcfwM7ExlCbK_qbUhyLigfYAP6y4zo9t",
+      "expected_size": 2934,
+      "name_matches": true,
+      "passed": true,
+      "path": "src/dslm3/resources/gexf/viz.xsd",
+      "remote_size": 2934
+    },
+    {
+      "drive_file_id": "1U7XAzq5b4GCxGTFsRD9Vt8YgB0QqGaYL",
+      "expected_size": 529,
+      "name_matches": true,
+      "passed": true,
+      "path": "src/dslm3/resources/vega/database/schema_vega.sql",
+      "remote_size": 529
+    },
+    {
+      "drive_file_id": "19N61XWO5-9gbcn-lozdvjhMClvsIPX_j",
+      "expected_size": 37251,
+      "name_matches": true,
+      "passed": true,
+      "path": "src/dslm3/resources/vega/documenti/manuale_operativo_vega_2026.docx",
+      "remote_size": 37251
+    },
+    {
+      "drive_file_id": "15RQu66wVCV9K1vMcnB1q48v2AppMD5sz",
+      "expected_size": 3808,
+      "name_matches": true,
+      "passed": true,
+      "path": "src/dslm3/resources/vega/documenti/matrice_priorita_vega_2026.xlsx",
+      "remote_size": 3808
+    },
+    {
+      "drive_file_id": "1Y-khhIiYT4mztm96hU32MZ0hU7xJpTer",
+      "expected_size": 588,
+      "name_matches": true,
+      "passed": true,
+      "path": "src/dslm3/resources/vega/forms/frm_richiesta.xml",
+      "remote_size": 588
+    },
+    {
+      "drive_file_id": "1DCqiF9Air5eZzwrRketQYN-N56oVbQq7",
+      "expected_size": 425,
+      "name_matches": true,
+      "passed": true,
+      "path": "src/dslm3/resources/vega/logs/vega_2026.log",
+      "remote_size": 425
+    },
+    {
+      "drive_file_id": "19cYvtu7qWH9XNynF7av8MyhzEzQsTbk_",
+      "expected_size": 753,
+      "name_matches": true,
+      "passed": true,
+      "path": "src/dslm3/resources/vega/plsql/logica_vega.sql",
+      "remote_size": 753
+    },
+    {
+      "drive_file_id": "1cFf7614QWVji3UzOWSHOY9X9FAoyMgZb",
+      "expected_size": 19294,
+      "name_matches": true,
+      "passed": true,
+      "path": "src/dslm3/service.py",
+      "remote_size": 19294
+    },
+    {
+      "drive_file_id": "1fNw1DXKRP71YCt8Dm6OiyrO_QQWIAsCV",
+      "expected_size": 31482,
+      "name_matches": true,
+      "passed": true,
+      "path": "src/dslm3/static/app.js",
+      "remote_size": 31482
+    },
+    {
+      "drive_file_id": "15uHwxuTRm36mbgnVzAmgebeGIMki8Un4",
+      "expected_size": 1723,
+      "name_matches": true,
+      "passed": true,
+      "path": "src/dslm3/static/index.html",
+      "remote_size": 1723
+    },
+    {
+      "drive_file_id": "1mpDAqkifLH8L4CYPGpF_78sowYWE2dnq",
+      "expected_size": 8506,
+      "name_matches": true,
+      "passed": true,
+      "path": "src/dslm3/static/style.css",
+      "remote_size": 8506
+    },
+    {
+      "drive_file_id": "1PdAeSqSHSN881uZqEfuWsPtEzU-5Bg-B",
+      "expected_size": 12903,
+      "name_matches": true,
+      "passed": true,
+      "path": "src/dslm3/storage.py",
+      "remote_size": 12903
+    },
+    {
+      "drive_file_id": "1Ugujyq4H7oPFFIOk_vWKhG7yIjxCkywm",
+      "expected_size": 28318,
+      "name_matches": true,
+      "passed": true,
+      "path": "src/dslm3/temporal.py",
+      "remote_size": 28318
+    },
+    {
+      "drive_file_id": "1GkvYZwPzPMWmcskqlSVuaprAx__DWFmC",
+      "expected_size": 63,
+      "name_matches": true,
+      "passed": true,
+      "path": "src/dslm3/vendor/__init__.py",
+      "remote_size": 63
+    },
+    {
+      "drive_file_id": "1mG2p5khJQxyh6NJw1kDtshQqQpwMuALf",
+      "expected_size": 2565,
+      "name_matches": true,
+      "passed": true,
+      "path": "src/dslm3/vendor/canonical.py",
+      "remote_size": 2565
+    },
+    {
+      "drive_file_id": "1dSW8YU42bx6eUoN097kGP83CgmfPaBMs",
+      "expected_size": 68296,
+      "name_matches": true,
+      "passed": true,
+      "path": "src/dslm3/vendor/ooxml_preflight.py",
+      "remote_size": 68296
+    },
+    {
+      "drive_file_id": "1SEACw7WK6kz-fU8nDTios958yfGYiNhm",
+      "expected_size": 6947,
+      "name_matches": true,
+      "passed": true,
+      "path": "src/dslm3/vendor/workbook_regions.py",
+      "remote_size": 6947
+    },
+    {
+      "drive_file_id": "1S2HtFtz34tdazqzVYA9Obq6HPUuGXYCf",
+      "expected_size": 15084,
+      "name_matches": true,
+      "passed": true,
+      "path": "src/dslm3/web.py",
+      "remote_size": 15084
+    },
+    {
+      "drive_file_id": "1Vr-vE-hVGfy9xElG42PeqI7GJuT-Pzng",
+      "expected_size": 1061,
+      "name_matches": true,
+      "passed": true,
+      "path": "src/dslm3/worker.py",
+      "remote_size": 1061
+    },
+    {
+      "drive_file_id": "1ks3VOWKz5ExJGNW5c0VtoxUWjTMR-N0-",
+      "expected_size": 1488,
+      "name_matches": true,
+      "passed": true,
+      "path": "tests/fixtures/pdf/manuale_vega.pdf",
+      "remote_size": 1488
+    },
+    {
+      "drive_file_id": "1QtGV-RXDv5nG_2DFIau0HyWmE-1M1UWI",
+      "expected_size": 292,
+      "name_matches": true,
+      "passed": true,
+      "path": "tests/fixtures/slice_23/checksums.json",
+      "remote_size": 292
+    },
+    {
+      "drive_file_id": "1v3vbZVePt8khFNv9Pk81-FQRPHGS3JrZ",
+      "expected_size": 10033,
+      "name_matches": true,
+      "passed": true,
+      "path": "tests/fixtures/slice_23/real_macro_workbook.xlsm",
+      "remote_size": 10033
+    },
+    {
+      "drive_file_id": "19-Rj14xliNtcCGZdCLQUNKBMHjJL198K",
+      "expected_size": 5394,
+      "name_matches": true,
+      "passed": true,
+      "path": "tests/fixtures/slice_23/real_workbook.xlsx",
+      "remote_size": 5394
+    },
+    {
+      "drive_file_id": "11nbHtXhHqwsQtfrWlmFHOKddDeVMBnHS",
+      "expected_size": 194,
+      "name_matches": true,
+      "passed": true,
+      "path": "tests/fixtures/slice_24/checksums.json",
+      "remote_size": 194
+    },
+    {
+      "drive_file_id": "1ALK4ceK5I4rYYt0UDM1UxLRCbnG1KFYk",
+      "expected_size": 10033,
+      "name_matches": true,
+      "passed": true,
+      "path": "tests/fixtures/slice_24/macro_workbook.xlsm",
+      "remote_size": 10033
+    },
+    {
+      "drive_file_id": "15tUhqTucDd6FJbHnMfZt1ui0KUNvkpB9",
+      "expected_size": 7587,
+      "name_matches": true,
+      "passed": true,
+      "path": "tests/fixtures/slice_24/structural_workbook.xlsx",
+      "remote_size": 7587
+    },
+    {
+      "drive_file_id": "1KAbBsE2Dn8npUEJDFRNyFFmk1D9_FZHi",
+      "expected_size": 10374,
+      "name_matches": true,
+      "passed": true,
+      "path": "tests/fixtures/workbook_manifest_golden.json",
+      "remote_size": 10374
+    },
+    {
+      "drive_file_id": "1nhV7bxZuCb-niLPgsSGD3iThFB5J5OBM",
+      "expected_size": 6091,
+      "name_matches": true,
+      "passed": true,
+      "path": "tests/test_ai_exports.py",
+      "remote_size": 6091
+    },
+    {
+      "drive_file_id": "1yVN5F6Fy5JbUphQkR7FBDWlbUiKMDjRo",
+      "expected_size": 2869,
+      "name_matches": true,
+      "passed": true,
+      "path": "tests/test_formats_real.py",
+      "remote_size": 2869
+    },
+    {
+      "drive_file_id": "1MCOwAbmi4lYqrYloZCnDM2kpCpo94eVO",
+      "expected_size": 5570,
+      "name_matches": true,
+      "passed": true,
+      "path": "tests/test_knowledge.py",
+      "remote_size": 5570
+    },
+    {
+      "drive_file_id": "1TolHlX1-riyk2oePT1U0pNaQ_vxRo1xR",
+      "expected_size": 7485,
+      "name_matches": true,
+      "passed": true,
+      "path": "tests/test_parsers.py",
+      "remote_size": 7485
+    },
+    {
+      "drive_file_id": "1ndhdEPSP1zc3GpfSun6Nb34A9hwQNka5",
+      "expected_size": 12100,
+      "name_matches": true,
+      "passed": true,
+      "path": "tests/test_resume_regressions.py",
+      "remote_size": 12100
+    },
+    {
+      "drive_file_id": "1iNPazCk9svtPYK1ASBPQeSqciUGINP-f",
+      "expected_size": 5238,
+      "name_matches": true,
+      "passed": true,
+      "path": "tests/test_temporal.py",
+      "remote_size": 5238
+    },
+    {
+      "drive_file_id": "12qAESqqpIZ2BLud998qLU0twJkgi2LGB",
+      "expected_size": 2589,
+      "name_matches": true,
+      "passed": true,
+      "path": "tests/test_web.py",
+      "remote_size": 2589
+    }
+  ],
+  "method": "Drive metadata readback: exact name and byte size; local SHA-256 matched the recorded upload for every file",
+  "status": "passed",
+  "root_trackers": [
+    {
+      "path": "docs/diario_tecnico.md",
+      "drive_file_id": "14rdlUqFr2qrDMR-uLYtvq7laMppZG8zY",
+      "expected_size": 11679,
+      "remote_size": 11679,
+      "name_matches": true,
+      "passed": true
+    },
+    {
+      "path": "docs/obiettivi.md",
+      "drive_file_id": "1x8ouJenHhWafSyGbRmH88oolDIUwGqay",
+      "expected_size": 3730,
+      "remote_size": 3730,
+      "name_matches": true,
+      "passed": true
+    },
+    {
+      "path": "docs/matrice_parita.md",
+      "drive_file_id": "1IgI4Mw4ry7-G3ln7eKbgXbnwXegY7JQP",
+      "expected_size": 6210,
+      "remote_size": 6210,
+      "name_matches": true,
+      "passed": true
+    }
+  ],
+  "final_trackers_verified": true
+}

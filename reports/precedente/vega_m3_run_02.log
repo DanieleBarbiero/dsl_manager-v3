@@ -1,0 +1,15 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/workspace/scratch/f8392732e1af/dslm3/src/dslm3/lab.py", line 72, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/workspace/scratch/f8392732e1af/dslm3/src/dslm3/lab.py", line 70, in main
+    result=run(args.workspace,args.report);print(json.dumps(result['summary'],indent=2))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8392732e1af/dslm3/src/dslm3/lab.py", line 60, in run
+    repeated=app.parse_all();check('ripresa_pipeline_cache',all(r.get('cached') for r in repeated['results']))
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8392732e1af/dslm3/src/dslm3/lab.py", line 21, in check
+    raise AssertionError(name)
+AssertionError: ripresa_pipeline_cache

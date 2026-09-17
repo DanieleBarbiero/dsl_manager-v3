@@ -1,0 +1,8 @@
+GEXF Format Specifications
+
+The vendored GEXF 1.3 schemas are from the gephi/gexf project at commit
+66efb132569f61e5e8a313d78144484238ac7315 and are licensed under the Creative
+Commons Attribution 4.0 International license (CC BY 4.0):
+https://creativecommons.org/licenses/by/4.0/
+
+Upstream project: https://github.com/gephi/gexf

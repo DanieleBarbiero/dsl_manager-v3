@@ -1,0 +1,31 @@
+{
+  "actor_id": "local-user",
+  "ai_max_chars": 10000000,
+  "ai_max_evidence": 10000,
+  "automatic_policies": [
+    "explicit_ddl_table_only/1",
+    "explicit_ddl_column_only/1",
+    "explicit_resolved_ddl_fk_only/1",
+    "explicit_db_code_unit_only/1",
+    "observed_db_code_dependency_only/1",
+    "explicit_xml_form_structure_only/1",
+    "explicit_xml_operation_only/1",
+    "named_explicit_log_policy_required/1",
+    "explicit_excel_workbook_only/1",
+    "explicit_excel_sheet_only/1",
+    "explicit_excel_region_only/1",
+    "explicit_excel_named_range_only/1",
+    "explicit_excel_table_only/1"
+  ],
+  "chunk_chars": 5000,
+  "exclude": [],
+  "graph_max_elements": 1000000,
+  "max_evidence": 100000,
+  "max_file_bytes": 67108864,
+  "max_intervals": 1000,
+  "max_output_bytes": 268435456,
+  "schema_version": 1,
+  "sql_dialect": "auto",
+  "worker_memory_mb": 4096,
+  "worker_timeout": 300
+}

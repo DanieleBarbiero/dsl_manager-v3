@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form name="FRM_RICHIESTA" title="Richiesta ricambio">
+  <block name="RICHIESTA_RICAMBIO" table="RICHIESTA_RICAMBIO">
+    <item name="ID_RICHIESTA" column="ID_RICHIESTA" datatype="NUMBER" required="true"/>
+    <item name="ID_ARTICOLO" column="ID_ARTICOLO" datatype="NUMBER" required="true"/>
+    <item name="PRIORITA" column="PRIORITA" datatype="VARCHAR2" required="true"/>
+    <item name="STATO" column="STATO" datatype="VARCHAR2" required="true"/>
+  </block>
+  <button name="BTN_PRENOTA" label="Prenota" operation="PRC_PRENOTA_ARTICOLO"/>
+</form>

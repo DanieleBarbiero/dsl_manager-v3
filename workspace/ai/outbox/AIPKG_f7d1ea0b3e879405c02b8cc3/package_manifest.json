@@ -1,0 +1,21 @@
+{
+  "directory": "ai\\outbox\\AIPKG_f7d1ea0b3e879405c02b8cc3",
+  "evidence_ids": [
+    "EV_b0ee39146fdb10e756fc9a44",
+    "EV_faa58f5a85eaf9c190ae5f7b"
+  ],
+  "files": {
+    "candidate_schema.json": "c5d464253b8aca647ba7b8a7bf22c0e896bb87176648ba49bbdcd1443e99a38b",
+    "content.md": "9e8e0ee6289d4336b2686bd83e82e096c0e9bdbbd6b6a5865871d2801a270083",
+    "instructions.md": "2dc3f37afc5bd6c182bf1097eba6a3e5a83c5439b2c72d526106c0063054e6eb",
+    "output_template.jsonl": "b10ead6235fe93ae12fc213f7adfbe8aad158640b329965fac395dbe47def65e",
+    "selection_plan.json": "6d5732bcef08f46c5f697a0352a1561a34eb32d1294798772b33f7b55fd596f6",
+    "source_manifest.json": "a6326cbfe685d99285a11c7ced5bc2867fe43d2f64532a4a0d6cae9e8c853f00"
+  },
+  "id": "AIPKG_f7d1ea0b3e879405c02b8cc3",
+  "revision_ids": [
+    "REV_c541599e315757cabfedd178"
+  ],
+  "route": "technical_extraction",
+  "selection_id": "AISEL_52f0969c21b8b530b65e0700"
+}

@@ -1,0 +1,26 @@
+WARNING: Ignoring invalid distribution ~orch (/workspace/scratch/f8392732e1af/.venv/lib/python3.12/site-packages)
+WARNING: Ignoring invalid distribution ~orch (/workspace/scratch/f8392732e1af/.venv/lib/python3.12/site-packages)
+WARNING: Ignoring invalid distribution ~orch (/workspace/scratch/f8392732e1af/.venv/lib/python3.12/site-packages)
+Collecting opencv-python==4.12.0.88
+  Downloading opencv_python-4.12.0.88-cp37-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (19 kB)
+Collecting numpy<2.3.0,>=2 (from opencv-python==4.12.0.88)
+  Downloading numpy-2.2.6-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (62 kB)
+Downloading opencv_python-4.12.0.88-cp37-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (67.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 67.0/67.0 MB 154.2 MB/s  0:00:00
+Downloading numpy-2.2.6-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.5/16.5 MB 252.3 MB/s  0:00:00
+WARNING: Ignoring invalid distribution ~orch (/workspace/scratch/f8392732e1af/.venv/lib/python3.12/site-packages)
+Installing collected packages: numpy, opencv-python
+  Attempting uninstall: numpy
+    WARNING: Ignoring invalid distribution ~orch (/workspace/scratch/f8392732e1af/.venv/lib/python3.12/site-packages)
+    Found existing installation: numpy 2.5.3
+    Uninstalling numpy-2.5.3:
+      Successfully uninstalled numpy-2.5.3
+  Attempting uninstall: opencv-python
+    WARNING: Ignoring invalid distribution ~orch (/workspace/scratch/f8392732e1af/.venv/lib/python3.12/site-packages)
+    Found existing installation: opencv-python 5.0.0.93
+    Uninstalling opencv-python-5.0.0.93:
+      Successfully uninstalled opencv-python-5.0.0.93
+
+WARNING: Ignoring invalid distribution ~orch (/workspace/scratch/f8392732e1af/.venv/lib/python3.12/site-packages)
+Successfully installed numpy-2.2.6 opencv-python-4.12.0.88

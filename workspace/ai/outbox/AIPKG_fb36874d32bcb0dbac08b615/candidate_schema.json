@@ -1,0 +1,137 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "record_type": {
+            "const": "candidate_fact"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "fact_type",
+          "entity_name",
+          "property_name",
+          "property_value"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "record_type": {
+            "const": "candidate_relation"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "source_entity",
+          "relation_type",
+          "target_entity"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "record_type": {
+            "const": "candidate_mapping"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "domain_entity",
+          "technical_object",
+          "mapping_type"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "record_type": {
+            "const": "candidate_conflict"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "conflict_type",
+          "subject",
+          "left_value",
+          "right_value"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "record_type": {
+            "const": "candidate_question"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "question_type",
+          "subject",
+          "question_text"
+        ]
+      }
+    }
+  ],
+  "properties": {
+    "assertion_type": {
+      "enum": [
+        "explicit",
+        "observed",
+        "inferred",
+        "ambiguous"
+      ]
+    },
+    "candidate_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "confidence": {
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ]
+    },
+    "evidence_id": {
+      "type": "string"
+    },
+    "evidence_text": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "record_type": {
+      "enum": [
+        "candidate_fact",
+        "candidate_relation",
+        "candidate_mapping",
+        "candidate_conflict",
+        "candidate_question"
+      ]
+    },
+    "source_revision_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "record_type",
+    "candidate_id",
+    "source_revision_id",
+    "evidence_id",
+    "assertion_type",
+    "confidence",
+    "evidence_text"
+  ],
+  "type": "object"
+}

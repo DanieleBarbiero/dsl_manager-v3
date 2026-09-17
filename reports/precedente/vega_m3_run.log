@@ -1,0 +1,18 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/workspace/scratch/f8392732e1af/dslm3/src/dslm3/lab.py", line 72, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/workspace/scratch/f8392732e1af/dslm3/src/dslm3/lab.py", line 70, in main
+    result=run(args.workspace,args.report);print(json.dumps(result['summary'],indent=2))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8392732e1af/dslm3/src/dslm3/lab.py", line 22, in run
+    app.load_vega();parsed=app.parse_all();check('sei_fonti_conversione_reale',parsed['success']==6 and parsed['errors']==0,parsed)
+                           ^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8392732e1af/dslm3/src/dslm3/service.py", line 152, in parse_all
+    for _,_,revision in sorted(ordered):results.append(self.parse(revision,self.schema(),retry=retry))
+                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8392732e1af/dslm3/src/dslm3/service.py", line 139, in parse
+    conn.execute('INSERT INTO parse_evidence VALUES(?,?)',(parse_id,ident))
+sqlite3.IntegrityError: UNIQUE constraint failed: parse_evidence.parse_id, parse_evidence.evidence_id

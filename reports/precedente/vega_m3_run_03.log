@@ -1,0 +1,12 @@
+{
+  "passed": 19,
+  "sources": 6,
+  "evidence": 52,
+  "counts": {
+    "entities": 32,
+    "facts": 30,
+    "relations": 24,
+    "conflicts": 1,
+    "intervals": 1
+  }
+}

@@ -1,0 +1,16 @@
+[INFO] 2026-09-17 09:28:30,012 [RapidOCR] base.py:23: Using engine_name: torch
+[INFO] 2026-09-17 09:28:30,013 [RapidOCR] device_config.py:57: Using CPU device
+[INFO] 2026-09-17 09:28:30,021 [RapidOCR] download_file.py:60: File exists and is valid: /workspace/scratch/f8392732e1af/.venv/lib/python3.12/site-packages/rapidocr/models/PP-OCRv6_det_small.pth
+[INFO] 2026-09-17 09:28:30,022 [RapidOCR] main.py:50: Using /workspace/scratch/f8392732e1af/.venv/lib/python3.12/site-packages/rapidocr/models/PP-OCRv6_det_small.pth
+[INFO] 2026-09-17 09:28:30,130 [RapidOCR] base.py:23: Using engine_name: torch
+[INFO] 2026-09-17 09:28:30,131 [RapidOCR] device_config.py:57: Using CPU device
+[INFO] 2026-09-17 09:28:30,132 [RapidOCR] download_file.py:60: File exists and is valid: /workspace/scratch/f8392732e1af/.venv/lib/python3.12/site-packages/rapidocr/models/ch_ptocr_mobile_v2.0_cls_mobile.pth
+[INFO] 2026-09-17 09:28:30,132 [RapidOCR] main.py:50: Using /workspace/scratch/f8392732e1af/.venv/lib/python3.12/site-packages/rapidocr/models/ch_ptocr_mobile_v2.0_cls_mobile.pth
+[INFO] 2026-09-17 09:28:30,188 [RapidOCR] base.py:23: Using engine_name: torch
+[INFO] 2026-09-17 09:28:30,189 [RapidOCR] device_config.py:57: Using CPU device
+[INFO] 2026-09-17 09:28:30,204 [RapidOCR] download_file.py:60: File exists and is valid: /workspace/scratch/f8392732e1af/.venv/lib/python3.12/site-packages/rapidocr/models/PP-OCRv6_rec_small.pth
+[INFO] 2026-09-17 09:28:30,205 [RapidOCR] main.py:50: Using /workspace/scratch/f8392732e1af/.venv/lib/python3.12/site-packages/rapidocr/models/PP-OCRv6_rec_small.pth
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/770 [00:00<?, ?it/s]Loading weights:  49%|████▊     | 375/770 [00:00<00:00, 3748.15it/s]Loading weights: 100%|██████████| 770/770 [00:00<00:00, 4489.28it/s]
+PDF success 1
+Vega Ricambi - PDF verificabile La richiesta P1 deve essere presa in carico entro 30 minuti. valid\_from: 2026-09-01

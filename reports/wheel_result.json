@@ -1,0 +1,17 @@
+{
+  "graph_validation": "offline_xsd_and_semantic",
+  "import_path": "/tmp/dslm3_wheel_ao9eau0q/installed/dslm3",
+  "outside_source_tree": true,
+  "snapshot_counts": {
+    "conflicts": 0,
+    "entities": 31,
+    "facts": 28,
+    "intervals": 0,
+    "relations": 24
+  },
+  "sources": 6,
+  "static_resources": true,
+  "status": "passed",
+  "timestamp": "2026-09-17T09:14:08.928766+00:00",
+  "wheel": "dslm3-3.0.0-py3-none-any.whl"
+}

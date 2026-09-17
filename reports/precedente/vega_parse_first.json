@@ -1,0 +1,105 @@
+{
+  "errors": 0,
+  "partial": 0,
+  "results": [
+    {
+      "artifact_dir": "artifacts/PARSE_b43c827e75d85e9c50fec71f",
+      "diagnostics": [],
+      "duration_seconds": 0.303,
+      "evidence_count": 12,
+      "log": "logs/PARSE_b43c827e75d85e9c50fec71f.log",
+      "metadata": {
+        "ast_supported": true,
+        "basis": "syntax_hints",
+        "candidates": [
+          "oracle"
+        ],
+        "declared_version": null,
+        "dialect": "oracle",
+        "encoding": "utf-8-sig",
+        "legacy_features": []
+      },
+      "parse_id": "PARSE_b43c827e75d85e9c50fec71f",
+      "parser": "sql/3",
+      "resource_enforcement": "parent_monitored",
+      "revision_id": "REV_ce46e3f8ea3543f6f4b5d7bb",
+      "status": "success"
+    },
+    {
+      "artifact_dir": "artifacts/PARSE_e7b940419ebd6892a8657f20",
+      "diagnostics": [],
+      "duration_seconds": 4.627,
+      "evidence_count": 1,
+      "log": "logs/PARSE_e7b940419ebd6892a8657f20.log",
+      "metadata": {},
+      "parse_id": "PARSE_e7b940419ebd6892a8657f20",
+      "parser": "docling/2.128.0",
+      "resource_enforcement": "parent_monitored",
+      "revision_id": "REV_09e1e1f0ce61ef5ba76f64e4",
+      "status": "success"
+    },
+    {
+      "artifact_dir": "artifacts/PARSE_a5c1e7f9459bf16a36a70e56",
+      "diagnostics": [],
+      "duration_seconds": 4.526,
+      "evidence_count": 4,
+      "log": "logs/PARSE_a5c1e7f9459bf16a36a70e56.log",
+      "metadata": {},
+      "parse_id": "PARSE_a5c1e7f9459bf16a36a70e56",
+      "parser": "ooxml/1",
+      "resource_enforcement": "parent_monitored",
+      "revision_id": "REV_ccdd4404f4e4a2c752ee2659",
+      "status": "success"
+    },
+    {
+      "artifact_dir": "artifacts/PARSE_9679372a0fe9ea50f7d40070",
+      "diagnostics": [],
+      "duration_seconds": 0.102,
+      "evidence_count": 13,
+      "log": "logs/PARSE_9679372a0fe9ea50f7d40070.log",
+      "metadata": {},
+      "parse_id": "PARSE_9679372a0fe9ea50f7d40070",
+      "parser": "xml_forms/3",
+      "resource_enforcement": "parent_monitored",
+      "revision_id": "REV_e3ec4e2e41adca524aaadc56",
+      "status": "success"
+    },
+    {
+      "artifact_dir": "artifacts/PARSE_b0f481562a39995dddc4b867",
+      "diagnostics": [],
+      "duration_seconds": 0.103,
+      "evidence_count": 5,
+      "log": "logs/PARSE_b0f481562a39995dddc4b867.log",
+      "metadata": {},
+      "parse_id": "PARSE_b0f481562a39995dddc4b867",
+      "parser": "log/3",
+      "resource_enforcement": "parent_monitored",
+      "revision_id": "REV_43b0d873a605f76aa74f610e",
+      "status": "success"
+    },
+    {
+      "artifact_dir": "artifacts/PARSE_afe60f52177aa6d1c02829eb",
+      "diagnostics": [],
+      "duration_seconds": 0.303,
+      "evidence_count": 16,
+      "log": "logs/PARSE_afe60f52177aa6d1c02829eb.log",
+      "metadata": {
+        "ast_supported": true,
+        "basis": "syntax_hints",
+        "candidates": [
+          "oracle"
+        ],
+        "declared_version": null,
+        "dialect": "oracle",
+        "encoding": "utf-8-sig",
+        "legacy_features": []
+      },
+      "parse_id": "PARSE_afe60f52177aa6d1c02829eb",
+      "parser": "sql/3",
+      "resource_enforcement": "parent_monitored",
+      "revision_id": "REV_c541599e315757cabfedd178",
+      "status": "success"
+    }
+  ],
+  "success": 6
+}

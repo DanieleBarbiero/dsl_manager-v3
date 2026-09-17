@@ -1,0 +1,23 @@
+{
+  "commit": "66efb132569f61e5e8a313d78144484238ac7315",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "resources": [
+    {
+      "file": "gexf.xsd",
+      "sha256": "a8e1d0a6a5237fc4ce0825692fa3db49fb04d70cf3a84334f7a87c15422c1257",
+      "url": "https://raw.githubusercontent.com/gephi/gexf/66efb132569f61e5e8a313d78144484238ac7315/specs/1.3/gexf.xsd"
+    },
+    {
+      "file": "dynamics.xsd",
+      "sha256": "d5ee084a858baf6efebe210d4799050723bfce71fb44c9ddbf20a53f45be8298",
+      "url": "https://raw.githubusercontent.com/gephi/gexf/66efb132569f61e5e8a313d78144484238ac7315/specs/1.3/dynamics.xsd"
+    },
+    {
+      "file": "viz.xsd",
+      "sha256": "e20e40bcfd4531026d4d1c74da5cbadc413ff5b81cf4418ca14f42ea994e2dc4",
+      "url": "https://raw.githubusercontent.com/gephi/gexf/66efb132569f61e5e8a313d78144484238ac7315/specs/1.3/viz.xsd"
+    }
+  ],
+  "schema_version": "1.3"
+}

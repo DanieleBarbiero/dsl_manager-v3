@@ -1,0 +1,248 @@
+{
+  "ai_response_mode": "controlled_simulation_not_external_model",
+  "baseline_commit": "c443b6a457b78229517a481fc5850dc8b44ecc3a",
+  "checks": [
+    {
+      "details": {
+        "errors": 0,
+        "partial": 0,
+        "results": [
+          {
+            "artifact_dir": "artifacts/PARSE_0cdf9b52a7edeb155514071f",
+            "diagnostics": [],
+            "duration_seconds": 0.405,
+            "evidence_count": 12,
+            "log": "logs/PARSE_0cdf9b52a7edeb155514071f.log",
+            "metadata": {
+              "ast_supported": true,
+              "basis": "syntax_hints",
+              "candidates": [
+                "oracle"
+              ],
+              "declared_version": null,
+              "dialect": "oracle",
+              "encoding": "utf-8-sig",
+              "legacy_features": []
+            },
+            "parse_id": "PARSE_0cdf9b52a7edeb155514071f",
+            "parser": "sql/3",
+            "resource_enforcement": "parent_monitored",
+            "revision_id": "REV_ce46e3f8ea3543f6f4b5d7bb",
+            "status": "success"
+          },
+          {
+            "artifact_dir": "artifacts/PARSE_2681f844f64096889aca484f",
+            "diagnostics": [],
+            "duration_seconds": 8.006,
+            "evidence_count": 1,
+            "log": "logs/PARSE_2681f844f64096889aca484f.log",
+            "metadata": {},
+            "parse_id": "PARSE_2681f844f64096889aca484f",
+            "parser": "docling/2.128.0",
+            "resource_enforcement": "parent_monitored",
+            "revision_id": "REV_09e1e1f0ce61ef5ba76f64e4",
+            "status": "success"
+          },
+          {
+            "artifact_dir": "artifacts/PARSE_323b36591699cb46e3a670ab",
+            "diagnostics": [],
+            "duration_seconds": 6.508,
+            "evidence_count": 4,
+            "log": "logs/PARSE_323b36591699cb46e3a670ab.log",
+            "metadata": {},
+            "parse_id": "PARSE_323b36591699cb46e3a670ab",
+            "parser": "ooxml/1",
+            "resource_enforcement": "parent_monitored",
+            "revision_id": "REV_ccdd4404f4e4a2c752ee2659",
+            "status": "success"
+          },
+          {
+            "artifact_dir": "artifacts/PARSE_043a24bda211880eb38020a1",
+            "diagnostics": [],
+            "duration_seconds": 0.203,
+            "evidence_count": 13,
+            "log": "logs/PARSE_043a24bda211880eb38020a1.log",
+            "metadata": {},
+            "parse_id": "PARSE_043a24bda211880eb38020a1",
+            "parser": "xml_forms/3",
+            "resource_enforcement": "parent_monitored",
+            "revision_id": "REV_e3ec4e2e41adca524aaadc56",
+            "status": "success"
+          },
+          {
+            "artifact_dir": "artifacts/PARSE_20d64bbb0cfad3c5857532f5",
+            "diagnostics": [],
+            "duration_seconds": 0.203,
+            "evidence_count": 5,
+            "log": "logs/PARSE_20d64bbb0cfad3c5857532f5.log",
+            "metadata": {},
+            "parse_id": "PARSE_20d64bbb0cfad3c5857532f5",
+            "parser": "log/3",
+            "resource_enforcement": "parent_monitored",
+            "revision_id": "REV_43b0d873a605f76aa74f610e",
+            "status": "success"
+          },
+          {
+            "artifact_dir": "artifacts/PARSE_88df507db9cd6063b2eadf0d",
+            "diagnostics": [],
+            "duration_seconds": 0.405,
+            "evidence_count": 17,
+            "log": "logs/PARSE_88df507db9cd6063b2eadf0d.log",
+            "metadata": {
+              "ast_supported": true,
+              "basis": "syntax_hints",
+              "candidates": [
+                "oracle"
+              ],
+              "declared_version": null,
+              "dialect": "oracle",
+              "encoding": "utf-8-sig",
+              "legacy_features": []
+            },
+            "parse_id": "PARSE_88df507db9cd6063b2eadf0d",
+            "parser": "sql/3",
+            "resource_enforcement": "parent_monitored",
+            "revision_id": "REV_c541599e315757cabfedd178",
+            "status": "success"
+          }
+        ],
+        "success": 6
+      },
+      "name": "sei_fonti_conversione_reale",
+      "passed": true
+    },
+    {
+      "details": null,
+      "name": "forms_quattro_item",
+      "passed": true
+    },
+    {
+      "details": null,
+      "name": "forms_operation_calls",
+      "passed": true
+    },
+    {
+      "details": null,
+      "name": "sql_nessuna_colonna_inventata",
+      "passed": true
+    },
+    {
+      "details": null,
+      "name": "excel_manifest_e_docling",
+      "passed": true
+    },
+    {
+      "details": null,
+      "name": "nessun_merge_senza_review",
+      "passed": true
+    },
+    {
+      "details": null,
+      "name": "log_nessun_falso_conflitto",
+      "passed": true
+    },
+    {
+      "details": null,
+      "name": "ai_policy_distinte",
+      "passed": true
+    },
+    {
+      "details": {
+        "external_model_called": false,
+        "simulation": true
+      },
+      "name": "ai_simulata_importata_pending",
+      "passed": true
+    },
+    {
+      "details": null,
+      "name": "ai_review_distinta_da_merge",
+      "passed": true
+    },
+    {
+      "details": null,
+      "name": "ai_inclusa_nel_dsl",
+      "passed": true
+    },
+    {
+      "details": [
+        {
+          "entity": "Priorità P1",
+          "id": "CONFLICT_5aa57565eddfe1a8c3a5f249",
+          "left": "FACT_b3945acc60b0c7af9a5edbb0",
+          "left_value": 60,
+          "property": "presa_in_carico_minuti",
+          "reason": "different_values_same_property",
+          "right": "FACT_e1b104ec7cf41e9963615037",
+          "right_value": 30
+        }
+      ],
+      "name": "conflitto_reale_p1",
+      "passed": true
+    },
+    {
+      "details": null,
+      "name": "diff_con_provenienza",
+      "passed": true
+    },
+    {
+      "details": null,
+      "name": "temporalita_pending",
+      "passed": true
+    },
+    {
+      "details": {
+        "dynamic": true,
+        "files": [
+          "artifacts/DSL_03f02cee6c922b73be170a00/graph_dynamic.gexf"
+        ],
+        "include_conflicts": true,
+        "include_fact_nodes": true,
+        "include_sources": true,
+        "mode": "strict",
+        "snapshot_id": "DSL_03f02cee6c922b73be170a00",
+        "validation": "offline_xsd_and_semantic",
+        "warnings": []
+      },
+      "name": "gexf_dinamico_validato",
+      "passed": true
+    },
+    {
+      "details": null,
+      "name": "riavvio_persistenza",
+      "passed": true
+    },
+    {
+      "details": null,
+      "name": "ripresa_pipeline_cache",
+      "passed": true
+    },
+    {
+      "details": null,
+      "name": "merge_idempotente",
+      "passed": true
+    },
+    {
+      "details": null,
+      "name": "integrita_sqlite",
+      "passed": true
+    }
+  ],
+  "final_snapshot": "DSL_03f02cee6c922b73be170a00",
+  "laboratory": "Vega M3",
+  "status": "passed",
+  "summary": {
+    "counts": {
+      "conflicts": 1,
+      "entities": 32,
+      "facts": 30,
+      "intervals": 1,
+      "relations": 24
+    },
+    "evidence": 52,
+    "passed": 19,
+    "sources": 6
+  },
+  "timestamp": "2026-09-17T08:56:16.654871+00:00",
+  "workspace": "/workspace/scratch/f8392732e1af/runtime/vega_release_01"
+}

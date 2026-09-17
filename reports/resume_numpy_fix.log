@@ -1,0 +1,12 @@
+WARNING: Ignoring invalid distribution ~umpy (/workspace/scratch/f8392732e1af/.venv/lib/python3.12/site-packages)
+WARNING: Ignoring invalid distribution ~umpy (/workspace/scratch/f8392732e1af/.venv/lib/python3.12/site-packages)
+Collecting numpy==2.2.6
+  Using cached numpy-2.2.6-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (62 kB)
+Using cached numpy-2.2.6-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.5 MB)
+Installing collected packages: numpy
+  Attempting uninstall: numpy
+    Found existing installation: numpy 2.5.2
+    Uninstalling numpy-2.5.2:
+      Successfully uninstalled numpy-2.5.2
+WARNING: Ignoring invalid distribution ~umpy (/workspace/scratch/f8392732e1af/.venv/lib/python3.12/site-packages)
+Successfully installed numpy-2.2.6

@@ -1,0 +1,497 @@
+{
+  "external_links": [],
+  "macros": {
+    "content_hash": null,
+    "executed": false,
+    "part_name": null,
+    "present": false
+  },
+  "named_ranges": [],
+  "relationships": [
+    {
+      "relationship_id": "R1bc957b3fd714814",
+      "source_part": "/",
+      "target": "xl/workbook.xml",
+      "target_mode": "internal",
+      "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument"
+    },
+    {
+      "relationship_id": "R1f7bb94c0e1e4b75",
+      "source_part": "xl/workbook.xml",
+      "target": "xl/styles.xml",
+      "target_mode": "internal",
+      "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles"
+    },
+    {
+      "relationship_id": "Rc1a7024bf2764c5f",
+      "source_part": "xl/workbook.xml",
+      "target": "xl/theme/theme1.xml",
+      "target_mode": "internal",
+      "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/theme"
+    },
+    {
+      "relationship_id": "Rd89f071db6134650",
+      "source_part": "xl/workbook.xml",
+      "target": "xl/worksheets/sheet1.xml",
+      "target_mode": "internal",
+      "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet"
+    },
+    {
+      "relationship_id": "Rfb8d3654709e4186",
+      "source_part": "xl/workbook.xml",
+      "target": "xl/sharedStrings.xml",
+      "target_mode": "internal",
+      "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/sharedStrings"
+    }
+  ],
+  "schema_version": "1",
+  "sheets": [
+    {
+      "cells": [
+        {
+          "cached_value": null,
+          "column": 1,
+          "coordinate": "A1",
+          "formula": null,
+          "row": 1,
+          "style_id": 8,
+          "type": "string",
+          "value": "Priorità"
+        },
+        {
+          "cached_value": null,
+          "column": 2,
+          "coordinate": "B1",
+          "formula": null,
+          "row": 1,
+          "style_id": 8,
+          "type": "string",
+          "value": "Tempo presa in carico (ore)"
+        },
+        {
+          "cached_value": null,
+          "column": 3,
+          "coordinate": "C1",
+          "formula": null,
+          "row": 1,
+          "style_id": 8,
+          "type": "string",
+          "value": "Descrizione"
+        },
+        {
+          "cached_value": null,
+          "column": 4,
+          "coordinate": "D1",
+          "formula": null,
+          "row": 1,
+          "style_id": 8,
+          "type": "string",
+          "value": "Esempio"
+        },
+        {
+          "cached_value": null,
+          "column": 1,
+          "coordinate": "A2",
+          "formula": null,
+          "row": 2,
+          "style_id": 9,
+          "type": "string",
+          "value": "P1"
+        },
+        {
+          "cached_value": null,
+          "column": 2,
+          "coordinate": "B2",
+          "formula": null,
+          "row": 2,
+          "style_id": 9,
+          "type": "number",
+          "value": "1"
+        },
+        {
+          "cached_value": null,
+          "column": 3,
+          "coordinate": "C2",
+          "formula": null,
+          "row": 2,
+          "style_id": 9,
+          "type": "string",
+          "value": "Blocco totale o rischio operativo critico"
+        },
+        {
+          "cached_value": null,
+          "column": 4,
+          "coordinate": "D2",
+          "formula": null,
+          "row": 2,
+          "style_id": 9,
+          "type": "string",
+          "value": "Ricambio urgente: linea ferma"
+        },
+        {
+          "cached_value": null,
+          "column": 1,
+          "coordinate": "A3",
+          "formula": null,
+          "row": 3,
+          "style_id": 9,
+          "type": "string",
+          "value": "P2"
+        },
+        {
+          "cached_value": null,
+          "column": 2,
+          "coordinate": "B3",
+          "formula": null,
+          "row": 3,
+          "style_id": 9,
+          "type": "number",
+          "value": "4"
+        },
+        {
+          "cached_value": null,
+          "column": 3,
+          "coordinate": "C3",
+          "formula": null,
+          "row": 3,
+          "style_id": 9,
+          "type": "string",
+          "value": "Impatto elevato ma attività ancora parzialmente possibile"
+        },
+        {
+          "cached_value": null,
+          "column": 4,
+          "coordinate": "D3",
+          "formula": null,
+          "row": 3,
+          "style_id": 9,
+          "type": "string",
+          "value": "Ricambio necessario entro la giornata"
+        },
+        {
+          "cached_value": null,
+          "column": 1,
+          "coordinate": "A4",
+          "formula": null,
+          "row": 4,
+          "style_id": 9,
+          "type": "string",
+          "value": "P3"
+        },
+        {
+          "cached_value": null,
+          "column": 2,
+          "coordinate": "B4",
+          "formula": null,
+          "row": 4,
+          "style_id": 9,
+          "type": "number",
+          "value": "24"
+        },
+        {
+          "cached_value": null,
+          "column": 3,
+          "coordinate": "C4",
+          "formula": null,
+          "row": 4,
+          "style_id": 9,
+          "type": "string",
+          "value": "Impatto moderato, workaround disponibile"
+        },
+        {
+          "cached_value": null,
+          "column": 4,
+          "coordinate": "D4",
+          "formula": null,
+          "row": 4,
+          "style_id": 9,
+          "type": "string",
+          "value": "Richiesta standard con urgenza contenuta"
+        },
+        {
+          "cached_value": null,
+          "column": 1,
+          "coordinate": "A5",
+          "formula": null,
+          "row": 5,
+          "style_id": 9,
+          "type": "string",
+          "value": "P4"
+        },
+        {
+          "cached_value": null,
+          "column": 2,
+          "coordinate": "B5",
+          "formula": null,
+          "row": 5,
+          "style_id": 9,
+          "type": "number",
+          "value": "72"
+        },
+        {
+          "cached_value": null,
+          "column": 3,
+          "coordinate": "C5",
+          "formula": null,
+          "row": 5,
+          "style_id": 9,
+          "type": "string",
+          "value": "Bassa priorità o richiesta programmabile"
+        },
+        {
+          "cached_value": null,
+          "column": 4,
+          "coordinate": "D5",
+          "formula": null,
+          "row": 5,
+          "style_id": 9,
+          "type": "string",
+          "value": "Scorta preventiva / manutenzione pianificata"
+        }
+      ],
+      "dimensions": {
+        "declared": null,
+        "max_column": 4,
+        "max_row": 5,
+        "min_column": 1,
+        "min_row": 1
+      },
+      "index": 0,
+      "merged_ranges": [],
+      "name": "Priorita",
+      "part_name": "xl/worksheets/sheet1.xml",
+      "regions": [
+        {
+          "cells": [
+            {
+              "cached_value": null,
+              "column": 1,
+              "coordinate": "A1",
+              "formula": null,
+              "row": 1,
+              "style_id": 8,
+              "type": "string",
+              "value": "Priorità"
+            },
+            {
+              "cached_value": null,
+              "column": 2,
+              "coordinate": "B1",
+              "formula": null,
+              "row": 1,
+              "style_id": 8,
+              "type": "string",
+              "value": "Tempo presa in carico (ore)"
+            },
+            {
+              "cached_value": null,
+              "column": 3,
+              "coordinate": "C1",
+              "formula": null,
+              "row": 1,
+              "style_id": 8,
+              "type": "string",
+              "value": "Descrizione"
+            },
+            {
+              "cached_value": null,
+              "column": 4,
+              "coordinate": "D1",
+              "formula": null,
+              "row": 1,
+              "style_id": 8,
+              "type": "string",
+              "value": "Esempio"
+            },
+            {
+              "cached_value": null,
+              "column": 1,
+              "coordinate": "A2",
+              "formula": null,
+              "row": 2,
+              "style_id": 9,
+              "type": "string",
+              "value": "P1"
+            },
+            {
+              "cached_value": null,
+              "column": 2,
+              "coordinate": "B2",
+              "formula": null,
+              "row": 2,
+              "style_id": 9,
+              "type": "number",
+              "value": "1"
+            },
+            {
+              "cached_value": null,
+              "column": 3,
+              "coordinate": "C2",
+              "formula": null,
+              "row": 2,
+              "style_id": 9,
+              "type": "string",
+              "value": "Blocco totale o rischio operativo critico"
+            },
+            {
+              "cached_value": null,
+              "column": 4,
+              "coordinate": "D2",
+              "formula": null,
+              "row": 2,
+              "style_id": 9,
+              "type": "string",
+              "value": "Ricambio urgente: linea ferma"
+            },
+            {
+              "cached_value": null,
+              "column": 1,
+              "coordinate": "A3",
+              "formula": null,
+              "row": 3,
+              "style_id": 9,
+              "type": "string",
+              "value": "P2"
+            },
+            {
+              "cached_value": null,
+              "column": 2,
+              "coordinate": "B3",
+              "formula": null,
+              "row": 3,
+              "style_id": 9,
+              "type": "number",
+              "value": "4"
+            },
+            {
+              "cached_value": null,
+              "column": 3,
+              "coordinate": "C3",
+              "formula": null,
+              "row": 3,
+              "style_id": 9,
+              "type": "string",
+              "value": "Impatto elevato ma attività ancora parzialmente possibile"
+            },
+            {
+              "cached_value": null,
+              "column": 4,
+              "coordinate": "D3",
+              "formula": null,
+              "row": 3,
+              "style_id": 9,
+              "type": "string",
+              "value": "Ricambio necessario entro la giornata"
+            },
+            {
+              "cached_value": null,
+              "column": 1,
+              "coordinate": "A4",
+              "formula": null,
+              "row": 4,
+              "style_id": 9,
+              "type": "string",
+              "value": "P3"
+            },
+            {
+              "cached_value": null,
+              "column": 2,
+              "coordinate": "B4",
+              "formula": null,
+              "row": 4,
+              "style_id": 9,
+              "type": "number",
+              "value": "24"
+            },
+            {
+              "cached_value": null,
+              "column": 3,
+              "coordinate": "C4",
+              "formula": null,
+              "row": 4,
+              "style_id": 9,
+              "type": "string",
+              "value": "Impatto moderato, workaround disponibile"
+            },
+            {
+              "cached_value": null,
+              "column": 4,
+              "coordinate": "D4",
+              "formula": null,
+              "row": 4,
+              "style_id": 9,
+              "type": "string",
+              "value": "Richiesta standard con urgenza contenuta"
+            },
+            {
+              "cached_value": null,
+              "column": 1,
+              "coordinate": "A5",
+              "formula": null,
+              "row": 5,
+              "style_id": 9,
+              "type": "string",
+              "value": "P4"
+            },
+            {
+              "cached_value": null,
+              "column": 2,
+              "coordinate": "B5",
+              "formula": null,
+              "row": 5,
+              "style_id": 9,
+              "type": "number",
+              "value": "72"
+            },
+            {
+              "cached_value": null,
+              "column": 3,
+              "coordinate": "C5",
+              "formula": null,
+              "row": 5,
+              "style_id": 9,
+              "type": "string",
+              "value": "Bassa priorità o richiesta programmabile"
+            },
+            {
+              "cached_value": null,
+              "column": 4,
+              "coordinate": "D5",
+              "formula": null,
+              "row": 5,
+              "style_id": 9,
+              "type": "string",
+              "value": "Scorta preventiva / manutenzione pianificata"
+            }
+          ],
+          "connector_kinds": [],
+          "detector": {
+            "id": "connected_non_empty_cells",
+            "version": "1"
+          },
+          "end_cell": "D5",
+          "fragment_id": "FRAG_000001",
+          "ordinal": 1,
+          "region_hash": "20aada49828c65a87d0bf8b42c319b780ed4b87f57b299507572f9797efcf4fe",
+          "region_kind": "connected_cells",
+          "start_cell": "A1"
+        }
+      ],
+      "relationship_id": "Rd89f071db6134650",
+      "visibility": "visible"
+    }
+  ],
+  "source_revision": {
+    "content_hash": "0c24c3d8a3a1dc1c5952b4854eb529d33cb135619545aa0080bcb365add25ca9",
+    "extension": ".xlsx",
+    "id": "REV_ccdd4404f4e4a2c752ee2659",
+    "package_content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"
+  },
+  "warnings": [],
+  "workbook": {
+    "calculation_properties": {},
+    "date_system": "1900",
+    "macro_presence": false,
+    "part_name": "xl/workbook.xml"
+  }
+}
