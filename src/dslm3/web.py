@@ -15,7 +15,7 @@ from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 
 from dslm3 import __version__
-from dslm3.common import DomainError, within, now
+from dslm3.common import DomainError, safe_relative, within, now
 from dslm3.service import Application
 from dslm3.knowledge import Knowledge, POLICIES
 from dslm3.temporal import Temporal
@@ -409,6 +409,7 @@ def create_app(workspace: str | Path) -> FastAPI:
 
     @api.get("/api/download")
     def download(path: str):
+        path = safe_relative(path)
         if path.split("/", 1)[0] not in {"artifacts", "ai", "logs"}:
             raise DomainError("download_path", "Percorso non esportabile.")
         target = within(application.root, path)

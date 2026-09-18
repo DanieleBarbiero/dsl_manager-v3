@@ -25,6 +25,15 @@ def test_web_real_flow_and_local_security(tmp_path):
             ).status_code
             == 400
         )
+        fixture = tmp_path / "web" / "ai" / "outbox" / "windows-path.txt"
+        fixture.parent.mkdir(parents=True, exist_ok=True)
+        fixture.write_bytes(b"ok")
+        downloaded = client.get(
+            "/api/download", params={"path": r"ai\outbox\windows-path.txt"}
+        )
+        assert downloaded.status_code == 200
+        assert downloaded.content == b"ok"
+
         assert (
             client.post(
                 "/api/upload",
