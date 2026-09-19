@@ -28,8 +28,17 @@ Thumbs.db
 *.bat
 *.ini
 
+# local DSLM3 workspace registry and patch recovery
+.dslm3-workspaces.json
+.dslm3_patch_state.json
+.dslm3_patch_backups/
+
 # versioned project knowledge and workbench resources
 !.kb/
 !.kb/**
 !.wb/
 !.wb/**
+
+# google drive
+.tmp.driveupload/
+.tmp.drivedownload/

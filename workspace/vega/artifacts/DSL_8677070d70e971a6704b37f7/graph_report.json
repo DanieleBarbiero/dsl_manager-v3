@@ -1,0 +1,13 @@
+{
+  "dynamic": true,
+  "files": [
+    "artifacts\\DSL_8677070d70e971a6704b37f7\\graph_dynamic.gexf"
+  ],
+  "include_conflicts": true,
+  "include_fact_nodes": true,
+  "include_sources": true,
+  "mode": "separate",
+  "snapshot_id": "DSL_8677070d70e971a6704b37f7",
+  "validation": "offline_xsd_and_semantic",
+  "warnings": []
+}

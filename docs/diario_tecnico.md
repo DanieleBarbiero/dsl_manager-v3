@@ -99,3 +99,11 @@ Docling serializza `valid_from` come `valid\\_from` nel Markdown. La conversione
 - Creato `START_HERE.md`; il vecchio documento nativo di ripresa è rinominato esplicitamente STORICO. Obiettivi, diario e matrice sono allineati anche nelle copie alla radice.
 - `release_manifest.json` registra dimensioni e SHA-256 dei file della consegna; esclude cache, ambiente virtuale, workspace runtime e build intermedi.
 - Step 08 chiuso: **rilascio 3.0.0 consegnato**, con 79 test passati, Vega 19/19 e limiti di piattaforma/formato dichiarati. Nessuna scrittura GitHub.
+
+## 2026-09-18 — modifica proposta: workflow UI e workspace multipli
+
+- Riesaminato il percorso UI E2E: il flusso reale non è lineare 01→06; AI e temporalità generano nuovi candidati che devono tornare al gate review → merge → reconcile.
+- Preparata modifica per mostrare esplicitamente `00 → 01 → 02 → 03 → 02 → 04 → 02 → 05 → 06` e rinominare visivamente l'operazione globale come **Pipeline rapida**.
+- Preparato registry locale multi-workspace con create/register/switch/forget non distruttivo e switch bloccato in presenza di job queued/running.
+- `docs/protocollo_ripresa_precedente.md` resta storico; introdotto `docs/protocollo_ripresa.md` come protocollo corrente.
+- Stato delle prove: **non ancora rieseguite su questa modifica**. I risultati 79 passed / Vega 19/19 / browser del 3.0.0 non devono essere attribuiti alla patch. Lo step 09 rimane aperto fino a suite, browser, Vega e rigenerazione del manifest.

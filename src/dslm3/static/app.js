@@ -93,7 +93,7 @@ async function action(operation, args = {}) {
     }
 }
 async function refresh() {
-    const names = ['status', 'sources', 'candidates', 'knowledge', 'plans', 'packages', 'snapshots', 'temporal', 'config', 'runs'];
+    const names = ['status', 'sources', 'candidates', 'knowledge', 'plans', 'packages', 'snapshots', 'temporal', 'config', 'runs', 'workspaces'];
     const values = await Promise.all(names.map(x => api(x)));
     data = Object.fromEntries(names.map((x, i) => [x, values[i]]));
     render()
@@ -111,22 +111,100 @@ function render() {
     $('#page-title').textContent = titles[page];
     $$('nav a').forEach(a => a.classList.toggle('active', a.dataset.page === page));
     $('#content').innerHTML = views[page]();
+    renderWorkspaceControls();
+    decoratePage();
     bindFilters()
 }
 
 function formField(id, label, value = '', type = 'text') {
     return `<label for="${id}">${label}</label><input id="${id}" type="${type}" value="${esc(value)}">`
 }
+
+function prepareNavigation() {
+    const nav = $('nav'),
+        settings = $('nav a[data-page=settings]');
+    if (!nav || !settings) return;
+    settings.innerHTML = '<b>00</b> Impostazioni';
+    nav.insertBefore(settings, $('nav a[data-page=sources]'));
+    const labels = {
+        sources: '<b>01</b> Fonti ed evidenze',
+        review: '<b>02</b> Review + consolida',
+        ai: '<b>03</b> AI (opzionale)',
+        temporal: '<b>04</b> Temporalità (opzionale)',
+        knowledge: '<b>05</b> Conoscenza',
+        exports: '<b>06</b> Output e confronto'
+    };
+    for (const [name, html] of Object.entries(labels)) {
+        const link = $(`nav a[data-page=${name}]`);
+        if (link) link.innerHTML = html
+    }
+}
+
+function renderWorkspaceControls() {
+    if (!data.workspaces) return;
+    let box = $('#workspace-switcher');
+    if (!box) {
+        $('.aside-bottom').insertAdjacentHTML('beforebegin', `<div id="workspace-switcher" class="workspace-switcher"><label for="workspace-select">Workspace attivo</label><select id="workspace-select"></select>${button('Gestisci workspace','workspace-manage')}</div>`);
+        box = $('#workspace-switcher')
+    }
+    const select = $('#workspace-select');
+    select.innerHTML = data.workspaces.items.map(w => `<option value="${esc(w.id)}" ${w.id===data.workspaces.active_id?'selected':''}>${esc(w.name)}${w.available?'':' · non disponibile'}</option>`).join('');
+    select.onchange = async () => {
+        if (select.value === data.workspaces.active_id) return;
+        const result = await workspaceAction('switch', {
+            id: select.value
+        });
+        if (result) location.hash = 'overview'
+    };
+    const active = data.workspaces.items.find(w => w.id === data.workspaces.active_id);
+    $('#workspace-path').textContent = active?.path || data.status.workspace
+}
+
+function decoratePage() {
+    if (page !== 'overview') return;
+    const pipeline = $('[data-action=pipeline]');
+    if (pipeline) pipeline.textContent = 'Pipeline rapida';
+    const flow = $('.flow');
+    if (flow) flow.insertAdjacentHTML('afterend', `<div class="hint"><strong>Il passaggio 02 è il gate ricorrente.</strong> Dopo l’AI (03) e dopo la temporalità (04) torna sempre a <a href="#review">Review + consolida</a>: decisione → merge → riconcilia. La pipeline rapida comprime parsing, derivazione, policy automatiche, merge e riconciliazione; per un test leggibile usa i passaggi espliciti.</div>`)
+}
+
+async function workspaceAction(operation, args = {}) {
+    if (busy) {
+        toast('È già in corso un’operazione.');
+        return
+    }
+    busy = true;
+    $('#job-banner').hidden = false;
+    $('#job-banner').textContent = 'Cambio workspace…';
+    try {
+        const result = await api('workspaces', {
+            method: 'POST',
+            body: {
+                operation,
+                ...args
+            }
+        });
+        toast('Workspace aggiornato.');
+        await refresh();
+        return result
+    } catch (e) {
+        toast(errorText(e));
+        show('Workspace non aggiornato', `<p>${esc(errorText(e))}</p>`)
+    } finally {
+        busy = false;
+        $('#job-banner').hidden = true
+    }
+}
 const views = {
     overview() {
         const c = data.status.counts;
         const stages = [
-            ['ACQUISIRE', 'Fonti immutabili', 'Ogni modifica del file crea una revisione.'],
-            ['OSSERVARE', 'Evidenze localizzate', 'Parser e Docling mostrano ciò che contiene la fonte.'],
-            ['PROPORRE', 'Candidati', 'Estrazione tecnica e AI formulano proposte.'],
-            ['DECIDERE', 'Review', 'Conferma, lascia in attesa o rifiuta.'],
-            ['CONSOLIDARE', 'Fatti e relazioni', 'Solo le proposte approvate entrano nella conoscenza.'],
-            ['ESPORTARE', 'DSL e grafo', 'Risultati con supporti, conflitti e intervalli temporali.']
+            ['00', 'Configura', 'Identità del revisore, policy, dialetto SQL, esclusioni e budget.'],
+            ['01', 'Acquisisci e analizza', 'Importa le fonti, analizzale e genera candidati deterministici.'],
+            ['02', 'Review + consolida', 'Gate ricorrente: decidi, esegui merge e poi riconcilia.'],
+            ['03 → 02', 'AI opzionale', 'Prepara package, importa JSONL e torna alla review.'],
+            ['04 → 02', 'Temporalità opzionale', 'Estrai/proponi intervalli e torna alla review.'],
+            ['05 → 06', 'Verifica ed esporta', 'Controlla provenienza/conflitti, poi crea snapshot e grafi.']
         ];
         return `<p class="lead">Segui ogni informazione dal documento originale alla conoscenza accettata. Ogni passaggio conserva la propria evidenza.</p><div class="stats">${[['Fonti attive',data.sources.filter(s=>s.status==='active').length,'File con revisioni verificabili'],['Evidenze',c.evidence,'Testo e strutture estratte'],['In attesa',c.review_states.pending||0,'Proposte ancora da valutare'],['Consolidati',c.effective_objects,'Fatti, relazioni e intervalli effettivi']].map(([label,n,note])=>`<div class="stat"><div class="number">${n}</div><div class="label">${label}</div><div class="note">${note}</div></div>`).join('')}</div><div class="grid"><div><div class="card"><div class="card-head"><h2>Il percorso dei dati</h2>${badge('info','6 passaggi')}</div><div class="flow">${stages.map(([n,t,p])=>`<div class="flow-step"><span>${n}</span><strong>${t}</strong><p>${p}</p></div>`).join('')}</div><div class="actions">${button('Elabora il corpus','pipeline','','primary')}<a href="#sources">Gestisci le fonti →</a></div><p class="small muted">Esegue parsing, derivazione e consolidamento. La review automatica usa solo le policy che hai abilitato; le altre proposte restano in attesa.</p></div>${c.confirmed_unmerged?`<div class="hint warn"><strong>${c.confirmed_unmerged} proposte confermate attendono il merge.</strong> ${button('Consolida ora','merge')}</div>`:''}${c.open_reconciliations?`<div class="hint warn">${c.open_reconciliations} revisioni della conoscenza da riconciliare. ${button('Riconcilia','reconcile')}</div>`:''}</div><div><div class="card"><div class="eyebrow">LABORATORIO VEGA</div><h2>Un caso completo, sei fonti</h2><p class="muted">Schema Oracle, procedura e trigger, Forms, log, manuale e matrice Excel. Un percorso per verificare l’intera applicazione.</p>${button('Carica il laboratorio','vega')}<div class="hint">Il manuale indica P1 = 30 minuti. La matrice indica P1 = 1 ora. L’interpretazione deve conservare entrambe le fonti e rendere visibile la discordanza.</div></div><div class="card"><h2>Stato della review</h2><p>${data.config.config.automatic_policies.length?`${data.config.config.automatic_policies.length} policy tecniche abilitate.`:'Review manuale: nessuna policy automatica abilitata.'}</p><a href="#settings">Configura il profilo →</a></div></div></div>`
     },
@@ -208,6 +286,30 @@ function bindFilters() {
 async function clickAction(a) {
     const op = a.dataset.action,
         id = a.dataset.id;
+    if (op === 'workspace-manage') {
+        const w = data.workspaces;
+        show('Workspace', `<p class="muted">Ogni workspace conserva un registry, corpus, revisioni, review, package AI, snapshot e log indipendenti. Dimenticare una voce non cancella nessun file.</p><div class="item-list">${w.items.map(x=>`<div class="item"><div class="item-head"><strong>${esc(x.name)}</strong>${x.active?badge('success','Attivo'):badge(x.available?'info':'error',x.available?'Disponibile':'Non disponibile')}</div><p class="mono">${esc(x.path)}</p>${x.active?'':`<div class="actions">${button('Dimentica','workspace-forget',`data-id="${x.id}"`)}</div>`}</div>`).join('')}</div><div class="card"><h3>Crea o registra</h3>${formField('workspace-name','Nome visualizzato (opzionale)')}${formField('workspace-path-input','Percorso assoluto del workspace')}<div class="actions">${button('Crea nuovo e attiva','workspace-create','','primary')}${button('Registra esistente e attiva','workspace-register')}</div><p class="small muted">Crea nuovo accetta solo una directory assente o vuota. Registra esistente richiede project.json e registry.sqlite3.</p></div>`);
+        return
+    }
+    if (op === 'workspace-create' || op === 'workspace-register') {
+        const result = await workspaceAction(op === 'workspace-create' ? 'create' : 'register', {
+            name: $('#workspace-name').value,
+            path: $('#workspace-path-input').value,
+            activate: true
+        });
+        if (result) {
+            $('#detail').close();
+            location.hash = 'overview'
+        }
+        return
+    }
+    if (op === 'workspace-forget') {
+        const result = await workspaceAction('forget', {
+            id
+        });
+        if (result) $('#detail').close();
+        return
+    }
     const simple = ['vega', 'pipeline', 'parse', 'derive', 'auto_review', 'merge', 'reconcile', 'scan', 'temporal_extract', 'package_all', 'snapshot'];
     if (simple.includes(op)) {
         await action(op);
@@ -373,6 +475,7 @@ try {
     token = b.token;
     $('#version').textContent = 'v' + b.version;
     $('#workspace-path').textContent = b.workspace;
+    prepareNavigation();
     await refresh();
     route()
 } catch (e) {

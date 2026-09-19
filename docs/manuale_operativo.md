@@ -6,17 +6,24 @@ Usare Python 3.12 a 64 bit. Eseguire `installa.cmd` e poi `avvia.cmd` su Windows
 
 Il workspace predefinito è la cartella `workspace` accanto agli script. Contiene `project.json`, database `registry.sqlite3`, corpus, copie immutabili, artefatti, pacchetti AI e log. Conservare **l'intero workspace** per mantenere revisioni, decisioni e provenienza. Per copiarlo a freddo, arrestare il server; con SQLite attivo non copiare soltanto il file `.sqlite3`, perché possono esistere file WAL associati.
 
+La UI può registrare più workspace indipendenti. Il registry locale `.dslm3-workspaces.json` vive accanto al workspace predefinito e contiene solo nome/percorso delle directory registrate: i dati applicativi restano dentro ogni workspace. Un server ha un solo workspace attivo alla volta; lo switch è rifiutato durante job queued/running. **Dimentica** rimuove solo la voce dal registry e non cancella la directory.
+
 Le dipendenze richiedono Internet durante l'installazione. PDF e immagini possono scaricare modelli alla prima conversione. I normali file del corpus sono elaborati localmente; l'app non avvia richieste a modelli AI esterni. Un cambio di macchina può richiedere nuovi download dei modelli. I log rendono visibili problemi di rete o memoria del worker.
 
 ## 2. Il primo percorso: Vega
 
-1. In **Panoramica**, premere **Carica il laboratorio**: vengono acquisite sei fonti con gli stessi byte della baseline.
-2. In **Impostazioni e attività**, impostare un identificativo stabile del revisore. Il default `local-user` può essere sostituito con il proprio nome operativo.
-3. Scegliere **Profilo conservativo** se si desidera applicare le policy tecniche nominate. Lasciare **Tutto manuale** per valutare ogni proposta.
-4. In Panoramica premere **Elabora il corpus**. L'app esegue parsing, derivazione, policy eventualmente abilitate, merge e riconciliazione. Senza policy, le proposte rimangono pending.
-5. In **Fonti ed evidenze**, usare **Esplora** per vedere testo, struttura, localizzatori, stato e diagnostica.
-6. In **Proposte e review**, valutare le proposte rimaste in attesa. Eseguire **Merge delle confermate**, quindi **Riconcilia** dopo eventuali revoche o correzioni.
-7. Aprire **Conoscenza** e **Output e confronto** per esportare uno snapshot.
+1. In **Impostazioni (00)** impostare un identificativo stabile del revisore, scegliere **Tutto manuale** oppure **Profilo conservativo**, e verificare dialetto SQL/esclusioni prima dell'acquisizione.
+2. In **Panoramica** premere **Carica il laboratorio**: vengono acquisite sei fonti con gli stessi byte della baseline.
+3. In **Fonti ed evidenze (01)** premere **Analizza le fonti**, ispezionare almeno un **Esplora**/report parser, quindi premere **Genera proposte**.
+4. In **Review + consolida (02)** valutare i pending (o applicare le sole policy abilitate), quindi eseguire **Merge delle confermate** e **Riconcilia**.
+5. In **Interpretazione AI (03)**, se desiderata, calcolare i piani, creare/scaricare i package, farli elaborare esternamente e reimportare le risposte JSONL. Ogni risposta torna pending.
+6. Tornare a **Review + consolida (02)**: review → merge → riconcilia per i candidati AI.
+7. In **Temporalità (04)**, se necessaria, estrarre segnali e creare proposte/propagazioni esplicite. Gli intervalli restano pending.
+8. Tornare ancora a **Review + consolida (02)**: review → merge → riconcilia per le proposte temporali.
+9. In **Conoscenza (05)** controllare fatti, relazioni, supporti e conflitti con **Traccia**.
+10. In **Output e confronto (06)** creare normalmente uno snapshot profilo 2 e scaricare JSON/YAML/Markdown o GEXF.
+
+La numerazione è quindi intenzionalmente a ciclo: **00 → 01 → 02 → 03 → 02 → 04 → 02 → 05 → 06**. Il passaggio 02 è il gate ricorrente. La **Pipeline rapida** in Panoramica resta una scorciatoia che comprime parse → derive → auto-review → merge → reconcile; durante test e diagnosi è preferibile il percorso esplicito.
 
 Il laboratorio automatizzato `python -m dslm3.lab --workspace ...` aggiunge risposte AI controllate e verifica l'intero round-trip. La sola acquisizione Vega nella UI non inventa un'interpretazione AI: i pacchetti devono essere elaborati esternamente e reimportati, oppure si può eseguire il laboratorio dichiaratamente simulato.
 
@@ -109,5 +116,6 @@ La documentazione API è disponibile su `/api/docs`. Le scritture richiedono il 
 - **Confermata ma assente nel DSL:** eseguire merge, controllare fonte/revisione/interpretazione corrente e poi reconcile.
 - **Package obsoleto:** ricalcolare il piano e generare il package sulle evidenze correnti.
 - **Errore dopo cambio file:** vedere Fonte → Esplora → Report parser e Impostazioni → Registro delle operazioni.
+- **Ripartire da zero per un test:** preferire **Gestisci workspace → Crea nuovo e attiva**. Per azzerare manualmente quello predefinito, arrestare il server, eliminare il contenuto della directory workspace (inclusi eventuali `registry.sqlite3-wal`/`registry.sqlite3-shm`), riavviare e ricaricare Vega. Non cancellare a server attivo.
 
-Non aprire lo stesso workspace contemporaneamente con processi UI/CLI che eseguono acquisizioni o configurazioni: la UI serializza i job, mentre i file del corpus/configurazione non hanno un lock globale tra processi. Le review SQLite mantengono i propri controlli transazionali.
+Non aprire lo stesso workspace contemporaneamente con processi UI/CLI che eseguono acquisizioni o configurazioni: la UI serializza i job, mentre i file del corpus/configurazione non hanno un lock globale tra processi. Le review SQLite mantengono i propri controlli transazionali. Workspace diversi possono essere registrati nello stesso server, ma uno solo è attivo per volta.

@@ -48,6 +48,8 @@ with sync_playwright() as p:
     page.goto(base)
     expect(page.locator("h1")).to_have_text("Panoramica")
     expect(page.get_by_role("button", name="Carica il laboratorio")).to_be_visible()
+    expect(page.locator("#workspace-select")).to_be_visible()
+    expect(page.get_by_text("Il passaggio 02 è il gate ricorrente.")).to_be_visible()
 
     def wait_job(count):
         deadline = time.monotonic() + 180
@@ -69,7 +71,7 @@ with sync_playwright() as p:
     page.locator("nav a[data-page=settings]").click()
     run(page.get_by_role("button", name="Profilo conservativo", exact=True))
     page.locator("nav a[data-page=overview]").click()
-    run(page.get_by_role("button", name="Elabora il corpus"))
+    run(page.get_by_role("button", name="Pipeline rapida"))
     page.screenshot(path=reports / "ui_overview.png", full_page=True)
     visited = []
     for name in [
@@ -158,7 +160,7 @@ with sync_playwright() as p:
                 "status": "passed",
                 "pages": visited,
                 "js_errors": errors,
-                "flow": "Vega -> parse/derive/policy/merge -> two routes -> AI JSONL -> review -> merge -> snapshot -> download -> GEXF",
+                "flow": "Vega -> pipeline rapida -> AI JSONL -> review/merge -> snapshot/download/GEXF; navigazione esplicita 00-06 e selettore workspace verificati",
                 "viewports": ["1440x1080", "390x844"],
             },
             indent=2,

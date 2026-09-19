@@ -35,3 +35,15 @@ Le prove correnti sono identificate in `rapporto_finale.md`; `reports/precedente
 7. Eventi successivi non costituiscono automaticamente conflitti di stato.
 8. Nessuna promessa di riconoscere con certezza ogni dialetto/versione: catalogo reale, override esplicito, diagnostica dell'incertezza e test dei dialetti dichiarati.
 9. Vietato dichiarare assenza universale di bug: il report finale deve distinguere test eseguiti e limiti residui.
+
+## Step 09 — chiarezza workflow UI e workspace multipli (modifica 2026-09-18)
+
+Stato iniziale della modifica: **patch preparata, gate da rieseguire**. Le prove 3.0.0 restano storiche finché la nuova versione non viene verificata.
+
+- [ ] UI: rendere esplicito il percorso `00 → 01 → 02 → 03 → 02 → 04 → 02 → 05 → 06`, con 02 come gate ricorrente e la pipeline completa dichiarata come scorciatoia.
+- [ ] Workspace: registry locale, create/register/switch/forget non distruttivo, isolamento dei dati, switch bloccato durante job attivi.
+- [ ] Regressioni: `tests/test_workspaces.py`, `tests/test_web.py`, suite completa.
+- [ ] Browser: navigazione, guida E2E e selettore workspace verificati in Chromium desktop/mobile.
+- [ ] Vega: nuovo workspace, laboratorio 19/19 o spiegazione documentata di ogni variazione legittima.
+- [ ] Documentazione: README, manuale, architettura, limiti, diario, protocollo di ripresa e START_HERE allineati.
+- [ ] Release: solo dopo i gate, aggiornare rapporto finale/versione se previsto e rigenerare integralmente `release_manifest.json` con nuovi hash/conteggi; non riusare i 79 test come prova della modifica.

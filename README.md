@@ -7,7 +7,7 @@ Applicazione locale per trasformare file tecnici e documentali in conoscenza ver
 1. Copia tutta questa cartella sul PC, conservandone la struttura. Serve **Python 3.12 a 64 bit**.
 2. Esegui **`installa.cmd`** una volta. La prima installazione richiede Internet e diversi GB liberi per le dipendenze.
 3. Esegui **`avvia.cmd`**. Si apre `http://127.0.0.1:8765`.
-4. In Panoramica scegli **Carica il laboratorio**. In Impostazioni scegli **Profilo conservativo**, poi **Elabora il corpus**.
+4. In **Impostazioni (00)** scegli identità/policy; in **Fonti (01)** carica Vega o il tuo corpus. Il percorso consigliato è esplicito: analizza → genera proposte → **Review + consolida (02)**. AI (03) e Temporalità (04) sono rami opzionali che ritornano sempre al gate 02.
 
 L'esecuzione Windows non è stata provata in questo ambiente Linux. Gli script usano un ambiente virtuale nel progetto, percorsi tra virgolette e lo stesso Python 3.12 richiesto dal pacchetto. Non servono WSL, Docker, Node o un account AI.
 
@@ -25,6 +25,12 @@ bash avvia.sh
 ```
 
 Su Windows sostituire `.venv/bin/python` con `.venv\Scripts\python.exe`. Per fermare il server usare Ctrl+C nella console. Il workspace rimane persistente.
+
+## Workspace multipli e test pulito
+
+La UI registra più workspace indipendenti in `.dslm3-workspaces.json`, accanto al workspace predefinito. Il selettore laterale permette di creare un workspace vuoto, registrare un workspace DSLM3 esistente, cambiare workspace e dimenticare una voce senza cancellarne i file. Un singolo server ha un solo workspace attivo per volta e non consente lo switch mentre un job è queued/running.
+
+Per un test davvero pulito è preferibile creare un **nuovo workspace** dalla UI. In alternativa, a server fermo, si può svuotare la directory del workspace: al riavvio DSLM3 ricrea `project.json`, `registry.sqlite3` e le directory runtime; poi **Carica il laboratorio** riacquisisce Vega.
 
 ## Cosa aspettarsi
 
@@ -44,6 +50,7 @@ La review manuale è il default. Il profilo conservativo abilita soltanto policy
 - [Architettura](docs/architettura.md)
 - [Obiettivi e gate](docs/obiettivi.md)
 - [Diario tecnico](docs/diario_tecnico.md)
+- [Protocollo di ripresa corrente](docs/protocollo_ripresa.md)
 - [Rapporto di consegna](docs/rapporto_finale.md)
 - [Avvisi sul codice riutilizzato](THIRD_PARTY_NOTICES.md)
 

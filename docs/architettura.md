@@ -36,6 +36,12 @@ Una sola API applicativa serve UI e CLI. Un solo worker ha il contratto parser c
 
 La parità è funzionale sugli scenari verificati, non sintattica per CLI/ID/schema o migrazione dei workspace v1. I limiti effettivi sono in `formati_e_limiti.md`; le prove in `reports` e `tests`.
 
+## Workspace multipli
+
+Il server mantiene un registry locale di percorsi (`.dslm3-workspaces.json`) separato dai dati applicativi. Ogni voce punta a un workspace completo con il proprio `project.json`, SQLite, corpus, oggetti, artefatti, AI e log. `ActiveApplication` espone al web una sola applicazione corrente; lo switch sostituisce l'istanza attiva senza unire database o stati.
+
+Il registry non contiene conoscenza e **Dimentica workspace** non rimuove file. La creazione richiede una directory assente o vuota; la registrazione di un workspace esistente richiede almeno `project.json` e `registry.sqlite3`. Lo switch è vietato mentre esistono job queued/running; ogni job cattura l'istanza applicativa e il percorso workspace al momento dell'accodamento.
+
 ## Protezioni e atomicità
 
 Percorsi relativi validati, copie hashate, XML senza entity esterne, macro/link non eseguiti. Il web richiede host/origin locale e token sulle scritture. I job UI sono serializzati. SQLite usa WAL, foreign key, transazioni immediate e trigger append-only sui registri immutabili. Un batch candidato non valido non importa righe parziali. La configurazione e i file del corpus richiedono un solo processo mutante per workspace; non è implementato un lock interprocesso globale per l'acquisizione.

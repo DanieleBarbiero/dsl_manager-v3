@@ -1,0 +1,1992 @@
+{
+  "conflicts": [],
+  "entities": [
+    {
+      "canonical_name": "articolo",
+      "facts": [
+        {
+          "assertion_type": "explicit",
+          "confidence": "high",
+          "fact_id": "FACT_25b6e29b10a6339e4728a071",
+          "fact_type": "technical",
+          "intervals": [],
+          "property_name": "object_type",
+          "property_value": "table",
+          "status": "active"
+        }
+      ],
+      "name": "ARTICOLO"
+    },
+    {
+      "canonical_name": "articolo.codice",
+      "facts": [
+        {
+          "assertion_type": "explicit",
+          "confidence": "high",
+          "fact_id": "FACT_6b59d49cf8ec835c4531a73a",
+          "fact_type": "technical",
+          "intervals": [],
+          "property_name": "definition",
+          "property_value": {
+            "constraints": [
+              "NOT NULL"
+            ],
+            "datatype": "VARCHAR2(30)",
+            "nullable": false
+          },
+          "status": "active"
+        }
+      ],
+      "name": "ARTICOLO.CODICE"
+    },
+    {
+      "canonical_name": "articolo.descrizione",
+      "facts": [
+        {
+          "assertion_type": "explicit",
+          "confidence": "high",
+          "fact_id": "FACT_d88bcf16409dfced0932d8bb",
+          "fact_type": "technical",
+          "intervals": [],
+          "property_name": "definition",
+          "property_value": {
+            "constraints": [
+              "NOT NULL"
+            ],
+            "datatype": "VARCHAR2(200)",
+            "nullable": false
+          },
+          "status": "active"
+        }
+      ],
+      "name": "ARTICOLO.DESCRIZIONE"
+    },
+    {
+      "canonical_name": "articolo.id_articolo",
+      "facts": [
+        {
+          "assertion_type": "explicit",
+          "confidence": "high",
+          "fact_id": "FACT_f2cea01308f6dd95a5c32438",
+          "fact_type": "technical",
+          "intervals": [],
+          "property_name": "definition",
+          "property_value": {
+            "constraints": [
+              "PRIMARY KEY"
+            ],
+            "datatype": "NUMBER",
+            "nullable": true
+          },
+          "status": "active"
+        }
+      ],
+      "name": "ARTICOLO.ID_ARTICOLO"
+    },
+    {
+      "canonical_name": "articolo.qta_disponibile",
+      "facts": [
+        {
+          "assertion_type": "explicit",
+          "confidence": "high",
+          "fact_id": "FACT_ec48011491fe6bf5b19a6b93",
+          "fact_type": "technical",
+          "intervals": [],
+          "property_name": "definition",
+          "property_value": {
+            "constraints": [
+              "NOT NULL"
+            ],
+            "datatype": "NUMBER",
+            "nullable": false
+          },
+          "status": "active"
+        }
+      ],
+      "name": "ARTICOLO.QTA_DISPONIBILE"
+    },
+    {
+      "canonical_name": "event:ev_06bc0cc1cabd6127de1482ee",
+      "facts": [
+        {
+          "assertion_type": "observed",
+          "confidence": "high",
+          "fact_id": "FACT_4f20889182b684ec25e2e18e",
+          "fact_type": "technical",
+          "intervals": [],
+          "property_name": "occurrence",
+          "property_value": {
+            "attributes": {
+              "articolo": "RIC-118",
+              "priorita": "P2",
+              "richiesta": "RV-1002"
+            },
+            "component": "magazzino",
+            "event_kind": "missing",
+            "level": "WARNING",
+            "message": "missing richiesta=RV-1002 articolo=RIC-118 priorita=P2",
+            "occurrence_line": 3,
+            "timestamp": "2026-09-01 08:00:02"
+          },
+          "status": "active"
+        }
+      ],
+      "name": "event:EV_06bc0cc1cabd6127de1482ee"
+    },
+    {
+      "canonical_name": "event:ev_3c9fabdd60da328e93640e3c",
+      "facts": [
+        {
+          "assertion_type": "observed",
+          "confidence": "high",
+          "fact_id": "FACT_8f64de5391b69c2a864060f3",
+          "fact_type": "technical",
+          "intervals": [],
+          "property_name": "occurrence",
+          "property_value": {
+            "attributes": {
+              "articolo": "RIC-774",
+              "quantita": "2",
+              "richiesta": "RV-1001"
+            },
+            "component": "scanner",
+            "event_kind": "processed",
+            "level": "INFO",
+            "message": "Processed richiesta=RV-1001 articolo=RIC-774 quantita=2",
+            "occurrence_line": 2,
+            "timestamp": "2026-09-01 08:00:01"
+          },
+          "status": "active"
+        }
+      ],
+      "name": "event:EV_3c9fabdd60da328e93640e3c"
+    },
+    {
+      "canonical_name": "event:ev_7db2a2072a4aadd2d37305ef",
+      "facts": [
+        {
+          "assertion_type": "observed",
+          "confidence": "high",
+          "fact_id": "FACT_d4dd0c90ca76836288ab92c0",
+          "fact_type": "technical",
+          "intervals": [],
+          "property_name": "occurrence",
+          "property_value": {
+            "attributes": {
+              "priorita": "P1",
+              "richiesta": "RV-1001"
+            },
+            "component": "scanner",
+            "event_kind": "start",
+            "level": "INFO",
+            "message": "Start richiesta=RV-1001 priorita=P1",
+            "occurrence_line": 1,
+            "timestamp": "2026-09-01 08:00:00"
+          },
+          "status": "active"
+        }
+      ],
+      "name": "event:EV_7db2a2072a4aadd2d37305ef"
+    },
+    {
+      "canonical_name": "event:ev_a3e973b29852e1ff80cbef12",
+      "facts": [
+        {
+          "assertion_type": "observed",
+          "confidence": "high",
+          "fact_id": "FACT_47982fec0b929efbb3919be9",
+          "fact_type": "technical",
+          "intervals": [],
+          "property_name": "occurrence",
+          "property_value": {
+            "attributes": {
+              "esito": "inoltrata",
+              "richiesta": "RV-1001"
+            },
+            "component": "scanner",
+            "event_kind": "end",
+            "level": "INFO",
+            "message": "End richiesta=RV-1001 esito=inoltrata",
+            "occurrence_line": 5,
+            "timestamp": "2026-09-01 08:00:04"
+          },
+          "status": "active"
+        }
+      ],
+      "name": "event:EV_a3e973b29852e1ff80cbef12"
+    },
+    {
+      "canonical_name": "event:ev_d770f3a7d8f01853e8acfcfb",
+      "facts": [
+        {
+          "assertion_type": "observed",
+          "confidence": "high",
+          "fact_id": "FACT_0ec4edb36a4a49c0f56c829c",
+          "fact_type": "technical",
+          "intervals": [],
+          "property_name": "occurrence",
+          "property_value": {
+            "attributes": {
+              "articolo": "RIC-118",
+              "disponibilita": "parziale",
+              "richiesta": "RV-1002"
+            },
+            "component": "magazzino",
+            "event_kind": "processed",
+            "level": "INFO",
+            "message": "Processed richiesta=RV-1002 articolo=RIC-118 disponibilita=parziale",
+            "occurrence_line": 4,
+            "timestamp": "2026-09-01 08:00:03"
+          },
+          "status": "active"
+        }
+      ],
+      "name": "event:EV_d770f3a7d8f01853e8acfcfb"
+    },
+    {
+      "canonical_name": "frm_richiesta",
+      "facts": [
+        {
+          "assertion_type": "explicit",
+          "confidence": "high",
+          "fact_id": "FACT_26c5936363b4b0f40fe7702b",
+          "fact_type": "technical",
+          "intervals": [],
+          "property_name": "definition",
+          "property_value": {
+            "object_type": "form",
+            "title": "Richiesta ricambio"
+          },
+          "status": "active"
+        }
+      ],
+      "name": "FRM_RICHIESTA"
+    },
+    {
+      "canonical_name": "frm_richiesta.btn_prenota",
+      "facts": [
+        {
+          "assertion_type": "explicit",
+          "confidence": "high",
+          "fact_id": "FACT_f3583e29a5d1a01c5e225ef6",
+          "fact_type": "technical",
+          "intervals": [],
+          "property_name": "definition",
+          "property_value": {
+            "column": "BTN_PRENOTA",
+            "datatype": null,
+            "form": "FRM_RICHIESTA",
+            "label": "Prenota",
+            "object_type": "button",
+            "required": false,
+            "table": null
+          },
+          "status": "active"
+        }
+      ],
+      "name": "FRM_RICHIESTA.BTN_PRENOTA"
+    },
+    {
+      "canonical_name": "frm_richiesta.id_articolo",
+      "facts": [
+        {
+          "assertion_type": "explicit",
+          "confidence": "high",
+          "fact_id": "FACT_5b9e24c62742a700f42c91a3",
+          "fact_type": "technical",
+          "intervals": [],
+          "property_name": "definition",
+          "property_value": {
+            "column": "ID_ARTICOLO",
+            "datatype": "NUMBER",
+            "form": "FRM_RICHIESTA",
+            "label": null,
+            "object_type": "field",
+            "required": true,
+            "table": "RICHIESTA_RICAMBIO"
+          },
+          "status": "active"
+        }
+      ],
+      "name": "FRM_RICHIESTA.ID_ARTICOLO"
+    },
+    {
+      "canonical_name": "frm_richiesta.id_richiesta",
+      "facts": [
+        {
+          "assertion_type": "explicit",
+          "confidence": "high",
+          "fact_id": "FACT_66aba082967feb2781188828",
+          "fact_type": "technical",
+          "intervals": [],
+          "property_name": "definition",
+          "property_value": {
+            "column": "ID_RICHIESTA",
+            "datatype": "NUMBER",
+            "form": "FRM_RICHIESTA",
+            "label": null,
+            "object_type": "field",
+            "required": true,
+            "table": "RICHIESTA_RICAMBIO"
+          },
+          "status": "active"
+        }
+      ],
+      "name": "FRM_RICHIESTA.ID_RICHIESTA"
+    },
+    {
+      "canonical_name": "frm_richiesta.priorita",
+      "facts": [
+        {
+          "assertion_type": "explicit",
+          "confidence": "high",
+          "fact_id": "FACT_4404add0794b18fa14895cc8",
+          "fact_type": "technical",
+          "intervals": [],
+          "property_name": "definition",
+          "property_value": {
+            "column": "PRIORITA",
+            "datatype": "VARCHAR2",
+            "form": "FRM_RICHIESTA",
+            "label": null,
+            "object_type": "field",
+            "required": true,
+            "table": "RICHIESTA_RICAMBIO"
+          },
+          "status": "active"
+        }
+      ],
+      "name": "FRM_RICHIESTA.PRIORITA"
+    },
+    {
+      "canonical_name": "frm_richiesta.richiesta_ricambio",
+      "facts": [
+        {
+          "assertion_type": "explicit",
+          "confidence": "high",
+          "fact_id": "FACT_a9045e1d081c5578ae7af2af",
+          "fact_type": "technical",
+          "intervals": [],
+          "property_name": "definition",
+          "property_value": {
+            "object_type": "block",
+            "table": "RICHIESTA_RICAMBIO"
+          },
+          "status": "active"
+        }
+      ],
+      "name": "FRM_RICHIESTA.RICHIESTA_RICAMBIO"
+    },
+    {
+      "canonical_name": "frm_richiesta.stato",
+      "facts": [
+        {
+          "assertion_type": "explicit",
+          "confidence": "high",
+          "fact_id": "FACT_0d43cfa8a460dda6f63a8d62",
+          "fact_type": "technical",
+          "intervals": [],
+          "property_name": "definition",
+          "property_value": {
+            "column": "STATO",
+            "datatype": "VARCHAR2",
+            "form": "FRM_RICHIESTA",
+            "label": null,
+            "object_type": "field",
+            "required": true,
+            "table": "RICHIESTA_RICAMBIO"
+          },
+          "status": "active"
+        }
+      ],
+      "name": "FRM_RICHIESTA.STATO"
+    },
+    {
+      "canonical_name": "magazzino",
+      "facts": [],
+      "name": "magazzino"
+    },
+    {
+      "canonical_name": "matrice_priorita_vega_2026.xlsx",
+      "facts": [
+        {
+          "assertion_type": "explicit",
+          "confidence": "high",
+          "fact_id": "FACT_0781d752a17d9dff0e9fdce8",
+          "fact_type": "technical",
+          "intervals": [],
+          "property_name": "definition",
+          "property_value": {
+            "object_type": "excel_workbook"
+          },
+          "status": "active"
+        }
+      ],
+      "name": "matrice_priorita_vega_2026.xlsx"
+    },
+    {
+      "canonical_name": "matrice_priorita_vega_2026.xlsx::priorita",
+      "facts": [
+        {
+          "assertion_type": "explicit",
+          "confidence": "high",
+          "fact_id": "FACT_32788e405867256b78be1f00",
+          "fact_type": "technical",
+          "intervals": [],
+          "property_name": "definition",
+          "property_value": {
+            "dimensions": {
+              "declared": null,
+              "max_column": 4,
+              "max_row": 5,
+              "min_column": 1,
+              "min_row": 1
+            },
+            "object_type": "excel_sheet",
+            "sheet_name": "Priorita",
+            "visibility": "visible"
+          },
+          "status": "active"
+        }
+      ],
+      "name": "matrice_priorita_vega_2026.xlsx::Priorita"
+    },
+    {
+      "canonical_name": "matrice_priorita_vega_2026.xlsx::priorita::a1:d5",
+      "facts": [
+        {
+          "assertion_type": "explicit",
+          "confidence": "high",
+          "fact_id": "FACT_4591420b9767fe5b1bfd9863",
+          "fact_type": "technical",
+          "intervals": [],
+          "property_name": "definition",
+          "property_value": {
+            "detector": {
+              "id": "connected_non_empty_cells",
+              "version": "1"
+            },
+            "end_cell": "D5",
+            "fragment_hash": "6471cb5fe36d722903ec7a908204528e9bad36ba3533a32428302a32c7d640ec",
+            "fragment_type": "excel_region",
+            "object_type": "excel_region",
+            "region_hash": "20aada49828c65a87d0bf8b42c319b780ed4b87f57b299507572f9797efcf4fe",
+            "region_kind": "connected_cells",
+            "sequence": 1,
+            "sheet": {
+              "index": 0,
+              "name": "Priorita"
+            },
+            "start_cell": "A1"
+          },
+          "status": "active"
+        }
+      ],
+      "name": "matrice_priorita_vega_2026.xlsx::Priorita::A1:D5"
+    },
+    {
+      "canonical_name": "prc_prenota_articolo",
+      "facts": [
+        {
+          "assertion_type": "explicit",
+          "confidence": "high",
+          "fact_id": "FACT_febfc6340b8da909f73c5618",
+          "fact_type": "technical",
+          "intervals": [],
+          "property_name": "object_type",
+          "property_value": "procedure",
+          "status": "active"
+        }
+      ],
+      "name": "PRC_PRENOTA_ARTICOLO"
+    },
+    {
+      "canonical_name": "prenotazione articolo",
+      "facts": [
+        {
+          "assertion_type": "explicit",
+          "confidence": "high",
+          "fact_id": "FACT_23539586762556a31ff3c199",
+          "fact_type": "inventory_rule",
+          "intervals": [],
+          "property_name": "effetto_su_disponibilita",
+          "property_value": "riduzione",
+          "status": "active"
+        }
+      ],
+      "name": "Prenotazione articolo"
+    },
+    {
+      "canonical_name": "raise_application_error",
+      "facts": [],
+      "name": "RAISE_APPLICATION_ERROR"
+    },
+    {
+      "canonical_name": "regole correnti",
+      "facts": [
+        {
+          "assertion_type": "explicit",
+          "confidence": "high",
+          "fact_id": "FACT_f483eb9d3416041f61859b87",
+          "fact_type": "effective_date",
+          "intervals": [],
+          "property_name": "decorrenza",
+          "property_value": "2026-09-01",
+          "status": "active"
+        }
+      ],
+      "name": "Regole correnti"
+    },
+    {
+      "canonical_name": "richiesta p1",
+      "facts": [
+        {
+          "assertion_type": "explicit",
+          "confidence": "high",
+          "fact_id": "FACT_af42f259eb9cfc913ff01204",
+          "fact_type": "service_level",
+          "intervals": [],
+          "property_name": "tempo_presa_in_carico",
+          "property_value": "30 minuti",
+          "status": "active"
+        }
+      ],
+      "name": "Richiesta P1"
+    },
+    {
+      "canonical_name": "richiesta ricambio",
+      "facts": [
+        {
+          "assertion_type": "explicit",
+          "confidence": "high",
+          "fact_id": "FACT_86ad33c6af81a727bdba30e2",
+          "fact_type": "state_transition_rule",
+          "intervals": [],
+          "property_name": "prerequisito_chiusura",
+          "property_value": "CONSEGNATA",
+          "status": "active"
+        }
+      ],
+      "name": "Richiesta ricambio"
+    },
+    {
+      "canonical_name": "richiesta_ricambio",
+      "facts": [
+        {
+          "assertion_type": "explicit",
+          "confidence": "high",
+          "fact_id": "FACT_dbdc8c332a5fee3e7d9aa7ba",
+          "fact_type": "technical",
+          "intervals": [],
+          "property_name": "object_type",
+          "property_value": "table",
+          "status": "active"
+        }
+      ],
+      "name": "RICHIESTA_RICAMBIO"
+    },
+    {
+      "canonical_name": "richiesta_ricambio.id_articolo",
+      "facts": [
+        {
+          "assertion_type": "explicit",
+          "confidence": "high",
+          "fact_id": "FACT_0249417c938e186f2334cf9b",
+          "fact_type": "technical",
+          "intervals": [],
+          "property_name": "definition",
+          "property_value": {
+            "constraints": [
+              "NOT NULL"
+            ],
+            "datatype": "NUMBER",
+            "nullable": false
+          },
+          "status": "active"
+        }
+      ],
+      "name": "RICHIESTA_RICAMBIO.ID_ARTICOLO"
+    },
+    {
+      "canonical_name": "richiesta_ricambio.id_richiesta",
+      "facts": [
+        {
+          "assertion_type": "explicit",
+          "confidence": "high",
+          "fact_id": "FACT_798790fb399d901d6bcd3cc9",
+          "fact_type": "technical",
+          "intervals": [],
+          "property_name": "definition",
+          "property_value": {
+            "constraints": [
+              "PRIMARY KEY"
+            ],
+            "datatype": "NUMBER",
+            "nullable": true
+          },
+          "status": "active"
+        }
+      ],
+      "name": "RICHIESTA_RICAMBIO.ID_RICHIESTA"
+    },
+    {
+      "canonical_name": "richiesta_ricambio.priorita",
+      "facts": [
+        {
+          "assertion_type": "explicit",
+          "confidence": "high",
+          "fact_id": "FACT_72edbf69bdfbde6bc247c300",
+          "fact_type": "technical",
+          "intervals": [],
+          "property_name": "definition",
+          "property_value": {
+            "constraints": [
+              "NOT NULL"
+            ],
+            "datatype": "VARCHAR2(10)",
+            "nullable": false
+          },
+          "status": "active"
+        }
+      ],
+      "name": "RICHIESTA_RICAMBIO.PRIORITA"
+    },
+    {
+      "canonical_name": "richiesta_ricambio.qta_richiesta",
+      "facts": [
+        {
+          "assertion_type": "explicit",
+          "confidence": "high",
+          "fact_id": "FACT_6ac24baa4bac06dc4eb34644",
+          "fact_type": "technical",
+          "intervals": [],
+          "property_name": "definition",
+          "property_value": {
+            "constraints": [
+              "NOT NULL"
+            ],
+            "datatype": "NUMBER",
+            "nullable": false
+          },
+          "status": "active"
+        }
+      ],
+      "name": "RICHIESTA_RICAMBIO.QTA_RICHIESTA"
+    },
+    {
+      "canonical_name": "richiesta_ricambio.stato",
+      "facts": [
+        {
+          "assertion_type": "explicit",
+          "confidence": "high",
+          "fact_id": "FACT_a2033c2fde512cdc62bc94e1",
+          "fact_type": "technical",
+          "intervals": [],
+          "property_name": "definition",
+          "property_value": {
+            "constraints": [
+              "NOT NULL"
+            ],
+            "datatype": "VARCHAR2(20)",
+            "nullable": false
+          },
+          "status": "active"
+        }
+      ],
+      "name": "RICHIESTA_RICAMBIO.STATO"
+    },
+    {
+      "canonical_name": "rv-1002",
+      "facts": [
+        {
+          "assertion_type": "observed",
+          "confidence": "high",
+          "fact_id": "FACT_5daffc26b87163b8678cdd52",
+          "fact_type": "runtime_event",
+          "intervals": [],
+          "property_name": "magazzino",
+          "property_value": "missing articolo=RIC-118 priorita=P2",
+          "status": "active"
+        }
+      ],
+      "name": "RV-1002"
+    },
+    {
+      "canonical_name": "scanner",
+      "facts": [],
+      "name": "scanner"
+    },
+    {
+      "canonical_name": "trg_chiudi_richiesta",
+      "facts": [
+        {
+          "assertion_type": "explicit",
+          "confidence": "high",
+          "fact_id": "FACT_b89793f8428da47715039eca",
+          "fact_type": "technical",
+          "intervals": [],
+          "property_name": "object_type",
+          "property_value": "trigger",
+          "status": "active"
+        }
+      ],
+      "name": "TRG_CHIUDI_RICHIESTA"
+    }
+  ],
+  "intervals": [],
+  "metadata": {
+    "application": "DSLM3",
+    "counts": {
+      "conflicts": 0,
+      "entities": 36,
+      "facts": 33,
+      "intervals": 0,
+      "relations": 27
+    },
+    "dsl_hash": "8ef285c579e16503ba8dbfd5f39c415fde054c3b81da868aee6b7874cf93b1e2",
+    "profile": "effective_temporal",
+    "schema_version": "2",
+    "warnings": []
+  },
+  "relations": [
+    {
+      "attributes": {},
+      "canonical_source_entity": "event:ev_7db2a2072a4aadd2d37305ef",
+      "canonical_target_entity": "scanner",
+      "intervals": [],
+      "relation_id": "REL_0196f5e5ada7c97d4c47829e",
+      "relation_type": "observed_on",
+      "source_entity": "event:EV_7db2a2072a4aadd2d37305ef",
+      "status": "active",
+      "target_entity": "scanner"
+    },
+    {
+      "attributes": {},
+      "canonical_source_entity": "prc_prenota_articolo",
+      "canonical_target_entity": "richiesta_ricambio",
+      "intervals": [],
+      "relation_id": "REL_062b32c6f41e522d3bb1e6da",
+      "relation_type": "updates_status_to_PRENOTATA",
+      "source_entity": "PRC_PRENOTA_ARTICOLO",
+      "status": "active",
+      "target_entity": "RICHIESTA_RICAMBIO"
+    },
+    {
+      "attributes": {},
+      "canonical_source_entity": "prc_prenota_articolo",
+      "canonical_target_entity": "articolo.qta_disponibile",
+      "intervals": [],
+      "relation_id": "REL_0d90e15cc4bca63b3c14f6bd",
+      "relation_type": "writes_to",
+      "source_entity": "PRC_PRENOTA_ARTICOLO",
+      "status": "active",
+      "target_entity": "ARTICOLO.QTA_DISPONIBILE"
+    },
+    {
+      "attributes": {},
+      "canonical_source_entity": "prc_prenota_articolo",
+      "canonical_target_entity": "articolo.id_articolo",
+      "intervals": [],
+      "relation_id": "REL_189340803f2a7af1e6ad5ba5",
+      "relation_type": "reads_from",
+      "source_entity": "PRC_PRENOTA_ARTICOLO",
+      "status": "active",
+      "target_entity": "ARTICOLO.ID_ARTICOLO"
+    },
+    {
+      "attributes": {},
+      "canonical_source_entity": "frm_richiesta.priorita",
+      "canonical_target_entity": "richiesta_ricambio.priorita",
+      "intervals": [],
+      "relation_id": "REL_1b19f0585194bed24814c541",
+      "relation_type": "maps_to",
+      "source_entity": "FRM_RICHIESTA.PRIORITA",
+      "status": "active",
+      "target_entity": "RICHIESTA_RICAMBIO.PRIORITA"
+    },
+    {
+      "attributes": {},
+      "canonical_source_entity": "prc_prenota_articolo",
+      "canonical_target_entity": "richiesta_ricambio.id_articolo",
+      "intervals": [],
+      "relation_id": "REL_1c55978639f318fd92967fd7",
+      "relation_type": "reads_from",
+      "source_entity": "PRC_PRENOTA_ARTICOLO",
+      "status": "active",
+      "target_entity": "RICHIESTA_RICAMBIO.ID_ARTICOLO"
+    },
+    {
+      "attributes": {},
+      "canonical_source_entity": "event:ev_06bc0cc1cabd6127de1482ee",
+      "canonical_target_entity": "magazzino",
+      "intervals": [],
+      "relation_id": "REL_2581bdb056e0800fd7d878a2",
+      "relation_type": "observed_on",
+      "source_entity": "event:EV_06bc0cc1cabd6127de1482ee",
+      "status": "active",
+      "target_entity": "magazzino"
+    },
+    {
+      "attributes": {},
+      "canonical_source_entity": "frm_richiesta",
+      "canonical_target_entity": "richiesta_ricambio",
+      "intervals": [],
+      "relation_id": "REL_2729040cd8e6a9d68dcda61a",
+      "relation_type": "uses_table",
+      "source_entity": "FRM_RICHIESTA",
+      "status": "active",
+      "target_entity": "RICHIESTA_RICAMBIO"
+    },
+    {
+      "attributes": {},
+      "canonical_source_entity": "trg_chiudi_richiesta",
+      "canonical_target_entity": "raise_application_error",
+      "intervals": [],
+      "relation_id": "REL_370bcdbffa9d0d2d98cd9154",
+      "relation_type": "calls",
+      "source_entity": "TRG_CHIUDI_RICHIESTA",
+      "status": "active",
+      "target_entity": "RAISE_APPLICATION_ERROR"
+    },
+    {
+      "attributes": {},
+      "canonical_source_entity": "prc_prenota_articolo",
+      "canonical_target_entity": "richiesta_ricambio.id_richiesta",
+      "intervals": [],
+      "relation_id": "REL_384c805bacbfa78a9c11a5a5",
+      "relation_type": "reads_from",
+      "source_entity": "PRC_PRENOTA_ARTICOLO",
+      "status": "active",
+      "target_entity": "RICHIESTA_RICAMBIO.ID_RICHIESTA"
+    },
+    {
+      "attributes": {},
+      "canonical_source_entity": "prc_prenota_articolo",
+      "canonical_target_entity": "richiesta_ricambio",
+      "intervals": [],
+      "relation_id": "REL_3c56db3453de2f96c2d08f6d",
+      "relation_type": "writes_to",
+      "source_entity": "PRC_PRENOTA_ARTICOLO",
+      "status": "active",
+      "target_entity": "RICHIESTA_RICAMBIO"
+    },
+    {
+      "attributes": {},
+      "canonical_source_entity": "trg_chiudi_richiesta",
+      "canonical_target_entity": "richiesta_ricambio.stato",
+      "intervals": [],
+      "relation_id": "REL_3ec45bb00e02824abc3be98d",
+      "relation_type": "reads_from",
+      "source_entity": "TRG_CHIUDI_RICHIESTA",
+      "status": "active",
+      "target_entity": "RICHIESTA_RICAMBIO.STATO"
+    },
+    {
+      "attributes": {},
+      "canonical_source_entity": "prc_prenota_articolo",
+      "canonical_target_entity": "articolo.qta_disponibile",
+      "intervals": [],
+      "relation_id": "REL_48be75e48017a12d45c65cff",
+      "relation_type": "reads_from",
+      "source_entity": "PRC_PRENOTA_ARTICOLO",
+      "status": "active",
+      "target_entity": "ARTICOLO.QTA_DISPONIBILE"
+    },
+    {
+      "attributes": {},
+      "canonical_source_entity": "prc_prenota_articolo",
+      "canonical_target_entity": "articolo.qta_disponibile",
+      "intervals": [],
+      "relation_id": "REL_6bc2e668511c1f146ee1f56a",
+      "relation_type": "decrements_available_quantity",
+      "source_entity": "PRC_PRENOTA_ARTICOLO",
+      "status": "active",
+      "target_entity": "ARTICOLO.QTA_DISPONIBILE"
+    },
+    {
+      "attributes": {},
+      "canonical_source_entity": "event:ev_3c9fabdd60da328e93640e3c",
+      "canonical_target_entity": "scanner",
+      "intervals": [],
+      "relation_id": "REL_74947e8a353ed760d8ee0207",
+      "relation_type": "observed_on",
+      "source_entity": "event:EV_3c9fabdd60da328e93640e3c",
+      "status": "active",
+      "target_entity": "scanner"
+    },
+    {
+      "attributes": {},
+      "canonical_source_entity": "richiesta_ricambio.id_articolo",
+      "canonical_target_entity": "articolo.id_articolo",
+      "intervals": [],
+      "relation_id": "REL_7699e7a48eb99c51cd39093e",
+      "relation_type": "foreign_key_reference",
+      "source_entity": "RICHIESTA_RICAMBIO.ID_ARTICOLO",
+      "status": "active",
+      "target_entity": "ARTICOLO.ID_ARTICOLO"
+    },
+    {
+      "attributes": {},
+      "canonical_source_entity": "event:ev_d770f3a7d8f01853e8acfcfb",
+      "canonical_target_entity": "magazzino",
+      "intervals": [],
+      "relation_id": "REL_8ab4859cf8449fa7dfa0a60e",
+      "relation_type": "observed_on",
+      "source_entity": "event:EV_d770f3a7d8f01853e8acfcfb",
+      "status": "active",
+      "target_entity": "magazzino"
+    },
+    {
+      "attributes": {},
+      "canonical_source_entity": "frm_richiesta.stato",
+      "canonical_target_entity": "richiesta_ricambio.stato",
+      "intervals": [],
+      "relation_id": "REL_8dc6706ae14c2629c7369e42",
+      "relation_type": "maps_to",
+      "source_entity": "FRM_RICHIESTA.STATO",
+      "status": "active",
+      "target_entity": "RICHIESTA_RICAMBIO.STATO"
+    },
+    {
+      "attributes": {},
+      "canonical_source_entity": "frm_richiesta.id_articolo",
+      "canonical_target_entity": "richiesta_ricambio.id_articolo",
+      "intervals": [],
+      "relation_id": "REL_8e848c5b73d7b012c2c60b1e",
+      "relation_type": "maps_to",
+      "source_entity": "FRM_RICHIESTA.ID_ARTICOLO",
+      "status": "active",
+      "target_entity": "RICHIESTA_RICAMBIO.ID_ARTICOLO"
+    },
+    {
+      "attributes": {},
+      "canonical_source_entity": "event:ev_a3e973b29852e1ff80cbef12",
+      "canonical_target_entity": "scanner",
+      "intervals": [],
+      "relation_id": "REL_956e7134007b41eb11956395",
+      "relation_type": "observed_on",
+      "source_entity": "event:EV_a3e973b29852e1ff80cbef12",
+      "status": "active",
+      "target_entity": "scanner"
+    },
+    {
+      "attributes": {},
+      "canonical_source_entity": "frm_richiesta.btn_prenota",
+      "canonical_target_entity": "prc_prenota_articolo",
+      "intervals": [],
+      "relation_id": "REL_95a95b3d83ed3f330022d41c",
+      "relation_type": "calls",
+      "source_entity": "FRM_RICHIESTA.BTN_PRENOTA",
+      "status": "active",
+      "target_entity": "PRC_PRENOTA_ARTICOLO"
+    },
+    {
+      "attributes": {},
+      "canonical_source_entity": "trg_chiudi_richiesta",
+      "canonical_target_entity": "richiesta_ricambio",
+      "intervals": [],
+      "relation_id": "REL_95e264ae43ce438e40337ea7",
+      "relation_type": "trigger_on",
+      "source_entity": "TRG_CHIUDI_RICHIESTA",
+      "status": "active",
+      "target_entity": "RICHIESTA_RICAMBIO"
+    },
+    {
+      "attributes": {},
+      "canonical_source_entity": "prc_prenota_articolo",
+      "canonical_target_entity": "richiesta_ricambio",
+      "intervals": [],
+      "relation_id": "REL_b4e83ec7455b2e8ede0f21fe",
+      "relation_type": "reads_from",
+      "source_entity": "PRC_PRENOTA_ARTICOLO",
+      "status": "active",
+      "target_entity": "RICHIESTA_RICAMBIO"
+    },
+    {
+      "attributes": {
+        "columns": [
+          "ID_ARTICOLO"
+        ],
+        "target_columns": [
+          "ID_ARTICOLO"
+        ]
+      },
+      "canonical_source_entity": "richiesta_ricambio",
+      "canonical_target_entity": "articolo",
+      "intervals": [],
+      "relation_id": "REL_c9d38a01275634a8d3e8835d",
+      "relation_type": "foreign_key",
+      "source_entity": "RICHIESTA_RICAMBIO",
+      "status": "active",
+      "target_entity": "ARTICOLO"
+    },
+    {
+      "attributes": {},
+      "canonical_source_entity": "frm_richiesta.id_richiesta",
+      "canonical_target_entity": "richiesta_ricambio.id_richiesta",
+      "intervals": [],
+      "relation_id": "REL_e4671c2923c1f1f3ebc67a6c",
+      "relation_type": "maps_to",
+      "source_entity": "FRM_RICHIESTA.ID_RICHIESTA",
+      "status": "active",
+      "target_entity": "RICHIESTA_RICAMBIO.ID_RICHIESTA"
+    },
+    {
+      "attributes": {},
+      "canonical_source_entity": "prc_prenota_articolo",
+      "canonical_target_entity": "richiesta_ricambio.stato",
+      "intervals": [],
+      "relation_id": "REL_f4a22ed78bbb505b952b3b66",
+      "relation_type": "writes_to",
+      "source_entity": "PRC_PRENOTA_ARTICOLO",
+      "status": "active",
+      "target_entity": "RICHIESTA_RICAMBIO.STATO"
+    },
+    {
+      "attributes": {},
+      "canonical_source_entity": "prc_prenota_articolo",
+      "canonical_target_entity": "articolo",
+      "intervals": [],
+      "relation_id": "REL_fafa96668e36cc0406ecc9a4",
+      "relation_type": "writes_to",
+      "source_entity": "PRC_PRENOTA_ARTICOLO",
+      "status": "active",
+      "target_entity": "ARTICOLO"
+    }
+  ],
+  "source_revisions": [
+    {
+      "sha256": "bca1c3408141adc0df112e2076f2d681d761c06b0b3550cf48bef331a39c204a",
+      "size": 37251,
+      "source_id": "SRC_05442dbae45f149e96b8efa1",
+      "source_revision_id": "REV_09e1e1f0ce61ef5ba76f64e4"
+    },
+    {
+      "sha256": "a1e69986569ae7f053041f1b180db540ab3d858e9f71ad5088da122bb1708873",
+      "size": 425,
+      "source_id": "SRC_39a7e833fe4db1040761f60c",
+      "source_revision_id": "REV_43b0d873a605f76aa74f610e"
+    },
+    {
+      "sha256": "2bc89867201b4390cf0380678c2d2136fbe0d76c6ae166167aebaef85f466f3d",
+      "size": 753,
+      "source_id": "SRC_fe2716a8ce358a5e6d5f5356",
+      "source_revision_id": "REV_c541599e315757cabfedd178"
+    },
+    {
+      "sha256": "0c24c3d8a3a1dc1c5952b4854eb529d33cb135619545aa0080bcb365add25ca9",
+      "size": 3808,
+      "source_id": "SRC_13956cd49f33cb66ebf2a769",
+      "source_revision_id": "REV_ccdd4404f4e4a2c752ee2659"
+    },
+    {
+      "sha256": "a972c0b4cbbf50543d017bf91519ee9e6deb799c9e8685b9d417084c961d040d",
+      "size": 529,
+      "source_id": "SRC_d3d9a7bca0a54a5f1dafe1df",
+      "source_revision_id": "REV_ce46e3f8ea3543f6f4b5d7bb"
+    },
+    {
+      "sha256": "db3ae1c80ee4bf333e605a058978b36a86b0093b9990bb4822ca560340a25d9a",
+      "size": 588,
+      "source_id": "SRC_4efe76b5aa54c5409820a764",
+      "source_revision_id": "REV_e3ec4e2e41adca524aaadc56"
+    }
+  ],
+  "sources": [
+    {
+      "current_revision": "REV_09e1e1f0ce61ef5ba76f64e4",
+      "path": "vega/documenti/manuale_operativo_vega_2026.docx",
+      "source_id": "SRC_05442dbae45f149e96b8efa1",
+      "status": "active"
+    },
+    {
+      "current_revision": "REV_ccdd4404f4e4a2c752ee2659",
+      "path": "vega/documenti/matrice_priorita_vega_2026.xlsx",
+      "source_id": "SRC_13956cd49f33cb66ebf2a769",
+      "status": "active"
+    },
+    {
+      "current_revision": "REV_43b0d873a605f76aa74f610e",
+      "path": "vega/logs/vega_2026.log",
+      "source_id": "SRC_39a7e833fe4db1040761f60c",
+      "status": "active"
+    },
+    {
+      "current_revision": "REV_e3ec4e2e41adca524aaadc56",
+      "path": "vega/forms/frm_richiesta.xml",
+      "source_id": "SRC_4efe76b5aa54c5409820a764",
+      "status": "active"
+    },
+    {
+      "current_revision": "REV_ce46e3f8ea3543f6f4b5d7bb",
+      "path": "vega/database/schema_vega.sql",
+      "source_id": "SRC_d3d9a7bca0a54a5f1dafe1df",
+      "status": "active"
+    },
+    {
+      "current_revision": "REV_c541599e315757cabfedd178",
+      "path": "vega/plsql/logica_vega.sql",
+      "source_id": "SRC_fe2716a8ce358a5e6d5f5356",
+      "status": "active"
+    }
+  ],
+  "traceability": {
+    "facts": {
+      "FACT_0249417c938e186f2334cf9b": [
+        {
+          "candidate_record_id": "CAND_cc2d6733887842a6517e8580",
+          "decision_id": "DEC_943e828fe3f09686f09608f5",
+          "evidence_id": "EV_f9891db7fafc3b02db607705",
+          "evidence_text": "CREATE TABLE RICHIESTA_RICAMBIO (\n    ID_RICHIESTA NUMBER PRIMARY KEY,\n    ID_ARTICOLO NUMBER NOT NULL,\n    PRIORITA VARCHAR2(10) NOT NULL,\n    STATO VARCHAR2(20) NOT NULL,\n    QTA_RICHIESTA NUMBER NOT NULL,\n    CONSTRAINT FK_RICHIESTA_ARTICOLO\n        FOREIGN KEY (ID_ARTICOLO) REFERENCES ARTICOLO(ID_ARTICOLO)\n);",
+          "evidence_text_hash": "5b97e96ae4ad91685e0db8f7c3cd006c5f55d1ce17a6f066018c60c5fab69feb",
+          "file_path": "vega/database/schema_vega.sql",
+          "rule": "ddl_column",
+          "source_id": "SRC_d3d9a7bca0a54a5f1dafe1df",
+          "source_revision_id": "REV_ce46e3f8ea3543f6f4b5d7bb",
+          "temporal_evidence_ids": []
+        }
+      ],
+      "FACT_0781d752a17d9dff0e9fdce8": [
+        {
+          "candidate_record_id": "CAND_6feba0e81be5235a76cb649c",
+          "decision_id": "DEC_4ddf80d7ff50154934b037e2",
+          "evidence_id": "EV_3e495a10e162932326caba67",
+          "evidence_text": "{\"part_name\": \"xl/workbook.xml\", \"date_system\": \"1900\", \"calculation_properties\": {}, \"macro_presence\": false}",
+          "evidence_text_hash": "a32480bc146fb7e51ac1fd16e5cf4b2d077ba453169d5d0811708a3fc80663ca",
+          "file_path": "vega/documenti/matrice_priorita_vega_2026.xlsx",
+          "rule": "excel_workbook",
+          "source_id": "SRC_13956cd49f33cb66ebf2a769",
+          "source_revision_id": "REV_ccdd4404f4e4a2c752ee2659",
+          "temporal_evidence_ids": []
+        }
+      ],
+      "FACT_0d43cfa8a460dda6f63a8d62": [
+        {
+          "candidate_record_id": "CAND_7908c19e1e4bde95eefc2790",
+          "decision_id": "DEC_def8a0701dc4aeba75113d5c",
+          "evidence_id": "EV_36058b6a427add9f34718a8e",
+          "evidence_text": "    <item name=\"STATO\" column=\"STATO\" datatype=\"VARCHAR2\" required=\"true\"/>\n",
+          "evidence_text_hash": "11b77ff63d62da7cf76858d8be0e71e742a53809964d33305bec283746f278e0",
+          "file_path": "vega/forms/frm_richiesta.xml",
+          "rule": "xml_structure",
+          "source_id": "SRC_4efe76b5aa54c5409820a764",
+          "source_revision_id": "REV_e3ec4e2e41adca524aaadc56",
+          "temporal_evidence_ids": []
+        }
+      ],
+      "FACT_0ec4edb36a4a49c0f56c829c": [
+        {
+          "candidate_record_id": "CAND_31914dfda446e146ad465e00",
+          "decision_id": "DEC_677bb746ae44776f074c48cf",
+          "evidence_id": "EV_d770f3a7d8f01853e8acfcfb",
+          "evidence_text": "2026-09-01 08:00:03 INFO magazzino Processed richiesta=RV-1002 articolo=RIC-118 disponibilita=parziale",
+          "evidence_text_hash": "1916a152801f312a266b1f68f012173e274aa2f90620b17e71a29983d859ebc8",
+          "file_path": "vega/logs/vega_2026.log",
+          "rule": "log_event",
+          "source_id": "SRC_39a7e833fe4db1040761f60c",
+          "source_revision_id": "REV_43b0d873a605f76aa74f610e",
+          "temporal_evidence_ids": []
+        }
+      ],
+      "FACT_23539586762556a31ff3c199": [
+        {
+          "candidate_record_id": "CAND_c9afcc3fd44d554dd0a556b7",
+          "decision_id": "DEC_d981d0c9997f68a9939f998a",
+          "evidence_id": "EV_9a6d6ccaa86083d021452d9a",
+          "evidence_text": "Una prenotazione riduce la disponibilita dell'articolo.",
+          "evidence_text_hash": "01049c7f7398ded32d0b8ffe775f8a8b7aec56ac8a79b4034158e90aeb382685",
+          "file_path": "vega/documenti/manuale_operativo_vega_2026.docx",
+          "rule": null,
+          "source_id": "SRC_05442dbae45f149e96b8efa1",
+          "source_revision_id": "REV_09e1e1f0ce61ef5ba76f64e4",
+          "temporal_evidence_ids": []
+        }
+      ],
+      "FACT_25b6e29b10a6339e4728a071": [
+        {
+          "candidate_record_id": "CAND_776763b7ba2b74b468faadaa",
+          "decision_id": "DEC_5c75040724b1619457bb9010",
+          "evidence_id": "EV_644b4c4de6cd6a31b9ceabc9",
+          "evidence_text": "CREATE TABLE ARTICOLO (\n    ID_ARTICOLO NUMBER PRIMARY KEY,\n    CODICE VARCHAR2(30) NOT NULL,\n    DESCRIZIONE VARCHAR2(200) NOT NULL,\n    QTA_DISPONIBILE NUMBER NOT NULL\n);",
+          "evidence_text_hash": "f7ff4d94b7d46e39941ec2672250ca626308c611427c87cd0e54cc762bd0b2e5",
+          "file_path": "vega/database/schema_vega.sql",
+          "rule": "ddl_table",
+          "source_id": "SRC_d3d9a7bca0a54a5f1dafe1df",
+          "source_revision_id": "REV_ce46e3f8ea3543f6f4b5d7bb",
+          "temporal_evidence_ids": []
+        }
+      ],
+      "FACT_26c5936363b4b0f40fe7702b": [
+        {
+          "candidate_record_id": "CAND_b056bdcf939685d2c1a485b1",
+          "decision_id": "DEC_0e19d45116de28004d1b5b17",
+          "evidence_id": "EV_011507284cbc8e6474a7b870",
+          "evidence_text": "<form name=\"FRM_RICHIESTA\" title=\"Richiesta ricambio\">\n",
+          "evidence_text_hash": "52d290cbeec98b17e1090a4aaffb8c7678867d47db146231677a5fde47cc14a5",
+          "file_path": "vega/forms/frm_richiesta.xml",
+          "rule": "xml_structure",
+          "source_id": "SRC_4efe76b5aa54c5409820a764",
+          "source_revision_id": "REV_e3ec4e2e41adca524aaadc56",
+          "temporal_evidence_ids": []
+        }
+      ],
+      "FACT_32788e405867256b78be1f00": [
+        {
+          "candidate_record_id": "CAND_b11163c09f69822b2ff93b31",
+          "decision_id": "DEC_bfb692c0189159d0064ddbfb",
+          "evidence_id": "EV_8fe04ffa1659213c5de24684",
+          "evidence_text": "Priorita",
+          "evidence_text_hash": "db110fcd39b02f13a06ee96dab6e3ced7ee58d17c5613b5f99b85e0b67a96a9e",
+          "file_path": "vega/documenti/matrice_priorita_vega_2026.xlsx",
+          "rule": "excel_sheet",
+          "source_id": "SRC_13956cd49f33cb66ebf2a769",
+          "source_revision_id": "REV_ccdd4404f4e4a2c752ee2659",
+          "temporal_evidence_ids": []
+        }
+      ],
+      "FACT_4404add0794b18fa14895cc8": [
+        {
+          "candidate_record_id": "CAND_058d375839edd0e5688e90f1",
+          "decision_id": "DEC_ff11186587cbfafa94745502",
+          "evidence_id": "EV_4affc4e2688893d9829e0110",
+          "evidence_text": "    <item name=\"PRIORITA\" column=\"PRIORITA\" datatype=\"VARCHAR2\" required=\"true\"/>\n",
+          "evidence_text_hash": "372971646f8b2edc264c83c941da16dc40b30d53bca825515e7015a826601c1b",
+          "file_path": "vega/forms/frm_richiesta.xml",
+          "rule": "xml_structure",
+          "source_id": "SRC_4efe76b5aa54c5409820a764",
+          "source_revision_id": "REV_e3ec4e2e41adca524aaadc56",
+          "temporal_evidence_ids": []
+        }
+      ],
+      "FACT_4591420b9767fe5b1bfd9863": [
+        {
+          "candidate_record_id": "CAND_106ee36d77b34465f38859b9",
+          "decision_id": "DEC_ca3290f9c392f8a0c07e68ab",
+          "evidence_id": "EV_af0833b4e7a1854a095b01ce",
+          "evidence_text": "{\"fragment_id\": \"FRAG_000001\", \"fragment_type\": \"excel_region\", \"sequence\": 1, \"source_revision_id\": \"REV_ccdd4404f4e4a2c752ee2659\", \"fragment_hash\": \"6471cb5fe36d722903ec7a908204528e9bad36ba3533a32428302a32c7d640ec\", \"sheet\": {\"index\": 0, \"name\": \"Priorita\"}, \"start_cell\": \"A1\", \"end_cell\": \"D5\", \"region_kind\": \"connected_cells\", \"region_hash\": \"20aada49828c65a87d0bf8b42c319b780ed4b87f57b299507572f9797efcf4fe\", \"detector\": {\"id\": \"connected_non_empty_cells\", \"version\": \"1\"}, \"cells\": [{\"coordinate\": \"A1\", \"row\": 1, \"column\": 1, \"type\": \"string\", \"value\": \"Priorità\", \"formula\": null, \"cached_value\": null, \"style_id\": 8}, {\"coordinate\": \"B1\", \"row\": 1, \"column\": 2, \"type\": \"string\", \"value\": \"Tempo presa in carico (ore)\", \"formula\": null, \"cached_value\": null, \"style_id\": 8}, {\"coordinate\": \"C1\", \"row\": 1, \"column\": 3, \"type\": \"string\", \"value\": \"Descrizione\", \"formula\": null, \"cached_value\": null, \"style_id\": 8}, {\"coordinate\": \"D1\", \"row\": 1, \"column\": 4, \"type\": \"string\", \"value\": \"Esempio\", \"formula\": null, \"cached_value\": null, \"style_id\": 8}, {\"coordinate\": \"A2\", \"row\": 2, \"column\": 1, \"type\": \"string\", \"value\": \"P1\", \"formula\": null, \"cached_value\": null, \"style_id\": 9}, {\"coordinate\": \"B2\", \"row\": 2, \"column\": 2, \"type\": \"number\", \"value\": \"1\", \"formula\": null, \"cached_value\": null, \"style_id\": 9}, {\"coordinate\": \"C2\", \"row\": 2, \"column\": 3, \"type\": \"string\", \"value\": \"Blocco totale o rischio operativo critico\", \"formula\": null, \"cached_value\": null, \"style_id\": 9}, {\"coordinate\": \"D2\", \"row\": 2, \"column\": 4, \"type\": \"string\", \"value\": \"Ricambio urgente: linea ferma\", \"formula\": null, \"cached_value\": null, \"style_id\": 9}, {\"coordinate\": \"A3\", \"row\": 3, \"column\": 1, \"type\": \"string\", \"value\": \"P2\", \"formula\": null, \"cached_value\": null, \"style_id\": 9}, {\"coordinate\": \"B3\", \"row\": 3, \"column\": 2, \"type\": \"number\", \"value\": \"4\", \"formula\": null, \"cached_value\": null, \"style_id\": 9}, {\"coordinate\": \"C3\", \"row\": 3, \"column\": 3, \"type\": \"string\", \"value\": \"Impatto elevato ma attività ancora parzialmente possibile\", \"formula\": null, \"cached_value\": null, \"style_id\": 9}, {\"coordinate\": \"D3\", \"row\": 3, \"column\": 4, \"type\": \"string\", \"value\": \"Ricambio necessario entro la giornata\", \"formula\": null, \"cached_value\": null, \"style_id\": 9}, {\"coordinate\": \"A4\", \"row\": 4, \"column\": 1, \"type\": \"string\", \"value\": \"P3\", \"formula\": null, \"cached_value\": null, \"style_id\": 9}, {\"coordinate\": \"B4\", \"row\": 4, \"column\": 2, \"type\": \"number\", \"value\": \"24\", \"formula\": null, \"cached_value\": null, \"style_id\": 9}, {\"coordinate\": \"C4\", \"row\": 4, \"column\": 3, \"type\": \"string\", \"value\": \"Impatto moderato, workaround disponibile\", \"formula\": null, \"cached_value\": null, \"style_id\": 9}, {\"coordinate\": \"D4\", \"row\": 4, \"column\": 4, \"type\": \"string\", \"value\": \"Richiesta standard con urgenza contenuta\", \"formula\": null, \"cached_value\": null, \"style_id\": 9}, {\"coordinate\": \"A5\", \"row\": 5, \"column\": 1, \"type\": \"string\", \"value\": \"P4\", \"formula\": null, \"cached_value\": null, \"style_id\": 9}, {\"coordinate\": \"B5\", \"row\": 5, \"column\": 2, \"type\": \"number\", \"value\": \"72\", \"formula\": null, \"cached_value\": null, \"style_id\": 9}, {\"coordinate\": \"C5\", \"row\": 5, \"column\": 3, \"type\": \"string\", \"value\": \"Bassa priorità o richiesta programmabile\", \"formula\": null, \"cached_value\": null, \"style_id\": 9}, {\"coordinate\": \"D5\", \"row\": 5, \"column\": 4, \"type\": \"string\", \"value\": \"Scorta preventiva / manutenzione pianificata\", \"formula\": null, \"cached_value\": null, \"style_id\": 9}], \"locator\": {\"part_name\": \"xl/worksheets/sheet1.xml\", \"range\": \"A1:D5\"}}",
+          "evidence_text_hash": "7516f40a6cdf49ba0d98106e84782f6528583bd60d848cb7fb6dc4c68484f471",
+          "file_path": "vega/documenti/matrice_priorita_vega_2026.xlsx",
+          "rule": "excel_region",
+          "source_id": "SRC_13956cd49f33cb66ebf2a769",
+          "source_revision_id": "REV_ccdd4404f4e4a2c752ee2659",
+          "temporal_evidence_ids": []
+        }
+      ],
+      "FACT_47982fec0b929efbb3919be9": [
+        {
+          "candidate_record_id": "CAND_969b0d7288e0dc5d3c3f6d65",
+          "decision_id": "DEC_97d7d4af19b7344e9591aece",
+          "evidence_id": "EV_a3e973b29852e1ff80cbef12",
+          "evidence_text": "2026-09-01 08:00:04 INFO scanner End richiesta=RV-1001 esito=inoltrata",
+          "evidence_text_hash": "5f5805ca35b79e9b409d35439d317df610885bd97e1d9a1f2107544478701912",
+          "file_path": "vega/logs/vega_2026.log",
+          "rule": "log_event",
+          "source_id": "SRC_39a7e833fe4db1040761f60c",
+          "source_revision_id": "REV_43b0d873a605f76aa74f610e",
+          "temporal_evidence_ids": []
+        }
+      ],
+      "FACT_4f20889182b684ec25e2e18e": [
+        {
+          "candidate_record_id": "CAND_4ae86ae00a6bc39b478f5650",
+          "decision_id": "DEC_2f33995466bb299c5a00477d",
+          "evidence_id": "EV_06bc0cc1cabd6127de1482ee",
+          "evidence_text": "2026-09-01 08:00:02 WARNING magazzino missing richiesta=RV-1002 articolo=RIC-118 priorita=P2",
+          "evidence_text_hash": "0dadafd12e965b2b055117d7ea2f54bc7c30e9e92501c9b312376fe0cced02a8",
+          "file_path": "vega/logs/vega_2026.log",
+          "rule": "log_event",
+          "source_id": "SRC_39a7e833fe4db1040761f60c",
+          "source_revision_id": "REV_43b0d873a605f76aa74f610e",
+          "temporal_evidence_ids": []
+        }
+      ],
+      "FACT_5b9e24c62742a700f42c91a3": [
+        {
+          "candidate_record_id": "CAND_627df2dcad4a91992e2d8ce3",
+          "decision_id": "DEC_507488ca9e9eb59ed61b7f03",
+          "evidence_id": "EV_e63aa75ffbb8846e680f8381",
+          "evidence_text": "    <item name=\"ID_ARTICOLO\" column=\"ID_ARTICOLO\" datatype=\"NUMBER\" required=\"true\"/>\n",
+          "evidence_text_hash": "2bfce1a04945540b86a576435abfef6b4f671da1e92c1702ccd8f00440b30660",
+          "file_path": "vega/forms/frm_richiesta.xml",
+          "rule": "xml_structure",
+          "source_id": "SRC_4efe76b5aa54c5409820a764",
+          "source_revision_id": "REV_e3ec4e2e41adca524aaadc56",
+          "temporal_evidence_ids": []
+        }
+      ],
+      "FACT_5daffc26b87163b8678cdd52": [
+        {
+          "candidate_record_id": "CAND_db85cf23fb16e12fb2356179",
+          "decision_id": "DEC_36437ef16a16536c4f3457d0",
+          "evidence_id": "EV_06bc0cc1cabd6127de1482ee",
+          "evidence_text": "2026-09-01 08:00:02 WARNING magazzino missing richiesta=RV-1002 articolo=RIC-118 priorita=P2",
+          "evidence_text_hash": "0dadafd12e965b2b055117d7ea2f54bc7c30e9e92501c9b312376fe0cced02a8",
+          "file_path": "vega/logs/vega_2026.log",
+          "rule": null,
+          "source_id": "SRC_39a7e833fe4db1040761f60c",
+          "source_revision_id": "REV_43b0d873a605f76aa74f610e",
+          "temporal_evidence_ids": []
+        }
+      ],
+      "FACT_66aba082967feb2781188828": [
+        {
+          "candidate_record_id": "CAND_1a3cea0eae9ece5fab5329ed",
+          "decision_id": "DEC_c534d8577bbf44c0e4e39279",
+          "evidence_id": "EV_1bfa40e755916fe8d926952b",
+          "evidence_text": "    <item name=\"ID_RICHIESTA\" column=\"ID_RICHIESTA\" datatype=\"NUMBER\" required=\"true\"/>\n",
+          "evidence_text_hash": "f05115d42a87ea39bb67d92633a9e943ee8a083fbda49a4a12aad127af202013",
+          "file_path": "vega/forms/frm_richiesta.xml",
+          "rule": "xml_structure",
+          "source_id": "SRC_4efe76b5aa54c5409820a764",
+          "source_revision_id": "REV_e3ec4e2e41adca524aaadc56",
+          "temporal_evidence_ids": []
+        }
+      ],
+      "FACT_6ac24baa4bac06dc4eb34644": [
+        {
+          "candidate_record_id": "CAND_33568bf54eacca82b7e5a876",
+          "decision_id": "DEC_b0094073f7dade11bd4b8d26",
+          "evidence_id": "EV_81feb777cd7c681ca84a17c2",
+          "evidence_text": "CREATE TABLE RICHIESTA_RICAMBIO (\n    ID_RICHIESTA NUMBER PRIMARY KEY,\n    ID_ARTICOLO NUMBER NOT NULL,\n    PRIORITA VARCHAR2(10) NOT NULL,\n    STATO VARCHAR2(20) NOT NULL,\n    QTA_RICHIESTA NUMBER NOT NULL,\n    CONSTRAINT FK_RICHIESTA_ARTICOLO\n        FOREIGN KEY (ID_ARTICOLO) REFERENCES ARTICOLO(ID_ARTICOLO)\n);",
+          "evidence_text_hash": "5b97e96ae4ad91685e0db8f7c3cd006c5f55d1ce17a6f066018c60c5fab69feb",
+          "file_path": "vega/database/schema_vega.sql",
+          "rule": "ddl_column",
+          "source_id": "SRC_d3d9a7bca0a54a5f1dafe1df",
+          "source_revision_id": "REV_ce46e3f8ea3543f6f4b5d7bb",
+          "temporal_evidence_ids": []
+        }
+      ],
+      "FACT_6b59d49cf8ec835c4531a73a": [
+        {
+          "candidate_record_id": "CAND_8fdca95a09d0864bc9cba756",
+          "decision_id": "DEC_c458811b2378fd1ae2d90fcc",
+          "evidence_id": "EV_9864766c352ededda210596d",
+          "evidence_text": "CREATE TABLE ARTICOLO (\n    ID_ARTICOLO NUMBER PRIMARY KEY,\n    CODICE VARCHAR2(30) NOT NULL,\n    DESCRIZIONE VARCHAR2(200) NOT NULL,\n    QTA_DISPONIBILE NUMBER NOT NULL\n);",
+          "evidence_text_hash": "f7ff4d94b7d46e39941ec2672250ca626308c611427c87cd0e54cc762bd0b2e5",
+          "file_path": "vega/database/schema_vega.sql",
+          "rule": "ddl_column",
+          "source_id": "SRC_d3d9a7bca0a54a5f1dafe1df",
+          "source_revision_id": "REV_ce46e3f8ea3543f6f4b5d7bb",
+          "temporal_evidence_ids": []
+        }
+      ],
+      "FACT_72edbf69bdfbde6bc247c300": [
+        {
+          "candidate_record_id": "CAND_253c87ce16a71fcdeba6cfed",
+          "decision_id": "DEC_45dbc1af96bc551345267683",
+          "evidence_id": "EV_c24188bc38c875f41caebf2e",
+          "evidence_text": "CREATE TABLE RICHIESTA_RICAMBIO (\n    ID_RICHIESTA NUMBER PRIMARY KEY,\n    ID_ARTICOLO NUMBER NOT NULL,\n    PRIORITA VARCHAR2(10) NOT NULL,\n    STATO VARCHAR2(20) NOT NULL,\n    QTA_RICHIESTA NUMBER NOT NULL,\n    CONSTRAINT FK_RICHIESTA_ARTICOLO\n        FOREIGN KEY (ID_ARTICOLO) REFERENCES ARTICOLO(ID_ARTICOLO)\n);",
+          "evidence_text_hash": "5b97e96ae4ad91685e0db8f7c3cd006c5f55d1ce17a6f066018c60c5fab69feb",
+          "file_path": "vega/database/schema_vega.sql",
+          "rule": "ddl_column",
+          "source_id": "SRC_d3d9a7bca0a54a5f1dafe1df",
+          "source_revision_id": "REV_ce46e3f8ea3543f6f4b5d7bb",
+          "temporal_evidence_ids": []
+        }
+      ],
+      "FACT_798790fb399d901d6bcd3cc9": [
+        {
+          "candidate_record_id": "CAND_ff4e0051b00f297118cb1f60",
+          "decision_id": "DEC_346bd027dcc6db52740ad656",
+          "evidence_id": "EV_cf2604e6e0ba5b6a0680b839",
+          "evidence_text": "CREATE TABLE RICHIESTA_RICAMBIO (\n    ID_RICHIESTA NUMBER PRIMARY KEY,\n    ID_ARTICOLO NUMBER NOT NULL,\n    PRIORITA VARCHAR2(10) NOT NULL,\n    STATO VARCHAR2(20) NOT NULL,\n    QTA_RICHIESTA NUMBER NOT NULL,\n    CONSTRAINT FK_RICHIESTA_ARTICOLO\n        FOREIGN KEY (ID_ARTICOLO) REFERENCES ARTICOLO(ID_ARTICOLO)\n);",
+          "evidence_text_hash": "5b97e96ae4ad91685e0db8f7c3cd006c5f55d1ce17a6f066018c60c5fab69feb",
+          "file_path": "vega/database/schema_vega.sql",
+          "rule": "ddl_column",
+          "source_id": "SRC_d3d9a7bca0a54a5f1dafe1df",
+          "source_revision_id": "REV_ce46e3f8ea3543f6f4b5d7bb",
+          "temporal_evidence_ids": []
+        }
+      ],
+      "FACT_86ad33c6af81a727bdba30e2": [
+        {
+          "candidate_record_id": "CAND_4642bdc3bb7b9de55844673d",
+          "decision_id": "DEC_6c6413e00a8a16c55b2b7183",
+          "evidence_id": "EV_9a6d6ccaa86083d021452d9a",
+          "evidence_text": "La chiusura e consentita soltanto dopo lo stato CONSEGNATA.",
+          "evidence_text_hash": "7f0bafd5dfe87f9bfc4ab631879a5b17cae1ada4a27a83e6ed2f5cd8d4f1ea9e",
+          "file_path": "vega/documenti/manuale_operativo_vega_2026.docx",
+          "rule": null,
+          "source_id": "SRC_05442dbae45f149e96b8efa1",
+          "source_revision_id": "REV_09e1e1f0ce61ef5ba76f64e4",
+          "temporal_evidence_ids": []
+        }
+      ],
+      "FACT_8f64de5391b69c2a864060f3": [
+        {
+          "candidate_record_id": "CAND_0a71aeaa8bcb76edcd975a3e",
+          "decision_id": "DEC_f13f388451cfc7e67807034c",
+          "evidence_id": "EV_3c9fabdd60da328e93640e3c",
+          "evidence_text": "2026-09-01 08:00:01 INFO scanner Processed richiesta=RV-1001 articolo=RIC-774 quantita=2",
+          "evidence_text_hash": "6767ce7ccd6a1a138a2afae0d91653eeb4b7d77faff41d5989075c1e04491424",
+          "file_path": "vega/logs/vega_2026.log",
+          "rule": "log_event",
+          "source_id": "SRC_39a7e833fe4db1040761f60c",
+          "source_revision_id": "REV_43b0d873a605f76aa74f610e",
+          "temporal_evidence_ids": []
+        }
+      ],
+      "FACT_a2033c2fde512cdc62bc94e1": [
+        {
+          "candidate_record_id": "CAND_a0d9cb57786fc079de6575e3",
+          "decision_id": "DEC_b1add1492ce3c44cc3374053",
+          "evidence_id": "EV_18cdfce597666e265d1f7d87",
+          "evidence_text": "CREATE TABLE RICHIESTA_RICAMBIO (\n    ID_RICHIESTA NUMBER PRIMARY KEY,\n    ID_ARTICOLO NUMBER NOT NULL,\n    PRIORITA VARCHAR2(10) NOT NULL,\n    STATO VARCHAR2(20) NOT NULL,\n    QTA_RICHIESTA NUMBER NOT NULL,\n    CONSTRAINT FK_RICHIESTA_ARTICOLO\n        FOREIGN KEY (ID_ARTICOLO) REFERENCES ARTICOLO(ID_ARTICOLO)\n);",
+          "evidence_text_hash": "5b97e96ae4ad91685e0db8f7c3cd006c5f55d1ce17a6f066018c60c5fab69feb",
+          "file_path": "vega/database/schema_vega.sql",
+          "rule": "ddl_column",
+          "source_id": "SRC_d3d9a7bca0a54a5f1dafe1df",
+          "source_revision_id": "REV_ce46e3f8ea3543f6f4b5d7bb",
+          "temporal_evidence_ids": []
+        }
+      ],
+      "FACT_a9045e1d081c5578ae7af2af": [
+        {
+          "candidate_record_id": "CAND_019df486f1f90f291bf4103c",
+          "decision_id": "DEC_ebd40e244fbadae5a62e20c9",
+          "evidence_id": "EV_7207c3bab9b6abe3eef239df",
+          "evidence_text": "  <block name=\"RICHIESTA_RICAMBIO\" table=\"RICHIESTA_RICAMBIO\">\n",
+          "evidence_text_hash": "58ade47ab2f635ad1bf3c5ea6e3fc04c27756e20e312e5830ec2e3d125b0f4fb",
+          "file_path": "vega/forms/frm_richiesta.xml",
+          "rule": "xml_structure",
+          "source_id": "SRC_4efe76b5aa54c5409820a764",
+          "source_revision_id": "REV_e3ec4e2e41adca524aaadc56",
+          "temporal_evidence_ids": []
+        }
+      ],
+      "FACT_af42f259eb9cfc913ff01204": [
+        {
+          "candidate_record_id": "CAND_139717f9a690cf6a74bd3e45",
+          "decision_id": "DEC_75a28af737b80c821b5cc7ac",
+          "evidence_id": "EV_9a6d6ccaa86083d021452d9a",
+          "evidence_text": "Una richiesta P1 deve essere presa in carico entro 30 minuti.",
+          "evidence_text_hash": "305f8ce4281266e6a15d8f025f45e4e95ac437cbebbaf6c6e17864518b25c322",
+          "file_path": "vega/documenti/manuale_operativo_vega_2026.docx",
+          "rule": null,
+          "source_id": "SRC_05442dbae45f149e96b8efa1",
+          "source_revision_id": "REV_09e1e1f0ce61ef5ba76f64e4",
+          "temporal_evidence_ids": []
+        }
+      ],
+      "FACT_b89793f8428da47715039eca": [
+        {
+          "candidate_record_id": "CAND_a024191d4860c3a02de140af",
+          "decision_id": "DEC_eba28076c08bf95a651015ff",
+          "evidence_id": "EV_f73e3125e76e0cf1e9b509ae",
+          "evidence_text": "CREATE TRIGGER TRG_CHIUDI_RICHIESTA\nBEFORE UPDATE OF STATO ON RICHIESTA_RICAMBIO\nFOR EACH ROW\nBEGIN\n    IF :NEW.STATO = 'CHIUSA' AND :OLD.STATO <> 'CONSEGNATA' THEN\n        RAISE_APPLICATION_ERROR(-20001, 'La richiesta deve essere consegnata prima della chiusura');\n    END IF;\nEND;",
+          "evidence_text_hash": "d48d63650b134f708bf744a0ca3452789d1ef4ce1f9e195c2e18a3375935d27c",
+          "file_path": "vega/plsql/logica_vega.sql",
+          "rule": "sql_unit",
+          "source_id": "SRC_fe2716a8ce358a5e6d5f5356",
+          "source_revision_id": "REV_c541599e315757cabfedd178",
+          "temporal_evidence_ids": []
+        }
+      ],
+      "FACT_d4dd0c90ca76836288ab92c0": [
+        {
+          "candidate_record_id": "CAND_a6b90c649801a2a4433d75e0",
+          "decision_id": "DEC_5ee875e2515517f2b539bf98",
+          "evidence_id": "EV_7db2a2072a4aadd2d37305ef",
+          "evidence_text": "2026-09-01 08:00:00 INFO scanner Start richiesta=RV-1001 priorita=P1",
+          "evidence_text_hash": "9be738cbc2278252b8c77c4d576284879501c98e7e3af739fa94e8306322071c",
+          "file_path": "vega/logs/vega_2026.log",
+          "rule": "log_event",
+          "source_id": "SRC_39a7e833fe4db1040761f60c",
+          "source_revision_id": "REV_43b0d873a605f76aa74f610e",
+          "temporal_evidence_ids": []
+        }
+      ],
+      "FACT_d88bcf16409dfced0932d8bb": [
+        {
+          "candidate_record_id": "CAND_7d76bc119d0fe08fa88a9ade",
+          "decision_id": "DEC_0919032b80aa07d4602749a6",
+          "evidence_id": "EV_57f19f99f0e09eaa7736421c",
+          "evidence_text": "CREATE TABLE ARTICOLO (\n    ID_ARTICOLO NUMBER PRIMARY KEY,\n    CODICE VARCHAR2(30) NOT NULL,\n    DESCRIZIONE VARCHAR2(200) NOT NULL,\n    QTA_DISPONIBILE NUMBER NOT NULL\n);",
+          "evidence_text_hash": "f7ff4d94b7d46e39941ec2672250ca626308c611427c87cd0e54cc762bd0b2e5",
+          "file_path": "vega/database/schema_vega.sql",
+          "rule": "ddl_column",
+          "source_id": "SRC_d3d9a7bca0a54a5f1dafe1df",
+          "source_revision_id": "REV_ce46e3f8ea3543f6f4b5d7bb",
+          "temporal_evidence_ids": []
+        }
+      ],
+      "FACT_dbdc8c332a5fee3e7d9aa7ba": [
+        {
+          "candidate_record_id": "CAND_8d3e788bda22312db144fe9f",
+          "decision_id": "DEC_210d70e3965655cafe4bd019",
+          "evidence_id": "EV_e1ebf3e49a1722713b83c531",
+          "evidence_text": "CREATE TABLE RICHIESTA_RICAMBIO (\n    ID_RICHIESTA NUMBER PRIMARY KEY,\n    ID_ARTICOLO NUMBER NOT NULL,\n    PRIORITA VARCHAR2(10) NOT NULL,\n    STATO VARCHAR2(20) NOT NULL,\n    QTA_RICHIESTA NUMBER NOT NULL,\n    CONSTRAINT FK_RICHIESTA_ARTICOLO\n        FOREIGN KEY (ID_ARTICOLO) REFERENCES ARTICOLO(ID_ARTICOLO)\n);",
+          "evidence_text_hash": "5b97e96ae4ad91685e0db8f7c3cd006c5f55d1ce17a6f066018c60c5fab69feb",
+          "file_path": "vega/database/schema_vega.sql",
+          "rule": "ddl_table",
+          "source_id": "SRC_d3d9a7bca0a54a5f1dafe1df",
+          "source_revision_id": "REV_ce46e3f8ea3543f6f4b5d7bb",
+          "temporal_evidence_ids": []
+        }
+      ],
+      "FACT_ec48011491fe6bf5b19a6b93": [
+        {
+          "candidate_record_id": "CAND_2421798cfb8a247a41ed4712",
+          "decision_id": "DEC_e023f445c6fe753227b1ce9b",
+          "evidence_id": "EV_77d0e87723610dd8ac0eae44",
+          "evidence_text": "CREATE TABLE ARTICOLO (\n    ID_ARTICOLO NUMBER PRIMARY KEY,\n    CODICE VARCHAR2(30) NOT NULL,\n    DESCRIZIONE VARCHAR2(200) NOT NULL,\n    QTA_DISPONIBILE NUMBER NOT NULL\n);",
+          "evidence_text_hash": "f7ff4d94b7d46e39941ec2672250ca626308c611427c87cd0e54cc762bd0b2e5",
+          "file_path": "vega/database/schema_vega.sql",
+          "rule": "ddl_column",
+          "source_id": "SRC_d3d9a7bca0a54a5f1dafe1df",
+          "source_revision_id": "REV_ce46e3f8ea3543f6f4b5d7bb",
+          "temporal_evidence_ids": []
+        }
+      ],
+      "FACT_f2cea01308f6dd95a5c32438": [
+        {
+          "candidate_record_id": "CAND_f3f5406ccfc7f000c6e62770",
+          "decision_id": "DEC_0f13e114c2e0e8ea8c051706",
+          "evidence_id": "EV_903887000fc215a2ab4fc453",
+          "evidence_text": "CREATE TABLE ARTICOLO (\n    ID_ARTICOLO NUMBER PRIMARY KEY,\n    CODICE VARCHAR2(30) NOT NULL,\n    DESCRIZIONE VARCHAR2(200) NOT NULL,\n    QTA_DISPONIBILE NUMBER NOT NULL\n);",
+          "evidence_text_hash": "f7ff4d94b7d46e39941ec2672250ca626308c611427c87cd0e54cc762bd0b2e5",
+          "file_path": "vega/database/schema_vega.sql",
+          "rule": "ddl_column",
+          "source_id": "SRC_d3d9a7bca0a54a5f1dafe1df",
+          "source_revision_id": "REV_ce46e3f8ea3543f6f4b5d7bb",
+          "temporal_evidence_ids": []
+        }
+      ],
+      "FACT_f3583e29a5d1a01c5e225ef6": [
+        {
+          "candidate_record_id": "CAND_291ec4ffc0c3e1c33a9e8b59",
+          "decision_id": "DEC_f5391c7a0b1d8e8f7d3b9049",
+          "evidence_id": "EV_8a1d4d5156822ebe363722c2",
+          "evidence_text": "  <button name=\"BTN_PRENOTA\" label=\"Prenota\" operation=\"PRC_PRENOTA_ARTICOLO\"/>\n",
+          "evidence_text_hash": "ff925d0129f39b13c13da588b7e1a14736792e055b5d063be9b6c4b781c7b51b",
+          "file_path": "vega/forms/frm_richiesta.xml",
+          "rule": "xml_structure",
+          "source_id": "SRC_4efe76b5aa54c5409820a764",
+          "source_revision_id": "REV_e3ec4e2e41adca524aaadc56",
+          "temporal_evidence_ids": []
+        }
+      ],
+      "FACT_f483eb9d3416041f61859b87": [
+        {
+          "candidate_record_id": "CAND_122c4d232bbeca5a0661d29e",
+          "decision_id": "DEC_ea5d9ffb293d091572f39e17",
+          "evidence_id": "EV_9a6d6ccaa86083d021452d9a",
+          "evidence_text": "Le regole correnti decorrono dal 2026-09-01.",
+          "evidence_text_hash": "4d05187125536fccee96c8fe2e1a9170ecc0085e3921d9b226814ec77e90eb73",
+          "file_path": "vega/documenti/manuale_operativo_vega_2026.docx",
+          "rule": null,
+          "source_id": "SRC_05442dbae45f149e96b8efa1",
+          "source_revision_id": "REV_09e1e1f0ce61ef5ba76f64e4",
+          "temporal_evidence_ids": []
+        }
+      ],
+      "FACT_febfc6340b8da909f73c5618": [
+        {
+          "candidate_record_id": "CAND_50302c23b0d01a0ab56d4902",
+          "decision_id": "DEC_8ec44b704e3e47a01a8e7b12",
+          "evidence_id": "EV_e66cb31f395ded6fc2dcb0b6",
+          "evidence_text": "CREATE PROCEDURE PRC_PRENOTA_ARTICOLO (\n    P_ID_RICHIESTA IN NUMBER\n) AS\nBEGIN\n    UPDATE RICHIESTA_RICAMBIO\n       SET STATO = 'PRENOTATA'\n     WHERE ID_RICHIESTA = P_ID_RICHIESTA;\n\n    UPDATE ARTICOLO\n       SET QTA_DISPONIBILE = QTA_DISPONIBILE - 1\n     WHERE ID_ARTICOLO = (\n        SELECT ID_ARTICOLO\n          FROM RICHIESTA_RICAMBIO\n         WHERE ID_RICHIESTA = P_ID_RICHIESTA\n     );\nEND;",
+          "evidence_text_hash": "a690468510bb5e7028ae7b42baf6bc43c058b43753294618a5ccc203b337c90b",
+          "file_path": "vega/plsql/logica_vega.sql",
+          "rule": "sql_unit",
+          "source_id": "SRC_fe2716a8ce358a5e6d5f5356",
+          "source_revision_id": "REV_c541599e315757cabfedd178",
+          "temporal_evidence_ids": []
+        }
+      ]
+    },
+    "intervals": {},
+    "relations": {
+      "REL_0196f5e5ada7c97d4c47829e": [
+        {
+          "candidate_record_id": "CAND_b2f6d93ddc142d8973750af6",
+          "decision_id": "DEC_b92ebac45c0bcd8b45d7aaf6",
+          "evidence_id": "EV_7db2a2072a4aadd2d37305ef",
+          "evidence_text": "2026-09-01 08:00:00 INFO scanner Start richiesta=RV-1001 priorita=P1",
+          "evidence_text_hash": "9be738cbc2278252b8c77c4d576284879501c98e7e3af739fa94e8306322071c",
+          "file_path": "vega/logs/vega_2026.log",
+          "rule": "log_event",
+          "source_id": "SRC_39a7e833fe4db1040761f60c",
+          "source_revision_id": "REV_43b0d873a605f76aa74f610e",
+          "temporal_evidence_ids": []
+        }
+      ],
+      "REL_062b32c6f41e522d3bb1e6da": [
+        {
+          "candidate_record_id": "CAND_7585254e24729597fd707626",
+          "decision_id": "DEC_b21c1b72137bdb14de32e284",
+          "evidence_id": "EV_b0ee39146fdb10e756fc9a44",
+          "evidence_text": "SET STATO = 'PRENOTATA'",
+          "evidence_text_hash": "1d197425a5077d18f761e322f0ae33196ad5f1a4e0f4636106a6defdd6f1996a",
+          "file_path": "vega/plsql/logica_vega.sql",
+          "rule": null,
+          "source_id": "SRC_fe2716a8ce358a5e6d5f5356",
+          "source_revision_id": "REV_c541599e315757cabfedd178",
+          "temporal_evidence_ids": []
+        }
+      ],
+      "REL_0d90e15cc4bca63b3c14f6bd": [
+        {
+          "candidate_record_id": "CAND_68a79d816bb83451f5f098f9",
+          "decision_id": "DEC_f473847b64ffe350b735d97a",
+          "evidence_id": "EV_f8c5368331ff7ea7a2ed59e3",
+          "evidence_text": "UPDATE ARTICOLO\n       SET QTA_DISPONIBILE = QTA_DISPONIBILE - 1\n     WHERE ID_ARTICOLO = (\n        SELECT ID_ARTICOLO\n          FROM RICHIESTA_RICAMBIO\n         WHERE ID_RICHIESTA = P_ID_RICHIESTA\n     )",
+          "evidence_text_hash": "8ecb7e39e6dad613602cd4f50829116c6dc19ce20a99fee70acb20f579b80514",
+          "file_path": "vega/plsql/logica_vega.sql",
+          "rule": "sql_dependency",
+          "source_id": "SRC_fe2716a8ce358a5e6d5f5356",
+          "source_revision_id": "REV_c541599e315757cabfedd178",
+          "temporal_evidence_ids": []
+        }
+      ],
+      "REL_189340803f2a7af1e6ad5ba5": [
+        {
+          "candidate_record_id": "CAND_fa8d197d3e10a133d4b4d1c0",
+          "decision_id": "DEC_38c65543fdb4efdc58c954fc",
+          "evidence_id": "EV_12be17abe6adcbafc0b4e3cb",
+          "evidence_text": "UPDATE ARTICOLO\n       SET QTA_DISPONIBILE = QTA_DISPONIBILE - 1\n     WHERE ID_ARTICOLO = (\n        SELECT ID_ARTICOLO\n          FROM RICHIESTA_RICAMBIO\n         WHERE ID_RICHIESTA = P_ID_RICHIESTA\n     )",
+          "evidence_text_hash": "8ecb7e39e6dad613602cd4f50829116c6dc19ce20a99fee70acb20f579b80514",
+          "file_path": "vega/plsql/logica_vega.sql",
+          "rule": "sql_dependency",
+          "source_id": "SRC_fe2716a8ce358a5e6d5f5356",
+          "source_revision_id": "REV_c541599e315757cabfedd178",
+          "temporal_evidence_ids": []
+        }
+      ],
+      "REL_1b19f0585194bed24814c541": [
+        {
+          "candidate_record_id": "CAND_bbde88e5ef9d7ca747da389d",
+          "decision_id": "DEC_d142a286f043ca826d7cf1dc",
+          "evidence_id": "EV_c0302438a9b241da95a9fc5e",
+          "evidence_text": "    <item name=\"PRIORITA\" column=\"PRIORITA\" datatype=\"VARCHAR2\" required=\"true\"/>\n",
+          "evidence_text_hash": "372971646f8b2edc264c83c941da16dc40b30d53bca825515e7015a826601c1b",
+          "file_path": "vega/forms/frm_richiesta.xml",
+          "rule": "xml_dependency",
+          "source_id": "SRC_4efe76b5aa54c5409820a764",
+          "source_revision_id": "REV_e3ec4e2e41adca524aaadc56",
+          "temporal_evidence_ids": []
+        }
+      ],
+      "REL_1c55978639f318fd92967fd7": [
+        {
+          "candidate_record_id": "CAND_e65188c9c0a7c95224b22258",
+          "decision_id": "DEC_60f787ed5f60749da0028aa9",
+          "evidence_id": "EV_04d934e03c016a4e2ff44b61",
+          "evidence_text": "UPDATE ARTICOLO\n       SET QTA_DISPONIBILE = QTA_DISPONIBILE - 1\n     WHERE ID_ARTICOLO = (\n        SELECT ID_ARTICOLO\n          FROM RICHIESTA_RICAMBIO\n         WHERE ID_RICHIESTA = P_ID_RICHIESTA\n     )",
+          "evidence_text_hash": "8ecb7e39e6dad613602cd4f50829116c6dc19ce20a99fee70acb20f579b80514",
+          "file_path": "vega/plsql/logica_vega.sql",
+          "rule": "sql_dependency",
+          "source_id": "SRC_fe2716a8ce358a5e6d5f5356",
+          "source_revision_id": "REV_c541599e315757cabfedd178",
+          "temporal_evidence_ids": []
+        }
+      ],
+      "REL_2581bdb056e0800fd7d878a2": [
+        {
+          "candidate_record_id": "CAND_60d5e92eec343e89fe5b680c",
+          "decision_id": "DEC_7a33e9e5e328f2f9925b9906",
+          "evidence_id": "EV_06bc0cc1cabd6127de1482ee",
+          "evidence_text": "2026-09-01 08:00:02 WARNING magazzino missing richiesta=RV-1002 articolo=RIC-118 priorita=P2",
+          "evidence_text_hash": "0dadafd12e965b2b055117d7ea2f54bc7c30e9e92501c9b312376fe0cced02a8",
+          "file_path": "vega/logs/vega_2026.log",
+          "rule": "log_event",
+          "source_id": "SRC_39a7e833fe4db1040761f60c",
+          "source_revision_id": "REV_43b0d873a605f76aa74f610e",
+          "temporal_evidence_ids": []
+        }
+      ],
+      "REL_2729040cd8e6a9d68dcda61a": [
+        {
+          "candidate_record_id": "CAND_18511c4ddb1e91b7f1e42ad9",
+          "decision_id": "DEC_18d1b359f649a13f1ce7b8a4",
+          "evidence_id": "EV_ce526da037ffdf775873db1e",
+          "evidence_text": "  <block name=\"RICHIESTA_RICAMBIO\" table=\"RICHIESTA_RICAMBIO\">\n",
+          "evidence_text_hash": "58ade47ab2f635ad1bf3c5ea6e3fc04c27756e20e312e5830ec2e3d125b0f4fb",
+          "file_path": "vega/forms/frm_richiesta.xml",
+          "rule": "xml_dependency",
+          "source_id": "SRC_4efe76b5aa54c5409820a764",
+          "source_revision_id": "REV_e3ec4e2e41adca524aaadc56",
+          "temporal_evidence_ids": []
+        }
+      ],
+      "REL_370bcdbffa9d0d2d98cd9154": [
+        {
+          "candidate_record_id": "CAND_46a914f998266b7ac766278b",
+          "decision_id": "DEC_2ef66caef2cc711d367af4a6",
+          "evidence_id": "EV_d917be3609c264a857ec2a45",
+          "evidence_text": "THEN\n        RAISE_APPLICATION_ERROR(",
+          "evidence_text_hash": "219aafa002cc0d0239cefc09de046a179ff41be495fd813f2ee0e59fb220780b",
+          "file_path": "vega/plsql/logica_vega.sql",
+          "rule": "sql_dependency",
+          "source_id": "SRC_fe2716a8ce358a5e6d5f5356",
+          "source_revision_id": "REV_c541599e315757cabfedd178",
+          "temporal_evidence_ids": []
+        }
+      ],
+      "REL_384c805bacbfa78a9c11a5a5": [
+        {
+          "candidate_record_id": "CAND_c0cc5741bbb90e55bb1d6872",
+          "decision_id": "DEC_e5c6d732dcbe08b231449f80",
+          "evidence_id": "EV_2a92eafaf1f773f076f8aa57",
+          "evidence_text": "UPDATE RICHIESTA_RICAMBIO\n       SET STATO = 'PRENOTATA'\n     WHERE ID_RICHIESTA = P_ID_RICHIESTA",
+          "evidence_text_hash": "f07dcf7f99da2f8356642ae6c9f46faa697371a033df9e6a5b20cbe7fd13da69",
+          "file_path": "vega/plsql/logica_vega.sql",
+          "rule": "sql_dependency",
+          "source_id": "SRC_fe2716a8ce358a5e6d5f5356",
+          "source_revision_id": "REV_c541599e315757cabfedd178",
+          "temporal_evidence_ids": []
+        },
+        {
+          "candidate_record_id": "CAND_cbdf5429ce0cc06f0c53dde8",
+          "decision_id": "DEC_44178242c0630a0acce0d992",
+          "evidence_id": "EV_7138303b0b9301b9ba7b4c9e",
+          "evidence_text": "UPDATE ARTICOLO\n       SET QTA_DISPONIBILE = QTA_DISPONIBILE - 1\n     WHERE ID_ARTICOLO = (\n        SELECT ID_ARTICOLO\n          FROM RICHIESTA_RICAMBIO\n         WHERE ID_RICHIESTA = P_ID_RICHIESTA\n     )",
+          "evidence_text_hash": "8ecb7e39e6dad613602cd4f50829116c6dc19ce20a99fee70acb20f579b80514",
+          "file_path": "vega/plsql/logica_vega.sql",
+          "rule": "sql_dependency",
+          "source_id": "SRC_fe2716a8ce358a5e6d5f5356",
+          "source_revision_id": "REV_c541599e315757cabfedd178",
+          "temporal_evidence_ids": []
+        }
+      ],
+      "REL_3c56db3453de2f96c2d08f6d": [
+        {
+          "candidate_record_id": "CAND_23f15de96cef93d9810fa583",
+          "decision_id": "DEC_2b70b3e7735a24ad41cffbb9",
+          "evidence_id": "EV_078f99da7a638813b0c880b3",
+          "evidence_text": "UPDATE RICHIESTA_RICAMBIO\n       SET STATO = 'PRENOTATA'\n     WHERE ID_RICHIESTA = P_ID_RICHIESTA",
+          "evidence_text_hash": "f07dcf7f99da2f8356642ae6c9f46faa697371a033df9e6a5b20cbe7fd13da69",
+          "file_path": "vega/plsql/logica_vega.sql",
+          "rule": "sql_dependency",
+          "source_id": "SRC_fe2716a8ce358a5e6d5f5356",
+          "source_revision_id": "REV_c541599e315757cabfedd178",
+          "temporal_evidence_ids": []
+        }
+      ],
+      "REL_3ec45bb00e02824abc3be98d": [
+        {
+          "candidate_record_id": "CAND_eca283f75967e6891c1076bd",
+          "decision_id": "DEC_40f6f809084a6473ae73e315",
+          "evidence_id": "EV_b9ce3b7fc9239e7adc07c4cc",
+          "evidence_text": "CREATE TRIGGER TRG_CHIUDI_RICHIESTA\nBEFORE UPDATE OF STATO ON RICHIESTA_RICAMBIO\nFOR EACH ROW\nBEGIN\n    IF :NEW.STATO = 'CHIUSA' AND :OLD.STATO <> 'CONSEGNATA' THEN\n        RAISE_APPLICATION_ERROR(-20001, 'La richiesta deve essere consegnata prima della chiusura');\n    END IF;\nEND;",
+          "evidence_text_hash": "d48d63650b134f708bf744a0ca3452789d1ef4ce1f9e195c2e18a3375935d27c",
+          "file_path": "vega/plsql/logica_vega.sql",
+          "rule": "sql_dependency",
+          "source_id": "SRC_fe2716a8ce358a5e6d5f5356",
+          "source_revision_id": "REV_c541599e315757cabfedd178",
+          "temporal_evidence_ids": []
+        }
+      ],
+      "REL_48be75e48017a12d45c65cff": [
+        {
+          "candidate_record_id": "CAND_82e7475251477fc46caa4b9f",
+          "decision_id": "DEC_c9490c0e421b89db2ef3373f",
+          "evidence_id": "EV_4f083269cac4f05745d5dc43",
+          "evidence_text": "UPDATE ARTICOLO\n       SET QTA_DISPONIBILE = QTA_DISPONIBILE - 1\n     WHERE ID_ARTICOLO = (\n        SELECT ID_ARTICOLO\n          FROM RICHIESTA_RICAMBIO\n         WHERE ID_RICHIESTA = P_ID_RICHIESTA\n     )",
+          "evidence_text_hash": "8ecb7e39e6dad613602cd4f50829116c6dc19ce20a99fee70acb20f579b80514",
+          "file_path": "vega/plsql/logica_vega.sql",
+          "rule": "sql_dependency",
+          "source_id": "SRC_fe2716a8ce358a5e6d5f5356",
+          "source_revision_id": "REV_c541599e315757cabfedd178",
+          "temporal_evidence_ids": []
+        }
+      ],
+      "REL_6bc2e668511c1f146ee1f56a": [
+        {
+          "candidate_record_id": "CAND_bef796162717373ec293bbf6",
+          "decision_id": "DEC_3b115a71e1069ac93cbf5a68",
+          "evidence_id": "EV_faa58f5a85eaf9c190ae5f7b",
+          "evidence_text": "SET QTA_DISPONIBILE = QTA_DISPONIBILE - 1",
+          "evidence_text_hash": "2a1755053c076918df8999026b5a9647423e5d59c03428145294d052d5cac9d5",
+          "file_path": "vega/plsql/logica_vega.sql",
+          "rule": null,
+          "source_id": "SRC_fe2716a8ce358a5e6d5f5356",
+          "source_revision_id": "REV_c541599e315757cabfedd178",
+          "temporal_evidence_ids": []
+        }
+      ],
+      "REL_74947e8a353ed760d8ee0207": [
+        {
+          "candidate_record_id": "CAND_eddd5b66a44d1d644b523405",
+          "decision_id": "DEC_34d777c2f9f2bbeedabc1d25",
+          "evidence_id": "EV_3c9fabdd60da328e93640e3c",
+          "evidence_text": "2026-09-01 08:00:01 INFO scanner Processed richiesta=RV-1001 articolo=RIC-774 quantita=2",
+          "evidence_text_hash": "6767ce7ccd6a1a138a2afae0d91653eeb4b7d77faff41d5989075c1e04491424",
+          "file_path": "vega/logs/vega_2026.log",
+          "rule": "log_event",
+          "source_id": "SRC_39a7e833fe4db1040761f60c",
+          "source_revision_id": "REV_43b0d873a605f76aa74f610e",
+          "temporal_evidence_ids": []
+        }
+      ],
+      "REL_7699e7a48eb99c51cd39093e": [
+        {
+          "candidate_record_id": "CAND_14fcf1825fce518c0dbf1ce9",
+          "decision_id": "DEC_b64925f114a9837b8621f85b",
+          "evidence_id": "EV_ea6fd78dcbb480984636f5c9",
+          "evidence_text": "FOREIGN KEY (ID_ARTICOLO) REFERENCES ARTICOLO(ID_ARTICOLO)",
+          "evidence_text_hash": "b430a350435e1f8ef7c15b616d54794531cd02be70b2f7fbaeb35f4c0d59dad0",
+          "file_path": "vega/database/schema_vega.sql",
+          "rule": null,
+          "source_id": "SRC_d3d9a7bca0a54a5f1dafe1df",
+          "source_revision_id": "REV_ce46e3f8ea3543f6f4b5d7bb",
+          "temporal_evidence_ids": []
+        }
+      ],
+      "REL_8ab4859cf8449fa7dfa0a60e": [
+        {
+          "candidate_record_id": "CAND_8f0cf4ff1e78430024114a6e",
+          "decision_id": "DEC_ede527ea2e9bdc40790d4ef3",
+          "evidence_id": "EV_d770f3a7d8f01853e8acfcfb",
+          "evidence_text": "2026-09-01 08:00:03 INFO magazzino Processed richiesta=RV-1002 articolo=RIC-118 disponibilita=parziale",
+          "evidence_text_hash": "1916a152801f312a266b1f68f012173e274aa2f90620b17e71a29983d859ebc8",
+          "file_path": "vega/logs/vega_2026.log",
+          "rule": "log_event",
+          "source_id": "SRC_39a7e833fe4db1040761f60c",
+          "source_revision_id": "REV_43b0d873a605f76aa74f610e",
+          "temporal_evidence_ids": []
+        }
+      ],
+      "REL_8dc6706ae14c2629c7369e42": [
+        {
+          "candidate_record_id": "CAND_5008537f2a2af662febb49ad",
+          "decision_id": "DEC_1486ba9190759e831387ff48",
+          "evidence_id": "EV_7c381711dd089e0423d6596a",
+          "evidence_text": "    <item name=\"STATO\" column=\"STATO\" datatype=\"VARCHAR2\" required=\"true\"/>\n",
+          "evidence_text_hash": "11b77ff63d62da7cf76858d8be0e71e742a53809964d33305bec283746f278e0",
+          "file_path": "vega/forms/frm_richiesta.xml",
+          "rule": "xml_dependency",
+          "source_id": "SRC_4efe76b5aa54c5409820a764",
+          "source_revision_id": "REV_e3ec4e2e41adca524aaadc56",
+          "temporal_evidence_ids": []
+        }
+      ],
+      "REL_8e848c5b73d7b012c2c60b1e": [
+        {
+          "candidate_record_id": "CAND_f2552be859f0bdf4bd25cf7c",
+          "decision_id": "DEC_f14d441e462487dc9f858476",
+          "evidence_id": "EV_274623196f529f1b3011e377",
+          "evidence_text": "    <item name=\"ID_ARTICOLO\" column=\"ID_ARTICOLO\" datatype=\"NUMBER\" required=\"true\"/>\n",
+          "evidence_text_hash": "2bfce1a04945540b86a576435abfef6b4f671da1e92c1702ccd8f00440b30660",
+          "file_path": "vega/forms/frm_richiesta.xml",
+          "rule": "xml_dependency",
+          "source_id": "SRC_4efe76b5aa54c5409820a764",
+          "source_revision_id": "REV_e3ec4e2e41adca524aaadc56",
+          "temporal_evidence_ids": []
+        }
+      ],
+      "REL_956e7134007b41eb11956395": [
+        {
+          "candidate_record_id": "CAND_d3807a803ff79bbc0c5b771a",
+          "decision_id": "DEC_340d4ec756008791618181fd",
+          "evidence_id": "EV_a3e973b29852e1ff80cbef12",
+          "evidence_text": "2026-09-01 08:00:04 INFO scanner End richiesta=RV-1001 esito=inoltrata",
+          "evidence_text_hash": "5f5805ca35b79e9b409d35439d317df610885bd97e1d9a1f2107544478701912",
+          "file_path": "vega/logs/vega_2026.log",
+          "rule": "log_event",
+          "source_id": "SRC_39a7e833fe4db1040761f60c",
+          "source_revision_id": "REV_43b0d873a605f76aa74f610e",
+          "temporal_evidence_ids": []
+        }
+      ],
+      "REL_95a95b3d83ed3f330022d41c": [
+        {
+          "candidate_record_id": "CAND_a14c22f26bc621f3538ea7d1",
+          "decision_id": "DEC_27607f5ffb3b6bd278ef05a4",
+          "evidence_id": "EV_c7247bf40cc0154fc32f3f6c",
+          "evidence_text": "  <button name=\"BTN_PRENOTA\" label=\"Prenota\" operation=\"PRC_PRENOTA_ARTICOLO\"/>\n",
+          "evidence_text_hash": "ff925d0129f39b13c13da588b7e1a14736792e055b5d063be9b6c4b781c7b51b",
+          "file_path": "vega/forms/frm_richiesta.xml",
+          "rule": "xml_dependency",
+          "source_id": "SRC_4efe76b5aa54c5409820a764",
+          "source_revision_id": "REV_e3ec4e2e41adca524aaadc56",
+          "temporal_evidence_ids": []
+        }
+      ],
+      "REL_95e264ae43ce438e40337ea7": [
+        {
+          "candidate_record_id": "CAND_a64bf2d2f90667568b963cb0",
+          "decision_id": "DEC_69701304f7784b36ce4b92b8",
+          "evidence_id": "EV_4412cd351fbaa8035b4fecfe",
+          "evidence_text": "CREATE TRIGGER TRG_CHIUDI_RICHIESTA\nBEFORE UPDATE OF STATO ON RICHIESTA_RICAMBIO\nFOR EACH ROW\nBEGIN\n    IF :NEW.STATO = 'CHIUSA' AND :OLD.STATO <> 'CONSEGNATA' THEN\n        RAISE_APPLICATION_ERROR(-20001, 'La richiesta deve essere consegnata prima della chiusura');\n    END IF;\nEND;",
+          "evidence_text_hash": "d48d63650b134f708bf744a0ca3452789d1ef4ce1f9e195c2e18a3375935d27c",
+          "file_path": "vega/plsql/logica_vega.sql",
+          "rule": "sql_dependency",
+          "source_id": "SRC_fe2716a8ce358a5e6d5f5356",
+          "source_revision_id": "REV_c541599e315757cabfedd178",
+          "temporal_evidence_ids": []
+        }
+      ],
+      "REL_b4e83ec7455b2e8ede0f21fe": [
+        {
+          "candidate_record_id": "CAND_79209b62fdf80666193baf4c",
+          "decision_id": "DEC_d96b0785c9dab297d3f66f5c",
+          "evidence_id": "EV_d5817f5a91a68584653518bc",
+          "evidence_text": "UPDATE ARTICOLO\n       SET QTA_DISPONIBILE = QTA_DISPONIBILE - 1\n     WHERE ID_ARTICOLO = (\n        SELECT ID_ARTICOLO\n          FROM RICHIESTA_RICAMBIO\n         WHERE ID_RICHIESTA = P_ID_RICHIESTA\n     )",
+          "evidence_text_hash": "8ecb7e39e6dad613602cd4f50829116c6dc19ce20a99fee70acb20f579b80514",
+          "file_path": "vega/plsql/logica_vega.sql",
+          "rule": "sql_dependency",
+          "source_id": "SRC_fe2716a8ce358a5e6d5f5356",
+          "source_revision_id": "REV_c541599e315757cabfedd178",
+          "temporal_evidence_ids": []
+        }
+      ],
+      "REL_c9d38a01275634a8d3e8835d": [
+        {
+          "candidate_record_id": "CAND_88074b53ddc9d8cf3760f8e1",
+          "decision_id": "DEC_cd5a3cc8fd61f8a29f0fb3fb",
+          "evidence_id": "EV_ea6fd78dcbb480984636f5c9",
+          "evidence_text": "CREATE TABLE RICHIESTA_RICAMBIO (\n    ID_RICHIESTA NUMBER PRIMARY KEY,\n    ID_ARTICOLO NUMBER NOT NULL,\n    PRIORITA VARCHAR2(10) NOT NULL,\n    STATO VARCHAR2(20) NOT NULL,\n    QTA_RICHIESTA NUMBER NOT NULL,\n    CONSTRAINT FK_RICHIESTA_ARTICOLO\n        FOREIGN KEY (ID_ARTICOLO) REFERENCES ARTICOLO(ID_ARTICOLO)\n);",
+          "evidence_text_hash": "5b97e96ae4ad91685e0db8f7c3cd006c5f55d1ce17a6f066018c60c5fab69feb",
+          "file_path": "vega/database/schema_vega.sql",
+          "rule": "ddl_constraint",
+          "source_id": "SRC_d3d9a7bca0a54a5f1dafe1df",
+          "source_revision_id": "REV_ce46e3f8ea3543f6f4b5d7bb",
+          "temporal_evidence_ids": []
+        }
+      ],
+      "REL_e4671c2923c1f1f3ebc67a6c": [
+        {
+          "candidate_record_id": "CAND_9548cd7b000b05ceb0721e5c",
+          "decision_id": "DEC_7999192adf32a01a1d872162",
+          "evidence_id": "EV_6f4f526b9e1822a7fb49d38a",
+          "evidence_text": "    <item name=\"ID_RICHIESTA\" column=\"ID_RICHIESTA\" datatype=\"NUMBER\" required=\"true\"/>\n",
+          "evidence_text_hash": "f05115d42a87ea39bb67d92633a9e943ee8a083fbda49a4a12aad127af202013",
+          "file_path": "vega/forms/frm_richiesta.xml",
+          "rule": "xml_dependency",
+          "source_id": "SRC_4efe76b5aa54c5409820a764",
+          "source_revision_id": "REV_e3ec4e2e41adca524aaadc56",
+          "temporal_evidence_ids": []
+        }
+      ],
+      "REL_f4a22ed78bbb505b952b3b66": [
+        {
+          "candidate_record_id": "CAND_540e939437a18dae1804ae38",
+          "decision_id": "DEC_e9c9ef0fc760dbc1830a6d94",
+          "evidence_id": "EV_db7d4bc6001c921eac070f00",
+          "evidence_text": "UPDATE RICHIESTA_RICAMBIO\n       SET STATO = 'PRENOTATA'\n     WHERE ID_RICHIESTA = P_ID_RICHIESTA",
+          "evidence_text_hash": "f07dcf7f99da2f8356642ae6c9f46faa697371a033df9e6a5b20cbe7fd13da69",
+          "file_path": "vega/plsql/logica_vega.sql",
+          "rule": "sql_dependency",
+          "source_id": "SRC_fe2716a8ce358a5e6d5f5356",
+          "source_revision_id": "REV_c541599e315757cabfedd178",
+          "temporal_evidence_ids": []
+        }
+      ],
+      "REL_fafa96668e36cc0406ecc9a4": [
+        {
+          "candidate_record_id": "CAND_41399e2b8a0b0e97973fab53",
+          "decision_id": "DEC_ef7ee4b6e63ccdac02e5b8c7",
+          "evidence_id": "EV_3b2da6a825d252cd48b0f313",
+          "evidence_text": "UPDATE ARTICOLO\n       SET QTA_DISPONIBILE = QTA_DISPONIBILE - 1\n     WHERE ID_ARTICOLO = (\n        SELECT ID_ARTICOLO\n          FROM RICHIESTA_RICAMBIO\n         WHERE ID_RICHIESTA = P_ID_RICHIESTA\n     )",
+          "evidence_text_hash": "8ecb7e39e6dad613602cd4f50829116c6dc19ce20a99fee70acb20f579b80514",
+          "file_path": "vega/plsql/logica_vega.sql",
+          "rule": "sql_dependency",
+          "source_id": "SRC_fe2716a8ce358a5e6d5f5356",
+          "source_revision_id": "REV_c541599e315757cabfedd178",
+          "temporal_evidence_ids": []
+        }
+      ]
+    }
+  }
+}

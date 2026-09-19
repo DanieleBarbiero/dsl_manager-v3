@@ -17,6 +17,7 @@ from fastapi.staticfiles import StaticFiles
 from dslm3 import __version__
 from dslm3.common import DomainError, safe_relative, within, now
 from dslm3.service import Application
+from dslm3.workspaces import WorkspaceRegistry
 from dslm3.knowledge import Knowledge, POLICIES
 from dslm3.temporal import Temporal
 from dslm3.ai import AI
@@ -186,8 +187,24 @@ def dispatch(app: Application, operation: str, args: dict):
     raise DomainError("unknown_operation", "Operazione non riconosciuta.")
 
 
+class ActiveApplication:
+    def __init__(self, application: Application):
+        self._current = application
+
+    @property
+    def current(self) -> Application:
+        return self._current
+
+    def switch(self, application: Application) -> None:
+        self._current = application
+
+    def __getattr__(self, name):
+        return getattr(self._current, name)
+
+
 def create_app(workspace: str | Path) -> FastAPI:
-    application = Application(workspace)
+    application = ActiveApplication(Application(workspace))
+    registry = WorkspaceRegistry(workspace)
     token = secrets.token_urlsafe(32)
     jobs = {}
     lock = threading.Lock()
@@ -206,6 +223,7 @@ def create_app(workspace: str | Path) -> FastAPI:
         lifespan=lifespan,
     )
     api.state.application = application
+    api.state.workspace_registry = registry
     api.state.token = token
     api.state.jobs = jobs
 
@@ -257,7 +275,91 @@ def create_app(workspace: str | Path) -> FastAPI:
             "token": token,
             "version": __version__,
             "workspace": str(application.root),
+            "workspace_id": registry.workspace_id(application.root),
         }
+
+    def require_workspace_idle():
+        with lock:
+            if any(
+                item.get("status") in {"queued", "running"} for item in jobs.values()
+            ):
+                raise DomainError(
+                    "workspace_busy",
+                    "Attendere la conclusione del job prima di cambiare workspace.",
+                    409,
+                )
+
+    @api.get("/api/workspaces")
+    def workspaces():
+        return registry.list(application.root)
+
+    @api.post("/api/workspaces")
+    async def workspace_action(request: Request):
+        require_workspace_idle()
+        try:
+            body = await request.json()
+        except Exception:
+            raise DomainError("invalid_json", "Richiesta JSON non valida.")
+        if not isinstance(body, dict) or not isinstance(body.get("operation"), str):
+            raise DomainError("invalid_workspace_action", "Operazione workspace non valida.")
+        operation = body["operation"]
+        if operation in {"create", "register"}:
+            if not isinstance(body.get("path"), str) or not body["path"].strip():
+                raise DomainError("workspace_path", "Serve un percorso workspace.")
+            target = Path(body["path"]).expanduser().resolve()
+            if operation == "create":
+                if target.exists() and not target.is_dir():
+                    raise DomainError(
+                        "workspace_path",
+                        "Il percorso del nuovo workspace deve essere una directory.",
+                    )
+                if target.exists() and any(target.iterdir()):
+                    raise DomainError(
+                        "workspace_not_empty",
+                        "Per creare un workspace nuovo serve una directory assente o vuota.",
+                        409,
+                    )
+            else:
+                if not (
+                    target.is_dir()
+                    and (target / "registry.sqlite3").is_file()
+                    and (target / "project.json").is_file()
+                ):
+                    raise DomainError(
+                        "workspace_invalid",
+                        "Il percorso non contiene un workspace DSLM3 esistente.",
+                    )
+            candidate = Application(target)
+            entry = registry.add(target, body.get("name"))
+            if body.get("activate", True):
+                application.switch(candidate)
+            return {"workspace": entry, **registry.list(application.root)}
+        if operation == "switch":
+            if not isinstance(body.get("id"), str):
+                raise DomainError("workspace_missing", "ID workspace mancante.")
+            entry = registry.get(body["id"])
+            target = Path(entry["path"])
+            if not (
+                target.is_dir()
+                and (target / "registry.sqlite3").is_file()
+                and (target / "project.json").is_file()
+            ):
+                raise DomainError(
+                    "workspace_unavailable",
+                    "Il workspace registrato non è disponibile sul filesystem.",
+                    409,
+                )
+            application.switch(Application(target))
+            return registry.list(application.root)
+        if operation == "forget":
+            if not isinstance(body.get("id"), str):
+                raise DomainError("workspace_missing", "ID workspace mancante.")
+            registry.forget(body["id"], application.root)
+            return registry.list(application.root)
+        raise DomainError(
+            "invalid_workspace_action",
+            "Operazione workspace non riconosciuta.",
+        )
 
     @api.get("/api/status")
     def status():
@@ -322,8 +424,11 @@ def create_app(workspace: str | Path) -> FastAPI:
 
     @api.get("/api/jobs")
     def list_jobs():
+        current = str(application.root)
         with lock:
-            return list(jobs.values())[-40:]
+            return [
+                item for item in jobs.values() if item.get("workspace") == current
+            ][-40:]
 
     @api.get("/api/jobs/{job_id}")
     def job(job_id: str):
@@ -344,11 +449,14 @@ def create_app(workspace: str | Path) -> FastAPI:
             or not isinstance(body.get("args", {}), dict)
         ):
             raise DomainError("invalid_action", "Serve operation e un oggetto args.")
+        target = application.current
+        workspace_path = str(target.root)
         ident = "JOB_" + uuid.uuid4().hex[:16]
         with lock:
             jobs[ident] = {
                 "id": ident,
                 "operation": body["operation"],
+                "workspace": workspace_path,
                 "status": "queued",
                 "created_at": now(),
             }
@@ -357,10 +465,10 @@ def create_app(workspace: str | Path) -> FastAPI:
             with lock:
                 jobs[ident]["status"] = "running"
             try:
-                result = application.run(
+                result = target.run(
                     body["operation"],
                     lambda: dispatch(
-                        application, body["operation"], body.get("args", {})
+                        target, body["operation"], body.get("args", {})
                     ),
                 )
                 with lock:
@@ -387,6 +495,7 @@ def create_app(workspace: str | Path) -> FastAPI:
 
     @api.post("/api/upload")
     async def upload(files: list[UploadFile] = File(...), paths: str = Form("[]")):
+        target_app = application.current
         try:
             names = json.loads(paths)
         except json.JSONDecodeError:
@@ -399,9 +508,9 @@ def create_app(workspace: str | Path) -> FastAPI:
             )
         results = []
         for i, file in enumerate(files):
-            data = await file.read(application.store.config()["max_file_bytes"] + 1)
+            data = await file.read(target_app.store.config()["max_file_bytes"] + 1)
             results.append(
-                application.ingest(
+                target_app.ingest(
                     names[i] if names else file.filename or "upload.bin", data
                 )
             )

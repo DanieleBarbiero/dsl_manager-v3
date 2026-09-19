@@ -138,7 +138,10 @@ def test_excel_exact_structural_contract_offline(monkeypatch):
     assert r.manifest["external_links"][0]["disposition"] == "not_dereferenced"
     assert r.manifest == build(p).manifest
     golden = json.loads(
-        (Path(__file__).parent / "fixtures/workbook_manifest_golden.json").read_text()
+        (
+            Path(__file__).parent
+            / "fixtures/workbook_manifest_golden.json"
+        ).read_text(encoding="utf-8")
     )
     # Semantic IDs are supplied by the caller; normalize only this identifier.
     golden["source_revision"]["id"] = r.manifest["source_revision"]["id"]

@@ -62,10 +62,14 @@ def fixtures():
         ("data.sql", "CREATE TABLE città(id INT);".encode("utf-16"), "ddl_table"),
     ]
 
+FORMAT_CASES = fixtures()
 
 @pytest.mark.parametrize(
-    "name,data,kind", fixtures(), ids=lambda v: v if isinstance(v, str) else None
+    "name,data,kind",
+    FORMAT_CASES,
+    ids=[name for name, _, _ in FORMAT_CASES],
 )
+
 def test_format_worker_real(tmp_path, name, data, kind):
     app = Application(tmp_path)
     rev = app.ingest(name, data)["revision_id"]
