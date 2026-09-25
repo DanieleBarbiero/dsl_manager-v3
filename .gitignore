@@ -42,3 +42,8 @@ Thumbs.db
 # google drive
 .tmp.driveupload/
 .tmp.drivedownload/
+
+# patch
+*.ps1
+*.patch
+*.sha256

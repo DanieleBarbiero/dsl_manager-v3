@@ -256,6 +256,7 @@ def parse_xml(text: str) -> ParseResult:
                 if isinstance(x.tag, str) and tag(x) == "block"
             ]
             block = attrs(parents[0]) if parents else {}
+            block_name = block.get("name") or block.get("blockname")
             table = (
                 block.get("table")
                 or block.get("querydatasourcename")
@@ -289,10 +290,17 @@ def parse_xml(text: str) -> ParseResult:
                 in {"pushbutton", "button"}
             )
             if kind in {"field", "item", "button"} and name:
-                full = fname + "." + name
+                # Item names are only unique inside their Oracle Forms block.
+                qualified = [fname]
+                if kind == "item" and block_name:
+                    qualified.append(block_name)
+                qualified.append(name)
+                full = ".".join(qualified)
                 data = {
                     "name": full,
                     "form": fname,
+                    "block_name": block_name,
+                    "source_element_kind": kind,
                     "table": table,
                     "column": a.get("column") or a.get("columnname") or name,
                     "datatype": a.get("datatype"),
@@ -313,9 +321,12 @@ def parse_xml(text: str) -> ParseResult:
                     )
                 operation = a.get("operation") or a.get("procedure") or a.get("call")
                 if operation:
+                    evidence_type = (
+                        "xml_button_operation" if button else "xml_dependency"
+                    )
                     record(
                         e,
-                        "xml_dependency",
+                        evidence_type,
                         {"source": full, "relation_type": "calls", "target": operation},
                     )
             if kind in {"trigger", "programunit"}:

@@ -41,7 +41,7 @@ def run(workspace: Path, report_path: Path):
     check(
         "forms_operation_calls",
         any(
-            e["type"] == "xml_dependency"
+            e["type"] == "xml_button_operation"
             and e["data"].get("target") == "PRC_PRENOTA_ARTICOLO"
             for e in evidence
         ),

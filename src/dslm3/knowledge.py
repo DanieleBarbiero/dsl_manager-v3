@@ -16,6 +16,7 @@ POLICIES = {
     "sql_dependency": "observed_db_code_dependency_only/1",
     "xml_structure": "explicit_xml_form_structure_only/1",
     "xml_dependency": "explicit_xml_operation_only/1",
+    "xml_button_operation": "explicit_xml_button_operation_pending/1",
     "log_event": "named_explicit_log_policy_required/1",
     "excel_workbook": "explicit_excel_workbook_only/1",
     "excel_sheet": "explicit_excel_sheet_only/1",
@@ -23,6 +24,7 @@ POLICIES = {
     "excel_named_range": "explicit_excel_named_range_only/1",
     "excel_table": "explicit_excel_table_only/1",
 }
+AUTOMATIC_REVIEW_FORBIDDEN = {"xml_button_operation"}
 SPECIFIC = {
     "candidate_fact": ("fact_type", "entity_name", "property_name", "property_value"),
     "candidate_relation": ("source_entity", "relation_type", "target_entity"),
@@ -248,7 +250,7 @@ class Knowledge:
             payloads.append(base)
             rules[cid] = rule
 
-        def fact(e, rule, entity, prop, value, **extra):
+        def fact(e, rule, entity, prop, value, fact_type="technical", **extra):
             add(
                 e,
                 "candidate_fact",
@@ -256,7 +258,7 @@ class Knowledge:
                 entity_name=entity,
                 property_name=prop,
                 property_value=value,
-                fact_type="technical",
+                fact_type=fact_type,
                 **extra,
             )
 
@@ -264,7 +266,14 @@ class Knowledge:
             d = e["data"]
             kind = e["type"]
             if kind == "ddl_table":
-                fact(e, "ddl_table", d["name"], "object_type", "table")
+                fact(
+                    e,
+                    "ddl_table",
+                    d["name"],
+                    "object_type",
+                    "table",
+                    fact_type="database_table",
+                )
             elif kind == "ddl_column":
                 fact(
                     e,
@@ -276,6 +285,7 @@ class Knowledge:
                         "nullable": d["nullable"],
                         "constraints": d["constraints"],
                     },
+                    fact_type="database_column",
                 )
             elif kind == "ddl_constraint" and d["constraint_type"] == "foreign_key":
                 target = d["target_table"]
@@ -307,6 +317,7 @@ class Knowledge:
                     d["name"],
                     "object_type",
                     d.get("object_type", kind[4:]),
+                    fact_type="database_object",
                 )
             elif kind in {
                 "sql_procedure",
@@ -317,8 +328,15 @@ class Knowledge:
                 "sql_type",
                 "sql_type_body",
             }:
-                fact(e, "sql_unit", d["name"], "object_type", kind[4:])
-            elif kind in {"sql_dependency", "xml_dependency"}:
+                fact(
+                    e,
+                    "sql_unit",
+                    d["name"],
+                    "object_type",
+                    kind[4:],
+                    fact_type="database_code_unit",
+                )
+            elif kind in {"sql_dependency", "xml_dependency", "xml_button_operation"}:
                 target = d["target"]
                 if "." in target and kind == "sql_dependency":
                     table, column = target.rsplit(".", 1)
@@ -342,6 +360,12 @@ class Knowledge:
                     else "explicit",
                 )
             elif kind in {"xml_form", "xml_field", "xml_button", "xml_block"}:
+                xml_fact_type = {
+                    "xml_form": "xml_form",
+                    "xml_field": "xml_form_field",
+                    "xml_button": "xml_form_button",
+                    "xml_block": "xml_form_block",
+                }[kind]
                 fact(
                     e,
                     "xml_structure",
@@ -351,10 +375,19 @@ class Knowledge:
                         "object_type": kind[4:],
                         **{k: v for k, v in d.items() if k != "name"},
                     },
+                    fact_type=xml_fact_type,
                 )
             elif kind == "log_event":
                 entity = "event:" + e["id"]
-                fact(e, "log_event", entity, "occurrence", d, assertion_type="observed")
+                fact(
+                    e,
+                    "log_event",
+                    entity,
+                    "occurrence",
+                    d,
+                    fact_type="log_event",
+                    assertion_type="observed",
+                )
                 add(
                     e,
                     "candidate_relation",
@@ -383,7 +416,14 @@ class Knowledge:
                         "source_revision_id",
                     }
                 }
-                fact(e, kind, d["name"], "definition", {"object_type": kind, **details})
+                fact(
+                    e,
+                    kind,
+                    d["name"],
+                    "definition",
+                    {"object_type": kind, **details},
+                    fact_type=kind,
+                )
             elif kind == "excel_explicit_reference":
                 add(
                     e,
@@ -580,6 +620,7 @@ class Knowledge:
                 and c["current_parse"]
                 and c["source_status"] == "active"
                 and c["policy"] in allowed
+                and c["rule"] not in AUTOMATIC_REVIEW_FORBIDDEN
             ):
                 decisions.append(
                     self.review(
@@ -734,6 +775,8 @@ class Knowledge:
                         for k in ("source_entity", "relation_type", "target_entity")
                     }
                     payload["attributes"] = p.get("attributes", {})
+                    payload["assertion_type"] = p["assertion_type"]
+                    payload["confidence"] = p["confidence"]
                     kind = "relation"
                 elif kind == "temporal_interval":
                     from dslm3.temporal import validate_interval
