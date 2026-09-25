@@ -226,6 +226,8 @@ class Temporal:
             for r in records:
                 value = {
                     **r,
+                    "initial_reliability": r.get("initial_reliability", "medium"),
+                    "correlation_family": r.get("correlation_family") or r.get("source_format", "manual"),
                     "extraction_version": "3",
                     "warnings": r.get("warnings", []),
                 }
@@ -552,14 +554,24 @@ class Temporal:
             conflict = len(buckets) > 1
             for _, same in sorted(buckets.items()):
                 independent = set()
+                reliable_count = 0
                 for r in same:
+                    payload = r["payload"]
+                    if payload.get("initial_reliability") not in {"high", "medium"}:
+                        continue
                     rev = self.store.one(
                         "SELECT sha256 FROM revisions WHERE id=?", (r["revision_id"],)
                     )
-                    independent.add(rev["sha256"])
+                    family = payload.get("correlation_family") or payload.get(
+                        "source_format", "unknown"
+                    )
+                    independent.add((rev["sha256"], family))
+                    reliable_count += 1
                 assessment = (
                     "conflicting"
                     if conflict
+                    else "low_quality"
+                    if reliable_count == 0
                     else "concordant"
                     if len(independent) > 1
                     else "single_or_correlated"
@@ -570,6 +582,7 @@ class Temporal:
                     "role": role,
                     "assessment": assessment,
                     "independent_sources": len(independent),
+                    "reliable_evidence": reliable_count,
                     "evidence_ids": [r["id"] for r in same],
                 }
                 gid = uid("TGROUP", group)

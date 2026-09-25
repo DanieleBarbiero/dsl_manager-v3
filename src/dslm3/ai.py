@@ -32,6 +32,7 @@ TECHNICAL = {
     "xml_form",
     "xml_field",
     "xml_button",
+    "xml_button_operation",
     "excel_region",
 }
 

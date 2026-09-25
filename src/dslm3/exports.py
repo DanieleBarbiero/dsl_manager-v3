@@ -63,6 +63,8 @@ class Exports:
                         "file_path": rev["path"],
                         "evidence_id": evid,
                         "evidence_text": c["evidence_text"],
+                        "assertion_type": c["assertion_type"],
+                        "confidence": c["confidence"],
                         "evidence_text_hash": digest(c["evidence_text"]),
                         "rule": s["rule"],
                         "temporal_evidence_ids": c.get("temporal_evidence_ids", []),
@@ -73,9 +75,47 @@ class Exports:
                 entities.setdefault(
                     key, {"name": p["entity_name"], "canonical_name": key, "facts": []}
                 )
+                fact_type = p.get("fact_type")
+                if fact_type == "technical":
+                    resolved_types = []
+                    direct = {
+                        "ddl_table": "database_table",
+                        "ddl_column": "database_column",
+                        "sql_unit": "database_code_unit",
+                        "log_event": "log_event",
+                        "excel_workbook": "excel_workbook",
+                        "excel_sheet": "excel_sheet",
+                        "excel_region": "excel_region",
+                        "excel_named_range": "excel_named_range",
+                        "excel_table": "excel_table",
+                    }
+                    for support in obj["supports"]:
+                        candidate_type = support["candidate_payload"].get("fact_type")
+                        if candidate_type and candidate_type != "technical":
+                            resolved_types.append(candidate_type)
+                        if support["rule"] in direct:
+                            resolved_types.append(direct[support["rule"]])
+                        if support["rule"] == "xml_structure":
+                            object_type = (
+                                p.get("property_value", {}).get("object_type")
+                                if isinstance(p.get("property_value"), dict)
+                                else None
+                            )
+                            xml_types = {
+                                "form": "xml_form",
+                                "field": "xml_form_field",
+                                "button": "xml_form_button",
+                                "block": "xml_form_block",
+                            }
+                            if object_type in xml_types:
+                                resolved_types.append(xml_types[object_type])
+                    unique_types = sorted(set(resolved_types))
+                    if len(unique_types) == 1:
+                        fact_type = unique_types[0]
                 fact = {
                     "fact_id": obj["id"],
                     **{k: v for k, v in p.items() if k != "entity_name"},
+                    "fact_type": fact_type,
                     "status": "active",
                     "confidence": max(
                         (s["candidate_payload"]["confidence"] for s in obj["supports"]),
@@ -88,12 +128,29 @@ class Exports:
                 entities[key]["facts"].append(fact)
                 traces["facts"][obj["id"]] = supports
             elif kind == "relation":
+                assertion_type = p.get("assertion_type")
+                if assertion_type is None and obj["supports"]:
+                    assertion_type = obj["supports"][0]["candidate_payload"].get(
+                        "assertion_type"
+                    )
+                confidence = p.get("confidence")
+                if confidence is None:
+                    confidence = max(
+                        (
+                            s["candidate_payload"].get("confidence", "low")
+                            for s in obj["supports"]
+                        ),
+                        default="low",
+                        key=lambda x: {"low": 0, "medium": 1, "high": 2}[x],
+                    )
                 relations.append(
                     {
                         "relation_id": obj["id"],
                         **p,
                         "canonical_source_entity": name_key(p["source_entity"]),
                         "canonical_target_entity": name_key(p["target_entity"]),
+                        "assertion_type": assertion_type,
+                        "confidence": confidence,
                         "status": "active",
                         **({"intervals": []} if schema_version == 2 else {}),
                     }
@@ -239,50 +296,127 @@ class Exports:
     def diff(self, before, after, cross_schema=False):
         a = self.load(before)
         b = self.load(after)
-        if (
+        cross_profile = (
             a["metadata"]["schema_version"] != b["metadata"]["schema_version"]
-            and not cross_schema
-        ):
+        )
+        if cross_profile and not cross_schema:
             raise DomainError(
                 "cross_schema_required",
                 "Confronto fra profili diversi: specificare cross_schema.",
             )
 
-        def sections(x):
-            return {
-                "structure": {
-                    **{
-                        f["fact_id"]: {k: v for k, v in f.items() if k != "intervals"}
-                        for e in x["entities"]
-                        for f in e["facts"]
-                    },
-                    **{
-                        r["relation_id"]: {
-                            k: v for k, v in r.items() if k != "intervals"
-                        }
-                        for r in x["relations"]
-                    },
-                },
-                "temporal": {i["interval_id"]: i for i in x.get("intervals", [])},
-                "governance": {
-                    **x["traceability"]["facts"],
-                    **x["traceability"]["relations"],
-                    **x["traceability"].get("intervals", {}),
-                },
-            }
+        def sections(x, include_temporal=True):
+            values = {"structure": {}, "temporal": {}, "governance": {}}
+            object_ids = {"structure": {}, "temporal": {}, "governance": {}}
+            fact_slots = {}
+            relation_slots = {}
 
-        left = sections(a)
-        right = sections(b)
+            def add(category, semantic_key, object_id, value, causes):
+                values[category].setdefault(semantic_key, []).append(value)
+                object_ids[category].setdefault(semantic_key, []).append(object_id)
+                values["governance"].setdefault(semantic_key, []).extend(causes)
+                object_ids["governance"].setdefault(semantic_key, []).append(object_id)
+
+            for entity in x["entities"]:
+                entity_key = entity.get("canonical_name") or name_key(entity["name"])
+                for fact in entity["facts"]:
+                    semantic_key = "fact:" + canonical(
+                        [
+                            entity_key,
+                            name_key(fact["property_name"]),
+                            fact.get("fact_type"),
+                        ]
+                    )
+                    fact_slots[fact["fact_id"]] = semantic_key
+                    add(
+                        "structure",
+                        semantic_key,
+                        fact["fact_id"],
+                        {
+                            k: v
+                            for k, v in fact.items()
+                            if k not in {"fact_id", "intervals"}
+                        },
+                        x["traceability"]["facts"].get(fact["fact_id"], []),
+                    )
+
+            for relation in x["relations"]:
+                semantic_key = "relation:" + canonical(
+                    [
+                        relation.get("canonical_source_entity")
+                        or name_key(relation["source_entity"]),
+                        name_key(relation["relation_type"]),
+                        relation.get("canonical_target_entity")
+                        or name_key(relation["target_entity"]),
+                    ]
+                )
+                relation_slots[relation["relation_id"]] = semantic_key
+                add(
+                    "structure",
+                    semantic_key,
+                    relation["relation_id"],
+                    {
+                        k: v
+                        for k, v in relation.items()
+                        if k not in {"relation_id", "intervals"}
+                    },
+                    x["traceability"]["relations"].get(relation["relation_id"], []),
+                )
+
+            if include_temporal:
+                for interval in x.get("intervals", []):
+                    target_id = interval["target_subject_id"]
+                    target_key = (
+                        fact_slots.get(target_id)
+                        or relation_slots.get(target_id)
+                        or interval["target_subject_type"] + ":" + target_id
+                    )
+                    semantic_key = "interval:" + canonical(
+                        [interval["target_subject_type"], target_key]
+                    )
+                    add(
+                        "temporal",
+                        semantic_key,
+                        interval["interval_id"],
+                        {
+                            k: v
+                            for k, v in interval.items()
+                            if k not in {"interval_id", "target_subject_id"}
+                        },
+                        x["traceability"].get("intervals", {}).get(
+                            interval["interval_id"], []
+                        ),
+                    )
+
+            for category in values:
+                for semantic_key, items in list(values[category].items()):
+                    ordered = sorted(items, key=canonical)
+                    values[category][semantic_key] = (
+                        ordered[0] if len(ordered) == 1 else ordered
+                    )
+                    object_ids[category][semantic_key] = sorted(
+                        set(object_ids[category].get(semantic_key, []))
+                    )
+            return values, object_ids
+
+        include_temporal = not (cross_profile and cross_schema)
+        left, left_ids = sections(a, include_temporal)
+        right, right_ids = sections(b, include_temporal)
         changes = []
-        for category in left:
+        for category in ("structure", "temporal", "governance"):
             for ident in sorted(set(left[category]) | set(right[category])):
                 old = left[category].get(ident)
                 new = right[category].get(ident)
                 if old != new:
+                    before_ids = left_ids[category].get(ident, [])
+                    after_ids = right_ids[category].get(ident, [])
                     changes.append(
                         {
                             "category": category,
-                            "object_id": ident,
+                            "semantic_key": ident,
+                            "object_id": (after_ids or before_ids or [ident])[0],
+                            "before_object_ids": before_ids,
+                            "after_object_ids": after_ids,
                             "change": "added"
                             if old is None
                             else "removed"

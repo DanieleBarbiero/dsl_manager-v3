@@ -125,8 +125,16 @@ with sync_playwright() as p:
     assert wait_job(before)["status"] == "success"
     expect(page.locator("#job-banner")).to_be_hidden(timeout=10000)
     page.locator("nav a[data-page=review]").click()
-    expect(page.locator(".candidate-check")).to_have_count(1)
-    page.locator(".candidate-check").check()
+    # The v1-parity profile intentionally keeps explicit button operations pending.
+    # Select the AI-imported proposal by semantic label instead of assuming it is
+    # the only pending candidate in the review queue.
+    button_operation = page.locator(".candidate-row").filter(
+        has_text="FRM_RICHIESTA.BTN_PRENOTA"
+    )
+    expect(button_operation).to_have_count(1)
+    ai_candidate = page.locator(".candidate-row").filter(has_text="Priorità P1")
+    expect(ai_candidate).to_have_count(1)
+    ai_candidate.locator(".candidate-check").check()
     run(page.get_by_role("button", name="Conferma selezionate"))
     run(page.get_by_role("button", name="Merge delle confermate"))
     page.locator("#review-filter").select_option("confirmed")

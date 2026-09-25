@@ -210,7 +210,7 @@ class Application:
             "max_file_bytes": config["max_file_bytes"],
             "max_evidence": config["max_evidence"],
         }
-        parser_version = "3.0.0-r2:" + digest(relevant)
+        parser_version = "3.0.0-r3:" + digest(relevant)
         cached = self.store.one(
             "SELECT * FROM parses WHERE revision_id=? AND parser_version=? AND status IN ('success','partial') ORDER BY created_at DESC LIMIT 1",
             (revision, parser_version),
