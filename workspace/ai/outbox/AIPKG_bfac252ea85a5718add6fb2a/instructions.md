@@ -6,4 +6,9 @@ Restituisci esclusivamente JSONL conforme a candidate_schema.json. Ogni candidat
 
 Distingui dichiarazioni, osservazioni, inferenze e ambiguità. Per il dominio proponi concetti/regole solo con un supporto testuale; segnala conflitti e domande aperte. Converti unità diverse solo quando la conversione è esplicita e motivabile, conservando l'evidenza originale. Nomi tecnici e metadata temporali non sono automaticamente verità di dominio.
 
-Non attribuirti autorità di review: ogni record importato sarà pending. Package: AIPKG_f7d1ea0b3e879405c02b8cc3.
+CONTRATTO CANONICO technical_extraction/sql_statement:
+- emetti solo candidate_fact; non coniare candidate_relation per filtri/subquery;
+- property_name deve essere uno fra assignment_expression, assigned_value, row_selection_expression;
+- conserva l'espressione tecnica come property_value senza inventare semantica di dominio.
+
+Non attribuirti autorità di review: ogni record importato sarà pending. Package: AIPKG_bfac252ea85a5718add6fb2a.

@@ -154,7 +154,12 @@ def validate_interval(p: dict, strict=False):
         "incompatible",
     }:
         raise DomainError("temporal_timezone", "Stato timezone non ammesso.")
-    if p.get("bounds_semantics") not in {"inclusive", "coverage_envelope"}:
+    if p.get("bounds_semantics") not in {
+        "inclusive",
+        "coverage_envelope",
+        "open_start",
+        "open_end",
+    }:
         raise DomainError("temporal_bounds", "Semantica limiti non ammessa.")
     try:
         for value in (a, b):
@@ -495,6 +500,14 @@ class Temporal:
         b = point(end, tz) if end else None
         template = a or b
         precision = precision or template["precision"]
+        if a and not b:
+            bounds_semantics = "open_end"
+        elif b and not a:
+            bounds_semantics = "open_start"
+        elif precision in {"year", "month"}:
+            bounds_semantics = "coverage_envelope"
+        else:
+            bounds_semantics = "inclusive"
         p = {
             "record_type": "temporal_interval",
             "candidate_id": uid(
@@ -511,9 +524,7 @@ class Temporal:
             "original_precision": precision,
             "timezone_status": template["timezone_status"],
             "timezone_value": template["timezone_value"],
-            "bounds_semantics": "coverage_envelope"
-            if precision in {"year", "month"}
-            else "inclusive",
+            "bounds_semantics": bounds_semantics,
             "temporal_evidence_ids": ids,
             "derivation_policy_id": policy,
             "derivation_policy_version": "3",
@@ -608,7 +619,16 @@ class Temporal:
                     end = last["payload"]["raw_value"]
                 else:
                     ids = [r["id"] for r in same]
-                    start = end = same[0]["payload"]["raw_value"]
+                    value = same[0]["payload"]["raw_value"]
+                    # An isolated validity boundary is open-ended. Treating it as
+                    # a one-day interval invents a second boundary that the source
+                    # never supplied.
+                    if role == "valid_from":
+                        start, end = value, None
+                    elif role == "valid_to":
+                        start, end = None, value
+                    else:
+                        start = end = value
                 try:
                     proposals.append(
                         self.propose(

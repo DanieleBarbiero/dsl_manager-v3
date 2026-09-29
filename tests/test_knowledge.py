@@ -123,6 +123,51 @@ def test_supports_corrections_and_conflicts(app):
     assert len(k.conflicts()) == 1
 
 
+def test_mapping_and_question_materialize_with_lifecycle(app):
+    k = Knowledge(app)
+    e = app.evidence()[0]
+    common = {
+        "source_revision_id": e["revision_id"],
+        "fragment_id": e["id"],
+        "evidence_text": e["text"],
+        "confidence": "medium",
+    }
+    mapping = {
+        **common,
+        "record_type": "candidate_mapping",
+        "candidate_id": "mapping_1",
+        "assertion_type": "inferred",
+        "domain_entity": "Business Item",
+        "technical_object": "ITEMS",
+        "mapping_type": "implemented_by",
+    }
+    question = {
+        **common,
+        "record_type": "candidate_question",
+        "candidate_id": "question_1",
+        "assertion_type": "explicit",
+        "question_type": "missing_rule",
+        "subject": "Business Item",
+        "question_text": "Which state closes the item?",
+    }
+    imported = k.import_candidates([mapping, question], "ai:test")
+    normalized_question = next(
+        c for c in k.candidates() if c["id"] == imported["candidate_ids"][1]
+    )
+    assert normalized_question["payload"]["question_basis"] == "derived_gap"
+    assert normalized_question["payload"]["question_status"] == "open"
+    assert normalized_question["payload"]["assertion_type"] == "inferred"
+    k.review_many(imported["candidate_ids"], "confirmed")
+    merged = k.merge()
+    assert merged["created"] == 2
+    assert not [
+        s
+        for s in merged["skipped"]
+        if s["id"] in imported["candidate_ids"]
+    ]
+    assert {o["kind"] for o in k.objects()} == {"mapping", "question"}
+
+
 def test_source_revision_and_append_only(app):
     k = Knowledge(app)
     k.derive()

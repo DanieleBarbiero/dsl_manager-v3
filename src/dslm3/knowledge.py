@@ -16,7 +16,7 @@ POLICIES = {
     "sql_dependency": "observed_db_code_dependency_only/1",
     "xml_structure": "explicit_xml_form_structure_only/1",
     "xml_dependency": "explicit_xml_operation_only/1",
-    "xml_button_operation": "explicit_xml_button_operation_pending/1",
+    "xml_button_operation": "explicit_xml_button_operation_only/1",
     "log_event": "named_explicit_log_policy_required/1",
     "excel_workbook": "explicit_excel_workbook_only/1",
     "excel_sheet": "explicit_excel_sheet_only/1",
@@ -24,7 +24,14 @@ POLICIES = {
     "excel_named_range": "explicit_excel_named_range_only/1",
     "excel_table": "explicit_excel_table_only/1",
 }
-AUTOMATIC_REVIEW_FORBIDDEN = {"xml_button_operation"}
+# Keep existing workspaces compatible with the pre-fix policy identifier.
+LEGACY_POLICY_ALIASES = {
+    "explicit_xml_button_operation_only/1": "explicit_xml_button_operation_pending/1"
+}
+# Deterministic XML button operations carry the same provenance guarantees as the
+# other explicit deterministic rules and may therefore follow the configured
+# automatic-review policy.
+AUTOMATIC_REVIEW_FORBIDDEN = set()
 SPECIFIC = {
     "candidate_fact": ("fact_type", "entity_name", "property_name", "property_value"),
     "candidate_relation": ("source_entity", "relation_type", "target_entity"),
@@ -96,6 +103,22 @@ class Knowledge:
             "ambiguous",
         } or payload["confidence"] not in {"low", "medium", "high"}:
             raise DomainError("candidate_schema", "Assertion/confidence non ammessi.")
+        if payload["record_type"] == "candidate_question":
+            basis = payload.get("question_basis")
+            status = payload.get("question_status")
+            if basis is not None and basis not in {"source_question", "derived_gap"}:
+                raise DomainError(
+                    "candidate_schema", "question_basis non ammesso."
+                )
+            if status is not None and status not in {"open", "resolved"}:
+                raise DomainError(
+                    "candidate_schema", "question_status non ammesso."
+                )
+            if basis == "derived_gap" and payload["assertion_type"] == "explicit":
+                raise DomainError(
+                    "candidate_schema",
+                    "Una domanda derivata da una lacuna deve essere inferred/ambiguous, non explicit.",
+                )
         if any(
             PLACEHOLDER.search(str(payload[k]))
             for k in SPECIFIC[payload["record_type"]]
@@ -184,6 +207,27 @@ class Knowledge:
             )
         if not items:
             raise DomainError("empty_batch", "Il batch non contiene candidati.")
+        # Keep backward compatibility with older AI responses while making the
+        # epistemic status of questions explicit in all newly persisted records.
+        normalized_items = []
+        for raw in items:
+            item = dict(raw)
+            if item.get("record_type") == "candidate_question":
+                basis = item.get("question_basis")
+                if not basis:
+                    question = str(item.get("question_text", "")).strip()
+                    evidence = str(item.get("evidence_text", ""))
+                    basis = (
+                        "source_question"
+                        if question and question in evidence
+                        else "derived_gap"
+                    )
+                    item["question_basis"] = basis
+                item.setdefault("question_status", "open")
+                if basis == "derived_gap" and item.get("assertion_type") == "explicit":
+                    item["assertion_type"] = "inferred"
+            normalized_items.append(item)
+        items = normalized_items
         batch = uid("BATCH", [origin, items, metadata or {}])
         created = []
         with self.store.connect(True) as conn:
@@ -453,11 +497,52 @@ class Knowledge:
         for row in rows:
             row["payload"] = json.loads(row["payload"])
             row["policy"] = POLICIES.get(row["rule"])
-            row["materialized"] = bool(
-                self.store.one(
-                    "SELECT 1 FROM supports WHERE candidate_id=?", (row["id"],)
-                )
+            source = self.store.one(
+                "SELECT s.path FROM revisions r JOIN sources s ON s.id=r.source_id WHERE r.id=?",
+                (row["payload"]["source_revision_id"],),
             )
+            row["source_path"] = source["path"] if source else None
+            evidence_ids = [
+                row["payload"].get("evidence_id")
+                or row["payload"].get("fragment_id")
+                or row["payload"].get("chunk_id")
+            ]
+            evidence_ids += list(row["payload"].get("temporal_evidence_ids", []))
+            evidence_ids = [i for i in dict.fromkeys(evidence_ids) if i]
+            row["evidence_locators"] = []
+            for evidence_id in evidence_ids:
+                evidence = self.store.one(
+                    "SELECT locator FROM evidence WHERE id=?", (evidence_id,)
+                )
+                if evidence:
+                    row["evidence_locators"].append(
+                        {"evidence_id": evidence_id, "locator": json.loads(evidence["locator"])}
+                    )
+            batch = self.store.one(
+                "SELECT origin,payload FROM batches WHERE id=?", (row["batch_id"],)
+            )
+            row["batch_origin"] = batch["origin"] if batch else None
+            row["batch_metadata"] = json.loads(batch["payload"]) if batch else {}
+            row["ai_audit"] = None
+            package_id = row["batch_metadata"].get("package_id")
+            if package_id:
+                package = self.store.one(
+                    "SELECT selection_id,payload FROM packages WHERE id=?", (package_id,)
+                )
+                if package:
+                    package_payload = json.loads(package["payload"])
+                    row["ai_audit"] = {
+                        "package_id": package_id,
+                        "selection_id": package["selection_id"],
+                        "route": package_payload.get("route"),
+                        "response_file": f"ai/inbox/{row['batch_id']}.jsonl",
+                    }
+            materialized = self.store.rows(
+                "SELECT object_id FROM supports WHERE candidate_id=? ORDER BY object_id",
+                (row["id"],),
+            )
+            row["materialized_object_ids"] = [x["object_id"] for x in materialized]
+            row["materialized"] = bool(materialized)
         return rows
 
     def _review(
@@ -518,10 +603,11 @@ class Knowledge:
                 "not_leaf", "Candidato sostituito da una correzione.", 409
             )
         if actor_type == "policy":
-            if (
-                actor_id not in self.store.config()["automatic_policies"]
-                or POLICIES.get(c["rule"]) != actor_id
-            ):
+            configured = set(self.store.config()["automatic_policies"])
+            configured_ok = actor_id in configured or (
+                LEGACY_POLICY_ALIASES.get(actor_id) in configured
+            )
+            if not configured_ok or POLICIES.get(c["rule"]) != actor_id:
                 raise DomainError(
                     "policy_not_allowed",
                     "Policy assente dall’allowlist o non applicabile.",
@@ -611,15 +697,18 @@ class Knowledge:
             ]
 
     def auto_review(self):
-        allowed = self.store.config()["automatic_policies"]
+        allowed = set(self.store.config()["automatic_policies"])
         decisions = []
         for c in self.candidates("pending"):
+            policy_allowed = c["policy"] in allowed or (
+                LEGACY_POLICY_ALIASES.get(c["policy"]) in allowed
+            )
             if (
                 c["leaf"]
                 and c["current_revision"]
                 and c["current_parse"]
                 and c["source_status"] == "active"
-                and c["policy"] in allowed
+                and policy_allowed
                 and c["rule"] not in AUTOMATIC_REVIEW_FORBIDDEN
             ):
                 decisions.append(
@@ -778,6 +867,38 @@ class Knowledge:
                     payload["assertion_type"] = p["assertion_type"]
                     payload["confidence"] = p["confidence"]
                     kind = "relation"
+                elif kind == "candidate_mapping":
+                    semantic = {
+                        "domain_entity": name_key(p["domain_entity"]),
+                        "technical_object": name_key(p["technical_object"]),
+                        "mapping_type": name_key(p["mapping_type"]),
+                    }
+                    payload = {
+                        "domain_entity": p["domain_entity"],
+                        "technical_object": p["technical_object"],
+                        "mapping_type": p["mapping_type"],
+                        "assertion_type": p["assertion_type"],
+                        "confidence": p["confidence"],
+                    }
+                    kind = "mapping"
+                elif kind == "candidate_question":
+                    payload = {
+                        "question_type": p["question_type"],
+                        "subject": p["subject"],
+                        "question_text": p["question_text"],
+                        "question_basis": p.get("question_basis", "derived_gap"),
+                        "question_status": p.get("question_status", "open"),
+                        "assertion_type": p["assertion_type"],
+                        "confidence": p["confidence"],
+                    }
+                    semantic = {
+                        "question_type": name_key(p["question_type"]),
+                        "subject": name_key(p["subject"]),
+                        "question_text": p["question_text"].strip(),
+                        "question_basis": payload["question_basis"],
+                        "question_status": payload["question_status"],
+                    }
+                    kind = "question"
                 elif kind == "temporal_interval":
                     from dslm3.temporal import validate_interval
 
@@ -820,7 +941,13 @@ class Knowledge:
                     continue
                 key = digest([kind, semantic])
                 object_id = uid(
-                    {"fact": "FACT", "relation": "REL", "interval": "INT"}[kind],
+                    {
+                        "fact": "FACT",
+                        "relation": "REL",
+                        "mapping": "MAP",
+                        "question": "QUESTION",
+                        "interval": "INT",
+                    }[kind],
                     semantic,
                 )
                 created += conn.execute(

@@ -63,6 +63,55 @@ def test_extract_never_auto_validates(tmp_path):
     )
 
 
+def test_isolated_validity_boundaries_are_open_ended(tmp_path):
+    a = Application(tmp_path / "open-ended")
+    first = a.ingest("from.md", b"policy")["revision_id"]
+    second = a.ingest("to.md", b"policy")["revision_id"]
+    a.parse_all()
+    t = Temporal(a)
+    t.add_raw(
+        first,
+        "source_revision",
+        first,
+        [
+            {
+                "source_key": "valid_from",
+                "raw_value": "2026-09-01",
+                "source_format": "text",
+                "date_role": "valid_from",
+            }
+        ],
+    )
+    t.add_raw(
+        second,
+        "source_revision",
+        second,
+        [
+            {
+                "source_key": "valid_to",
+                "raw_value": "2026-12-31",
+                "source_format": "text",
+                "date_role": "valid_to",
+            }
+        ],
+    )
+    t.consolidate("source_revision", first)
+    t.consolidate("source_revision", second)
+    candidates = Knowledge(a).candidates()
+    from_candidate = next(
+        c for c in candidates if c["payload"]["target_subject_id"] == first
+    )
+    to_candidate = next(
+        c for c in candidates if c["payload"]["target_subject_id"] == second
+    )
+    assert from_candidate["payload"]["normalized_start"] == "2026-09-01"
+    assert from_candidate["payload"]["normalized_end"] is None
+    assert from_candidate["payload"]["bounds_semantics"] == "open_end"
+    assert to_candidate["payload"]["normalized_start"] is None
+    assert to_candidate["payload"]["normalized_end"] == "2026-12-31"
+    assert to_candidate["payload"]["bounds_semantics"] == "open_start"
+
+
 def test_timezone_review_gate_and_multisupport(tmp_path):
     a, r = setup(tmp_path)
     t = Temporal(a)

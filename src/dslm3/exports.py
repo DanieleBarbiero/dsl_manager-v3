@@ -41,8 +41,16 @@ class Exports:
         objects = self.knowledge.objects(effective=schema_version == 2)
         entities = {}
         relations = []
+        mappings = []
+        questions = []
         intervals = []
-        traces = {"facts": {}, "relations": {}, "intervals": {}}
+        traces = {
+            "facts": {},
+            "relations": {},
+            "mappings": {},
+            "questions": {},
+            "intervals": {},
+        }
         for obj in objects:
             p = obj["payload"]
             kind = obj["kind"]
@@ -54,6 +62,26 @@ class Exports:
                     "SELECT r.source_id,s.path FROM revisions r JOIN sources s ON s.id=r.source_id WHERE r.id=?",
                     (c["source_revision_id"],),
                 )
+                evidence_locator = None
+                if evid:
+                    evidence_row = self.store.one(
+                        "SELECT locator FROM evidence WHERE id=?", (evid,)
+                    )
+                    if evidence_row:
+                        evidence_locator = json.loads(evidence_row["locator"])
+                temporal_locators = []
+                for temporal_evidence_id in c.get("temporal_evidence_ids", []):
+                    evidence_row = self.store.one(
+                        "SELECT locator FROM evidence WHERE id=?",
+                        (temporal_evidence_id,),
+                    )
+                    if evidence_row:
+                        temporal_locators.append(
+                            {
+                                "evidence_id": temporal_evidence_id,
+                                "locator": json.loads(evidence_row["locator"]),
+                            }
+                        )
                 supports.append(
                     {
                         "candidate_record_id": s["candidate_id"],
@@ -62,12 +90,14 @@ class Exports:
                         "source_id": rev["source_id"],
                         "file_path": rev["path"],
                         "evidence_id": evid,
+                        "evidence_locator": evidence_locator,
                         "evidence_text": c["evidence_text"],
                         "assertion_type": c["assertion_type"],
                         "confidence": c["confidence"],
                         "evidence_text_hash": digest(c["evidence_text"]),
                         "rule": s["rule"],
                         "temporal_evidence_ids": c.get("temporal_evidence_ids", []),
+                        "temporal_evidence_locators": temporal_locators,
                     }
                 )
             if kind == "fact":
@@ -161,6 +191,12 @@ class Exports:
                         name_key(label),
                         {"name": label, "canonical_name": name_key(label), "facts": []},
                     )
+            elif kind == "mapping":
+                mappings.append({"mapping_id": obj["id"], **p, "status": "active"})
+                traces["mappings"][obj["id"]] = supports
+            elif kind == "question":
+                questions.append({"question_id": obj["id"], **p})
+                traces["questions"][obj["id"]] = supports
             elif kind == "interval" and schema_version == 2:
                 intervals.append({"interval_id": obj["id"], **p})
                 traces["intervals"][obj["id"]] = supports
@@ -201,6 +237,8 @@ class Exports:
                     "entities": len(entity_list),
                     "facts": sum(len(e["facts"]) for e in entity_list),
                     "relations": len(relations),
+                    "mappings": len(mappings),
+                    "questions": len(questions),
                     "conflicts": len(conflicts),
                     "intervals": len(intervals),
                 },
@@ -208,6 +246,8 @@ class Exports:
             },
             "entities": entity_list,
             "relations": relations,
+            "mappings": sorted(mappings, key=lambda x: x["mapping_id"]),
+            "questions": sorted(questions, key=lambda x: x["question_id"]),
             "conflicts": conflicts,
             "traceability": traces,
             "sources": sources,
@@ -267,6 +307,16 @@ class Exports:
         for r in content["relations"]:
             lines.append(
                 f"- {r['source_entity']} → {r['relation_type']} → {r['target_entity']}"
+            )
+        lines.extend(["", "## Mapping", ""])
+        for m in content.get("mappings", []):
+            lines.append(
+                f"- {m['domain_entity']} ↔ {m['technical_object']} ({m['mapping_type']})"
+            )
+        lines.extend(["", "## Domande aperte", ""])
+        for q in content.get("questions", []):
+            lines.append(
+                f"- [{q.get('question_status', 'open')}] {q['subject']}: {q['question_text']}"
             )
         lines.extend(["", "## Conflitti", ""])
         for c in content["conflicts"]:
@@ -363,6 +413,42 @@ class Exports:
                     x["traceability"]["relations"].get(relation["relation_id"], []),
                 )
 
+            for mapping in x.get("mappings", []):
+                semantic_key = "mapping:" + canonical(
+                    [
+                        name_key(mapping["domain_entity"]),
+                        name_key(mapping["technical_object"]),
+                        name_key(mapping["mapping_type"]),
+                    ]
+                )
+                add(
+                    "structure",
+                    semantic_key,
+                    mapping["mapping_id"],
+                    {k: v for k, v in mapping.items() if k != "mapping_id"},
+                    x.get("traceability", {})
+                    .get("mappings", {})
+                    .get(mapping["mapping_id"], []),
+                )
+
+            for question in x.get("questions", []):
+                semantic_key = "question:" + canonical(
+                    [
+                        name_key(question["question_type"]),
+                        name_key(question["subject"]),
+                        question["question_text"].strip(),
+                    ]
+                )
+                add(
+                    "structure",
+                    semantic_key,
+                    question["question_id"],
+                    {k: v for k, v in question.items() if k != "question_id"},
+                    x.get("traceability", {})
+                    .get("questions", {})
+                    .get(question["question_id"], []),
+                )
+
             if include_temporal:
                 for interval in x.get("intervals", []):
                     target_id = interval["target_subject_id"]
@@ -434,6 +520,12 @@ class Exports:
             "from": before,
             "to": after,
             "cross_schema": cross_schema,
+            "cross_profile": cross_profile,
+            "temporal_comparison": (
+                "excluded_cross_profile"
+                if cross_profile and cross_schema
+                else "included"
+            ),
             "changes": changes,
             "count": len(changes),
         }

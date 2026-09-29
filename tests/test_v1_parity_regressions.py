@@ -14,7 +14,7 @@ def _auto_merge(app):
     return knowledge
 
 
-def test_forms_items_keep_block_identity_and_button_operation_stays_pending(tmp_path):
+def test_forms_items_keep_block_identity_and_button_operation_can_auto_review(tmp_path):
     app = Application(tmp_path / "forms")
     app.ingest(
         "form.xml",
@@ -54,8 +54,8 @@ def test_forms_items_keep_block_identity_and_button_operation_stays_pending(tmp_
     assert {"FORM_1.BLOCK_A.ID", "FORM_1.BLOCK_B.ID"} <= mapping_sources
 
     operation = next(c for c in candidates if c["rule"] == "xml_button_operation")
-    assert operation["policy"] == "explicit_xml_button_operation_pending/1"
-    assert operation["state"] == "pending"
+    assert operation["policy"] == "explicit_xml_button_operation_only/1"
+    assert operation["state"] == "confirmed"
 
 
 def test_deterministic_fact_types_and_relation_epistemics_survive_export(tmp_path):

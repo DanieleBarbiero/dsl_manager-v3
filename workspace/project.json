@@ -10,6 +10,7 @@
     "observed_db_code_dependency_only/1",
     "explicit_xml_form_structure_only/1",
     "explicit_xml_operation_only/1",
+    "explicit_xml_button_operation_only/1",
     "named_explicit_log_policy_required/1",
     "explicit_excel_workbook_only/1",
     "explicit_excel_sheet_only/1",

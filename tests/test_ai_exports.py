@@ -91,6 +91,51 @@ def test_multi_package_import_review_merge_and_true_conflict(ready):
     assert exports.graph(after["id"], dynamic=True)["files"]
 
 
+def test_export_includes_mapping_question_and_evidence_locator(ready):
+    k = Knowledge(ready)
+    e = ready.evidence()[0]
+    common = {
+        "source_revision_id": e["revision_id"],
+        "evidence_id": e["id"],
+        "evidence_text": e["text"],
+        "assertion_type": "inferred",
+        "confidence": "medium",
+    }
+    imported = k.import_candidates(
+        [
+            {
+                **common,
+                "record_type": "candidate_mapping",
+                "candidate_id": "map_export",
+                "domain_entity": "Order",
+                "technical_object": "A",
+                "mapping_type": "implemented_by",
+            },
+            {
+                **common,
+                "record_type": "candidate_question",
+                "candidate_id": "question_export",
+                "question_type": "missing_rule",
+                "subject": "Order",
+                "question_text": "Which rule applies?",
+                "question_basis": "derived_gap",
+                "question_status": "open",
+            },
+        ],
+        "ai:test-export",
+    )
+    k.review_many(imported["candidate_ids"], "confirmed")
+    k.merge()
+    snapshot = Exports(ready).snapshot()["content"]
+    assert snapshot["metadata"]["counts"]["mappings"] == 1
+    assert snapshot["metadata"]["counts"]["questions"] == 1
+    assert snapshot["mappings"][0]["mapping_type"] == "implemented_by"
+    assert snapshot["questions"][0]["question_status"] == "open"
+    mapping_trace = next(iter(snapshot["traceability"]["mappings"].values()))[0]
+    assert mapping_trace["file_path"]
+    assert mapping_trace["evidence_locator"] is not None
+
+
 def test_staleness_provenance_and_integrity(ready):
     ai = AI(ready)
     plan = ai.select()
@@ -126,7 +171,9 @@ def test_export_reconciliation_and_cross_schema_gate(ready):
     new = exports.snapshot(2)
     with pytest.raises(DomainError):
         exports.diff(old["id"], new["id"])
-    assert exports.diff(old["id"], new["id"], True)["cross_schema"]
+    diff = exports.diff(old["id"], new["id"], True)
+    assert diff["cross_schema"]
+    assert diff["temporal_comparison"] == "excluded_cross_profile"
 
 
 def test_dynamic_intervals_xsd_and_no_network(ready, monkeypatch):

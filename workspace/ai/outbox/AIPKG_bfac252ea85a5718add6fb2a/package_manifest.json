@@ -1,0 +1,22 @@
+{
+  "contract_version": "2",
+  "directory": "ai\\outbox\\AIPKG_bfac252ea85a5718add6fb2a",
+  "evidence_ids": [
+    "EV_1a4feaf42ef6a00dc9209a39",
+    "EV_e5f88634cf9dc1d4976c1f6e"
+  ],
+  "files": {
+    "candidate_schema.json": "9de655c7f98266e5bad71a3656cf5211e6eeac98e7245bfff27769b45c6d239a",
+    "content.md": "694fa41e3b561528c847dd4bd8dadeefee6d50ad4e5fc4beacd8c59a4ee04ec0",
+    "instructions.md": "ce207d9cec783230c4669b0578733bd63459dd7fef959e113c5195cf9bb2325e",
+    "output_template.jsonl": "71a67ec94580f0cfd9d799d8f8083efc2d371763549e0a62b37089fc88f7655b",
+    "selection_plan.json": "60fba3c8c9dd5b2268312960245dd0b12443bda783288e645cc95a82d8e9e4dd",
+    "source_manifest.json": "8ea4e13bcdce9688b613bb1c69e5081fb28668851a8ca8d71fabd6c7f8dbc0ed"
+  },
+  "id": "AIPKG_bfac252ea85a5718add6fb2a",
+  "revision_ids": [
+    "REV_1405b7da46624bd98b68aee1"
+  ],
+  "route": "technical_extraction",
+  "selection_id": "AISEL_fca6cf690371591fa6c0364e"
+}

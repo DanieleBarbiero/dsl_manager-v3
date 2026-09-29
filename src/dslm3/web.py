@@ -64,18 +64,25 @@ def dispatch(app: Application, operation: str, args: dict):
             "partial": parse["partial"],
         }
     if operation == "review":
+        outcome = args.get("outcome")
+        reason = str(args.get("reason", "") or "").strip()
+        if outcome in {"confirmed", "rejected"} and not reason:
+            raise DomainError(
+                "review_reason_required",
+                "Inserire una motivazione per confermare o rifiutare una proposta.",
+            )
         if args.get("ids") is not None:
             return k.review_many(
                 args["ids"],
-                args["outcome"],
+                outcome,
                 args.get("actor_id"),
-                args.get("reason", ""),
+                reason,
             )
         return k.review(
             args["candidate_id"],
-            args["outcome"],
+            outcome,
             actor_id=args.get("actor_id"),
-            reason=args.get("reason", ""),
+            reason=reason,
             expected_head=args.get("expected_head"),
             check_head="expected_head" in args,
             idempotency_key=args.get("idempotency_key"),

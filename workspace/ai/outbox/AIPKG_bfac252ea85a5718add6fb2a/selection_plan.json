@@ -3,7 +3,7 @@
     "max_chars": 10000000,
     "max_evidence": 10000
   },
-  "id": "AISEL_52f0969c21b8b530b65e0700",
+  "id": "AISEL_fca6cf690371591fa6c0364e",
   "items": [
     {
       "chars": 3558,
@@ -24,238 +24,257 @@
       "type": "excel_region"
     },
     {
-      "chars": 314,
+      "chars": 177,
       "coverage": "confirmed",
-      "evidence_id": "EV_18cdfce597666e265d1f7d87",
+      "evidence_id": "EV_3add7152ba62875e1315ea7c",
       "kind": "fragment",
       "outcome": "excluded",
       "path": "vega/database/schema_vega.sql",
       "rank": [
         2,
         "vega/database/schema_vega.sql",
-        "EV_18cdfce597666e265d1f7d87"
+        "EV_3add7152ba62875e1315ea7c"
       ],
       "reason_codes": [
         "already_confirmed"
       ],
-      "revision_id": "REV_ce46e3f8ea3543f6f4b5d7bb",
+      "revision_id": "REV_0c300cb4a423f8accde7b564",
       "type": "ddl_column"
     },
     {
-      "chars": 172,
+      "chars": 322,
       "coverage": "confirmed",
-      "evidence_id": "EV_57f19f99f0e09eaa7736421c",
+      "evidence_id": "EV_45d2ebd1a4ee503282c14dc3",
       "kind": "fragment",
       "outcome": "excluded",
       "path": "vega/database/schema_vega.sql",
       "rank": [
         2,
         "vega/database/schema_vega.sql",
-        "EV_57f19f99f0e09eaa7736421c"
+        "EV_45d2ebd1a4ee503282c14dc3"
       ],
       "reason_codes": [
         "already_confirmed"
       ],
-      "revision_id": "REV_ce46e3f8ea3543f6f4b5d7bb",
+      "revision_id": "REV_0c300cb4a423f8accde7b564",
       "type": "ddl_column"
     },
     {
-      "chars": 172,
+      "chars": 322,
       "coverage": "confirmed",
-      "evidence_id": "EV_644b4c4de6cd6a31b9ceabc9",
+      "evidence_id": "EV_4a15efddb2e174253230af86",
       "kind": "fragment",
       "outcome": "excluded",
       "path": "vega/database/schema_vega.sql",
       "rank": [
         2,
         "vega/database/schema_vega.sql",
-        "EV_644b4c4de6cd6a31b9ceabc9"
+        "EV_4a15efddb2e174253230af86"
       ],
       "reason_codes": [
         "already_confirmed"
       ],
-      "revision_id": "REV_ce46e3f8ea3543f6f4b5d7bb",
+      "revision_id": "REV_0c300cb4a423f8accde7b564",
+      "type": "ddl_column"
+    },
+    {
+      "chars": 322,
+      "coverage": "confirmed",
+      "evidence_id": "EV_57f9b957e3f3936789022a0c",
+      "kind": "fragment",
+      "outcome": "excluded",
+      "path": "vega/database/schema_vega.sql",
+      "rank": [
+        2,
+        "vega/database/schema_vega.sql",
+        "EV_57f9b957e3f3936789022a0c"
+      ],
+      "reason_codes": [
+        "already_confirmed"
+      ],
+      "revision_id": "REV_0c300cb4a423f8accde7b564",
       "type": "ddl_table"
     },
     {
-      "chars": 172,
+      "chars": 322,
       "coverage": "confirmed",
-      "evidence_id": "EV_77d0e87723610dd8ac0eae44",
+      "evidence_id": "EV_6f2089acdf960d3c6f08aa84",
       "kind": "fragment",
       "outcome": "excluded",
       "path": "vega/database/schema_vega.sql",
       "rank": [
         2,
         "vega/database/schema_vega.sql",
-        "EV_77d0e87723610dd8ac0eae44"
+        "EV_6f2089acdf960d3c6f08aa84"
       ],
       "reason_codes": [
         "already_confirmed"
       ],
-      "revision_id": "REV_ce46e3f8ea3543f6f4b5d7bb",
+      "revision_id": "REV_0c300cb4a423f8accde7b564",
       "type": "ddl_column"
     },
     {
-      "chars": 314,
+      "chars": 177,
       "coverage": "confirmed",
-      "evidence_id": "EV_81feb777cd7c681ca84a17c2",
+      "evidence_id": "EV_76fee6c04355d30cac170599",
       "kind": "fragment",
       "outcome": "excluded",
       "path": "vega/database/schema_vega.sql",
       "rank": [
         2,
         "vega/database/schema_vega.sql",
-        "EV_81feb777cd7c681ca84a17c2"
+        "EV_76fee6c04355d30cac170599"
       ],
       "reason_codes": [
         "already_confirmed"
       ],
-      "revision_id": "REV_ce46e3f8ea3543f6f4b5d7bb",
-      "type": "ddl_column"
-    },
-    {
-      "chars": 172,
-      "coverage": "confirmed",
-      "evidence_id": "EV_903887000fc215a2ab4fc453",
-      "kind": "fragment",
-      "outcome": "excluded",
-      "path": "vega/database/schema_vega.sql",
-      "rank": [
-        2,
-        "vega/database/schema_vega.sql",
-        "EV_903887000fc215a2ab4fc453"
-      ],
-      "reason_codes": [
-        "already_confirmed"
-      ],
-      "revision_id": "REV_ce46e3f8ea3543f6f4b5d7bb",
-      "type": "ddl_column"
-    },
-    {
-      "chars": 172,
-      "coverage": "confirmed",
-      "evidence_id": "EV_9864766c352ededda210596d",
-      "kind": "fragment",
-      "outcome": "excluded",
-      "path": "vega/database/schema_vega.sql",
-      "rank": [
-        2,
-        "vega/database/schema_vega.sql",
-        "EV_9864766c352ededda210596d"
-      ],
-      "reason_codes": [
-        "already_confirmed"
-      ],
-      "revision_id": "REV_ce46e3f8ea3543f6f4b5d7bb",
-      "type": "ddl_column"
-    },
-    {
-      "chars": 314,
-      "coverage": "confirmed",
-      "evidence_id": "EV_c24188bc38c875f41caebf2e",
-      "kind": "fragment",
-      "outcome": "excluded",
-      "path": "vega/database/schema_vega.sql",
-      "rank": [
-        2,
-        "vega/database/schema_vega.sql",
-        "EV_c24188bc38c875f41caebf2e"
-      ],
-      "reason_codes": [
-        "already_confirmed"
-      ],
-      "revision_id": "REV_ce46e3f8ea3543f6f4b5d7bb",
-      "type": "ddl_column"
-    },
-    {
-      "chars": 314,
-      "coverage": "confirmed",
-      "evidence_id": "EV_cf2604e6e0ba5b6a0680b839",
-      "kind": "fragment",
-      "outcome": "excluded",
-      "path": "vega/database/schema_vega.sql",
-      "rank": [
-        2,
-        "vega/database/schema_vega.sql",
-        "EV_cf2604e6e0ba5b6a0680b839"
-      ],
-      "reason_codes": [
-        "already_confirmed"
-      ],
-      "revision_id": "REV_ce46e3f8ea3543f6f4b5d7bb",
-      "type": "ddl_column"
-    },
-    {
-      "chars": 314,
-      "coverage": "confirmed",
-      "evidence_id": "EV_e1ebf3e49a1722713b83c531",
-      "kind": "fragment",
-      "outcome": "excluded",
-      "path": "vega/database/schema_vega.sql",
-      "rank": [
-        2,
-        "vega/database/schema_vega.sql",
-        "EV_e1ebf3e49a1722713b83c531"
-      ],
-      "reason_codes": [
-        "already_confirmed"
-      ],
-      "revision_id": "REV_ce46e3f8ea3543f6f4b5d7bb",
+      "revision_id": "REV_0c300cb4a423f8accde7b564",
       "type": "ddl_table"
     },
     {
-      "chars": 314,
+      "chars": 322,
       "coverage": "confirmed",
-      "evidence_id": "EV_ea6fd78dcbb480984636f5c9",
+      "evidence_id": "EV_8f65b8e2ae3ce7e6796b6594",
       "kind": "fragment",
       "outcome": "excluded",
       "path": "vega/database/schema_vega.sql",
       "rank": [
         2,
         "vega/database/schema_vega.sql",
-        "EV_ea6fd78dcbb480984636f5c9"
+        "EV_8f65b8e2ae3ce7e6796b6594"
       ],
       "reason_codes": [
         "already_confirmed"
       ],
-      "revision_id": "REV_ce46e3f8ea3543f6f4b5d7bb",
+      "revision_id": "REV_0c300cb4a423f8accde7b564",
+      "type": "ddl_column"
+    },
+    {
+      "chars": 177,
+      "coverage": "confirmed",
+      "evidence_id": "EV_a1d60599eaba0ef5735c243a",
+      "kind": "fragment",
+      "outcome": "excluded",
+      "path": "vega/database/schema_vega.sql",
+      "rank": [
+        2,
+        "vega/database/schema_vega.sql",
+        "EV_a1d60599eaba0ef5735c243a"
+      ],
+      "reason_codes": [
+        "already_confirmed"
+      ],
+      "revision_id": "REV_0c300cb4a423f8accde7b564",
+      "type": "ddl_column"
+    },
+    {
+      "chars": 177,
+      "coverage": "confirmed",
+      "evidence_id": "EV_ce8a45dfd4269664f1bd6e9a",
+      "kind": "fragment",
+      "outcome": "excluded",
+      "path": "vega/database/schema_vega.sql",
+      "rank": [
+        2,
+        "vega/database/schema_vega.sql",
+        "EV_ce8a45dfd4269664f1bd6e9a"
+      ],
+      "reason_codes": [
+        "already_confirmed"
+      ],
+      "revision_id": "REV_0c300cb4a423f8accde7b564",
+      "type": "ddl_column"
+    },
+    {
+      "chars": 322,
+      "coverage": "confirmed",
+      "evidence_id": "EV_d9320b8fed50fadf93345c06",
+      "kind": "fragment",
+      "outcome": "excluded",
+      "path": "vega/database/schema_vega.sql",
+      "rank": [
+        2,
+        "vega/database/schema_vega.sql",
+        "EV_d9320b8fed50fadf93345c06"
+      ],
+      "reason_codes": [
+        "already_confirmed"
+      ],
+      "revision_id": "REV_0c300cb4a423f8accde7b564",
       "type": "ddl_constraint"
     },
     {
-      "chars": 314,
+      "chars": 322,
       "coverage": "confirmed",
-      "evidence_id": "EV_f9891db7fafc3b02db607705",
+      "evidence_id": "EV_daad55c907d67522956b190a",
       "kind": "fragment",
       "outcome": "excluded",
       "path": "vega/database/schema_vega.sql",
       "rank": [
         2,
         "vega/database/schema_vega.sql",
-        "EV_f9891db7fafc3b02db607705"
+        "EV_daad55c907d67522956b190a"
       ],
       "reason_codes": [
         "already_confirmed"
       ],
-      "revision_id": "REV_ce46e3f8ea3543f6f4b5d7bb",
+      "revision_id": "REV_0c300cb4a423f8accde7b564",
+      "type": "ddl_column"
+    },
+    {
+      "chars": 177,
+      "coverage": "confirmed",
+      "evidence_id": "EV_feec21722ce3fa5e3084e5b6",
+      "kind": "fragment",
+      "outcome": "excluded",
+      "path": "vega/database/schema_vega.sql",
+      "rank": [
+        2,
+        "vega/database/schema_vega.sql",
+        "EV_feec21722ce3fa5e3084e5b6"
+      ],
+      "reason_codes": [
+        "already_confirmed"
+      ],
+      "revision_id": "REV_0c300cb4a423f8accde7b564",
       "type": "ddl_column"
     },
     {
       "chars": 796,
       "coverage": "no_candidate",
-      "evidence_id": "EV_9a6d6ccaa86083d021452d9a",
+      "evidence_id": "EV_d659997712767f7e8d65ac5f",
       "kind": "chunk",
       "outcome": "excluded",
       "path": "vega/documenti/manuale_operativo_vega_2026.docx",
       "rank": [
         2,
         "vega/documenti/manuale_operativo_vega_2026.docx",
-        "EV_9a6d6ccaa86083d021452d9a"
+        "EV_d659997712767f7e8d65ac5f"
       ],
       "reason_codes": [
         "kind_not_allowed",
         "fragment_type_not_allowed"
       ],
       "revision_id": "REV_09e1e1f0ce61ef5ba76f64e4",
+      "type": "document_text"
+    },
+    {
+      "chars": 923,
+      "coverage": "no_candidate",
+      "evidence_id": "EV_0e0b65bf932cdc65e9f531fd",
+      "kind": "chunk",
+      "outcome": "excluded",
+      "path": "vega/documenti/matrice_priorita_vega_2026.xlsx",
+      "rank": [
+        2,
+        "vega/documenti/matrice_priorita_vega_2026.xlsx",
+        "EV_0e0b65bf932cdc65e9f531fd"
+      ],
+      "reason_codes": [
+        "kind_not_allowed",
+        "fragment_type_not_allowed"
+      ],
+      "revision_id": "REV_ccdd4404f4e4a2c752ee2659",
       "type": "document_text"
     },
     {
@@ -297,683 +316,663 @@
       "type": "excel_sheet"
     },
     {
-      "chars": 923,
-      "coverage": "no_candidate",
-      "evidence_id": "EV_9b4a807256f8f681c4905444",
-      "kind": "chunk",
-      "outcome": "excluded",
-      "path": "vega/documenti/matrice_priorita_vega_2026.xlsx",
-      "rank": [
-        2,
-        "vega/documenti/matrice_priorita_vega_2026.xlsx",
-        "EV_9b4a807256f8f681c4905444"
-      ],
-      "reason_codes": [
-        "kind_not_allowed",
-        "fragment_type_not_allowed"
-      ],
-      "revision_id": "REV_ccdd4404f4e4a2c752ee2659",
-      "type": "document_text"
-    },
-    {
-      "chars": 55,
+      "chars": 87,
       "coverage": "confirmed",
-      "evidence_id": "EV_011507284cbc8e6474a7b870",
+      "evidence_id": "EV_19c9defca5a9cea1ca50e2eb",
       "kind": "fragment",
       "outcome": "excluded",
       "path": "vega/forms/frm_richiesta.xml",
       "rank": [
         2,
         "vega/forms/frm_richiesta.xml",
-        "EV_011507284cbc8e6474a7b870"
+        "EV_19c9defca5a9cea1ca50e2eb"
+      ],
+      "reason_codes": [
+        "fragment_type_not_allowed",
+        "already_confirmed"
+      ],
+      "revision_id": "REV_231a395cadbe1e4f8319409c",
+      "type": "xml_dependency"
+    },
+    {
+      "chars": 83,
+      "coverage": "confirmed",
+      "evidence_id": "EV_19cb0c9b39286c0947b716dd",
+      "kind": "fragment",
+      "outcome": "excluded",
+      "path": "vega/forms/frm_richiesta.xml",
+      "rank": [
+        2,
+        "vega/forms/frm_richiesta.xml",
+        "EV_19cb0c9b39286c0947b716dd"
       ],
       "reason_codes": [
         "already_confirmed"
       ],
-      "revision_id": "REV_e3ec4e2e41adca524aaadc56",
+      "revision_id": "REV_231a395cadbe1e4f8319409c",
+      "type": "xml_field"
+    },
+    {
+      "chars": 56,
+      "coverage": "confirmed",
+      "evidence_id": "EV_2e394494e670059d1eecdec1",
+      "kind": "fragment",
+      "outcome": "excluded",
+      "path": "vega/forms/frm_richiesta.xml",
+      "rank": [
+        2,
+        "vega/forms/frm_richiesta.xml",
+        "EV_2e394494e670059d1eecdec1"
+      ],
+      "reason_codes": [
+        "already_confirmed"
+      ],
+      "revision_id": "REV_231a395cadbe1e4f8319409c",
       "type": "xml_form"
     },
     {
-      "chars": 88,
+      "chars": 77,
       "coverage": "confirmed",
-      "evidence_id": "EV_1bfa40e755916fe8d926952b",
+      "evidence_id": "EV_44b7ca429c88f453ff091847",
       "kind": "fragment",
       "outcome": "excluded",
       "path": "vega/forms/frm_richiesta.xml",
       "rank": [
         2,
         "vega/forms/frm_richiesta.xml",
-        "EV_1bfa40e755916fe8d926952b"
+        "EV_44b7ca429c88f453ff091847"
       ],
       "reason_codes": [
         "already_confirmed"
       ],
-      "revision_id": "REV_e3ec4e2e41adca524aaadc56",
+      "revision_id": "REV_231a395cadbe1e4f8319409c",
       "type": "xml_field"
     },
     {
-      "chars": 86,
+      "chars": 64,
       "coverage": "confirmed",
-      "evidence_id": "EV_274623196f529f1b3011e377",
+      "evidence_id": "EV_66a5144b8343dbd8e42a0041",
       "kind": "fragment",
       "outcome": "excluded",
       "path": "vega/forms/frm_richiesta.xml",
       "rank": [
         2,
         "vega/forms/frm_richiesta.xml",
-        "EV_274623196f529f1b3011e377"
+        "EV_66a5144b8343dbd8e42a0041"
       ],
       "reason_codes": [
         "fragment_type_not_allowed",
         "already_confirmed"
       ],
-      "revision_id": "REV_e3ec4e2e41adca524aaadc56",
-      "type": "xml_dependency"
-    },
-    {
-      "chars": 76,
-      "coverage": "confirmed",
-      "evidence_id": "EV_36058b6a427add9f34718a8e",
-      "kind": "fragment",
-      "outcome": "excluded",
-      "path": "vega/forms/frm_richiesta.xml",
-      "rank": [
-        2,
-        "vega/forms/frm_richiesta.xml",
-        "EV_36058b6a427add9f34718a8e"
-      ],
-      "reason_codes": [
-        "already_confirmed"
-      ],
-      "revision_id": "REV_e3ec4e2e41adca524aaadc56",
-      "type": "xml_field"
-    },
-    {
-      "chars": 82,
-      "coverage": "confirmed",
-      "evidence_id": "EV_4affc4e2688893d9829e0110",
-      "kind": "fragment",
-      "outcome": "excluded",
-      "path": "vega/forms/frm_richiesta.xml",
-      "rank": [
-        2,
-        "vega/forms/frm_richiesta.xml",
-        "EV_4affc4e2688893d9829e0110"
-      ],
-      "reason_codes": [
-        "already_confirmed"
-      ],
-      "revision_id": "REV_e3ec4e2e41adca524aaadc56",
-      "type": "xml_field"
-    },
-    {
-      "chars": 88,
-      "coverage": "confirmed",
-      "evidence_id": "EV_6f4f526b9e1822a7fb49d38a",
-      "kind": "fragment",
-      "outcome": "excluded",
-      "path": "vega/forms/frm_richiesta.xml",
-      "rank": [
-        2,
-        "vega/forms/frm_richiesta.xml",
-        "EV_6f4f526b9e1822a7fb49d38a"
-      ],
-      "reason_codes": [
-        "fragment_type_not_allowed",
-        "already_confirmed"
-      ],
-      "revision_id": "REV_e3ec4e2e41adca524aaadc56",
-      "type": "xml_dependency"
-    },
-    {
-      "chars": 63,
-      "coverage": "confirmed",
-      "evidence_id": "EV_7207c3bab9b6abe3eef239df",
-      "kind": "fragment",
-      "outcome": "excluded",
-      "path": "vega/forms/frm_richiesta.xml",
-      "rank": [
-        2,
-        "vega/forms/frm_richiesta.xml",
-        "EV_7207c3bab9b6abe3eef239df"
-      ],
-      "reason_codes": [
-        "fragment_type_not_allowed",
-        "already_confirmed"
-      ],
-      "revision_id": "REV_e3ec4e2e41adca524aaadc56",
+      "revision_id": "REV_231a395cadbe1e4f8319409c",
       "type": "xml_block"
     },
     {
-      "chars": 76,
+      "chars": 83,
       "coverage": "confirmed",
-      "evidence_id": "EV_7c381711dd089e0423d6596a",
+      "evidence_id": "EV_6afa4e6eb64240c7af2ef2ef",
       "kind": "fragment",
       "outcome": "excluded",
       "path": "vega/forms/frm_richiesta.xml",
       "rank": [
         2,
         "vega/forms/frm_richiesta.xml",
-        "EV_7c381711dd089e0423d6596a"
+        "EV_6afa4e6eb64240c7af2ef2ef"
       ],
       "reason_codes": [
         "fragment_type_not_allowed",
         "already_confirmed"
       ],
-      "revision_id": "REV_e3ec4e2e41adca524aaadc56",
+      "revision_id": "REV_231a395cadbe1e4f8319409c",
       "type": "xml_dependency"
     },
     {
-      "chars": 80,
+      "chars": 81,
       "coverage": "confirmed",
-      "evidence_id": "EV_8a1d4d5156822ebe363722c2",
+      "evidence_id": "EV_738d9f62ca203cdcd61fd6ef",
       "kind": "fragment",
       "outcome": "excluded",
       "path": "vega/forms/frm_richiesta.xml",
       "rank": [
         2,
         "vega/forms/frm_richiesta.xml",
-        "EV_8a1d4d5156822ebe363722c2"
+        "EV_738d9f62ca203cdcd61fd6ef"
       ],
       "reason_codes": [
         "already_confirmed"
       ],
-      "revision_id": "REV_e3ec4e2e41adca524aaadc56",
-      "type": "xml_button"
+      "revision_id": "REV_231a395cadbe1e4f8319409c",
+      "type": "xml_button_operation"
     },
     {
-      "chars": 82,
+      "chars": 89,
       "coverage": "confirmed",
-      "evidence_id": "EV_c0302438a9b241da95a9fc5e",
+      "evidence_id": "EV_9a5a323fe7d2dfe45b72703d",
       "kind": "fragment",
       "outcome": "excluded",
       "path": "vega/forms/frm_richiesta.xml",
       "rank": [
         2,
         "vega/forms/frm_richiesta.xml",
-        "EV_c0302438a9b241da95a9fc5e"
-      ],
-      "reason_codes": [
-        "fragment_type_not_allowed",
-        "already_confirmed"
-      ],
-      "revision_id": "REV_e3ec4e2e41adca524aaadc56",
-      "type": "xml_dependency"
-    },
-    {
-      "chars": 80,
-      "coverage": "confirmed",
-      "evidence_id": "EV_c7247bf40cc0154fc32f3f6c",
-      "kind": "fragment",
-      "outcome": "excluded",
-      "path": "vega/forms/frm_richiesta.xml",
-      "rank": [
-        2,
-        "vega/forms/frm_richiesta.xml",
-        "EV_c7247bf40cc0154fc32f3f6c"
-      ],
-      "reason_codes": [
-        "fragment_type_not_allowed",
-        "already_confirmed"
-      ],
-      "revision_id": "REV_e3ec4e2e41adca524aaadc56",
-      "type": "xml_dependency"
-    },
-    {
-      "chars": 63,
-      "coverage": "confirmed",
-      "evidence_id": "EV_ce526da037ffdf775873db1e",
-      "kind": "fragment",
-      "outcome": "excluded",
-      "path": "vega/forms/frm_richiesta.xml",
-      "rank": [
-        2,
-        "vega/forms/frm_richiesta.xml",
-        "EV_ce526da037ffdf775873db1e"
-      ],
-      "reason_codes": [
-        "fragment_type_not_allowed",
-        "already_confirmed"
-      ],
-      "revision_id": "REV_e3ec4e2e41adca524aaadc56",
-      "type": "xml_dependency"
-    },
-    {
-      "chars": 86,
-      "coverage": "confirmed",
-      "evidence_id": "EV_e63aa75ffbb8846e680f8381",
-      "kind": "fragment",
-      "outcome": "excluded",
-      "path": "vega/forms/frm_richiesta.xml",
-      "rank": [
-        2,
-        "vega/forms/frm_richiesta.xml",
-        "EV_e63aa75ffbb8846e680f8381"
+        "EV_9a5a323fe7d2dfe45b72703d"
       ],
       "reason_codes": [
         "already_confirmed"
       ],
-      "revision_id": "REV_e3ec4e2e41adca524aaadc56",
+      "revision_id": "REV_231a395cadbe1e4f8319409c",
       "type": "xml_field"
     },
     {
-      "chars": 92,
+      "chars": 77,
       "coverage": "confirmed",
-      "evidence_id": "EV_06bc0cc1cabd6127de1482ee",
+      "evidence_id": "EV_a54a278907b49db09f7c1ed8",
       "kind": "fragment",
       "outcome": "excluded",
-      "path": "vega/logs/vega_2026.log",
+      "path": "vega/forms/frm_richiesta.xml",
       "rank": [
         2,
-        "vega/logs/vega_2026.log",
-        "EV_06bc0cc1cabd6127de1482ee"
+        "vega/forms/frm_richiesta.xml",
+        "EV_a54a278907b49db09f7c1ed8"
       ],
       "reason_codes": [
         "fragment_type_not_allowed",
         "already_confirmed"
       ],
-      "revision_id": "REV_43b0d873a605f76aa74f610e",
-      "type": "log_event"
+      "revision_id": "REV_231a395cadbe1e4f8319409c",
+      "type": "xml_dependency"
     },
     {
-      "chars": 88,
+      "chars": 87,
       "coverage": "confirmed",
-      "evidence_id": "EV_3c9fabdd60da328e93640e3c",
+      "evidence_id": "EV_b0d36b1cacfc02740706aab6",
+      "kind": "fragment",
+      "outcome": "excluded",
+      "path": "vega/forms/frm_richiesta.xml",
+      "rank": [
+        2,
+        "vega/forms/frm_richiesta.xml",
+        "EV_b0d36b1cacfc02740706aab6"
+      ],
+      "reason_codes": [
+        "already_confirmed"
+      ],
+      "revision_id": "REV_231a395cadbe1e4f8319409c",
+      "type": "xml_field"
+    },
+    {
+      "chars": 64,
+      "coverage": "confirmed",
+      "evidence_id": "EV_c295f06a29a9c58d25b194e1",
+      "kind": "fragment",
+      "outcome": "excluded",
+      "path": "vega/forms/frm_richiesta.xml",
+      "rank": [
+        2,
+        "vega/forms/frm_richiesta.xml",
+        "EV_c295f06a29a9c58d25b194e1"
+      ],
+      "reason_codes": [
+        "fragment_type_not_allowed",
+        "already_confirmed"
+      ],
+      "revision_id": "REV_231a395cadbe1e4f8319409c",
+      "type": "xml_dependency"
+    },
+    {
+      "chars": 89,
+      "coverage": "confirmed",
+      "evidence_id": "EV_c3eb06fa070c668042d725c4",
+      "kind": "fragment",
+      "outcome": "excluded",
+      "path": "vega/forms/frm_richiesta.xml",
+      "rank": [
+        2,
+        "vega/forms/frm_richiesta.xml",
+        "EV_c3eb06fa070c668042d725c4"
+      ],
+      "reason_codes": [
+        "fragment_type_not_allowed",
+        "already_confirmed"
+      ],
+      "revision_id": "REV_231a395cadbe1e4f8319409c",
+      "type": "xml_dependency"
+    },
+    {
+      "chars": 81,
+      "coverage": "confirmed",
+      "evidence_id": "EV_f71e664ea284eccf28a2d2bd",
+      "kind": "fragment",
+      "outcome": "excluded",
+      "path": "vega/forms/frm_richiesta.xml",
+      "rank": [
+        2,
+        "vega/forms/frm_richiesta.xml",
+        "EV_f71e664ea284eccf28a2d2bd"
+      ],
+      "reason_codes": [
+        "already_confirmed"
+      ],
+      "revision_id": "REV_231a395cadbe1e4f8319409c",
+      "type": "xml_button"
+    },
+    {
+      "chars": 70,
+      "coverage": "confirmed",
+      "evidence_id": "EV_11fabfbbcca07f5e8346eba4",
       "kind": "fragment",
       "outcome": "excluded",
       "path": "vega/logs/vega_2026.log",
       "rank": [
         2,
         "vega/logs/vega_2026.log",
-        "EV_3c9fabdd60da328e93640e3c"
+        "EV_11fabfbbcca07f5e8346eba4"
       ],
       "reason_codes": [
         "fragment_type_not_allowed",
         "already_confirmed"
       ],
-      "revision_id": "REV_43b0d873a605f76aa74f610e",
+      "revision_id": "REV_54aa37b4ba8ff130f6a053e8",
       "type": "log_event"
     },
     {
       "chars": 68,
       "coverage": "confirmed",
-      "evidence_id": "EV_7db2a2072a4aadd2d37305ef",
+      "evidence_id": "EV_438deea94a703e74248b3403",
       "kind": "fragment",
       "outcome": "excluded",
       "path": "vega/logs/vega_2026.log",
       "rank": [
         2,
         "vega/logs/vega_2026.log",
-        "EV_7db2a2072a4aadd2d37305ef"
+        "EV_438deea94a703e74248b3403"
       ],
       "reason_codes": [
         "fragment_type_not_allowed",
         "already_confirmed"
       ],
-      "revision_id": "REV_43b0d873a605f76aa74f610e",
-      "type": "log_event"
-    },
-    {
-      "chars": 70,
-      "coverage": "confirmed",
-      "evidence_id": "EV_a3e973b29852e1ff80cbef12",
-      "kind": "fragment",
-      "outcome": "excluded",
-      "path": "vega/logs/vega_2026.log",
-      "rank": [
-        2,
-        "vega/logs/vega_2026.log",
-        "EV_a3e973b29852e1ff80cbef12"
-      ],
-      "reason_codes": [
-        "fragment_type_not_allowed",
-        "already_confirmed"
-      ],
-      "revision_id": "REV_43b0d873a605f76aa74f610e",
+      "revision_id": "REV_54aa37b4ba8ff130f6a053e8",
       "type": "log_event"
     },
     {
       "chars": 102,
       "coverage": "confirmed",
-      "evidence_id": "EV_d770f3a7d8f01853e8acfcfb",
+      "evidence_id": "EV_4877ee3513e860ebf9b50ab0",
       "kind": "fragment",
       "outcome": "excluded",
       "path": "vega/logs/vega_2026.log",
       "rank": [
         2,
         "vega/logs/vega_2026.log",
-        "EV_d770f3a7d8f01853e8acfcfb"
+        "EV_4877ee3513e860ebf9b50ab0"
       ],
       "reason_codes": [
         "fragment_type_not_allowed",
         "already_confirmed"
       ],
-      "revision_id": "REV_43b0d873a605f76aa74f610e",
+      "revision_id": "REV_54aa37b4ba8ff130f6a053e8",
       "type": "log_event"
     },
     {
-      "chars": 204,
+      "chars": 92,
       "coverage": "confirmed",
-      "evidence_id": "EV_04d934e03c016a4e2ff44b61",
+      "evidence_id": "EV_879ac1bd6ce73bab16edba03",
       "kind": "fragment",
       "outcome": "excluded",
-      "path": "vega/plsql/logica_vega.sql",
+      "path": "vega/logs/vega_2026.log",
       "rank": [
         2,
-        "vega/plsql/logica_vega.sql",
-        "EV_04d934e03c016a4e2ff44b61"
+        "vega/logs/vega_2026.log",
+        "EV_879ac1bd6ce73bab16edba03"
       ],
       "reason_codes": [
         "fragment_type_not_allowed",
         "already_confirmed"
       ],
-      "revision_id": "REV_c541599e315757cabfedd178",
-      "type": "sql_dependency"
+      "revision_id": "REV_54aa37b4ba8ff130f6a053e8",
+      "type": "log_event"
     },
     {
-      "chars": 97,
+      "chars": 88,
       "coverage": "confirmed",
-      "evidence_id": "EV_078f99da7a638813b0c880b3",
+      "evidence_id": "EV_b084b515be193879d89d68b8",
       "kind": "fragment",
       "outcome": "excluded",
-      "path": "vega/plsql/logica_vega.sql",
+      "path": "vega/logs/vega_2026.log",
       "rank": [
         2,
-        "vega/plsql/logica_vega.sql",
-        "EV_078f99da7a638813b0c880b3"
+        "vega/logs/vega_2026.log",
+        "EV_b084b515be193879d89d68b8"
       ],
       "reason_codes": [
         "fragment_type_not_allowed",
         "already_confirmed"
       ],
-      "revision_id": "REV_c541599e315757cabfedd178",
-      "type": "sql_dependency"
+      "revision_id": "REV_54aa37b4ba8ff130f6a053e8",
+      "type": "log_event"
     },
     {
-      "chars": 204,
+      "chars": 292,
       "coverage": "confirmed",
-      "evidence_id": "EV_12be17abe6adcbafc0b4e3cb",
+      "evidence_id": "EV_077aa88deef1eebf5f818b4f",
       "kind": "fragment",
       "outcome": "excluded",
       "path": "vega/plsql/logica_vega.sql",
       "rank": [
         2,
         "vega/plsql/logica_vega.sql",
-        "EV_12be17abe6adcbafc0b4e3cb"
-      ],
-      "reason_codes": [
-        "fragment_type_not_allowed",
-        "already_confirmed"
-      ],
-      "revision_id": "REV_c541599e315757cabfedd178",
-      "type": "sql_dependency"
-    },
-    {
-      "chars": 97,
-      "coverage": "confirmed",
-      "evidence_id": "EV_2a92eafaf1f773f076f8aa57",
-      "kind": "fragment",
-      "outcome": "excluded",
-      "path": "vega/plsql/logica_vega.sql",
-      "rank": [
-        2,
-        "vega/plsql/logica_vega.sql",
-        "EV_2a92eafaf1f773f076f8aa57"
-      ],
-      "reason_codes": [
-        "fragment_type_not_allowed",
-        "already_confirmed"
-      ],
-      "revision_id": "REV_c541599e315757cabfedd178",
-      "type": "sql_dependency"
-    },
-    {
-      "chars": 204,
-      "coverage": "confirmed",
-      "evidence_id": "EV_3b2da6a825d252cd48b0f313",
-      "kind": "fragment",
-      "outcome": "excluded",
-      "path": "vega/plsql/logica_vega.sql",
-      "rank": [
-        2,
-        "vega/plsql/logica_vega.sql",
-        "EV_3b2da6a825d252cd48b0f313"
-      ],
-      "reason_codes": [
-        "fragment_type_not_allowed",
-        "already_confirmed"
-      ],
-      "revision_id": "REV_c541599e315757cabfedd178",
-      "type": "sql_dependency"
-    },
-    {
-      "chars": 282,
-      "coverage": "confirmed",
-      "evidence_id": "EV_4412cd351fbaa8035b4fecfe",
-      "kind": "fragment",
-      "outcome": "excluded",
-      "path": "vega/plsql/logica_vega.sql",
-      "rank": [
-        2,
-        "vega/plsql/logica_vega.sql",
-        "EV_4412cd351fbaa8035b4fecfe"
-      ],
-      "reason_codes": [
-        "fragment_type_not_allowed",
-        "already_confirmed"
-      ],
-      "revision_id": "REV_c541599e315757cabfedd178",
-      "type": "sql_dependency"
-    },
-    {
-      "chars": 204,
-      "coverage": "confirmed",
-      "evidence_id": "EV_4f083269cac4f05745d5dc43",
-      "kind": "fragment",
-      "outcome": "excluded",
-      "path": "vega/plsql/logica_vega.sql",
-      "rank": [
-        2,
-        "vega/plsql/logica_vega.sql",
-        "EV_4f083269cac4f05745d5dc43"
-      ],
-      "reason_codes": [
-        "fragment_type_not_allowed",
-        "already_confirmed"
-      ],
-      "revision_id": "REV_c541599e315757cabfedd178",
-      "type": "sql_dependency"
-    },
-    {
-      "chars": 204,
-      "coverage": "confirmed",
-      "evidence_id": "EV_7138303b0b9301b9ba7b4c9e",
-      "kind": "fragment",
-      "outcome": "excluded",
-      "path": "vega/plsql/logica_vega.sql",
-      "rank": [
-        2,
-        "vega/plsql/logica_vega.sql",
-        "EV_7138303b0b9301b9ba7b4c9e"
-      ],
-      "reason_codes": [
-        "fragment_type_not_allowed",
-        "already_confirmed"
-      ],
-      "revision_id": "REV_c541599e315757cabfedd178",
-      "type": "sql_dependency"
-    },
-    {
-      "chars": 97,
-      "coverage": "no_candidate",
-      "evidence_id": "EV_b0ee39146fdb10e756fc9a44",
-      "kind": "fragment",
-      "outcome": "included",
-      "path": "vega/plsql/logica_vega.sql",
-      "rank": [
-        2,
-        "vega/plsql/logica_vega.sql",
-        "EV_b0ee39146fdb10e756fc9a44"
-      ],
-      "reason_codes": [
-        "included_by_policy"
-      ],
-      "revision_id": "REV_c541599e315757cabfedd178",
-      "type": "sql_statement"
-    },
-    {
-      "chars": 282,
-      "coverage": "confirmed",
-      "evidence_id": "EV_b9ce3b7fc9239e7adc07c4cc",
-      "kind": "fragment",
-      "outcome": "excluded",
-      "path": "vega/plsql/logica_vega.sql",
-      "rank": [
-        2,
-        "vega/plsql/logica_vega.sql",
-        "EV_b9ce3b7fc9239e7adc07c4cc"
-      ],
-      "reason_codes": [
-        "fragment_type_not_allowed",
-        "already_confirmed"
-      ],
-      "revision_id": "REV_c541599e315757cabfedd178",
-      "type": "sql_dependency"
-    },
-    {
-      "chars": 204,
-      "coverage": "confirmed",
-      "evidence_id": "EV_d5817f5a91a68584653518bc",
-      "kind": "fragment",
-      "outcome": "excluded",
-      "path": "vega/plsql/logica_vega.sql",
-      "rank": [
-        2,
-        "vega/plsql/logica_vega.sql",
-        "EV_d5817f5a91a68584653518bc"
-      ],
-      "reason_codes": [
-        "fragment_type_not_allowed",
-        "already_confirmed"
-      ],
-      "revision_id": "REV_c541599e315757cabfedd178",
-      "type": "sql_dependency"
-    },
-    {
-      "chars": 37,
-      "coverage": "confirmed",
-      "evidence_id": "EV_d917be3609c264a857ec2a45",
-      "kind": "fragment",
-      "outcome": "excluded",
-      "path": "vega/plsql/logica_vega.sql",
-      "rank": [
-        2,
-        "vega/plsql/logica_vega.sql",
-        "EV_d917be3609c264a857ec2a45"
-      ],
-      "reason_codes": [
-        "fragment_type_not_allowed",
-        "already_confirmed"
-      ],
-      "revision_id": "REV_c541599e315757cabfedd178",
-      "type": "sql_dependency"
-    },
-    {
-      "chars": 97,
-      "coverage": "confirmed",
-      "evidence_id": "EV_db7d4bc6001c921eac070f00",
-      "kind": "fragment",
-      "outcome": "excluded",
-      "path": "vega/plsql/logica_vega.sql",
-      "rank": [
-        2,
-        "vega/plsql/logica_vega.sql",
-        "EV_db7d4bc6001c921eac070f00"
-      ],
-      "reason_codes": [
-        "fragment_type_not_allowed",
-        "already_confirmed"
-      ],
-      "revision_id": "REV_c541599e315757cabfedd178",
-      "type": "sql_dependency"
-    },
-    {
-      "chars": 398,
-      "coverage": "confirmed",
-      "evidence_id": "EV_e66cb31f395ded6fc2dcb0b6",
-      "kind": "fragment",
-      "outcome": "excluded",
-      "path": "vega/plsql/logica_vega.sql",
-      "rank": [
-        2,
-        "vega/plsql/logica_vega.sql",
-        "EV_e66cb31f395ded6fc2dcb0b6"
+        "EV_077aa88deef1eebf5f818b4f"
       ],
       "reason_codes": [
         "already_confirmed"
       ],
-      "revision_id": "REV_c541599e315757cabfedd178",
-      "type": "sql_procedure"
-    },
-    {
-      "chars": 282,
-      "coverage": "confirmed",
-      "evidence_id": "EV_f73e3125e76e0cf1e9b509ae",
-      "kind": "fragment",
-      "outcome": "excluded",
-      "path": "vega/plsql/logica_vega.sql",
-      "rank": [
-        2,
-        "vega/plsql/logica_vega.sql",
-        "EV_f73e3125e76e0cf1e9b509ae"
-      ],
-      "reason_codes": [
-        "already_confirmed"
-      ],
-      "revision_id": "REV_c541599e315757cabfedd178",
+      "revision_id": "REV_1405b7da46624bd98b68aee1",
       "type": "sql_trigger"
     },
     {
-      "chars": 204,
+      "chars": 99,
       "coverage": "confirmed",
-      "evidence_id": "EV_f8c5368331ff7ea7a2ed59e3",
+      "evidence_id": "EV_14f5b1f981fd226fc2fa9731",
       "kind": "fragment",
       "outcome": "excluded",
       "path": "vega/plsql/logica_vega.sql",
       "rank": [
         2,
         "vega/plsql/logica_vega.sql",
-        "EV_f8c5368331ff7ea7a2ed59e3"
+        "EV_14f5b1f981fd226fc2fa9731"
       ],
       "reason_codes": [
         "fragment_type_not_allowed",
         "already_confirmed"
       ],
-      "revision_id": "REV_c541599e315757cabfedd178",
+      "revision_id": "REV_1405b7da46624bd98b68aee1",
       "type": "sql_dependency"
     },
     {
-      "chars": 204,
+      "chars": 210,
       "coverage": "no_candidate",
-      "evidence_id": "EV_faa58f5a85eaf9c190ae5f7b",
+      "evidence_id": "EV_1a4feaf42ef6a00dc9209a39",
       "kind": "fragment",
       "outcome": "included",
       "path": "vega/plsql/logica_vega.sql",
       "rank": [
         2,
         "vega/plsql/logica_vega.sql",
-        "EV_faa58f5a85eaf9c190ae5f7b"
+        "EV_1a4feaf42ef6a00dc9209a39"
       ],
       "reason_codes": [
         "included_by_policy"
       ],
-      "revision_id": "REV_c541599e315757cabfedd178",
+      "revision_id": "REV_1405b7da46624bd98b68aee1",
       "type": "sql_statement"
+    },
+    {
+      "chars": 210,
+      "coverage": "confirmed",
+      "evidence_id": "EV_1d8c66aa169e58d0f5ece1c6",
+      "kind": "fragment",
+      "outcome": "excluded",
+      "path": "vega/plsql/logica_vega.sql",
+      "rank": [
+        2,
+        "vega/plsql/logica_vega.sql",
+        "EV_1d8c66aa169e58d0f5ece1c6"
+      ],
+      "reason_codes": [
+        "fragment_type_not_allowed",
+        "already_confirmed"
+      ],
+      "revision_id": "REV_1405b7da46624bd98b68aee1",
+      "type": "sql_dependency"
+    },
+    {
+      "chars": 210,
+      "coverage": "confirmed",
+      "evidence_id": "EV_3114514b41937c7d2c5b9209",
+      "kind": "fragment",
+      "outcome": "excluded",
+      "path": "vega/plsql/logica_vega.sql",
+      "rank": [
+        2,
+        "vega/plsql/logica_vega.sql",
+        "EV_3114514b41937c7d2c5b9209"
+      ],
+      "reason_codes": [
+        "fragment_type_not_allowed",
+        "already_confirmed"
+      ],
+      "revision_id": "REV_1405b7da46624bd98b68aee1",
+      "type": "sql_dependency"
+    },
+    {
+      "chars": 99,
+      "coverage": "confirmed",
+      "evidence_id": "EV_567e024f77269c54bca62804",
+      "kind": "fragment",
+      "outcome": "excluded",
+      "path": "vega/plsql/logica_vega.sql",
+      "rank": [
+        2,
+        "vega/plsql/logica_vega.sql",
+        "EV_567e024f77269c54bca62804"
+      ],
+      "reason_codes": [
+        "fragment_type_not_allowed",
+        "already_confirmed"
+      ],
+      "revision_id": "REV_1405b7da46624bd98b68aee1",
+      "type": "sql_dependency"
+    },
+    {
+      "chars": 38,
+      "coverage": "confirmed",
+      "evidence_id": "EV_5d6e7ac3b74f835f6df33491",
+      "kind": "fragment",
+      "outcome": "excluded",
+      "path": "vega/plsql/logica_vega.sql",
+      "rank": [
+        2,
+        "vega/plsql/logica_vega.sql",
+        "EV_5d6e7ac3b74f835f6df33491"
+      ],
+      "reason_codes": [
+        "fragment_type_not_allowed",
+        "already_confirmed"
+      ],
+      "revision_id": "REV_1405b7da46624bd98b68aee1",
+      "type": "sql_dependency"
+    },
+    {
+      "chars": 210,
+      "coverage": "confirmed",
+      "evidence_id": "EV_6a9524018b7bf91877c4d497",
+      "kind": "fragment",
+      "outcome": "excluded",
+      "path": "vega/plsql/logica_vega.sql",
+      "rank": [
+        2,
+        "vega/plsql/logica_vega.sql",
+        "EV_6a9524018b7bf91877c4d497"
+      ],
+      "reason_codes": [
+        "fragment_type_not_allowed",
+        "already_confirmed"
+      ],
+      "revision_id": "REV_1405b7da46624bd98b68aee1",
+      "type": "sql_dependency"
+    },
+    {
+      "chars": 210,
+      "coverage": "confirmed",
+      "evidence_id": "EV_78de8dd9fc0c76a369dc8550",
+      "kind": "fragment",
+      "outcome": "excluded",
+      "path": "vega/plsql/logica_vega.sql",
+      "rank": [
+        2,
+        "vega/plsql/logica_vega.sql",
+        "EV_78de8dd9fc0c76a369dc8550"
+      ],
+      "reason_codes": [
+        "fragment_type_not_allowed",
+        "already_confirmed"
+      ],
+      "revision_id": "REV_1405b7da46624bd98b68aee1",
+      "type": "sql_dependency"
+    },
+    {
+      "chars": 210,
+      "coverage": "confirmed",
+      "evidence_id": "EV_9964fbdc3d1784035aefa234",
+      "kind": "fragment",
+      "outcome": "excluded",
+      "path": "vega/plsql/logica_vega.sql",
+      "rank": [
+        2,
+        "vega/plsql/logica_vega.sql",
+        "EV_9964fbdc3d1784035aefa234"
+      ],
+      "reason_codes": [
+        "fragment_type_not_allowed",
+        "already_confirmed"
+      ],
+      "revision_id": "REV_1405b7da46624bd98b68aee1",
+      "type": "sql_dependency"
+    },
+    {
+      "chars": 416,
+      "coverage": "confirmed",
+      "evidence_id": "EV_a694e3de164528c370a8a215",
+      "kind": "fragment",
+      "outcome": "excluded",
+      "path": "vega/plsql/logica_vega.sql",
+      "rank": [
+        2,
+        "vega/plsql/logica_vega.sql",
+        "EV_a694e3de164528c370a8a215"
+      ],
+      "reason_codes": [
+        "already_confirmed"
+      ],
+      "revision_id": "REV_1405b7da46624bd98b68aee1",
+      "type": "sql_procedure"
+    },
+    {
+      "chars": 210,
+      "coverage": "confirmed",
+      "evidence_id": "EV_b47ea296141c9002d6f3440b",
+      "kind": "fragment",
+      "outcome": "excluded",
+      "path": "vega/plsql/logica_vega.sql",
+      "rank": [
+        2,
+        "vega/plsql/logica_vega.sql",
+        "EV_b47ea296141c9002d6f3440b"
+      ],
+      "reason_codes": [
+        "fragment_type_not_allowed",
+        "already_confirmed"
+      ],
+      "revision_id": "REV_1405b7da46624bd98b68aee1",
+      "type": "sql_dependency"
+    },
+    {
+      "chars": 292,
+      "coverage": "confirmed",
+      "evidence_id": "EV_c48cbd5886ae6921db5f0ce1",
+      "kind": "fragment",
+      "outcome": "excluded",
+      "path": "vega/plsql/logica_vega.sql",
+      "rank": [
+        2,
+        "vega/plsql/logica_vega.sql",
+        "EV_c48cbd5886ae6921db5f0ce1"
+      ],
+      "reason_codes": [
+        "fragment_type_not_allowed",
+        "already_confirmed"
+      ],
+      "revision_id": "REV_1405b7da46624bd98b68aee1",
+      "type": "sql_dependency"
+    },
+    {
+      "chars": 210,
+      "coverage": "confirmed",
+      "evidence_id": "EV_cf16625388652d8420448896",
+      "kind": "fragment",
+      "outcome": "excluded",
+      "path": "vega/plsql/logica_vega.sql",
+      "rank": [
+        2,
+        "vega/plsql/logica_vega.sql",
+        "EV_cf16625388652d8420448896"
+      ],
+      "reason_codes": [
+        "fragment_type_not_allowed",
+        "already_confirmed"
+      ],
+      "revision_id": "REV_1405b7da46624bd98b68aee1",
+      "type": "sql_dependency"
+    },
+    {
+      "chars": 99,
+      "coverage": "confirmed",
+      "evidence_id": "EV_d8ab2318b3fc468376ac79e3",
+      "kind": "fragment",
+      "outcome": "excluded",
+      "path": "vega/plsql/logica_vega.sql",
+      "rank": [
+        2,
+        "vega/plsql/logica_vega.sql",
+        "EV_d8ab2318b3fc468376ac79e3"
+      ],
+      "reason_codes": [
+        "fragment_type_not_allowed",
+        "already_confirmed"
+      ],
+      "revision_id": "REV_1405b7da46624bd98b68aee1",
+      "type": "sql_dependency"
+    },
+    {
+      "chars": 99,
+      "coverage": "no_candidate",
+      "evidence_id": "EV_e5f88634cf9dc1d4976c1f6e",
+      "kind": "fragment",
+      "outcome": "included",
+      "path": "vega/plsql/logica_vega.sql",
+      "rank": [
+        2,
+        "vega/plsql/logica_vega.sql",
+        "EV_e5f88634cf9dc1d4976c1f6e"
+      ],
+      "reason_codes": [
+        "included_by_policy"
+      ],
+      "revision_id": "REV_1405b7da46624bd98b68aee1",
+      "type": "sql_statement"
+    },
+    {
+      "chars": 292,
+      "coverage": "confirmed",
+      "evidence_id": "EV_f151c543aaa3b9d96af6bafe",
+      "kind": "fragment",
+      "outcome": "excluded",
+      "path": "vega/plsql/logica_vega.sql",
+      "rank": [
+        2,
+        "vega/plsql/logica_vega.sql",
+        "EV_f151c543aaa3b9d96af6bafe"
+      ],
+      "reason_codes": [
+        "fragment_type_not_allowed",
+        "already_confirmed"
+      ],
+      "revision_id": "REV_1405b7da46624bd98b68aee1",
+      "type": "sql_dependency"
     }
   ],
   "policy_version": "3",
   "route": "technical_extraction",
-  "selected_chars": 301,
+  "selected_chars": 309,
   "selected_count": 2,
-  "state_hash": "4ce8fbfcac44dd9c96d984bbb76826ed7b2b6521b326828144d7b8ce864fc522"
+  "state_hash": "0932de9b3330e531a46b160ad5162113fc3bf17f251ca21bf1b09edb1c8ac7dd"
 }

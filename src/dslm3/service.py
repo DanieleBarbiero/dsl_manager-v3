@@ -437,9 +437,39 @@ class Application:
             "SELECT state,COUNT(*) AS count FROM candidate_states WHERE leaf=1 AND current_revision=1 AND source_status='active' AND current_parse=1 GROUP BY state"
         )
         counts["review_states"] = {r["state"]: r["count"] for r in states}
+        typed = self.store.rows(
+            "SELECT record_type,state,COUNT(*) AS count "
+            "FROM candidate_states WHERE leaf=1 AND current_revision=1 "
+            "AND source_status='active' AND current_parse=1 "
+            "GROUP BY record_type,state ORDER BY record_type,state"
+        )
+        counts["review_by_type"] = {}
+        for row in typed:
+            counts["review_by_type"].setdefault(row["record_type"], {})[
+                row["state"]
+            ] = row["count"]
         counts["confirmed_unmerged"] = self.store.one(
-            "SELECT COUNT(*) AS n FROM candidate_states c WHERE state='confirmed' AND leaf=1 AND current_revision=1 AND source_status='active' AND current_parse=1 AND record_type IN ('candidate_fact','candidate_relation','temporal_interval') AND NOT EXISTS(SELECT 1 FROM supports s WHERE s.candidate_id=c.id)"
+            "SELECT COUNT(*) AS n FROM candidate_states c WHERE state='confirmed' "
+            "AND leaf=1 AND current_revision=1 AND source_status='active' "
+            "AND current_parse=1 AND record_type IN "
+            "('candidate_fact','candidate_relation','candidate_mapping','candidate_question','temporal_interval') "
+            "AND NOT EXISTS(SELECT 1 FROM supports s WHERE s.candidate_id=c.id)"
         )["n"]
+        consolidation = self.store.rows(
+            "SELECT c.record_type, "
+            "SUM(CASE WHEN EXISTS(SELECT 1 FROM supports s WHERE s.candidate_id=c.id) THEN 1 ELSE 0 END) AS consolidated, "
+            "SUM(CASE WHEN NOT EXISTS(SELECT 1 FROM supports s WHERE s.candidate_id=c.id) THEN 1 ELSE 0 END) AS not_consolidated "
+            "FROM candidate_states c WHERE c.leaf=1 AND c.current_revision=1 "
+            "AND c.source_status='active' AND c.current_parse=1 AND c.state='confirmed' "
+            "GROUP BY c.record_type ORDER BY c.record_type"
+        )
+        counts["consolidation_by_type"] = {
+            row["record_type"]: {
+                "consolidated": row["consolidated"],
+                "not_consolidated": row["not_consolidated"],
+            }
+            for row in consolidation
+        }
         counts["open_reconciliations"] = self.store.one(
             "SELECT COUNT(*) AS n FROM reconciliation WHERE closed_at IS NULL"
         )["n"]

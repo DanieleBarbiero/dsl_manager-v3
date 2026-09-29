@@ -79,7 +79,9 @@
         "required": [
           "question_type",
           "subject",
-          "question_text"
+          "question_text",
+          "question_basis",
+          "question_status"
         ]
       }
     }
@@ -111,14 +113,24 @@
       "minLength": 1,
       "type": "string"
     },
-    "record_type": {
+    "property_name": {
       "enum": [
-        "candidate_fact",
-        "candidate_relation",
-        "candidate_mapping",
-        "candidate_conflict",
-        "candidate_question"
+        "assigned_value",
+        "assignment_expression",
+        "row_selection_expression"
       ]
+    },
+    "question_basis": {
+      "enum": [
+        "source_question",
+        "derived_gap"
+      ]
+    },
+    "question_status": {
+      "const": "open"
+    },
+    "record_type": {
+      "const": "candidate_fact"
     },
     "source_revision_id": {
       "type": "string"

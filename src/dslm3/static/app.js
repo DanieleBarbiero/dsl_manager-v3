@@ -160,12 +160,92 @@ function renderWorkspaceControls() {
     $('#workspace-path').textContent = active?.path || data.status.workspace
 }
 
+function decorateReviewPage() {
+    const current = data.candidates.filter(c => c.leaf && c.current_parse && c.current_revision && c.source_status === 'active');
+    const stateCount = state => current.filter(c => c.state === state).length;
+    const consolidated = current.filter(c => c.materialized).length;
+    const lead = $('#content .lead');
+    if (lead) lead.insertAdjacentHTML('afterend',
+        `<div class="stats review-stats">${[
+            ['In attesa', stateCount('pending'), 'Da decidere'],
+            ['Confermate', stateCount('confirmed'), 'Decisioni positive'],
+            ['Rifiutate', stateCount('rejected'), 'Decisioni negative'],
+            ['Superseded', stateCount('superseded'), 'Sostituite da correzioni'],
+            ['Consolidate', consolidated, 'Con almeno un oggetto materializzato']
+        ].map(([label,n,note])=>`<div class="stat"><div class="number">${n}</div><div class="label">${label}</div><div class="note">${note}</div></div>`).join('')}</div>`);
+    const actions = $('#content .actions');
+    if (actions && !$('#batch-review-reason')) {
+        actions.insertAdjacentHTML('afterbegin',
+            `<label class="inline review-reason">Motivo batch <input id="batch-review-reason" type="text" placeholder="Obbligatorio per confermare/rifiutare"></label>`);
+    }
+    $$('.candidate-row').forEach(row => {
+        const id = row.querySelector('.candidate-check')?.value;
+        const c = data.candidates.find(x => x.id === id);
+        if (!c) return;
+        const cells = row.querySelectorAll('td');
+        if (cells[1]) {
+            const locator = c.evidence_locators?.length ? JSON.stringify(c.evidence_locators[0].locator) : 'locator non disponibile';
+            cells[1].insertAdjacentHTML('beforeend',
+                `<div class="sub"><strong>Fonte:</strong> ${esc(c.source_path || c.payload.source_revision_id)}</div>` +
+                `<details class="sub"><summary>Evidenza e posizione</summary><pre>${esc(c.payload.evidence_text || '')}</pre><p class="mono">${esc(locator)}</p></details>`);
+        }
+        if (cells[2]) {
+            cells[2].insertAdjacentHTML('beforeend',
+                `<div class="sub">${esc(c.payload.assertion_type)} · ${esc(c.payload.confidence)}${c.payload.question_basis ? ' · '+esc(c.payload.question_basis) : ''}</div>`);
+        }
+    });
+}
+
+function decorateTemporalPage() {
+    const pending = data.candidates.filter(c => c.leaf && c.state === 'pending' && c.payload.record_type === 'temporal_interval').length;
+    const lead = $('#content .lead');
+    if (lead) lead.insertAdjacentHTML('afterend',
+        `<div class="hint"><strong>Flusso temporale:</strong> 1) estrai segnali → 2) consolida una revisione → 3) torna a <a href="#review">Review + consolida</a> (${pending} intervalli pending). Date di creazione/modifica, archive_time e filename_time sono <em>segnali di provenienza</em>: non diventano validità semantica senza review.</div>`);
+}
+
+function decorateKnowledgePage() {
+    $$('.knowledge-row').forEach(row => {
+        const id = row.querySelector('[data-action=object-detail]')?.dataset.id,
+            o = data.knowledge.objects.find(x => x.id === id);
+        if (!o) return;
+        const cell = row.querySelectorAll('td')[1];
+        if (!cell) return;
+        if (o.kind === 'mapping') {
+            cell.innerHTML = `<div class="source-name">${esc(o.payload.domain_entity)} ↔ ${esc(o.payload.technical_object)}</div><div class="sub">${esc(o.payload.mapping_type)}</div>`
+        } else if (o.kind === 'question') {
+            cell.innerHTML = `<div class="source-name">${esc(o.payload.subject)}</div><div class="sub">[${esc(o.payload.question_status || 'open')}] ${esc(o.payload.question_text)}</div>`
+        }
+    })
+}
+
+function decorateExportsPage() {
+    const card = $('#content .card:last-of-type');
+    if (card) card.insertAdjacentHTML('beforeend',
+        `<div class="hint"><strong>Confronto tra profili:</strong> quando abiliti il cross-profile, il diff confronta la struttura comune. La temporalità specifica del Profilo 2 è esclusa e il risultato lo dichiara esplicitamente.</div>`);
+    const rows = $$('#content .card:first-of-type tbody tr');
+    rows.forEach((row, i) => {
+        const s = data.snapshots[i],
+            cell = row.querySelectorAll('td')[2];
+        if (s && cell) cell.insertAdjacentHTML('beforeend',
+            `<div class="sub">mapping ${s.counts.mappings || 0} · domande ${s.counts.questions || 0}</div>`)
+    })
+}
+
 function decoratePage() {
-    if (page !== 'overview') return;
-    const pipeline = $('[data-action=pipeline]');
-    if (pipeline) pipeline.textContent = 'Pipeline rapida';
-    const flow = $('.flow');
-    if (flow) flow.insertAdjacentHTML('afterend', `<div class="hint"><strong>Il passaggio 02 è il gate ricorrente.</strong> Dopo l’AI (03) e dopo la temporalità (04) torna sempre a <a href="#review">Review + consolida</a>: decisione → merge → riconcilia. La pipeline rapida comprime parsing, derivazione, policy automatiche, merge e riconciliazione; per un test leggibile usa i passaggi espliciti.</div>`)
+    if (page === 'overview') {
+        const pipeline = $('[data-action=pipeline]');
+        if (pipeline) pipeline.textContent = 'Pipeline rapida';
+        const flow = $('.flow');
+        if (flow) flow.insertAdjacentHTML('afterend', `<div class="hint"><strong>Il passaggio 02 è il gate ricorrente.</strong> Dopo l’AI (03) e dopo la temporalità (04) torna sempre a <a href="#review">Review + consolida</a>: decisione → merge → riconcilia. La pipeline rapida comprime parsing, derivazione, policy automatiche, merge e riconciliazione; per un test leggibile usa i passaggi espliciti.</div>`)
+    } else if (page === 'review') {
+        decorateReviewPage()
+    } else if (page === 'temporal') {
+        decorateTemporalPage()
+    } else if (page === 'knowledge') {
+        decorateKnowledgePage()
+    } else if (page === 'exports') {
+        decorateExportsPage()
+    }
 }
 
 async function workspaceAction(operation, args = {}) {
@@ -283,6 +363,56 @@ function bindFilters() {
         })
     })
 }
+
+function candidateAudit(c) {
+    const source = `<div class="hint"><strong>Fonte:</strong> ${esc(c.source_path || c.payload.source_revision_id)}<br><span class="mono">${esc(c.payload.source_revision_id)}</span>${c.evidence_locators?.length ? `<pre>${pretty(c.evidence_locators)}</pre>` : ''}</div>`;
+    const ai = c.ai_audit ? `<details><summary>Audit AI: package → response → batch → candidate</summary><pre>${pretty({...c.ai_audit, batch_id:c.batch_id, candidate_id:c.id})}</pre></details>` : `<p class="small muted">Origine batch: ${esc(c.batch_origin || 'sconosciuta')} · ${esc(c.batch_id)}</p>`;
+    const trace = (c.materialized_object_ids || []).length
+        ? `<div class="actions">${c.materialized_object_ids.map(id=>button('Traccia oggetto','object-detail',`data-id="${id}"`)).join('')}</div>`
+        : '';
+    return source + ai + trace
+}
+
+function correctionEditor(c) {
+    const p = c.payload;
+    if (p.record_type !== 'temporal_interval') {
+        return `<textarea id="correction-json">${pretty(p)}</textarea>`
+    }
+    const precision = ['year','month','day','second','minute','millisecond','microsecond'];
+    const timezone = ['explicit','resolved','unknown','incompatible'];
+    const bounds = ['inclusive','coverage_envelope','open_start','open_end'];
+    return `<div class="grid equal">
+        <div>${formField('correction-start','Inizio ISO (vuoto = -∞)',p.normalized_start || '')}</div>
+        <div>${formField('correction-end','Fine ISO (vuoto = +∞)',p.normalized_end || '')}</div>
+    </div>
+    <label>Precisione</label><select id="correction-precision">${precision.map(v=>`<option ${v===p.original_precision?'selected':''}>${v}</option>`).join('')}</select>
+    <label>Stato timezone</label><select id="correction-timezone-status">${timezone.map(v=>`<option ${v===p.timezone_status?'selected':''}>${v}</option>`).join('')}</select>
+    ${formField('correction-timezone','Timezone/offset (es. Europe/Rome o +02:00)',p.timezone_value || '')}
+    <label>Semantica limiti</label><select id="correction-bounds">${bounds.map(v=>`<option ${v===p.bounds_semantics?'selected':''}>${v}</option>`).join('')}</select>
+    <p class="small muted">Per timestamp, inserisci un offset ISO esplicito nel valore (es. 2026-09-01T10:00:00+02:00) oppure correggi il valore prima della conferma. Un solo estremo genera automaticamente open_start/open_end.</p>`
+}
+
+function readCorrectionPayload(c) {
+    if (c.payload.record_type !== 'temporal_interval') {
+        return JSON.parse($('#correction-json').value)
+    }
+    const start = $('#correction-start').value.trim() || null,
+        end = $('#correction-end').value.trim() || null;
+    if (!start && !end) throw new Error('Serve almeno un limite temporale.');
+    let bounds = $('#correction-bounds').value;
+    if (start && !end) bounds = 'open_end';
+    if (!start && end) bounds = 'open_start';
+    return {
+        ...c.payload,
+        normalized_start: start,
+        normalized_end: end,
+        original_precision: $('#correction-precision').value,
+        timezone_status: $('#correction-timezone-status').value,
+        timezone_value: $('#correction-timezone').value.trim() || null,
+        bounds_semantics: bounds
+    }
+}
+
 async function clickAction(a) {
     const op = a.dataset.action,
         id = a.dataset.id;
@@ -327,15 +457,19 @@ async function clickAction(a) {
     if (op === 'candidate-detail') {
         const c = data.candidates.find(c => c.id === id),
             p = c.payload;
-        show('Valuta la proposta', `<p>${badge(c.state)} <span class="mono">${esc(id)}</span></p><pre>${pretty(Object.fromEntries(Object.entries(p).filter(([k])=>!['evidence_text'].includes(k))))}</pre><h3>Citazione a supporto</h3><pre>${esc(p.evidence_text)}</pre><label>Motivo della decisione</label><input id="review-reason" type="text"><div class="actions">${button('Conferma','review-one',`data-id="${id}" data-outcome="confirmed"`,'primary')}${button('Rifiuta','review-one',`data-id="${id}" data-outcome="rejected"`,'danger')}${button('Lascia in attesa','review-one',`data-id="${id}" data-outcome="pending"`)}</div><details><summary>Correggi creando una nuova versione</summary><textarea id="correction-json">${pretty(p)}</textarea><div class="actions">${button('Registra correzione','correct',`data-id="${id}"`)}</div></details>`);
+        show('Valuta la proposta', `<p>${badge(c.state)} <span class="mono">${esc(id)}</span></p>${candidateAudit(c)}<pre>${pretty(Object.fromEntries(Object.entries(p).filter(([k])=>!['evidence_text'].includes(k))))}</pre><h3>Citazione a supporto</h3><pre>${esc(p.evidence_text)}</pre><label>Motivo della decisione</label><input id="review-reason" type="text" placeholder="Obbligatorio per confermare/rifiutare"><div class="actions">${button('Conferma','review-one',`data-id="${id}" data-outcome="confirmed"`,'primary')}${button('Rifiuta','review-one',`data-id="${id}" data-outcome="rejected"`,'danger')}${button('Lascia in attesa','review-one',`data-id="${id}" data-outcome="pending"`)}</div><details><summary>Correggi creando una nuova versione</summary>${correctionEditor(c)}<div class="actions">${button('Registra correzione','correct',`data-id="${id}"`)}</div></details>`);
         return
     }
     if (op === 'review-one') {
-        const c = data.candidates.find(c => c.id === id);
+        const c = data.candidates.find(c => c.id === id),
+            outcome = a.dataset.outcome,
+            reason = $('#review-reason').value.trim();
+        if (['confirmed','rejected'].includes(outcome) && !reason)
+            return toast('Inserisci una motivazione per la decisione.');
         const result = await action('review', {
             candidate_id: id,
-            outcome: a.dataset.outcome,
-            reason: $('#review-reason').value,
+            outcome,
+            reason,
             expected_head: c.decision_id
         });
         if (result) $('#detail').close();
@@ -343,11 +477,12 @@ async function clickAction(a) {
     }
     if (op === 'correct') {
         try {
-            const p = JSON.parse($('#correction-json').value);
+            const c = data.candidates.find(c => c.id === id),
+                p = readCorrectionPayload(c);
             const result = await action('correct', {
                 candidate_id: id,
                 payload: p,
-                expected_head: data.candidates.find(c => c.id === id).decision_id
+                expected_head: c.decision_id
             });
             if (result) $('#detail').close()
         } catch (e) {
@@ -357,9 +492,12 @@ async function clickAction(a) {
     }
     if (op === 'review-confirm' || op === 'review-reject') {
         if (!selected.size) return toast('Seleziona almeno una proposta.');
+        const reason = ($('#batch-review-reason')?.value || '').trim();
+        if (!reason) return toast('Inserisci una motivazione per la review batch.');
         await action('review', {
             ids: [...selected],
-            outcome: op === 'review-confirm' ? 'confirmed' : 'rejected'
+            outcome: op === 'review-confirm' ? 'confirmed' : 'rejected',
+            reason
         });
         selected.clear();
         return
@@ -409,7 +547,7 @@ async function clickAction(a) {
     }
     if (op === 'object-detail') {
         const o = data.knowledge.objects.find(o => o.id === id);
-        show('Provenienza della conoscenza', `<pre>${pretty(o.payload)}</pre>${o.supports.map(s=>`<div class="item"><p class="mono">${esc(s.candidate_id)} · ${esc(s.decision_id)}</p><p class="small">Revisione ${esc(s.candidate_payload.source_revision_id)}</p><pre>${esc(s.candidate_payload.evidence_text)}</pre>${button('Apri candidato','candidate-detail',`data-id="${s.candidate_id}"`)}</div>`).join('')}`);
+        show('Provenienza della conoscenza', `<pre>${pretty(o.payload)}</pre>${o.supports.map(s=>{const c=data.candidates.find(x=>x.id===s.candidate_id);return `<div class="item"><p class="mono">${esc(s.candidate_id)} · ${esc(s.decision_id)}</p><p class="small"><strong>Fonte:</strong> ${esc(c?.source_path || s.candidate_payload.source_revision_id)}</p>${c?.evidence_locators?.length?`<pre>${pretty(c.evidence_locators)}</pre>`:''}<pre>${esc(s.candidate_payload.evidence_text)}</pre>${button('Apri candidato','candidate-detail',`data-id="${s.candidate_id}"`)}</div>`}).join('')}`);
         return
     }
     if (op === 'snapshot-profile') return action('snapshot', {
@@ -430,7 +568,12 @@ async function clickAction(a) {
             after: $('#diff-after').value,
             cross_schema: $('#cross-schema').checked
         });
-        if (r) show('Differenze fra snapshot', `<p>${r.count} cambiamenti. ${download(r.file,'Scarica il diff')}</p><pre>${pretty(r.changes)}</pre>`);
+        if (r) {
+            const note = r.temporal_comparison === 'excluded_cross_profile'
+                ? '<div class="hint warn"><strong>Temporalità esclusa:</strong> questo è un confronto cross-profile; gli intervalli specifici del Profilo 2 non partecipano al conteggio.</div>'
+                : '<div class="hint">La temporalità è inclusa nel confronto.</div>';
+            show('Differenze fra snapshot', `<p>${r.count} cambiamenti. ${download(r.file,'Scarica il diff')}</p>${note}<pre>${pretty(r.changes)}</pre>`)
+        }
         return
     }
     if (op === 'profile') return action('config', {
