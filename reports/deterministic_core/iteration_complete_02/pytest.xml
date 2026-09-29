@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="133" time="353.976" timestamp="2026-09-29T15:52:54.300682+02:00" hostname="DBARBIEROW"><testcase classname="tests.test_ai_exports" name="test_selection_coverage_explainability_and_budget" time="7.654" /><testcase classname="tests.test_ai_exports" name="test_multi_package_import_review_merge_and_true_conflict" time="6.411" /><testcase classname="tests.test_ai_exports" name="test_export_includes_mapping_question_and_evidence_locator" time="4.495" /><testcase classname="tests.test_ai_exports" name="test_staleness_provenance_and_integrity" time="4.559" /><testcase classname="tests.test_ai_exports" name="test_export_reconciliation_and_cross_schema_gate" time="8.044" /><testcase classname="tests.test_ai_exports" name="test_dynamic_intervals_xsd_and_no_network" time="4.810" /><testcase classname="tests.test_deterministic_core" name="test_cov_01_missing_fk_retains_declaration" time="0.067" /><testcase classname="tests.test_deterministic_core" name="test_cov_02_missing_due_result_is_failure" time="0.031" /><testcase classname="tests.test_deterministic_core" name="test_cov_03_ambiguous_and_inconsistent" time="0.036" /><testcase classname="tests.test_deterministic_core" name="test_cov_04_composite_counts_and_cov_05_unexpected_resolution" time="0.071" /><testcase classname="tests.test_deterministic_core" name="test_cov_06_dependency_lifecycle_cache_and_history" time="9.418" /><testcase classname="tests.test_deterministic_core" name="test_cov_07_governance_and_cov_08_unknown_irrelevant" time="5.146" /><testcase classname="tests.test_deterministic_core" name="test_biz_01_02_05_06_08_business_cycle" time="11.938" /><testcase classname="tests.test_deterministic_core" name="test_biz_03_04_07_decrement_and_names" time="12.830" /><testcase classname="tests.test_deterministic_core" name="test_biz_04_positive_table_column_constraint_rename" time="4.330" /><testcase classname="tests.test_deterministic_core" name="test_update_typed_literals[NULL-expected0]" time="0.010" /><testcase classname="tests.test_deterministic_core" name="test_update_typed_literals[''-expected1]" time="0.010" /><testcase classname="tests.test_deterministic_core" name="test_update_typed_literals[TRUE-expected2]" time="0.009" /><testcase classname="tests.test_deterministic_core" name="test_update_typed_literals[-123.456789012345678901-expected3]" time="0.010" /><testcase classname="tests.test_deterministic_core" name="test_update_typed_literals['001'-expected4]" time="0.006" /><testcase classname="tests.test_deterministic_core" name="test_update_typed_literals[('x')-expected5]" time="0.006" /><testcase classname="tests.test_deterministic_core" name="test_update_expression_context_and_real_conflicts" time="7.420" /><testcase classname="tests.test_deterministic_core" name="test_other_sql_shapes_ddl_and_quoted_resolver" time="0.058" /><testcase classname="tests.test_deterministic_core" name="test_chunk_exact_whitespace_fences[]" time="0.003" /><testcase classname="tests.test_deterministic_core" name="test_chunk_exact_whitespace_fences[ \n\n\t  ]" time="0.004" /><testcase classname="tests.test_deterministic_core" name="test_chunk_exact_whitespace_fences[# A\n\ntext\n\n### C\nlast]" time="0.004" /><testcase classname="tests.test_deterministic_core" name="test_chunk_exact_whitespace_fences[# A\n```sql\n# not heading\n```\n## B\nlast]" time="0.003" /><testcase classname="tests.test_deterministic_core" name="test_chunk_exact_whitespace_fences[xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]" time="0.004" /><testcase classname="tests.test_deterministic_core" name="test_chunk_exact_whitespace_fences[\r\n# Accenti \xe0 \u6f22\u5b57\r\n\t]" time="0.003" /><testcase classname="tests.test_deterministic_core" name="test_forms_resolution_modes_and_namespace" time="5.341" /><testcase classname="tests.test_deterministic_lifecycle" name="test_windows_bytes_bom_paths_and_locations[utf-8-\n]" time="3.084" /><testcase classname="tests.test_deterministic_lifecycle" name="test_windows_bytes_bom_paths_and_locations[utf-8-\r\n]" time="2.671" /><testcase classname="tests.test_deterministic_lifecycle" name="test_windows_bytes_bom_paths_and_locations[utf-8-sig-\r\n]" time="2.957" /><testcase classname="tests.test_deterministic_lifecycle" name="test_windows_bytes_bom_paths_and_locations[utf-16-\n]" time="3.007" /><testcase classname="tests.test_deterministic_lifecycle" name="test_windows_bytes_bom_paths_and_locations[utf-16-be-\r\n]" time="2.892" /><testcase classname="tests.test_deterministic_lifecycle" name="test_chunk_configuration_all_paths_and_cache" time="8.250" /><testcase classname="tests.test_deterministic_lifecycle" name="test_rule_only_change_obsoletes_old_outputs_without_review_loss" time="2.952" /><testcase classname="tests.test_deterministic_lifecycle" name="test_schema2_upgrade_preserves_history" time="5.175" /><testcase classname="tests.test_deterministic_lifecycle" name="test_partial_ai_remains_visible_and_package_preserves_coverage" time="3.256" /><testcase classname="tests.test_deterministic_lifecycle" name="test_log_json_identical_occurrences_retry_and_no_conflict" time="1.684" /><testcase classname="tests.test_deterministic_lifecycle" name="test_call_overload_and_dialect_quoting" time="0.033" /><testcase classname="tests.test_deterministic_lifecycle" name="test_fk_inferred_target_key_order_and_insert_select" time="0.035" /><testcase classname="tests.test_deterministic_lifecycle" name="test_code_provenance_without_git_hashes_installed_files" time="0.034" /><testcase classname="tests.test_deterministic_lifecycle" name="test_call_package_body_only_and_spec_precedence" time="0.012" /><testcase classname="tests.test_deterministic_lifecycle" name="test_forms_qualified_column_and_inconsistent_table" time="3.578" /><testcase classname="tests.test_deterministic_lifecycle" name="test_merge_branches_survive_full_cycle_without_conflict" time="7.543" /><testcase classname="tests.test_deterministic_lifecycle" name="test_resolver_import_order_and_same_named_columns" time="11.129" /><testcase classname="tests.test_deterministic_lifecycle" name="test_internal_parser_error_is_never_evidence_only" time="0.007" /><testcase classname="tests.test_deterministic_oracle" name="test_pinned_v1_ddl_oracle_superset" time="0.358" /><testcase classname="tests.test_deterministic_oracle" name="test_pinned_v1_db_code_forms_and_chunk_oracle" time="0.947" /><testcase classname="tests.test_formats_real" name="test_format_worker_real[data.csv]" time="1.407" /><testcase classname="tests.test_formats_real" name="test_format_worker_real[data.tsv]" time="1.245" /><testcase classname="tests.test_formats_real" name="test_format_worker_real[data.json]" time="1.194" /><testcase classname="tests.test_formats_real" name="test_format_worker_real[data.jsonl]" time="1.474" /><testcase classname="tests.test_formats_real" name="test_format_worker_real[data.yaml]" time="1.388" /><testcase classname="tests.test_formats_real" name="test_format_worker_real[data.eml]" time="1.284" /><testcase classname="tests.test_formats_real" name="test_format_worker_real[data.mhtml]" time="1.421" /><testcase classname="tests.test_formats_real" name="test_format_worker_real[data.xls]" time="1.457" /><testcase classname="tests.test_formats_real" name="test_format_worker_real[data.ods]" time="1.653" /><testcase classname="tests.test_formats_real" name="test_format_worker_real[data.pptx]" time="52.458" /><testcase classname="tests.test_formats_real" name="test_format_worker_real[data.html]" time="48.259" /><testcase classname="tests.test_formats_real" name="test_format_worker_real[data.sql]" time="1.751" /><testcase classname="tests.test_knowledge" name="test_governance_review_merge_idempotence_and_revoke" time="3.330" /><testcase classname="tests.test_knowledge" name="test_provenance_atomic_batch" time="1.815" /><testcase classname="tests.test_knowledge" name="test_ai_cannot_autoapprove_and_strict_atomic" time="1.930" /><testcase classname="tests.test_knowledge" name="test_supports_corrections_and_conflicts" time="2.085" /><testcase classname="tests.test_knowledge" name="test_mapping_and_question_materialize_with_lifecycle" time="1.961" /><testcase classname="tests.test_knowledge" name="test_source_revision_and_append_only" time="4.349" /><testcase classname="tests.test_knowledge" name="test_parse_retry_keeps_evidence_and_candidates_stable" time="3.400" /><testcase classname="tests.test_knowledge" name="test_logs_do_not_create_false_conflicts" time="2.127" /><testcase classname="tests.test_parsers" name="test_vega_sql_scope_regression" time="0.046" /><testcase classname="tests.test_parsers" name="test_forms_item_field_and_operation" time="0.005" /><testcase classname="tests.test_parsers" name="test_log_occurrences" time="0.005" /><testcase classname="tests.test_parsers" name="test_xml_entities_rejected" time="0.002" /><testcase classname="tests.test_parsers" name="test_dialect_ast[oracle-CREATE TABLE a(id NUMBER, name VARCHAR2(30));]" time="0.008" /><testcase classname="tests.test_parsers" name="test_dialect_ast[postgres-CREATE TABLE a(id SERIAL, value JSONB);]" time="0.007" /><testcase classname="tests.test_parsers" name="test_dialect_ast[mysql-CREATE TABLE a(id INT AUTO_INCREMENT PRIMARY KEY);]" time="0.009" /><testcase classname="tests.test_parsers" name="test_dialect_ast[tsql-CREATE TABLE dbo.a(id INT IDENTITY(1,1), name NVARCHAR(30));]" time="0.016" /><testcase classname="tests.test_parsers" name="test_dialect_ast[sqlite-CREATE TABLE a(id INTEGER PRIMARY KEY AUTOINCREMENT);]" time="0.009" /><testcase classname="tests.test_parsers" name="test_dialect_ast[bigquery-CREATE TABLE a(id INT64, name STRING);]" time="0.009" /><testcase classname="tests.test_parsers" name="test_dialect_ast[snowflake-CREATE TABLE a(id NUMBER, data VARIANT);]" time="0.011" /><testcase classname="tests.test_parsers" name="test_dialect_ast[duckdb-CREATE TABLE a(id INTEGER, name VARCHAR);]" time="0.010" /><testcase classname="tests.test_parsers" name="test_dialect_ast[spark-CREATE TABLE a(id INT, name STRING);]" time="0.011" /><testcase classname="tests.test_parsers" name="test_dialect_ast[teradata-CREATE TABLE a(id INTEGER);]" time="0.008" /><testcase classname="tests.test_parsers" name="test_legacy_and_unknown_version_honesty" time="0.004" /><testcase classname="tests.test_parsers" name="test_sql_literals_and_unrecognized_preserved" time="0.007"><failure message="ValueError: costrutto senza AST strutturato">def test_sql_literals_and_unrecognized_preserved():
+        r = parse_sql(
+            "CREATE PROCEDURE p AS BEGIN EXECUTE IMMEDIATE 'DELETE FROM SECRET'; END;\n/",
+            "oracle",
+        )
+        assert not any(e["data"].get("target") == "SECRET" for e in r.evidence)
+        assert any(d["reason"] == "dynamic_sql_unresolved" for d in r.diagnostics)
+&gt;       r = parse_sql("THIS IS GARBAGE SQL", "oracle")
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_parsers.py:97: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\dslm3\parsers\sql.py:586: in parse_sql
+    _statement(result, raw, start, end, text, read, schema, None, set())
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+result = ParseResult(parser='sql/4', evidence=[], diagnostics=[], artifacts={}, metadata={'dialect': 'oracle', 'basis': 'override', 'candidates': [], 'declared_version': None, 'legacy_features': [], 'ast_supported': True}, status='success')
+raw = 'THIS IS GARBAGE SQL', start = 0, end = 19, source = 'THIS IS GARBAGE SQL'
+read = 'oracle', schema = {}, owner = None, parameters = set()
+procedural = False
+
+    def _statement(
+        result, raw, start, end, source, read, schema, owner, parameters, procedural=False
+    ):
+        loc = location(source, start, end)
+        masked = mask_literals(raw)
+        # SQLGlot exposes CALL as Command. The procedural scanner can still identify
+        # the explicit callee; argument evaluation and overload inference are excluded.
+        call = re.match(
+            r"\s*(?:CALL|EXEC(?:UTE)?)\s+(" + IDENT + r")(?=\s|\(|;|$)", raw, re.I
+        )
+        if call and call[1].upper() != "IMMEDIATE":
+            result.add(
+                "sql_dependency",
+                raw,
+                {
+                    "source": owner or "CALL::" + str(start),
+                    "relation_type": "calls",
+                    "target": call[1],
+                    "target_kind": "code_unit",
+                },
+                loc,
+            )
+            return
+        special = re.search(
+            r"\bCREATE\s+(?:OR\s+REPLACE\s+)?(?:PUBLIC\s+)?(SYNONYM|DATABASE\s+LINK|DIRECTORY|TABLESPACE|CLUSTER|CONTEXT|LIBRARY)\s+("
+            + IDENT
+            + r")",
+            masked,
+            re.I,
+        )
+        if special:
+            kind = re.sub(r"\s+", "_", special[1].lower())
+            name = special[2].upper()
+            result.add(
+                "ddl_" + kind,
+                raw,
+                {"name": name, "object_type": kind, "recognition": "explicit_declaration"},
+                loc,
+            )
+            if kind == "synonym":
+                target = re.search(
+                    r"\bFOR\s+(" + IDENT + r")(?:@([\w.$#]+))?",
+                    masked[special.end() :],
+                    re.I,
+                )
+                if target:
+                    result.add(
+                        "sql_dependency",
+                        raw,
+                        {
+                            "source": name,
+                            "relation_type": "synonym_for",
+                            "target": target[1].upper()
+                            + ("@" + target[2].upper() if target[2] else ""),
+                        },
+                        loc,
+                    )
+            return
+        try:
+            parse_text = raw
+            if (
+                procedural
+                and read in {"oracle", "postgres", "mysql"}
+                and re.match(r"\s*SELECT\b", masked, re.I)
+            ):
+                into = re.search(r"\bINTO\s+[^;]+?(?=\bFROM\b)", masked, re.I)
+                if into:
+                    parse_text = (
+                        raw[: into.start()]
+                        + " " * (into.end() - into.start())
+                        + raw[into.end() :]
+                    )
+            tree = sqlglot.parse_one(
+                parse_text, read=read, error_level=sqlglot.ErrorLevel.RAISE
+            )
+            if tree is None:
+                return
+            if not isinstance(
+                tree,
+                (
+                    exp.Create,
+                    exp.Alter,
+                    exp.Drop,
+                    exp.Grant,
+                    exp.Revoke,
+                    exp.Select,
+                    exp.Union,
+                    exp.Intersect,
+                    exp.Except,
+                    exp.Update,
+                    exp.Delete,
+                    exp.Insert,
+                    exp.Merge,
+                    exp.Transaction,
+                    exp.Commit,
+                    exp.Rollback,
+                    exp.Set,
+                    exp.Use,
+                    exp.Pragma,
+                ),
+            ):
+&gt;               raise ValueError("costrutto senza AST strutturato")
+E               ValueError: costrutto senza AST strutturato
+
+src\dslm3\parsers\sql.py:691: ValueError</failure></testcase><testcase classname="tests.test_parsers" name="test_excel_exact_structural_contract_offline" time="0.087" /><testcase classname="tests.test_parsers" name="test_macro_never_executed" time="0.018" /><testcase classname="tests.test_parsers" name="test_oracle_package_members_and_mysql_delimiter" time="0.011" /><testcase classname="tests.test_parsers" name="test_cte_alias_not_invented_as_physical_table" time="0.008" /><testcase classname="tests.test_parsers" name="test_additional_oracle_objects[CREATE SYNONYM s FOR t;-ddl_synonym]" time="0.005" /><testcase classname="tests.test_parsers" name="test_additional_oracle_objects[CREATE DATABASE LINK l CONNECT TO u IDENTIFIED BY p USING 'db';-ddl_database_link]" time="0.005" /><testcase classname="tests.test_parsers" name="test_additional_oracle_objects[CREATE MATERIALIZED VIEW v AS SELECT * FROM t;-ddl_materialized view]" time="0.006" /><testcase classname="tests.test_resume_regressions" name="test_incremental_source_preserves_reviews_and_batch_membership" time="4.553" /><testcase classname="tests.test_resume_regressions" name="test_dialect_reinterpretation_and_cached_reactivation" time="5.488" /><testcase classname="tests.test_resume_regressions" name="test_procedural_units_and_variable_scope[DECLARE n NUMBER; BEGIN SELECT id INTO n FROM a; END;\n/-oracle-sql_anonymous_block-A.ID]" time="0.006" /><testcase classname="tests.test_resume_regressions" name="test_procedural_units_and_variable_scope[CREATE FUNCTION f() RETURNS int AS $$ BEGIN RETURN (SELECT id FROM a); END; $$ LANGUAGE plpgsql;-postgres-sql_function-A.ID]" time="0.007" /><testcase classname="tests.test_resume_regressions" name="test_procedural_units_and_variable_scope[CREATE PROCEDURE p @n INT AS BEGIN SELECT id FROM a WHERE id=@n; END\nGO\nSELECT 1;-tsql-sql_procedure-A.ID]" time="0.011" /><testcase classname="tests.test_resume_regressions" name="test_procedural_units_and_variable_scope[DELIMITER $$\nCREATE PROCEDURE p() BEGIN SELECT id INTO n FROM a; END$$\nDELIMITER ;\nSELECT 1;-mysql-sql_procedure-A.ID]" time="0.009" /><testcase classname="tests.test_resume_regressions" name="test_fine_temporal_precision[2026-01-01T12:34Z-minute]" time="0.003" /><testcase classname="tests.test_resume_regressions" name="test_fine_temporal_precision[2026-01-01T12:34:56Z-second]" time="0.002" /><testcase classname="tests.test_resume_regressions" name="test_fine_temporal_precision[2026-01-01T12:34:56.123Z-millisecond]" time="0.002" /><testcase classname="tests.test_resume_regressions" name="test_fine_temporal_precision[2026-01-01T12:34:56.123456Z-microsecond]" time="0.002" /><testcase classname="tests.test_resume_regressions" name="test_submicrosecond_not_silently_truncated" time="0.002" /><testcase classname="tests.test_resume_regressions" name="test_docling_escaped_temporal_declaration" time="0.275" /><testcase classname="tests.test_resume_regressions" name="test_equivalent_offsets_are_concordant_and_markdown_dates_recognized" time="1.704" /><testcase classname="tests.test_resume_regressions" name="test_ai_temporal_bypass_rejected_atomically" time="2.175" /><testcase classname="tests.test_resume_regressions" name="test_partial_pipeline_and_cli_are_visible" time="2.565" /><testcase classname="tests.test_resume_regressions" name="test_upload_path_types_are_rejected[null]" time="1.248" /><testcase classname="tests.test_resume_regressions" name="test_upload_path_types_are_rejected[{}]" time="0.859" /><testcase classname="tests.test_resume_regressions" name="test_upload_path_types_are_rejected[[12]]" time="1.012" /><testcase classname="tests.test_resume_regressions" name="test_upload_path_types_are_rejected[&quot;wrong&quot;]" time="0.955" /><testcase classname="tests.test_resume_regressions" name="test_yaml_dates_stay_serializable_and_ods_budget_rejects" time="0.049" /><testcase classname="tests.test_resume_regressions" name="test_graph_has_provenance_fact_source_conflict_nodes" time="3.409" /><testcase classname="tests.test_resume_regressions" name="test_scan_revisions_missing_exclusions_and_replay" time="1.023" /><testcase classname="tests.test_resume_regressions" name="test_html_metadata_has_separate_roles" time="0.609" /><testcase classname="tests.test_temporal" name="test_precision[2024-2024-01-01-2024-12-31]" time="0.004" /><testcase classname="tests.test_temporal" name="test_precision[2024-02-2024-02-01-2024-02-29]" time="0.004" /><testcase classname="tests.test_temporal" name="test_precision[2024-02-03-2024-02-03-2024-02-03]" time="0.004" /><testcase classname="tests.test_temporal" name="test_precision[2024-02-03T10:00:00+01:00-2024-02-03T10:00:00+01:00-2024-02-03T10:00:00+01:00]" time="0.004" /><testcase classname="tests.test_temporal" name="test_unknown_timezone_and_dst" time="0.035" /><testcase classname="tests.test_temporal" name="test_extract_never_auto_validates" time="2.226" /><testcase classname="tests.test_temporal" name="test_isolated_validity_boundaries_are_open_ended" time="2.731" /><testcase classname="tests.test_temporal" name="test_timezone_review_gate_and_multisupport" time="2.050" /><testcase classname="tests.test_temporal" name="test_independence_correlation_conflict_and_propagation" time="2.226" /><testcase classname="tests.test_v1_parity_regressions" name="test_forms_items_keep_block_identity_and_button_operation_can_auto_review" time="5.820" /><testcase classname="tests.test_v1_parity_regressions" name="test_deterministic_fact_types_and_relation_epistemics_survive_export" time="3.935" /><testcase classname="tests.test_v1_parity_regressions" name="test_structural_chunker_preserves_text_and_heading_context" time="0.002" /><testcase classname="tests.test_v1_parity_regressions" name="test_diff_tracks_value_correction_as_semantic_change" time="2.607" /><testcase classname="tests.test_v1_parity_regressions" name="test_temporal_independence_uses_source_family_inside_same_revision" time="0.326" /><testcase classname="tests.test_web" name="test_web_real_flow_and_local_security" time="7.586" /><testcase classname="tests.test_workspaces" name="test_workspace_create_switch_isolation_and_forget" time="3.203" /><testcase classname="tests.test_workspaces" name="test_workspace_switch_is_blocked_while_job_is_active" time="1.056" /></testsuite></testsuites>

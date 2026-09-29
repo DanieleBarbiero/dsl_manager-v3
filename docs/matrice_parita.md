@@ -1,5 +1,26 @@
 # Matrice di parità v1 → DSLM3
 
+## Aggiornamento deterministico 2026-09-29
+
+L'oracle corrente legge i moduli v1 dal commit
+`8b576eb605b2509ebe84785aae6b2d1e94046b8b`; il baseline v3 è
+`a7117e061b393123e3b7b2ec22bf171687756447`. I conteggi storici in fondo a questo
+documento non sostituiscono [G01–G18 correnti](../reports/deterministic_core/final/acceptance.md).
+
+| Area | Confronto semantico e contratto corrente |
+|---|---|
+| DDL | Confronto di tabelle/colonne, PK inline/composite, FK e ordine, UNIQUE, default/nullability e index tramite oracle indipendente; v3 aggiunge AST interrogabili e ALTER ADD |
+| DB code | Dipendenze comuni della procedura v1 incluse; v3 conserva statement, RHS/predicati, literal tipizzati, owner/occorrenza/branch |
+| Forms | Identità F.B.ITEM, mapping/calls strutturali; target risolti contro dichiarazioni correnti; nessuna inferenza di scrittura da solo mapping |
+| Chunk | Heading comparabili; ricostruzione v3 esatta. Eccezione verificata: v1 perde un newline fra `beta` e `## Child` nella fixture condivisa |
+| Excel | Golden OOXML dei moduli puri già riutilizzati invariato; le candidate conservano dati strutturali più ricchi |
+| Business dichiarato | Attesi manuali indipendenti: CHECK IN, limite numerico, nullability e precisione; rinomina e mutazioni strutturali; nessuna AI |
+| Persistenza | Nuovi ID/shape v4 e migrazione v3 espliciti; compatibilità funzionale, senza uguaglianza obbligatoria degli ID fra v1/v3 |
+
+`tests/test_deterministic_oracle.py` non rigenera un golden da v3. Le sole
+normalizzazioni armonizzano contenitori e shape; non eliminano ordine delle FK,
+case quoted, literal o precisione. Dati runtime v1 e file golden non sono modificati.
+
 Baseline verificata nel codice e nell'analisi tecnica v1. I nomi dei moduli sotto sono le responsabilità progettate; lo stato effettivo è negli obiettivi e nei report di test. Una nuova UI/CLI non implica compatibilità sintattica con i comandi legacy. I dati runtime v1 non vengono modificati in-place.
 
 | Capacità v1 | Contratto da conservare | Implementazione M3 / verifica richiesta |

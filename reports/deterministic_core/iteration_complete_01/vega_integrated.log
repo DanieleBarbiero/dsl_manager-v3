@@ -1,0 +1,19 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\dbarbiero\OneDrive - Engineering Ingegneria Informatica S.p.A\Projects\dsl_manager-v3\src\dslm3\lab.py", line 229, in <module>
+    main()
+  File "C:\Users\dbarbiero\OneDrive - Engineering Ingegneria Informatica S.p.A\Projects\dsl_manager-v3\src\dslm3\lab.py", line 224, in main
+    result = run(args.workspace, args.report)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dbarbiero\OneDrive - Engineering Ingegneria Informatica S.p.A\Projects\dsl_manager-v3\src\dslm3\lab.py", line 115, in run
+    result = ai.import_response(pkg["id"], text)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dbarbiero\OneDrive - Engineering Ingegneria Informatica S.p.A\Projects\dsl_manager-v3\src\dslm3\ai.py", line 537, in import_response
+    result = self.knowledge.import_candidates(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dbarbiero\OneDrive - Engineering Ingegneria Informatica S.p.A\Projects\dsl_manager-v3\src\dslm3\knowledge.py", line 248, in import_candidates
+    self.validate(item, conn, allowed_evidence)
+  File "C:\Users\dbarbiero\OneDrive - Engineering Ingegneria Informatica S.p.A\Projects\dsl_manager-v3\src\dslm3\knowledge.py", line 200, in validate
+    raise DomainError(
+dslm3.common.DomainError: Il riferimento non appartiene al package selezionato.

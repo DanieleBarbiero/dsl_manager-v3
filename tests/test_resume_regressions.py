@@ -73,7 +73,7 @@ def test_dialect_reinterpretation_and_cached_reactivation(tmp_path):
     assert any(
         s["candidate_id"] == old["id"] for o in k.objects() for s in o["supports"]
     )
-    assert app.store.one("SELECT MAX(version) AS v FROM schema_history")["v"] == 2
+    assert app.store.one("SELECT MAX(version) AS v FROM schema_history")["v"] == 3
     assert (
         Application(tmp_path).store.one("PRAGMA integrity_check")["integrity_check"]
         == "ok"

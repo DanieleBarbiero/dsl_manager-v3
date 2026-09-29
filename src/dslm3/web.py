@@ -42,6 +42,8 @@ def dispatch(app: Application, operation: str, args: dict):
         )
     if operation == "derive":
         return k.derive()
+    if operation == "coverage":
+        return app.coverage(args.get("check", False))
     if operation == "auto_review":
         return k.auto_review()
     if operation == "merge":

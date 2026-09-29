@@ -46,6 +46,17 @@ class Application:
     def __init__(self, workspace: str | Path):
         self.store = Store(workspace)
         self.root = self.store.root
+        self._refresh_derivations()
+
+    def _refresh_derivations(self):
+        from dslm3.knowledge import Knowledge
+
+        Knowledge(self).sync_current()
+
+    def coverage(self, check=False):
+        from dslm3.knowledge import Knowledge
+
+        return Knowledge(self).coverage(check)
 
     def ingest(self, name: str, data: bytes) -> dict:
         name = safe_relative(name)
@@ -77,6 +88,7 @@ class Application:
                 "UPDATE sources SET current_revision=?,status='active' WHERE id=?",
                 (revision_id, source_id),
             )
+        self._refresh_derivations()
         self.store.log(
             "ingest", source_id=source_id, revision_id=revision_id, path=name
         )
@@ -126,6 +138,7 @@ class Application:
                         "UPDATE sources SET status='missing' WHERE id=?", (row["id"],)
                     )
                     missing.append(row["path"])
+        self._refresh_derivations()
         return {
             "files": results,
             "ignored": ignored,
@@ -162,7 +175,7 @@ class Application:
                 ]
             )
         rows = self.store.rows(
-            "SELECT e.*,s.path FROM evidence e JOIN revisions r ON r.id=e.revision_id JOIN sources s ON s.id=r.source_id"
+            "SELECT e.*,s.path,p.parser_version,json_extract(p.payload,'$.parser') AS parser FROM evidence e JOIN revisions r ON r.id=e.revision_id JOIN sources s ON s.id=r.source_id JOIN parses p ON p.id=e.parse_id"
             + (" WHERE " + " AND ".join(where) if where else "")
             + " ORDER BY s.path,e.id",
             tuple(args),
@@ -198,19 +211,30 @@ class Application:
 
         needs_schema = source.suffix.lower() in SQL_EXTENSIONS and bool(
             re.search(
-                r"\b(?:PROCEDURE|FUNCTION|TRIGGER|VIEW|SELECT|MERGE|BEGIN|DECLARE)\b",
+                r"\b(?:PROCEDURE|FUNCTION|TRIGGER|VIEW|SELECT|UPDATE|INSERT|DELETE|MERGE|BEGIN|DECLARE)\b",
                 decode(source.read_bytes())[0],
                 re.I,
             )
         )
+        schema = dict(self.schema() if schema is None else schema)
+        # Local declarations are parsed from the same bytes, not an external
+        # prerequisite. Exclude them from the context key to avoid self-invalidation.
+        local_tables = {
+            e["data"]["table"]
+            for e in self.evidence(revision)
+            if e["type"] == "ddl_column"
+        }
+        schema = {k: v for k, v in schema.items() if k not in local_tables}
         relevant = {
             "dialect": config["sql_dialect"],
             "chunk_chars": config["chunk_chars"],
+            "chunk_min_chars": config["chunk_min_chars"],
+            "chunk_strategy": config["chunk_strategy"],
             "schema": schema if needs_schema else None,
             "max_file_bytes": config["max_file_bytes"],
             "max_evidence": config["max_evidence"],
         }
-        parser_version = "3.0.0-r3:" + digest(relevant)
+        parser_version = "deterministic-parser/4:" + digest(relevant)
         cached = self.store.one(
             "SELECT * FROM parses WHERE revision_id=? AND parser_version=? AND status IN ('success','partial') ORDER BY created_at DESC LIMIT 1",
             (revision, parser_version),
@@ -244,6 +268,7 @@ class Application:
                         "INSERT INTO parse_evidence SELECT ?,evidence_id FROM parse_evidence WHERE parse_id=?",
                         (activation, cached["id"]),
                     )
+            self._refresh_derivations()
             return {**summary, "cached": True}
         parse_id = uid("PARSE", [revision, parser_version, now()])
         started = time.monotonic()
@@ -375,6 +400,7 @@ class Application:
                     "INSERT OR IGNORE INTO parse_evidence VALUES(?,?)",
                     (parse_id, ident),
                 )
+        self._refresh_derivations()
         self.store.log("parse", **summary)
         return summary
 
@@ -397,6 +423,17 @@ class Application:
         results = []
         for _, _, revision in sorted(ordered):
             results.append(self.parse(revision, self.schema(), retry=retry))
+        # Finish SQL against the complete declaration set, independent of import
+        # order. Cache hits do not duplicate evidence or administrative parses.
+        final_schema = self.schema()
+        for index, (_, path, revision) in enumerate(sorted(ordered)):
+            if (
+                Path(path).suffix.lower() in SQL_EXTENSIONS
+                and results[index]["status"] != "error"
+            ):
+                refreshed = self.parse(revision, final_schema)
+                if not refreshed.get("cached"):
+                    results[index] = refreshed
         return {
             "results": results,
             "success": sum(x["status"] == "success" for x in results),
@@ -434,13 +471,13 @@ class Application:
         ):
             counts[table] = self.store.one(f"SELECT COUNT(*) AS n FROM {table}")["n"]
         states = self.store.rows(
-            "SELECT state,COUNT(*) AS count FROM candidate_states WHERE leaf=1 AND current_revision=1 AND source_status='active' AND current_parse=1 GROUP BY state"
+            "SELECT state,COUNT(*) AS count FROM candidate_states WHERE leaf=1 AND current_revision=1 AND source_status='active' AND current_parse=1 AND current_derivation=1 GROUP BY state"
         )
         counts["review_states"] = {r["state"]: r["count"] for r in states}
         typed = self.store.rows(
             "SELECT record_type,state,COUNT(*) AS count "
             "FROM candidate_states WHERE leaf=1 AND current_revision=1 "
-            "AND source_status='active' AND current_parse=1 "
+            "AND source_status='active' AND current_parse=1 AND current_derivation=1 "
             "GROUP BY record_type,state ORDER BY record_type,state"
         )
         counts["review_by_type"] = {}
@@ -451,7 +488,7 @@ class Application:
         counts["confirmed_unmerged"] = self.store.one(
             "SELECT COUNT(*) AS n FROM candidate_states c WHERE state='confirmed' "
             "AND leaf=1 AND current_revision=1 AND source_status='active' "
-            "AND current_parse=1 AND record_type IN "
+            "AND current_parse=1 AND current_derivation=1 AND record_type IN "
             "('candidate_fact','candidate_relation','candidate_mapping','candidate_question','temporal_interval') "
             "AND NOT EXISTS(SELECT 1 FROM supports s WHERE s.candidate_id=c.id)"
         )["n"]
@@ -460,7 +497,7 @@ class Application:
             "SUM(CASE WHEN EXISTS(SELECT 1 FROM supports s WHERE s.candidate_id=c.id) THEN 1 ELSE 0 END) AS consolidated, "
             "SUM(CASE WHEN NOT EXISTS(SELECT 1 FROM supports s WHERE s.candidate_id=c.id) THEN 1 ELSE 0 END) AS not_consolidated "
             "FROM candidate_states c WHERE c.leaf=1 AND c.current_revision=1 "
-            "AND c.source_status='active' AND c.current_parse=1 AND c.state='confirmed' "
+            "AND c.source_status='active' AND c.current_parse=1 AND c.current_derivation=1 AND c.state='confirmed' "
             "GROUP BY c.record_type ORDER BY c.record_type"
         )
         counts["consolidation_by_type"] = {
@@ -476,6 +513,7 @@ class Application:
         return {
             "workspace": str(self.root),
             "counts": counts,
+            "deterministic_coverage": self.coverage()["counts"],
             "config_hash": digest(self.store.config()),
         }
 

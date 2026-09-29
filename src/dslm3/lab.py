@@ -11,6 +11,7 @@ from dslm3.exports import Exports
 from dslm3.knowledge import Knowledge, POLICIES
 from dslm3.service import Application
 from dslm3.temporal import Temporal
+from dslm3.provenance import code_provenance
 
 
 def run(workspace: Path, report_path: Path):
@@ -70,20 +71,37 @@ def run(workspace: Path, report_path: Path):
     domain = ai.select("domain_interpretation")
     check(
         "ai_policy_distinte",
-        any("already_confirmed" in i["reason_codes"] for i in technical["items"])
+        any(
+            "deterministic_components_complete" in i["reason_codes"]
+            for i in technical["items"]
+        )
         and any(
             i["coverage"] == "confirmed" and i["outcome"] == "included"
             for i in domain["items"]
         ),
     )
     package_a = ai.package(domain["id"])
-    package_b = ai.package(ai.select("domain_interpretation", max_evidence=2)["id"])
     manual = next(
-        e for e in evidence if e["kind"] == "chunk" and e["path"].endswith(".docx")
+        e
+        for e in evidence
+        if e["kind"] == "chunk"
+        and e["path"].endswith(".docx")
+        and "Una richiesta P1 deve essere presa in carico entro 30 minuti." in e["text"]
     )
     excel = next(
         e for e in evidence if e["kind"] == "chunk" and e["path"].endswith(".xlsx")
     )
+    # Structural chunking may split the manual into several chunks. Size the
+    # second package from its cited evidence's rank, not a historical count.
+    included = [i for i in domain["items"] if i["outcome"] == "included"]
+    excel_budget = 1 + next(
+        i for i, item in enumerate(included) if item["evidence_id"] == excel["id"]
+    )
+    package_b = ai.package(
+        ai.select("domain_interpretation", max_evidence=excel_budget)["id"]
+    )
+    assert manual["id"] in package_a["evidence_ids"]
+    assert excel["id"] in package_b["evidence_ids"]
     quote_a = "Una richiesta P1 deve essere presa in carico entro 30 minuti."
     quote_b = next(line for line in excel["text"].splitlines() if "| P1 " in line)
 
@@ -203,7 +221,8 @@ def run(workspace: Path, report_path: Path):
         "ai_response_mode": "controlled_simulation_not_external_model",
         "workspace": str(workspace.resolve()),
         "final_snapshot": final["id"],
-        "baseline_commit": "c443b6a457b78229517a481fc5850dc8b44ecc3a",
+        "code_provenance": code_provenance(),
+        "historical_reference_commit": "c443b6a457b78229517a481fc5850dc8b44ecc3a",
     }
     dump_json(report_path, report)
     return report

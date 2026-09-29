@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "method": "Visual inspection of screenshots produced by the final browser run",
+  "screenshots": [
+    "browser/ui_overview.png",
+    "browser/ui_mobile.png",
+    "browser/ui_review_detail.png"
+  ],
+  "observations": [
+    "Desktop workflow and workspace selector are legible with no observed overlapping elements",
+    "Mobile cards reflow into two columns; browser assertion confirms no page-wide horizontal overflow",
+    "Review dialog exposes source, locator and candidate provenance with scrolling content"
+  ],
+  "source_snapshot_sha256": "bf94e472ffdbf04f7dffc7d62ec419da5a90461720ce78028a3dbfe7e50870d6"
+}

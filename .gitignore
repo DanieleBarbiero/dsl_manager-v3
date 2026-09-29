@@ -47,3 +47,5 @@ Thumbs.db
 *.ps1
 *.patch
 *.sha256
+!scripts/check_deterministic_core.ps1
+!reports/deterministic_core/change.patch

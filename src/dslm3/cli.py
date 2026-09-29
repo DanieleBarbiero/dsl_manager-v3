@@ -40,10 +40,13 @@ def main(argv=None):
         "temporal-extract",
         "package-all",
         "diagnostics",
+        "coverage",
     ]:
         p = commands.add_parser(name)
         if name == "parse":
             p.add_argument("--retry", action="store_true")
+        if name == "coverage":
+            p.add_argument("--check", action="store_true")
         if name == "merge":
             p.add_argument("--strict", action="store_true")
             p.add_argument("--batch", action="append", dest="batches")
@@ -121,7 +124,7 @@ def main(argv=None):
             if args.command == "action":
                 operation = args.operation
                 payload = json.loads(
-                    Path(args.args_file).read_text() if args.args_file else args.args
+                    Path(args.args_file).read_text(encoding="utf-8-sig") if args.args_file else args.args
                 )
             result = app.run(operation, lambda: dispatch(app, operation, payload))
         print(json.dumps(result, ensure_ascii=False, indent=2))

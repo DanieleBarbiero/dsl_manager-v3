@@ -16,6 +16,7 @@ def _auto_merge(app):
 
 def test_forms_items_keep_block_identity_and_button_operation_can_auto_review(tmp_path):
     app = Application(tmp_path / "forms")
+    app.ingest("schema.sql", b"CREATE TABLE TABLE_A(ID NUMBER); CREATE TABLE TABLE_B(ID NUMBER); CREATE PROCEDURE DO_WORK AS BEGIN NULL; END;")
     app.ingest(
         "form.xml",
         b"""<?xml version=\"1.0\"?>

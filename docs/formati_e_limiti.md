@@ -2,6 +2,8 @@
 
 La copertura sotto distingue parser disponibile e prova eseguita. Gli esiti reali sono nei report della consegna; la disponibilità di un backend non implica che ogni documento del formato sia leggibile.
 
+Aggiornamento 2026-09-29: per il core corrente fanno fede [acceptance Windows](../reports/deterministic_core/final/acceptance.md) e [registro di copertura](copertura_deterministica.md). La prova PDF/OCR del rilascio 3.0.0 rimane storica; questa modifica non ricertifica tutti i backend Docling.
+
 | Formato | Percorso | Prove eseguite |
 |---|---|---|
 | SQL, DDL, PLS/PLSQL, PKS/PKB, PRC/FNC/TRG, PCK/TPB/TPS, DML | SQLGlot + scanner procedurale | Dieci dialetti DDL; Oracle package, procedure, trigger, blocchi anonimi; funzioni PostgreSQL, T-SQL e DELIMITER MySQL; UTF-16, CTE, subquery, legacy e SQL dinamico |
@@ -25,6 +27,8 @@ Il catalogo SQLGlot installato fornisce 33 dialetti nominati, oltre al generico.
 
 Il motore non esegue SQL e non è un compilatore completo di ogni linguaggio procedurale. Le unità sono conservate, con dipendenze statiche dove risolvibili. SQL dinamico rimane irrisolto. Le operazioni ALTER/DROP sono riconosciute, ma non si simula un catalogo completo risultante dall'esecuzione di tutte le migrazioni. Le dipendenze di membri package possono essere attribuite al contenitore. Non si promette risoluzione universale di overload, macro, variabili o SQL generato.
 
+Il subset deterministico v4 include PK/FK/UNIQUE/CHECK, default, nullability, indici e ALTER ADD CONSTRAINT; UPDATE, INSERT con colonne esplicite, DELETE, MERGE per ramo, SELECT e CALL/EXEC statici. Literal string/number/boolean/null sono tipizzati; i numeri mantengono la rappresentazione decimale. Parametri, bind ed espressioni AST rimangono distinti. INSERT senza colonne, tuple assignment, arità non determinabili, risoluzioni ambigue e SQL dinamico producono copertura parziale esplicita. Un insieme ammesso da CHECK e un limite numerico sono regole dichiarate; transizioni di stato, valuta, unità e intenzioni operative non vengono inferite.
+
 Una sintassi comune non identifica una versione. Una dichiarazione esplicita o marcatori legacy vengono riportati come evidenza, con l'override disponibile; non sono una certificazione del DBMS reale.
 
 ## Excel e documenti
@@ -41,6 +45,6 @@ La provenance valida una citazione e il suo riferimento, non la verità di un'in
 
 ## Compatibilità e piattaforme
 
-Python richiesto: 3.12. L'ambiente eseguito è Linux x86-64; Windows ha istruzioni e launcher dedicati ma non è stato eseguito in questa sessione. Gli ID e gli schemi runtime M3 sono nuovi. Non viene migrato automaticamente il registro di review v1: conservare il workspace v1 e reimportare il corpus in M3.
+Python richiesto: 3.12 x64. L'acceptance corrente registra Windows nativo e PowerShell 5.1, inclusi spazi, accenti, BOM, UTF-16, riavvio, cache e migrazione SQLite 2→3. Le prove Linux x86-64 precedenti rimangono storiche. Gli ID e gli schemi runtime M3 sono nuovi rispetto a v1. Non viene migrato automaticamente il registro di review v1: conservare il workspace v1 e reimportare il corpus in M3.
 
 La UI è un'applicazione locale, con una coda di job. Non è un servizio distribuito o multiutente. Può registrare più workspace indipendenti ma un singolo processo server ne usa uno solo come attivo in ogni momento; lo switch non sostituisce locking multi-processo e viene bloccato durante job queued/running. Il registry dei workspace contiene percorsi locali, non dati DSL. I limiti sono configurabili entro massimi espliciti; non sono stati eseguiti benchmark su corpus molto grandi. I test eseguiti dimostrano gli scenari dichiarati, non l'assenza universale di bug.

@@ -9,7 +9,7 @@ Applicazione locale per trasformare file tecnici e documentali in conoscenza ver
 3. Esegui **`avvia.cmd`**. Si apre `http://127.0.0.1:8765`.
 4. In **Impostazioni (00)** scegli identità/policy; in **Fonti (01)** carica Vega o il tuo corpus. Il percorso consigliato è esplicito: analizza → genera proposte → **Review + consolida (02)**. AI (03) e Temporalità (04) sono rami opzionali che ritornano sempre al gate 02.
 
-L'esecuzione Windows non è stata provata in questo ambiente Linux. Gli script usano un ambiente virtuale nel progetto, percorsi tra virgolette e lo stesso Python 3.12 richiesto dal pacchetto. Non servono WSL, Docker, Node o un account AI.
+Il collaudo del core deterministico usa Windows nativo, PowerShell 5.1 e Python 3.12 x64 del progetto. Comandi, ambiente ed esiti correnti sono in [verifica Windows](docs/verifica_core_windows.md) e [acceptance](reports/deterministic_core/final/acceptance.md). Non servono WSL, Docker, Node o un account AI.
 
 ## Avvio su Linux
 
@@ -48,13 +48,15 @@ La review manuale è il default. Il profilo conservativo abilita soltanto policy
 - [Manuale operativo](docs/manuale_operativo.md)
 - [Formati e limiti](docs/formati_e_limiti.md)
 - [Architettura](docs/architettura.md)
+- [Contratto deterministico v4](docs/contratto_deterministico.md) e [copertura per componente](docs/copertura_deterministica.md)
+- [Collaudo deterministico Windows](docs/verifica_core_windows.md)
 - [Obiettivi e gate](docs/obiettivi.md)
 - [Diario tecnico](docs/diario_tecnico.md)
 - [Protocollo di ripresa corrente](docs/protocollo_ripresa.md)
 - [Rapporto di consegna](docs/rapporto_finale.md)
 - [Avvisi sul codice riutilizzato](THIRD_PARTY_NOTICES.md)
 
-`reports/precedente` contiene prove storiche recuperate dal checkpoint interrotto. Per la consegna valgono i report indicati nel rapporto finale. Codice, test, fixture, documenti e prove sono salvati come singoli file nella cartella Drive del progetto.
+`reports/precedente` e il rapporto del rilascio 3.0.0 sono storici. Per questa modifica locale valgono i report in `reports/deterministic_core/final`; il manifest 3.0.0 non certifica i file modificati. Nessuna pubblicazione remota è inclusa nell'incarico corrente.
 
 ## Verifiche riproducibili
 
@@ -68,3 +70,5 @@ La review manuale è il default. Il profilo conservativo abilita soltanto policy
 ```
 
 I laboratori richiedono workspace nuovi. Il PDF e le immagini possono scaricare modelli Docling alla prima conversione. Le risposte AI del laboratorio sono fixture controllate e dichiarate.
+
+Per il core senza AI usare `python -m dslm3.deterministic_lab --workspace <nuovo_workspace> --report <report.json>`. `python -m dslm3 -w <workspace> coverage --check` fallisce in presenza di componenti sconosciuti, risultati dovuti mancanti o errori parser. I blocchi motivati restano conteggi separati; `fully_derived` richiede anche assenza di blocchi e varianti non supportate. Copertura tecnica e approvazione umana rimangono distinte.

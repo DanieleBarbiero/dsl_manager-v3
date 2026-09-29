@@ -1,0 +1,1 @@
+passed {'six_real_sources': True, 'four_expected_slots': True, 'coverage_complete': True, 'no_unexpected_resolution': True, 'pending_not_merged': True, 'technical_updates_excluded': True, 'domain_updates_available': True, 'no_ai_contribution': True, 'no_false_conflict': True, 'retry_stable': True, 'reopen_effective': True, 'ontology_and_provenance': True}

@@ -96,6 +96,7 @@ class Exports:
                         "confidence": c["confidence"],
                         "evidence_text_hash": digest(c["evidence_text"]),
                         "rule": s["rule"],
+                        "derivation": c.get("derivation"),
                         "temporal_evidence_ids": c.get("temporal_evidence_ids", []),
                         "temporal_evidence_locators": temporal_locators,
                     }
@@ -230,6 +231,7 @@ class Exports:
             "metadata": {
                 "schema_version": str(schema_version),
                 "application": "DSLM3",
+                "deterministic_contract": "4",
                 "profile": "physical_legacy"
                 if schema_version == 1
                 else "effective_temporal",
@@ -298,9 +300,11 @@ class Exports:
                     + "**: "
                     + canonical(fact["property_value"])
                 )
+                if fact.get("attributes"):
+                    lines.append("  - Attributi: " + canonical(fact["attributes"]))
                 for t in content["traceability"]["facts"][fact["fact_id"]]:
                     lines.append(
-                        f"  - Fonte: {t['file_path']} · candidato {t['candidate_record_id']} · evidenza {t['evidence_id']}"
+                        f"  - Fonte: {t['file_path']} · candidato {t['candidate_record_id']} · evidenza {t['evidence_id']} · locator {canonical(t['evidence_locator'])} · {t['assertion_type']}/{t['confidence']}"
                     )
             lines.append("")
         lines.extend(["## Relazioni", ""])
@@ -308,6 +312,9 @@ class Exports:
             lines.append(
                 f"- {r['source_entity']} → {r['relation_type']} → {r['target_entity']}"
             )
+            lines.append("  - Attributi: " + canonical(r.get("attributes", {})))
+            for t in content["traceability"]["relations"][r["relation_id"]]:
+                lines.append("  - Provenienza: " + canonical(t))
         lines.extend(["", "## Mapping", ""])
         for m in content.get("mappings", []):
             lines.append(
@@ -375,6 +382,7 @@ class Exports:
                             entity_key,
                             name_key(fact["property_name"]),
                             fact.get("fact_type"),
+                            fact.get("attributes", {}).get("context", {}),
                         ]
                     )
                     fact_slots[fact["fact_id"]] = semantic_key
@@ -398,6 +406,7 @@ class Exports:
                         name_key(relation["relation_type"]),
                         relation.get("canonical_target_entity")
                         or name_key(relation["target_entity"]),
+                        relation.get("attributes", {}),
                     ]
                 )
                 relation_slots[relation["relation_id"]] = semantic_key
@@ -469,9 +478,9 @@ class Exports:
                             for k, v in interval.items()
                             if k not in {"interval_id", "target_subject_id"}
                         },
-                        x["traceability"].get("intervals", {}).get(
-                            interval["interval_id"], []
-                        ),
+                        x["traceability"]
+                        .get("intervals", {})
+                        .get(interval["interval_id"], []),
                     )
 
             for category in values:

@@ -65,6 +65,30 @@ CREATE VIEW effective_objects AS
  SELECT o.* FROM objects o WHERE EXISTS(SELECT 1 FROM effective_supports s WHERE s.object_id=o.id);
 """
 
+MIGRATION_3 = """
+CREATE TABLE deterministic_active(candidate_id TEXT PRIMARY KEY);
+DROP VIEW effective_objects;
+DROP VIEW effective_supports;
+DROP VIEW candidate_states;
+CREATE VIEW candidate_states AS
+ SELECT c.*,COALESCE(r.outcome,'pending') AS state,h.decision_id,
+ NOT EXISTS(SELECT 1 FROM candidates child WHERE child.parent_id=c.id) AS leaf,
+ s.status AS source_status,s.current_revision=c.revision_id AS current_revision,
+ (c.record_type='temporal_interval' OR EXISTS (
+   SELECT 1 FROM parse_evidence pe WHERE pe.evidence_id=COALESCE(json_extract(c.payload,'$.evidence_id'),json_extract(c.payload,'$.fragment_id'),json_extract(c.payload,'$.chunk_id'))
+   AND pe.parse_id=(SELECT p.id FROM parses p WHERE p.revision_id=c.revision_id AND p.status IN ('success','partial') ORDER BY p.created_at DESC,p.rowid DESC LIMIT 1)
+ )) AS current_parse,
+ (NOT EXISTS(SELECT 1 FROM candidates root JOIN batches b ON b.id=root.batch_id WHERE root.id=c.root_id AND b.origin='deterministic')
+  OR EXISTS(SELECT 1 FROM deterministic_active a WHERE a.candidate_id=c.root_id)) AS current_derivation
+ FROM candidates c LEFT JOIN heads h ON h.candidate_id=c.id LEFT JOIN reviews r ON r.id=h.decision_id
+ JOIN revisions v ON v.id=c.revision_id JOIN sources s ON s.id=v.source_id;
+CREATE VIEW effective_supports AS
+ SELECT x.* FROM supports x JOIN candidate_states c ON c.id=x.candidate_id
+ WHERE c.state='confirmed' AND c.leaf=1 AND c.source_status='active' AND c.current_revision=1 AND c.current_parse=1 AND c.current_derivation=1;
+CREATE VIEW effective_objects AS
+ SELECT o.* FROM objects o WHERE EXISTS(SELECT 1 FROM effective_supports s WHERE s.object_id=o.id);
+"""
+
 IMMUTABLE = (
     "candidate_batches",
     "revisions",
@@ -93,6 +117,8 @@ DEFAULT_CONFIG = {
     "worker_memory_mb": 4096,
     "max_output_bytes": 268435456,
     "chunk_chars": 5000,
+    "chunk_min_chars": 1,
+    "chunk_strategy": "heading_paragraph",
     "max_evidence": 100000,
     "max_intervals": 1000,
     "ai_max_evidence": 10000,
@@ -132,6 +158,13 @@ class Store:
                 conn.execute(
                     "INSERT INTO schema_history VALUES(2,?)", (digest(MIGRATION_2),)
                 )
+                conn.commit()
+            migration3 = conn.execute("SELECT checksum FROM schema_history WHERE version=3").fetchone()
+            if migration3 and migration3[0] != digest(MIGRATION_3):
+                raise DomainError("schema_checksum_mismatch", "Migrazione 3 modificata senza versione.")
+            if not migration3:
+                conn.executescript("BEGIN IMMEDIATE;\n" + MIGRATION_3)
+                conn.execute("INSERT INTO schema_history VALUES(3,?)", (digest(MIGRATION_3),))
                 conn.commit()
             for table in IMMUTABLE:
                 for op in ("UPDATE", "DELETE"):
@@ -190,6 +223,7 @@ class Store:
             "worker_memory_mb",
             "max_output_bytes",
             "chunk_chars",
+            "chunk_min_chars",
             "max_evidence",
             "max_intervals",
             "ai_max_evidence",
@@ -209,6 +243,8 @@ class Store:
             "max_intervals": 10000,
             "graph_max_elements": 5000000,
         }
+        if merged["chunk_strategy"] not in {"heading_paragraph", "paragraph"} or merged["chunk_min_chars"] > merged["chunk_chars"]:
+            raise DomainError("invalid_config", "Strategia/minimo chunk non valido.")
         if any(merged[k] > maximum for k, maximum in limits.items()):
             raise DomainError(
                 "invalid_config", "Un limite supera il massimo consentito."

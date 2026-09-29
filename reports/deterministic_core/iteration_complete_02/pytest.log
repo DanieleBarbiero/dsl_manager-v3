@@ -1,0 +1,144 @@
+........................................................................ [ 54%]
+.............F...............................................            [100%]
+================================== FAILURES ===================================
+________________ test_sql_literals_and_unrecognized_preserved _________________
+
+    def test_sql_literals_and_unrecognized_preserved():
+        r = parse_sql(
+            "CREATE PROCEDURE p AS BEGIN EXECUTE IMMEDIATE 'DELETE FROM SECRET'; END;\n/",
+            "oracle",
+        )
+        assert not any(e["data"].get("target") == "SECRET" for e in r.evidence)
+        assert any(d["reason"] == "dynamic_sql_unresolved" for d in r.diagnostics)
+>       r = parse_sql("THIS IS GARBAGE SQL", "oracle")
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_parsers.py:97: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\dslm3\parsers\sql.py:586: in parse_sql
+    _statement(result, raw, start, end, text, read, schema, None, set())
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+result = ParseResult(parser='sql/4', evidence=[], diagnostics=[], artifacts={}, metadata={'dialect': 'oracle', 'basis': 'override', 'candidates': [], 'declared_version': None, 'legacy_features': [], 'ast_supported': True}, status='success')
+raw = 'THIS IS GARBAGE SQL', start = 0, end = 19, source = 'THIS IS GARBAGE SQL'
+read = 'oracle', schema = {}, owner = None, parameters = set()
+procedural = False
+
+    def _statement(
+        result, raw, start, end, source, read, schema, owner, parameters, procedural=False
+    ):
+        loc = location(source, start, end)
+        masked = mask_literals(raw)
+        # SQLGlot exposes CALL as Command. The procedural scanner can still identify
+        # the explicit callee; argument evaluation and overload inference are excluded.
+        call = re.match(
+            r"\s*(?:CALL|EXEC(?:UTE)?)\s+(" + IDENT + r")(?=\s|\(|;|$)", raw, re.I
+        )
+        if call and call[1].upper() != "IMMEDIATE":
+            result.add(
+                "sql_dependency",
+                raw,
+                {
+                    "source": owner or "CALL::" + str(start),
+                    "relation_type": "calls",
+                    "target": call[1],
+                    "target_kind": "code_unit",
+                },
+                loc,
+            )
+            return
+        special = re.search(
+            r"\bCREATE\s+(?:OR\s+REPLACE\s+)?(?:PUBLIC\s+)?(SYNONYM|DATABASE\s+LINK|DIRECTORY|TABLESPACE|CLUSTER|CONTEXT|LIBRARY)\s+("
+            + IDENT
+            + r")",
+            masked,
+            re.I,
+        )
+        if special:
+            kind = re.sub(r"\s+", "_", special[1].lower())
+            name = special[2].upper()
+            result.add(
+                "ddl_" + kind,
+                raw,
+                {"name": name, "object_type": kind, "recognition": "explicit_declaration"},
+                loc,
+            )
+            if kind == "synonym":
+                target = re.search(
+                    r"\bFOR\s+(" + IDENT + r")(?:@([\w.$#]+))?",
+                    masked[special.end() :],
+                    re.I,
+                )
+                if target:
+                    result.add(
+                        "sql_dependency",
+                        raw,
+                        {
+                            "source": name,
+                            "relation_type": "synonym_for",
+                            "target": target[1].upper()
+                            + ("@" + target[2].upper() if target[2] else ""),
+                        },
+                        loc,
+                    )
+            return
+        try:
+            parse_text = raw
+            if (
+                procedural
+                and read in {"oracle", "postgres", "mysql"}
+                and re.match(r"\s*SELECT\b", masked, re.I)
+            ):
+                into = re.search(r"\bINTO\s+[^;]+?(?=\bFROM\b)", masked, re.I)
+                if into:
+                    parse_text = (
+                        raw[: into.start()]
+                        + " " * (into.end() - into.start())
+                        + raw[into.end() :]
+                    )
+            tree = sqlglot.parse_one(
+                parse_text, read=read, error_level=sqlglot.ErrorLevel.RAISE
+            )
+            if tree is None:
+                return
+            if not isinstance(
+                tree,
+                (
+                    exp.Create,
+                    exp.Alter,
+                    exp.Drop,
+                    exp.Grant,
+                    exp.Revoke,
+                    exp.Select,
+                    exp.Union,
+                    exp.Intersect,
+                    exp.Except,
+                    exp.Update,
+                    exp.Delete,
+                    exp.Insert,
+                    exp.Merge,
+                    exp.Transaction,
+                    exp.Commit,
+                    exp.Rollback,
+                    exp.Set,
+                    exp.Use,
+                    exp.Pragma,
+                ),
+            ):
+>               raise ValueError("costrutto senza AST strutturato")
+E               ValueError: costrutto senza AST strutturato
+
+src\dslm3\parsers\sql.py:691: ValueError
+============================== warnings summary ===============================
+..\..\..\..\..\_Support\.venv_dslm3\Lib\site-packages\fastapi\testclient.py:1
+  C:\_Support\.venv_dslm3\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+..\..\..\..\..\_Support\.venv_dslm3\Lib\site-packages\starlette\testclient.py:53
+  C:\_Support\.venv_dslm3\Lib\site-packages\starlette\testclient.py:53: DeprecationWarning: The anyio.abc.BlockingPortal alias is deprecated, use anyio.from_thread.BlockingPortal instead.
+    _PortalFactoryType = Callable[[], AbstractContextManager[anyio.abc.BlockingPortal]]
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/test_parsers.py::test_sql_literals_and_unrecognized_preserved - ...
+1 failed, 132 passed, 2 warnings in 354.03s (0:05:54)

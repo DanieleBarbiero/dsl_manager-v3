@@ -229,6 +229,40 @@ def parse_xml(text: str) -> ParseResult:
             {**location(text, start, end), "xpath": tree.getpath(e)},
         )
 
+    def table_access(e, source, target, attributes):
+        modes = [
+            attributes[k].casefold()
+            for k in ("mode", "access", "usage")
+            if attributes.get(k)
+        ]
+        directions = {
+            "read": "reads_from",
+            "reads": "reads_from",
+            "reads_from": "reads_from",
+            "edit": "writes_to",
+            "edits": "writes_to",
+            "write": "writes_to",
+            "writes": "writes_to",
+            "writes_to": "writes_to",
+        }
+        explicit = {directions[m] for m in modes if m in directions}
+        for relation in sorted(explicit):
+            record(
+                e,
+                "xml_dependency",
+                {
+                    "source": source,
+                    "relation_type": relation,
+                    "target": target,
+                    "mode_signals": modes,
+                    **(
+                        {"inconsistent": "contradictory_access_mode"}
+                        if len(explicit) > 1
+                        else {}
+                    ),
+                },
+            )
+
     forms = [
         e
         for e in root.iter()
@@ -244,6 +278,21 @@ def parse_xml(text: str) -> ParseResult:
         fa = attrs(form)
         fname = fa.get("name") or fa.get("modulename") or "FORM"
         record(form, "xml_form", {"name": fname, "title": fa.get("title")})
+        form_table = (
+            fa.get("table") or fa.get("basetable") or fa.get("querydatasourcename")
+        )
+        if form_table:
+            record(
+                form,
+                "xml_dependency",
+                {
+                    "source": fname,
+                    "relation_type": "uses_table",
+                    "target": form_table,
+                    "source_element_kind": "form",
+                },
+            )
+            table_access(form, fname, form_table, fa)
         for e in form.iterdescendants():
             if not isinstance(e.tag, str):
                 continue
@@ -258,9 +307,12 @@ def parse_xml(text: str) -> ParseResult:
             block = attrs(parents[0]) if parents else {}
             block_name = block.get("name") or block.get("blockname")
             table = (
-                block.get("table")
+                a.get("table")
+                or a.get("tablename")
+                or block.get("table")
                 or block.get("querydatasourcename")
                 or block.get("basetable")
+                or form_table
             )
             if kind == "block":
                 table = (
@@ -275,6 +327,9 @@ def parse_xml(text: str) -> ParseResult:
                     },
                 )
                 if table:
+                    table_access(
+                        e, fname + "." + str(name or table or "block"), table, a
+                    )
                     record(
                         e,
                         "xml_dependency",
@@ -282,6 +337,8 @@ def parse_xml(text: str) -> ParseResult:
                             "source": fname,
                             "relation_type": "uses_table",
                             "target": table,
+                            "block_name": str(name or table or "block"),
+                            "source_element_kind": kind,
                         },
                     )
             button = kind == "button" or (
@@ -292,7 +349,7 @@ def parse_xml(text: str) -> ParseResult:
             if kind in {"field", "item", "button"} and name:
                 # Item names are only unique inside their Oracle Forms block.
                 qualified = [fname]
-                if kind == "item" and block_name:
+                if block_name:
                     qualified.append(block_name)
                 qualified.append(name)
                 full = ".".join(qualified)
@@ -309,6 +366,74 @@ def parse_xml(text: str) -> ParseResult:
                     "label": a.get("label"),
                 }
                 record(e, "xml_button" if button else "xml_field", data)
+                from dslm3.resolution import segments
+
+                column_target = (
+                    (table + "." + data["column"]) if table else data["column"]
+                )
+                incompatible_column = False
+                column_parts = segments(data["column"])
+                if table and len(column_parts) > 1:
+                    table_parts = segments(table)
+                    prefix = column_parts[:-1]
+                    if table_parts[-len(prefix) :] == prefix:
+                        # Preserve the complete table scope and the quoted column.
+                        suffix = re.search(
+                            r'(?:"(?:""|[^"])*"|[^.]+)$', data["column"]
+                        ).group(0)
+                        column_target = table + "." + suffix
+                    elif prefix[-len(table_parts) :] == table_parts:
+                        column_target = data["column"]
+                    else:
+                        column_target = data["column"]
+                        incompatible_column = True
+                reference = {
+                    "target": column_target,
+                    "target_kind": "column",
+                    "raw_column": data["column"],
+                    "declared_table": table,
+                    **(
+                        {"inconsistent": "column_table_mismatch"}
+                        if incompatible_column
+                        else {}
+                    ),
+                }
+                modes = [
+                    a[k].casefold() for k in ("mode", "access", "usage") if a.get(k)
+                ]
+                directions = {
+                    "read": "reads_from",
+                    "reads": "reads_from",
+                    "read_only": "reads_from",
+                    "readonly": "reads_from",
+                    "edit": "writes_to",
+                    "write": "writes_to",
+                    "writes": "writes_to",
+                }
+                explicit = {directions[m] for m in modes if m in directions}
+                contradictory = len(explicit) > 1 or (
+                    "writes_to" in explicit
+                    and a.get("readonly", "").casefold() in {"true", "yes", "1"}
+                )
+                for relation in sorted(explicit):
+                    if table and not button:
+                        record(
+                            e,
+                            "xml_dependency",
+                            {
+                                "source": full,
+                                "relation_type": relation,
+                                **reference,
+                                "block_name": block_name,
+                                "source_element_kind": kind,
+                                "mode_signals": modes,
+                                **(
+                                    {"inconsistent": "contradictory_access_mode"}
+                                    if contradictory
+                                    else {}
+                                ),
+                            },
+                        )
                 if table and not button:
                     record(
                         e,
@@ -316,7 +441,9 @@ def parse_xml(text: str) -> ParseResult:
                         {
                             "source": full,
                             "relation_type": "maps_to",
-                            "target": table + "." + data["column"],
+                            **reference,
+                            "block_name": block_name,
+                            "source_element_kind": kind,
                         },
                     )
                 operation = a.get("operation") or a.get("procedure") or a.get("call")
@@ -572,7 +699,7 @@ def parse_email(data: bytes, suffix: str) -> ParseResult:
     return result
 
 
-def parse_document(
+def _parse_document(
     path: Path, revision: str, config: dict, schema: dict | None = None
 ) -> ParseResult:
     data = path.read_bytes()
@@ -645,3 +772,18 @@ def parse_document(
         "unsupported_format",
         f"Formato non supportato: {suffix or 'senza estensione'}. I byte sono conservati.",
     )
+
+
+def parse_document(
+    path: Path, revision: str, config: dict, schema: dict | None = None
+) -> ParseResult:
+    from dslm3.parsers.base import CHUNK_OPTIONS
+
+    options = {k: v for k, v in config.items() if k.startswith("chunk_")}
+    if set(options) - {"chunk_chars", "chunk_min_chars", "chunk_strategy"}:
+        raise DomainError("invalid_config", "Unknown chunk option")
+    token = CHUNK_OPTIONS.set(options)
+    try:
+        return _parse_document(path, revision, config, schema)
+    finally:
+        CHUNK_OPTIONS.reset(token)

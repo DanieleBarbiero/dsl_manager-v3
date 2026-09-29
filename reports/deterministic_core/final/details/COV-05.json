@@ -1,0 +1,1246 @@
+{
+  "actual": {
+    "controlled_defect": {
+      "by_format_type_subtype": {
+        ".sql/ddl_column/default": 2,
+        ".sql/ddl_constraint/foreign_key": 1,
+        ".sql/ddl_table/default": 2
+      },
+      "complete": true,
+      "context_fingerprint": "cf1b962305d5d66e204e815e5948e81a06ff229438df02d3fbfa9f0c23e890c6",
+      "contract_version": "4",
+      "counts": {
+        "active_evidence_count": 5,
+        "blocked_ambiguous_components": 0,
+        "blocked_inconsistent_components": 0,
+        "blocked_unresolved_components": 0,
+        "derived_components": 6,
+        "due_applicable_components": 6,
+        "due_missing_components": 0,
+        "evidence_only_components": 0,
+        "expected_components": 6,
+        "internal_errors": 0,
+        "supported_components": 6,
+        "unclassified_components": 0,
+        "unclassified_evidence_count": 0,
+        "unsupported_components": 0
+      },
+      "evidence": [
+        {
+          "components": [
+            {
+              "applicability": "applicable",
+              "candidate_ids": [
+                "CAND_2273462283574978f2ca6809"
+              ],
+              "capability": "supported",
+              "context_fingerprint": "cb19bb2783e3a5eee78571162315d6afacb6be1880585ff2e9de0c6bd1ce2782",
+              "governance": {
+                "CAND_2273462283574978f2ca6809": "pending"
+              },
+              "key": "declaration",
+              "outcome": "materialized_deterministically",
+              "prerequisites": [
+                {
+                  "basis_evidence_ids": [
+                    "EV_2773234ec9c6905be8c8c5d1"
+                  ],
+                  "reason_code": "syntactic_extraction",
+                  "status": "not_required"
+                }
+              ],
+              "reason_code": "syntactic_extraction",
+              "required_candidate_ids": [
+                "CAND_2273462283574978f2ca6809"
+              ],
+              "resolution": {
+                "basis_evidence_ids": [
+                  "EV_2773234ec9c6905be8c8c5d1"
+                ],
+                "reason_code": "syntactic_extraction",
+                "status": "not_required"
+              },
+              "rule": "ddl_table",
+              "rule_version": "4.0"
+            }
+          ],
+          "evidence_id": "EV_2773234ec9c6905be8c8c5d1",
+          "format": ".sql",
+          "locator": {
+            "char_end": 26,
+            "char_start": 0,
+            "end_exclusive": true,
+            "line_end": 1,
+            "line_start": 1,
+            "offset_unit": "character",
+            "representation": "decoded_source"
+          },
+          "outcome": "materialized_deterministically",
+          "parser": null,
+          "subtype": "default",
+          "type": "ddl_table"
+        },
+        {
+          "components": [
+            {
+              "applicability": "applicable",
+              "candidate_ids": [
+                "CAND_d52e7c4c46c398bffb9a6c3b"
+              ],
+              "capability": "supported",
+              "context_fingerprint": "934dced2e0f906f5d4f1b0157285e1968e54a133b09a639182145f6e0b8dc3ea",
+              "governance": {
+                "CAND_d52e7c4c46c398bffb9a6c3b": "pending"
+              },
+              "key": "definition",
+              "outcome": "materialized_deterministically",
+              "prerequisites": [
+                {
+                  "basis_evidence_ids": [
+                    "EV_a97a41af10b63ca7561bf488"
+                  ],
+                  "reason_code": "syntactic_extraction",
+                  "status": "not_required"
+                }
+              ],
+              "reason_code": "syntactic_extraction",
+              "required_candidate_ids": [
+                "CAND_d52e7c4c46c398bffb9a6c3b"
+              ],
+              "resolution": {
+                "basis_evidence_ids": [
+                  "EV_a97a41af10b63ca7561bf488"
+                ],
+                "reason_code": "syntactic_extraction",
+                "status": "not_required"
+              },
+              "rule": "ddl_column",
+              "rule_version": "4.0"
+            }
+          ],
+          "evidence_id": "EV_a97a41af10b63ca7561bf488",
+          "format": ".sql",
+          "locator": {
+            "char_end": 26,
+            "char_start": 0,
+            "end_exclusive": true,
+            "line_end": 1,
+            "line_start": 1,
+            "offset_unit": "character",
+            "representation": "decoded_source"
+          },
+          "outcome": "materialized_deterministically",
+          "parser": null,
+          "subtype": "default",
+          "type": "ddl_column"
+        },
+        {
+          "components": [
+            {
+              "applicability": "applicable",
+              "candidate_ids": [
+                "CAND_5e60f3804114de004e188ff3"
+              ],
+              "capability": "supported",
+              "context_fingerprint": "4ff9e714271a22fda2e70ae09225504b90f17f2a956d4ccfd566622605300e15",
+              "governance": {
+                "CAND_5e60f3804114de004e188ff3": "pending"
+              },
+              "key": "declaration",
+              "outcome": "materialized_deterministically",
+              "prerequisites": [
+                {
+                  "basis_evidence_ids": [
+                    "EV_e906db0601d63559c66ac33d"
+                  ],
+                  "reason_code": "syntactic_extraction",
+                  "status": "not_required"
+                }
+              ],
+              "reason_code": "syntactic_extraction",
+              "required_candidate_ids": [
+                "CAND_5e60f3804114de004e188ff3"
+              ],
+              "resolution": {
+                "basis_evidence_ids": [
+                  "EV_e906db0601d63559c66ac33d"
+                ],
+                "reason_code": "syntactic_extraction",
+                "status": "not_required"
+              },
+              "rule": "ddl_table",
+              "rule_version": "4.0"
+            }
+          ],
+          "evidence_id": "EV_e906db0601d63559c66ac33d",
+          "format": ".sql",
+          "locator": {
+            "char_end": 69,
+            "char_start": 27,
+            "end_exclusive": true,
+            "line_end": 1,
+            "line_start": 1,
+            "offset_unit": "character",
+            "representation": "decoded_source"
+          },
+          "outcome": "materialized_deterministically",
+          "parser": null,
+          "subtype": "default",
+          "type": "ddl_table"
+        },
+        {
+          "components": [
+            {
+              "applicability": "applicable",
+              "candidate_ids": [
+                "CAND_0c20099249c92852d61fe3a7"
+              ],
+              "capability": "supported",
+              "context_fingerprint": "6de20bb8a40c094c54f4a2582eb6cbe5a6e196323f5740d4d559646a89b694b4",
+              "governance": {
+                "CAND_0c20099249c92852d61fe3a7": "pending"
+              },
+              "key": "definition",
+              "outcome": "materialized_deterministically",
+              "prerequisites": [
+                {
+                  "basis_evidence_ids": [
+                    "EV_483fd914f62ac23734efe468"
+                  ],
+                  "reason_code": "syntactic_extraction",
+                  "status": "not_required"
+                }
+              ],
+              "reason_code": "syntactic_extraction",
+              "required_candidate_ids": [
+                "CAND_0c20099249c92852d61fe3a7"
+              ],
+              "resolution": {
+                "basis_evidence_ids": [
+                  "EV_483fd914f62ac23734efe468"
+                ],
+                "reason_code": "syntactic_extraction",
+                "status": "not_required"
+              },
+              "rule": "ddl_column",
+              "rule_version": "4.0"
+            }
+          ],
+          "evidence_id": "EV_483fd914f62ac23734efe468",
+          "format": ".sql",
+          "locator": {
+            "char_end": 69,
+            "char_start": 27,
+            "end_exclusive": true,
+            "line_end": 1,
+            "line_start": 1,
+            "offset_unit": "character",
+            "representation": "decoded_source"
+          },
+          "outcome": "materialized_deterministically",
+          "parser": null,
+          "subtype": "default",
+          "type": "ddl_column"
+        },
+        {
+          "components": [
+            {
+              "applicability": "applicable",
+              "candidate_ids": [
+                "CAND_f4ea76cafbc27b2869faba06"
+              ],
+              "capability": "supported",
+              "context_fingerprint": "3e759441333fd832d50e577430463735ddf472438963476c2c78d1768144f6df",
+              "governance": {
+                "CAND_f4ea76cafbc27b2869faba06": "pending"
+              },
+              "key": "declaration",
+              "outcome": "materialized_deterministically",
+              "prerequisites": [
+                {
+                  "basis_evidence_ids": [
+                    "EV_10d0bcc87f9e6efb84687f66"
+                  ],
+                  "reason_code": "syntactic_extraction",
+                  "status": "not_required"
+                }
+              ],
+              "reason_code": "syntactic_extraction",
+              "required_candidate_ids": [
+                "CAND_f4ea76cafbc27b2869faba06"
+              ],
+              "resolution": {
+                "basis_evidence_ids": [
+                  "EV_10d0bcc87f9e6efb84687f66"
+                ],
+                "reason_code": "syntactic_extraction",
+                "status": "not_required"
+              },
+              "rule": "ddl_declaration",
+              "rule_version": "4.0"
+            },
+            {
+              "applicability": "applicable",
+              "candidate_ids": [
+                "CAND_f40e7c4bb4ad8f9ce1375da0"
+              ],
+              "capability": "supported",
+              "context_fingerprint": "2849264f9a140527bd186ab07eef31da52fecaded10e98bd3dcc0c898b7828e6",
+              "governance": {
+                "CAND_f40e7c4bb4ad8f9ce1375da0": "pending"
+              },
+              "key": "resolved_relation",
+              "outcome": "materialized_deterministically",
+              "prerequisites": [
+                {
+                  "alternatives": [
+                    "A"
+                  ],
+                  "basis_evidence_ids": [
+                    "EV_e906db0601d63559c66ac33d"
+                  ],
+                  "canonical_target": "A",
+                  "context_fingerprint": "ec2bdc79c5afaf10391be9d2597440818be2c2f90ce2e34689a4c5e2930b203d",
+                  "lookup": {
+                    "kind": "data_object",
+                    "scope": "current_structural_evidence",
+                    "segments": [
+                      "A"
+                    ]
+                  },
+                  "prerequisites": [],
+                  "raw_target": "A",
+                  "reason_code": "unique_declaration",
+                  "status": "resolved",
+                  "target_kind": "data_object"
+                },
+                {
+                  "alternatives": [
+                    "B"
+                  ],
+                  "basis_evidence_ids": [
+                    "EV_2773234ec9c6905be8c8c5d1"
+                  ],
+                  "canonical_target": "B",
+                  "context_fingerprint": "73c54c260344dd3dffe92af55c3defc3ed5f1fa165474501de9b6d99e94ffe8c",
+                  "lookup": {
+                    "kind": "data_object",
+                    "scope": "current_structural_evidence",
+                    "segments": [
+                      "B"
+                    ]
+                  },
+                  "prerequisites": [],
+                  "raw_target": "B",
+                  "reason_code": "unique_declaration",
+                  "status": "resolved",
+                  "target_kind": "data_object"
+                },
+                {
+                  "alternatives": [
+                    "A.X"
+                  ],
+                  "basis_evidence_ids": [
+                    "EV_483fd914f62ac23734efe468",
+                    "EV_e906db0601d63559c66ac33d"
+                  ],
+                  "canonical_target": "A.X",
+                  "context_fingerprint": "090eef200f8a21fa7464ed244009a1dd9674ca2e107ef95abb8dc879005fdbb7",
+                  "lookup": {
+                    "kind": "column",
+                    "scope": "current_structural_evidence",
+                    "segments": [
+                      "A",
+                      "X"
+                    ]
+                  },
+                  "prerequisites": [
+                    {
+                      "alternatives": [
+                        "A"
+                      ],
+                      "basis_evidence_ids": [
+                        "EV_e906db0601d63559c66ac33d"
+                      ],
+                      "canonical_target": "A",
+                      "context_fingerprint": "ec2bdc79c5afaf10391be9d2597440818be2c2f90ce2e34689a4c5e2930b203d",
+                      "lookup": {
+                        "kind": "data_object",
+                        "scope": "current_structural_evidence",
+                        "segments": [
+                          "A"
+                        ]
+                      },
+                      "prerequisites": [],
+                      "raw_target": "A",
+                      "reason_code": "unique_declaration",
+                      "status": "resolved",
+                      "target_kind": "data_object"
+                    }
+                  ],
+                  "raw_target": "A.X",
+                  "reason_code": "unique_declaration",
+                  "status": "resolved",
+                  "target_kind": "column"
+                },
+                {
+                  "alternatives": [
+                    "B.ID"
+                  ],
+                  "basis_evidence_ids": [
+                    "EV_2773234ec9c6905be8c8c5d1",
+                    "EV_a97a41af10b63ca7561bf488"
+                  ],
+                  "canonical_target": "B.ID",
+                  "context_fingerprint": "f78f1589721bf5d27ea22ba14b30c220dfb041fa4f133d139fe57867a5863793",
+                  "lookup": {
+                    "kind": "column",
+                    "scope": "current_structural_evidence",
+                    "segments": [
+                      "B",
+                      "ID"
+                    ]
+                  },
+                  "prerequisites": [
+                    {
+                      "alternatives": [
+                        "B"
+                      ],
+                      "basis_evidence_ids": [
+                        "EV_2773234ec9c6905be8c8c5d1"
+                      ],
+                      "canonical_target": "B",
+                      "context_fingerprint": "73c54c260344dd3dffe92af55c3defc3ed5f1fa165474501de9b6d99e94ffe8c",
+                      "lookup": {
+                        "kind": "data_object",
+                        "scope": "current_structural_evidence",
+                        "segments": [
+                          "B"
+                        ]
+                      },
+                      "prerequisites": [],
+                      "raw_target": "B",
+                      "reason_code": "unique_declaration",
+                      "status": "resolved",
+                      "target_kind": "data_object"
+                    }
+                  ],
+                  "raw_target": "B.ID",
+                  "reason_code": "unique_declaration",
+                  "status": "resolved",
+                  "target_kind": "column"
+                }
+              ],
+              "reason_code": "foreign_key_endpoints_verified",
+              "required_candidate_ids": [
+                "CAND_f40e7c4bb4ad8f9ce1375da0"
+              ],
+              "resolution": {
+                "basis_evidence_ids": [
+                  "EV_2773234ec9c6905be8c8c5d1",
+                  "EV_483fd914f62ac23734efe468",
+                  "EV_a97a41af10b63ca7561bf488",
+                  "EV_e906db0601d63559c66ac33d"
+                ],
+                "canonical_target": "B",
+                "columns": [
+                  "X"
+                ],
+                "context_fingerprint": "2849264f9a140527bd186ab07eef31da52fecaded10e98bd3dcc0c898b7828e6",
+                "prerequisites": [
+                  {
+                    "alternatives": [
+                      "A"
+                    ],
+                    "basis_evidence_ids": [
+                      "EV_e906db0601d63559c66ac33d"
+                    ],
+                    "canonical_target": "A",
+                    "context_fingerprint": "ec2bdc79c5afaf10391be9d2597440818be2c2f90ce2e34689a4c5e2930b203d",
+                    "lookup": {
+                      "kind": "data_object",
+                      "scope": "current_structural_evidence",
+                      "segments": [
+                        "A"
+                      ]
+                    },
+                    "prerequisites": [],
+                    "raw_target": "A",
+                    "reason_code": "unique_declaration",
+                    "status": "resolved",
+                    "target_kind": "data_object"
+                  },
+                  {
+                    "alternatives": [
+                      "B"
+                    ],
+                    "basis_evidence_ids": [
+                      "EV_2773234ec9c6905be8c8c5d1"
+                    ],
+                    "canonical_target": "B",
+                    "context_fingerprint": "73c54c260344dd3dffe92af55c3defc3ed5f1fa165474501de9b6d99e94ffe8c",
+                    "lookup": {
+                      "kind": "data_object",
+                      "scope": "current_structural_evidence",
+                      "segments": [
+                        "B"
+                      ]
+                    },
+                    "prerequisites": [],
+                    "raw_target": "B",
+                    "reason_code": "unique_declaration",
+                    "status": "resolved",
+                    "target_kind": "data_object"
+                  },
+                  {
+                    "alternatives": [
+                      "A.X"
+                    ],
+                    "basis_evidence_ids": [
+                      "EV_483fd914f62ac23734efe468",
+                      "EV_e906db0601d63559c66ac33d"
+                    ],
+                    "canonical_target": "A.X",
+                    "context_fingerprint": "090eef200f8a21fa7464ed244009a1dd9674ca2e107ef95abb8dc879005fdbb7",
+                    "lookup": {
+                      "kind": "column",
+                      "scope": "current_structural_evidence",
+                      "segments": [
+                        "A",
+                        "X"
+                      ]
+                    },
+                    "prerequisites": [
+                      {
+                        "alternatives": [
+                          "A"
+                        ],
+                        "basis_evidence_ids": [
+                          "EV_e906db0601d63559c66ac33d"
+                        ],
+                        "canonical_target": "A",
+                        "context_fingerprint": "ec2bdc79c5afaf10391be9d2597440818be2c2f90ce2e34689a4c5e2930b203d",
+                        "lookup": {
+                          "kind": "data_object",
+                          "scope": "current_structural_evidence",
+                          "segments": [
+                            "A"
+                          ]
+                        },
+                        "prerequisites": [],
+                        "raw_target": "A",
+                        "reason_code": "unique_declaration",
+                        "status": "resolved",
+                        "target_kind": "data_object"
+                      }
+                    ],
+                    "raw_target": "A.X",
+                    "reason_code": "unique_declaration",
+                    "status": "resolved",
+                    "target_kind": "column"
+                  },
+                  {
+                    "alternatives": [
+                      "B.ID"
+                    ],
+                    "basis_evidence_ids": [
+                      "EV_2773234ec9c6905be8c8c5d1",
+                      "EV_a97a41af10b63ca7561bf488"
+                    ],
+                    "canonical_target": "B.ID",
+                    "context_fingerprint": "f78f1589721bf5d27ea22ba14b30c220dfb041fa4f133d139fe57867a5863793",
+                    "lookup": {
+                      "kind": "column",
+                      "scope": "current_structural_evidence",
+                      "segments": [
+                        "B",
+                        "ID"
+                      ]
+                    },
+                    "prerequisites": [
+                      {
+                        "alternatives": [
+                          "B"
+                        ],
+                        "basis_evidence_ids": [
+                          "EV_2773234ec9c6905be8c8c5d1"
+                        ],
+                        "canonical_target": "B",
+                        "context_fingerprint": "73c54c260344dd3dffe92af55c3defc3ed5f1fa165474501de9b6d99e94ffe8c",
+                        "lookup": {
+                          "kind": "data_object",
+                          "scope": "current_structural_evidence",
+                          "segments": [
+                            "B"
+                          ]
+                        },
+                        "prerequisites": [],
+                        "raw_target": "B",
+                        "reason_code": "unique_declaration",
+                        "status": "resolved",
+                        "target_kind": "data_object"
+                      }
+                    ],
+                    "raw_target": "B.ID",
+                    "reason_code": "unique_declaration",
+                    "status": "resolved",
+                    "target_kind": "column"
+                  }
+                ],
+                "raw_target": "B",
+                "reason_code": "foreign_key_endpoints_verified",
+                "source": "A",
+                "status": "unresolved",
+                "target_columns": [
+                  "ID"
+                ]
+              },
+              "rule": "ddl_constraint",
+              "rule_version": "4.0"
+            }
+          ],
+          "evidence_id": "EV_10d0bcc87f9e6efb84687f66",
+          "format": ".sql",
+          "locator": {
+            "char_end": 69,
+            "char_start": 27,
+            "end_exclusive": true,
+            "line_end": 1,
+            "line_start": 1,
+            "offset_unit": "character",
+            "representation": "decoded_source"
+          },
+          "outcome": "materialized_deterministically",
+          "parser": null,
+          "subtype": "foreign_key",
+          "type": "ddl_constraint"
+        }
+      ],
+      "rule_version": "4.0"
+    },
+    "positive": {
+      "by_format_type_subtype": {
+        ".sql/ddl_column/default": 2,
+        ".sql/ddl_constraint/foreign_key": 1,
+        ".sql/ddl_table/default": 2
+      },
+      "complete": true,
+      "context_fingerprint": "cf1b962305d5d66e204e815e5948e81a06ff229438df02d3fbfa9f0c23e890c6",
+      "contract_version": "4",
+      "counts": {
+        "active_evidence_count": 5,
+        "blocked_ambiguous_components": 0,
+        "blocked_inconsistent_components": 0,
+        "blocked_unresolved_components": 0,
+        "derived_components": 6,
+        "due_applicable_components": 6,
+        "due_missing_components": 0,
+        "evidence_only_components": 0,
+        "expected_components": 6,
+        "internal_errors": 0,
+        "supported_components": 6,
+        "unclassified_components": 0,
+        "unclassified_evidence_count": 0,
+        "unsupported_components": 0
+      },
+      "evidence": [
+        {
+          "components": [
+            {
+              "applicability": "applicable",
+              "candidate_ids": [
+                "CAND_2273462283574978f2ca6809"
+              ],
+              "capability": "supported",
+              "context_fingerprint": "cb19bb2783e3a5eee78571162315d6afacb6be1880585ff2e9de0c6bd1ce2782",
+              "governance": {
+                "CAND_2273462283574978f2ca6809": "pending"
+              },
+              "key": "declaration",
+              "outcome": "materialized_deterministically",
+              "prerequisites": [
+                {
+                  "basis_evidence_ids": [
+                    "EV_2773234ec9c6905be8c8c5d1"
+                  ],
+                  "reason_code": "syntactic_extraction",
+                  "status": "not_required"
+                }
+              ],
+              "reason_code": "syntactic_extraction",
+              "required_candidate_ids": [
+                "CAND_2273462283574978f2ca6809"
+              ],
+              "resolution": {
+                "basis_evidence_ids": [
+                  "EV_2773234ec9c6905be8c8c5d1"
+                ],
+                "reason_code": "syntactic_extraction",
+                "status": "not_required"
+              },
+              "rule": "ddl_table",
+              "rule_version": "4.0"
+            }
+          ],
+          "evidence_id": "EV_2773234ec9c6905be8c8c5d1",
+          "format": ".sql",
+          "locator": {
+            "char_end": 26,
+            "char_start": 0,
+            "end_exclusive": true,
+            "line_end": 1,
+            "line_start": 1,
+            "offset_unit": "character",
+            "representation": "decoded_source"
+          },
+          "outcome": "materialized_deterministically",
+          "parser": null,
+          "subtype": "default",
+          "type": "ddl_table"
+        },
+        {
+          "components": [
+            {
+              "applicability": "applicable",
+              "candidate_ids": [
+                "CAND_d52e7c4c46c398bffb9a6c3b"
+              ],
+              "capability": "supported",
+              "context_fingerprint": "934dced2e0f906f5d4f1b0157285e1968e54a133b09a639182145f6e0b8dc3ea",
+              "governance": {
+                "CAND_d52e7c4c46c398bffb9a6c3b": "pending"
+              },
+              "key": "definition",
+              "outcome": "materialized_deterministically",
+              "prerequisites": [
+                {
+                  "basis_evidence_ids": [
+                    "EV_a97a41af10b63ca7561bf488"
+                  ],
+                  "reason_code": "syntactic_extraction",
+                  "status": "not_required"
+                }
+              ],
+              "reason_code": "syntactic_extraction",
+              "required_candidate_ids": [
+                "CAND_d52e7c4c46c398bffb9a6c3b"
+              ],
+              "resolution": {
+                "basis_evidence_ids": [
+                  "EV_a97a41af10b63ca7561bf488"
+                ],
+                "reason_code": "syntactic_extraction",
+                "status": "not_required"
+              },
+              "rule": "ddl_column",
+              "rule_version": "4.0"
+            }
+          ],
+          "evidence_id": "EV_a97a41af10b63ca7561bf488",
+          "format": ".sql",
+          "locator": {
+            "char_end": 26,
+            "char_start": 0,
+            "end_exclusive": true,
+            "line_end": 1,
+            "line_start": 1,
+            "offset_unit": "character",
+            "representation": "decoded_source"
+          },
+          "outcome": "materialized_deterministically",
+          "parser": null,
+          "subtype": "default",
+          "type": "ddl_column"
+        },
+        {
+          "components": [
+            {
+              "applicability": "applicable",
+              "candidate_ids": [
+                "CAND_5e60f3804114de004e188ff3"
+              ],
+              "capability": "supported",
+              "context_fingerprint": "4ff9e714271a22fda2e70ae09225504b90f17f2a956d4ccfd566622605300e15",
+              "governance": {
+                "CAND_5e60f3804114de004e188ff3": "pending"
+              },
+              "key": "declaration",
+              "outcome": "materialized_deterministically",
+              "prerequisites": [
+                {
+                  "basis_evidence_ids": [
+                    "EV_e906db0601d63559c66ac33d"
+                  ],
+                  "reason_code": "syntactic_extraction",
+                  "status": "not_required"
+                }
+              ],
+              "reason_code": "syntactic_extraction",
+              "required_candidate_ids": [
+                "CAND_5e60f3804114de004e188ff3"
+              ],
+              "resolution": {
+                "basis_evidence_ids": [
+                  "EV_e906db0601d63559c66ac33d"
+                ],
+                "reason_code": "syntactic_extraction",
+                "status": "not_required"
+              },
+              "rule": "ddl_table",
+              "rule_version": "4.0"
+            }
+          ],
+          "evidence_id": "EV_e906db0601d63559c66ac33d",
+          "format": ".sql",
+          "locator": {
+            "char_end": 69,
+            "char_start": 27,
+            "end_exclusive": true,
+            "line_end": 1,
+            "line_start": 1,
+            "offset_unit": "character",
+            "representation": "decoded_source"
+          },
+          "outcome": "materialized_deterministically",
+          "parser": null,
+          "subtype": "default",
+          "type": "ddl_table"
+        },
+        {
+          "components": [
+            {
+              "applicability": "applicable",
+              "candidate_ids": [
+                "CAND_0c20099249c92852d61fe3a7"
+              ],
+              "capability": "supported",
+              "context_fingerprint": "6de20bb8a40c094c54f4a2582eb6cbe5a6e196323f5740d4d559646a89b694b4",
+              "governance": {
+                "CAND_0c20099249c92852d61fe3a7": "pending"
+              },
+              "key": "definition",
+              "outcome": "materialized_deterministically",
+              "prerequisites": [
+                {
+                  "basis_evidence_ids": [
+                    "EV_483fd914f62ac23734efe468"
+                  ],
+                  "reason_code": "syntactic_extraction",
+                  "status": "not_required"
+                }
+              ],
+              "reason_code": "syntactic_extraction",
+              "required_candidate_ids": [
+                "CAND_0c20099249c92852d61fe3a7"
+              ],
+              "resolution": {
+                "basis_evidence_ids": [
+                  "EV_483fd914f62ac23734efe468"
+                ],
+                "reason_code": "syntactic_extraction",
+                "status": "not_required"
+              },
+              "rule": "ddl_column",
+              "rule_version": "4.0"
+            }
+          ],
+          "evidence_id": "EV_483fd914f62ac23734efe468",
+          "format": ".sql",
+          "locator": {
+            "char_end": 69,
+            "char_start": 27,
+            "end_exclusive": true,
+            "line_end": 1,
+            "line_start": 1,
+            "offset_unit": "character",
+            "representation": "decoded_source"
+          },
+          "outcome": "materialized_deterministically",
+          "parser": null,
+          "subtype": "default",
+          "type": "ddl_column"
+        },
+        {
+          "components": [
+            {
+              "applicability": "applicable",
+              "candidate_ids": [
+                "CAND_f4ea76cafbc27b2869faba06"
+              ],
+              "capability": "supported",
+              "context_fingerprint": "3e759441333fd832d50e577430463735ddf472438963476c2c78d1768144f6df",
+              "governance": {
+                "CAND_f4ea76cafbc27b2869faba06": "pending"
+              },
+              "key": "declaration",
+              "outcome": "materialized_deterministically",
+              "prerequisites": [
+                {
+                  "basis_evidence_ids": [
+                    "EV_10d0bcc87f9e6efb84687f66"
+                  ],
+                  "reason_code": "syntactic_extraction",
+                  "status": "not_required"
+                }
+              ],
+              "reason_code": "syntactic_extraction",
+              "required_candidate_ids": [
+                "CAND_f4ea76cafbc27b2869faba06"
+              ],
+              "resolution": {
+                "basis_evidence_ids": [
+                  "EV_10d0bcc87f9e6efb84687f66"
+                ],
+                "reason_code": "syntactic_extraction",
+                "status": "not_required"
+              },
+              "rule": "ddl_declaration",
+              "rule_version": "4.0"
+            },
+            {
+              "applicability": "applicable",
+              "candidate_ids": [
+                "CAND_f40e7c4bb4ad8f9ce1375da0"
+              ],
+              "capability": "supported",
+              "context_fingerprint": "2849264f9a140527bd186ab07eef31da52fecaded10e98bd3dcc0c898b7828e6",
+              "governance": {
+                "CAND_f40e7c4bb4ad8f9ce1375da0": "pending"
+              },
+              "key": "resolved_relation",
+              "outcome": "materialized_deterministically",
+              "prerequisites": [
+                {
+                  "alternatives": [
+                    "A"
+                  ],
+                  "basis_evidence_ids": [
+                    "EV_e906db0601d63559c66ac33d"
+                  ],
+                  "canonical_target": "A",
+                  "context_fingerprint": "ec2bdc79c5afaf10391be9d2597440818be2c2f90ce2e34689a4c5e2930b203d",
+                  "lookup": {
+                    "kind": "data_object",
+                    "scope": "current_structural_evidence",
+                    "segments": [
+                      "A"
+                    ]
+                  },
+                  "prerequisites": [],
+                  "raw_target": "A",
+                  "reason_code": "unique_declaration",
+                  "status": "resolved",
+                  "target_kind": "data_object"
+                },
+                {
+                  "alternatives": [
+                    "B"
+                  ],
+                  "basis_evidence_ids": [
+                    "EV_2773234ec9c6905be8c8c5d1"
+                  ],
+                  "canonical_target": "B",
+                  "context_fingerprint": "73c54c260344dd3dffe92af55c3defc3ed5f1fa165474501de9b6d99e94ffe8c",
+                  "lookup": {
+                    "kind": "data_object",
+                    "scope": "current_structural_evidence",
+                    "segments": [
+                      "B"
+                    ]
+                  },
+                  "prerequisites": [],
+                  "raw_target": "B",
+                  "reason_code": "unique_declaration",
+                  "status": "resolved",
+                  "target_kind": "data_object"
+                },
+                {
+                  "alternatives": [
+                    "A.X"
+                  ],
+                  "basis_evidence_ids": [
+                    "EV_483fd914f62ac23734efe468",
+                    "EV_e906db0601d63559c66ac33d"
+                  ],
+                  "canonical_target": "A.X",
+                  "context_fingerprint": "090eef200f8a21fa7464ed244009a1dd9674ca2e107ef95abb8dc879005fdbb7",
+                  "lookup": {
+                    "kind": "column",
+                    "scope": "current_structural_evidence",
+                    "segments": [
+                      "A",
+                      "X"
+                    ]
+                  },
+                  "prerequisites": [
+                    {
+                      "alternatives": [
+                        "A"
+                      ],
+                      "basis_evidence_ids": [
+                        "EV_e906db0601d63559c66ac33d"
+                      ],
+                      "canonical_target": "A",
+                      "context_fingerprint": "ec2bdc79c5afaf10391be9d2597440818be2c2f90ce2e34689a4c5e2930b203d",
+                      "lookup": {
+                        "kind": "data_object",
+                        "scope": "current_structural_evidence",
+                        "segments": [
+                          "A"
+                        ]
+                      },
+                      "prerequisites": [],
+                      "raw_target": "A",
+                      "reason_code": "unique_declaration",
+                      "status": "resolved",
+                      "target_kind": "data_object"
+                    }
+                  ],
+                  "raw_target": "A.X",
+                  "reason_code": "unique_declaration",
+                  "status": "resolved",
+                  "target_kind": "column"
+                },
+                {
+                  "alternatives": [
+                    "B.ID"
+                  ],
+                  "basis_evidence_ids": [
+                    "EV_2773234ec9c6905be8c8c5d1",
+                    "EV_a97a41af10b63ca7561bf488"
+                  ],
+                  "canonical_target": "B.ID",
+                  "context_fingerprint": "f78f1589721bf5d27ea22ba14b30c220dfb041fa4f133d139fe57867a5863793",
+                  "lookup": {
+                    "kind": "column",
+                    "scope": "current_structural_evidence",
+                    "segments": [
+                      "B",
+                      "ID"
+                    ]
+                  },
+                  "prerequisites": [
+                    {
+                      "alternatives": [
+                        "B"
+                      ],
+                      "basis_evidence_ids": [
+                        "EV_2773234ec9c6905be8c8c5d1"
+                      ],
+                      "canonical_target": "B",
+                      "context_fingerprint": "73c54c260344dd3dffe92af55c3defc3ed5f1fa165474501de9b6d99e94ffe8c",
+                      "lookup": {
+                        "kind": "data_object",
+                        "scope": "current_structural_evidence",
+                        "segments": [
+                          "B"
+                        ]
+                      },
+                      "prerequisites": [],
+                      "raw_target": "B",
+                      "reason_code": "unique_declaration",
+                      "status": "resolved",
+                      "target_kind": "data_object"
+                    }
+                  ],
+                  "raw_target": "B.ID",
+                  "reason_code": "unique_declaration",
+                  "status": "resolved",
+                  "target_kind": "column"
+                }
+              ],
+              "reason_code": "foreign_key_endpoints_verified",
+              "required_candidate_ids": [
+                "CAND_f40e7c4bb4ad8f9ce1375da0"
+              ],
+              "resolution": {
+                "basis_evidence_ids": [
+                  "EV_2773234ec9c6905be8c8c5d1",
+                  "EV_483fd914f62ac23734efe468",
+                  "EV_a97a41af10b63ca7561bf488",
+                  "EV_e906db0601d63559c66ac33d"
+                ],
+                "canonical_target": "B",
+                "columns": [
+                  "X"
+                ],
+                "context_fingerprint": "2849264f9a140527bd186ab07eef31da52fecaded10e98bd3dcc0c898b7828e6",
+                "prerequisites": [
+                  {
+                    "alternatives": [
+                      "A"
+                    ],
+                    "basis_evidence_ids": [
+                      "EV_e906db0601d63559c66ac33d"
+                    ],
+                    "canonical_target": "A",
+                    "context_fingerprint": "ec2bdc79c5afaf10391be9d2597440818be2c2f90ce2e34689a4c5e2930b203d",
+                    "lookup": {
+                      "kind": "data_object",
+                      "scope": "current_structural_evidence",
+                      "segments": [
+                        "A"
+                      ]
+                    },
+                    "prerequisites": [],
+                    "raw_target": "A",
+                    "reason_code": "unique_declaration",
+                    "status": "resolved",
+                    "target_kind": "data_object"
+                  },
+                  {
+                    "alternatives": [
+                      "B"
+                    ],
+                    "basis_evidence_ids": [
+                      "EV_2773234ec9c6905be8c8c5d1"
+                    ],
+                    "canonical_target": "B",
+                    "context_fingerprint": "73c54c260344dd3dffe92af55c3defc3ed5f1fa165474501de9b6d99e94ffe8c",
+                    "lookup": {
+                      "kind": "data_object",
+                      "scope": "current_structural_evidence",
+                      "segments": [
+                        "B"
+                      ]
+                    },
+                    "prerequisites": [],
+                    "raw_target": "B",
+                    "reason_code": "unique_declaration",
+                    "status": "resolved",
+                    "target_kind": "data_object"
+                  },
+                  {
+                    "alternatives": [
+                      "A.X"
+                    ],
+                    "basis_evidence_ids": [
+                      "EV_483fd914f62ac23734efe468",
+                      "EV_e906db0601d63559c66ac33d"
+                    ],
+                    "canonical_target": "A.X",
+                    "context_fingerprint": "090eef200f8a21fa7464ed244009a1dd9674ca2e107ef95abb8dc879005fdbb7",
+                    "lookup": {
+                      "kind": "column",
+                      "scope": "current_structural_evidence",
+                      "segments": [
+                        "A",
+                        "X"
+                      ]
+                    },
+                    "prerequisites": [
+                      {
+                        "alternatives": [
+                          "A"
+                        ],
+                        "basis_evidence_ids": [
+                          "EV_e906db0601d63559c66ac33d"
+                        ],
+                        "canonical_target": "A",
+                        "context_fingerprint": "ec2bdc79c5afaf10391be9d2597440818be2c2f90ce2e34689a4c5e2930b203d",
+                        "lookup": {
+                          "kind": "data_object",
+                          "scope": "current_structural_evidence",
+                          "segments": [
+                            "A"
+                          ]
+                        },
+                        "prerequisites": [],
+                        "raw_target": "A",
+                        "reason_code": "unique_declaration",
+                        "status": "resolved",
+                        "target_kind": "data_object"
+                      }
+                    ],
+                    "raw_target": "A.X",
+                    "reason_code": "unique_declaration",
+                    "status": "resolved",
+                    "target_kind": "column"
+                  },
+                  {
+                    "alternatives": [
+                      "B.ID"
+                    ],
+                    "basis_evidence_ids": [
+                      "EV_2773234ec9c6905be8c8c5d1",
+                      "EV_a97a41af10b63ca7561bf488"
+                    ],
+                    "canonical_target": "B.ID",
+                    "context_fingerprint": "f78f1589721bf5d27ea22ba14b30c220dfb041fa4f133d139fe57867a5863793",
+                    "lookup": {
+                      "kind": "column",
+                      "scope": "current_structural_evidence",
+                      "segments": [
+                        "B",
+                        "ID"
+                      ]
+                    },
+                    "prerequisites": [
+                      {
+                        "alternatives": [
+                          "B"
+                        ],
+                        "basis_evidence_ids": [
+                          "EV_2773234ec9c6905be8c8c5d1"
+                        ],
+                        "canonical_target": "B",
+                        "context_fingerprint": "73c54c260344dd3dffe92af55c3defc3ed5f1fa165474501de9b6d99e94ffe8c",
+                        "lookup": {
+                          "kind": "data_object",
+                          "scope": "current_structural_evidence",
+                          "segments": [
+                            "B"
+                          ]
+                        },
+                        "prerequisites": [],
+                        "raw_target": "B",
+                        "reason_code": "unique_declaration",
+                        "status": "resolved",
+                        "target_kind": "data_object"
+                      }
+                    ],
+                    "raw_target": "B.ID",
+                    "reason_code": "unique_declaration",
+                    "status": "resolved",
+                    "target_kind": "column"
+                  }
+                ],
+                "raw_target": "B",
+                "reason_code": "foreign_key_endpoints_verified",
+                "source": "A",
+                "status": "resolved",
+                "target_columns": [
+                  "ID"
+                ]
+              },
+              "rule": "ddl_constraint",
+              "rule_version": "4.0"
+            }
+          ],
+          "evidence_id": "EV_10d0bcc87f9e6efb84687f66",
+          "format": ".sql",
+          "locator": {
+            "char_end": 69,
+            "char_start": 27,
+            "end_exclusive": true,
+            "line_end": 1,
+            "line_start": 1,
+            "offset_unit": "character",
+            "representation": "decoded_source"
+          },
+          "outcome": "materialized_deterministically",
+          "parser": null,
+          "subtype": "foreign_key",
+          "type": "ddl_constraint"
+        }
+      ],
+      "rule_version": "4.0"
+    }
+  },
+  "expected": {
+    "positive_resolution": "resolved",
+    "unexpected_unresolved_rejected": true
+  },
+  "origin": "executed_pytest_assertions",
+  "status": "passed"
+}

@@ -1,5 +1,9 @@
 # DSLM3 3.0.0 — rapporto di consegna
 
+Questo documento è storico. Per l'incarico locale del 29 settembre 2026 leggere
+[rapporto core deterministico](rapporto_core_deterministico.md) e
+[acceptance corrente](../reports/deterministic_core/final/acceptance.md).
+
 Data: 17 settembre 2026. **Rilascio 3.0.0 concluso e consegnato.**
 
 ## Risultato

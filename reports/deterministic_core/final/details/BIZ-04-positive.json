@@ -1,0 +1,918 @@
+{
+  "actual": {
+    "coverage": {
+      "by_format_type_subtype": {
+        ".sql/ddl_column/default": 3,
+        ".sql/ddl_constraint/check": 2,
+        ".sql/ddl_constraint/primary_key": 1,
+        ".sql/ddl_table/default": 1
+      },
+      "candidate_review_states": {
+        "pending": 7
+      },
+      "complete": true,
+      "context_fingerprint": "363c40dc1ca7cbf6c3f8b1228e3289db83f11e4a4d1a931af7884dbf9bf063e6",
+      "contract_version": "4",
+      "counts": {
+        "active_evidence_count": 7,
+        "blocked_ambiguous_components": 0,
+        "blocked_inconsistent_components": 0,
+        "blocked_unresolved_components": 0,
+        "derived_components": 7,
+        "due_applicable_components": 7,
+        "due_missing_components": 0,
+        "evidence_only_components": 0,
+        "expected_components": 7,
+        "internal_errors": 0,
+        "parser_errors": 0,
+        "supported_components": 7,
+        "unclassified_components": 0,
+        "unclassified_evidence_count": 0,
+        "unsupported_components": 0
+      },
+      "effective_object_count": 0,
+      "evidence": [
+        {
+          "components": [
+            {
+              "applicability": "applicable",
+              "candidate_ids": [
+                "CAND_e44836a3c54b322317215077"
+              ],
+              "capability": "supported",
+              "context_fingerprint": "ec313e71885cce40ee02c01b23a840454306175d1e2431c87822b840d11584a7",
+              "governance": {
+                "CAND_e44836a3c54b322317215077": "pending"
+              },
+              "key": "definition",
+              "outcome": "materialized_deterministically",
+              "prerequisites": [
+                {
+                  "basis_evidence_ids": [
+                    "EV_05cf5684339b07e97229d54b"
+                  ],
+                  "reason_code": "syntactic_extraction",
+                  "status": "not_required"
+                }
+              ],
+              "reason_code": "syntactic_extraction",
+              "required_candidate_ids": [
+                "CAND_e44836a3c54b322317215077"
+              ],
+              "resolution": {
+                "basis_evidence_ids": [
+                  "EV_05cf5684339b07e97229d54b"
+                ],
+                "reason_code": "syntactic_extraction",
+                "status": "not_required"
+              },
+              "rule": "ddl_column",
+              "rule_version": "4.0"
+            }
+          ],
+          "evidence_id": "EV_05cf5684339b07e97229d54b",
+          "format": ".sql",
+          "locator": {
+            "char_end": 222,
+            "char_start": 0,
+            "end_exclusive": true,
+            "line_end": 9,
+            "line_start": 1,
+            "offset_unit": "character",
+            "representation": "decoded_source"
+          },
+          "outcome": "materialized_deterministically",
+          "parser": "deterministic-parser/4:10e34e4867ae3a8b79d7347dc78038998b24c91bb843d8eded0297500df49f97",
+          "subtype": "default",
+          "type": "ddl_column"
+        },
+        {
+          "components": [
+            {
+              "applicability": "applicable",
+              "candidate_ids": [
+                "CAND_53c461c4743eee802f0747f1"
+              ],
+              "capability": "supported",
+              "context_fingerprint": "3affca0ed37ff82d5178f58506658ca6a9b291182e24142dfa5a0186fe52a060",
+              "governance": {
+                "CAND_53c461c4743eee802f0747f1": "pending"
+              },
+              "key": "declaration",
+              "outcome": "materialized_deterministically",
+              "prerequisites": [
+                {
+                  "basis_evidence_ids": [
+                    "EV_317321afd7509ed234e416b2"
+                  ],
+                  "reason_code": "syntactic_extraction",
+                  "status": "not_required"
+                }
+              ],
+              "reason_code": "syntactic_extraction",
+              "required_candidate_ids": [
+                "CAND_53c461c4743eee802f0747f1"
+              ],
+              "resolution": {
+                "basis_evidence_ids": [
+                  "EV_317321afd7509ed234e416b2"
+                ],
+                "reason_code": "syntactic_extraction",
+                "status": "not_required"
+              },
+              "rule": "ddl_declaration",
+              "rule_version": "4.0"
+            }
+          ],
+          "evidence_id": "EV_317321afd7509ed234e416b2",
+          "format": ".sql",
+          "locator": {
+            "char_end": 222,
+            "char_start": 0,
+            "end_exclusive": true,
+            "line_end": 9,
+            "line_start": 1,
+            "offset_unit": "character",
+            "representation": "decoded_source"
+          },
+          "outcome": "materialized_deterministically",
+          "parser": "deterministic-parser/4:10e34e4867ae3a8b79d7347dc78038998b24c91bb843d8eded0297500df49f97",
+          "subtype": "check",
+          "type": "ddl_constraint"
+        },
+        {
+          "components": [
+            {
+              "applicability": "applicable",
+              "candidate_ids": [
+                "CAND_2edd0a2d4be8ce99bc23c1d9"
+              ],
+              "capability": "supported",
+              "context_fingerprint": "1362e01f6de1d2e97dbe3bca12cddb5eae18c1bf89b999e10e50aa5caee3132f",
+              "governance": {
+                "CAND_2edd0a2d4be8ce99bc23c1d9": "pending"
+              },
+              "key": "definition",
+              "outcome": "materialized_deterministically",
+              "prerequisites": [
+                {
+                  "basis_evidence_ids": [
+                    "EV_40a2f5ccfc7dc7e491a3eaef"
+                  ],
+                  "reason_code": "syntactic_extraction",
+                  "status": "not_required"
+                }
+              ],
+              "reason_code": "syntactic_extraction",
+              "required_candidate_ids": [
+                "CAND_2edd0a2d4be8ce99bc23c1d9"
+              ],
+              "resolution": {
+                "basis_evidence_ids": [
+                  "EV_40a2f5ccfc7dc7e491a3eaef"
+                ],
+                "reason_code": "syntactic_extraction",
+                "status": "not_required"
+              },
+              "rule": "ddl_column",
+              "rule_version": "4.0"
+            }
+          ],
+          "evidence_id": "EV_40a2f5ccfc7dc7e491a3eaef",
+          "format": ".sql",
+          "locator": {
+            "char_end": 222,
+            "char_start": 0,
+            "end_exclusive": true,
+            "line_end": 9,
+            "line_start": 1,
+            "offset_unit": "character",
+            "representation": "decoded_source"
+          },
+          "outcome": "materialized_deterministically",
+          "parser": "deterministic-parser/4:10e34e4867ae3a8b79d7347dc78038998b24c91bb843d8eded0297500df49f97",
+          "subtype": "default",
+          "type": "ddl_column"
+        },
+        {
+          "components": [
+            {
+              "applicability": "applicable",
+              "candidate_ids": [
+                "CAND_2f63435dc39f9aace5306013"
+              ],
+              "capability": "supported",
+              "context_fingerprint": "cd2517c5681916416c2e2d9dde17b8814b79b2c5b32698bb8642defebc1ab249",
+              "governance": {
+                "CAND_2f63435dc39f9aace5306013": "pending"
+              },
+              "key": "declaration",
+              "outcome": "materialized_deterministically",
+              "prerequisites": [
+                {
+                  "basis_evidence_ids": [
+                    "EV_59c22aacb61d6c2feedfdc4e"
+                  ],
+                  "reason_code": "syntactic_extraction",
+                  "status": "not_required"
+                }
+              ],
+              "reason_code": "syntactic_extraction",
+              "required_candidate_ids": [
+                "CAND_2f63435dc39f9aace5306013"
+              ],
+              "resolution": {
+                "basis_evidence_ids": [
+                  "EV_59c22aacb61d6c2feedfdc4e"
+                ],
+                "reason_code": "syntactic_extraction",
+                "status": "not_required"
+              },
+              "rule": "ddl_table",
+              "rule_version": "4.0"
+            }
+          ],
+          "evidence_id": "EV_59c22aacb61d6c2feedfdc4e",
+          "format": ".sql",
+          "locator": {
+            "char_end": 222,
+            "char_start": 0,
+            "end_exclusive": true,
+            "line_end": 9,
+            "line_start": 1,
+            "offset_unit": "character",
+            "representation": "decoded_source"
+          },
+          "outcome": "materialized_deterministically",
+          "parser": "deterministic-parser/4:10e34e4867ae3a8b79d7347dc78038998b24c91bb843d8eded0297500df49f97",
+          "subtype": "default",
+          "type": "ddl_table"
+        },
+        {
+          "components": [
+            {
+              "applicability": "applicable",
+              "candidate_ids": [
+                "CAND_2d817def4d5e21e6105a36fe"
+              ],
+              "capability": "supported",
+              "context_fingerprint": "d9aa2ce3df1a535d893f552e06db7d20e542f968fedeaa0821134447a0538dce",
+              "governance": {
+                "CAND_2d817def4d5e21e6105a36fe": "pending"
+              },
+              "key": "declaration",
+              "outcome": "materialized_deterministically",
+              "prerequisites": [
+                {
+                  "basis_evidence_ids": [
+                    "EV_894e5099c02259a55b235b96"
+                  ],
+                  "reason_code": "syntactic_extraction",
+                  "status": "not_required"
+                }
+              ],
+              "reason_code": "syntactic_extraction",
+              "required_candidate_ids": [
+                "CAND_2d817def4d5e21e6105a36fe"
+              ],
+              "resolution": {
+                "basis_evidence_ids": [
+                  "EV_894e5099c02259a55b235b96"
+                ],
+                "reason_code": "syntactic_extraction",
+                "status": "not_required"
+              },
+              "rule": "ddl_declaration",
+              "rule_version": "4.0"
+            }
+          ],
+          "evidence_id": "EV_894e5099c02259a55b235b96",
+          "format": ".sql",
+          "locator": {
+            "char_end": 222,
+            "char_start": 0,
+            "end_exclusive": true,
+            "line_end": 9,
+            "line_start": 1,
+            "offset_unit": "character",
+            "representation": "decoded_source"
+          },
+          "outcome": "materialized_deterministically",
+          "parser": "deterministic-parser/4:10e34e4867ae3a8b79d7347dc78038998b24c91bb843d8eded0297500df49f97",
+          "subtype": "check",
+          "type": "ddl_constraint"
+        },
+        {
+          "components": [
+            {
+              "applicability": "applicable",
+              "candidate_ids": [
+                "CAND_6c3bfe972084e48691a2cdf4"
+              ],
+              "capability": "supported",
+              "context_fingerprint": "fcbd20f53b418009b8c0d71f83b47b1f0751aa6bf65a1429c763faf162e2a213",
+              "governance": {
+                "CAND_6c3bfe972084e48691a2cdf4": "pending"
+              },
+              "key": "definition",
+              "outcome": "materialized_deterministically",
+              "prerequisites": [
+                {
+                  "basis_evidence_ids": [
+                    "EV_f06a35e61b85a741dfcc02aa"
+                  ],
+                  "reason_code": "syntactic_extraction",
+                  "status": "not_required"
+                }
+              ],
+              "reason_code": "syntactic_extraction",
+              "required_candidate_ids": [
+                "CAND_6c3bfe972084e48691a2cdf4"
+              ],
+              "resolution": {
+                "basis_evidence_ids": [
+                  "EV_f06a35e61b85a741dfcc02aa"
+                ],
+                "reason_code": "syntactic_extraction",
+                "status": "not_required"
+              },
+              "rule": "ddl_column",
+              "rule_version": "4.0"
+            }
+          ],
+          "evidence_id": "EV_f06a35e61b85a741dfcc02aa",
+          "format": ".sql",
+          "locator": {
+            "char_end": 222,
+            "char_start": 0,
+            "end_exclusive": true,
+            "line_end": 9,
+            "line_start": 1,
+            "offset_unit": "character",
+            "representation": "decoded_source"
+          },
+          "outcome": "materialized_deterministically",
+          "parser": "deterministic-parser/4:10e34e4867ae3a8b79d7347dc78038998b24c91bb843d8eded0297500df49f97",
+          "subtype": "default",
+          "type": "ddl_column"
+        },
+        {
+          "components": [
+            {
+              "applicability": "applicable",
+              "candidate_ids": [
+                "CAND_f1d05ede361d6859fcdbdeb7"
+              ],
+              "capability": "supported",
+              "context_fingerprint": "efe9ac6d9cc7c95bf3d3be244b5cd2335a092837a3de4a89aa650e3edcc8dda2",
+              "governance": {
+                "CAND_f1d05ede361d6859fcdbdeb7": "pending"
+              },
+              "key": "declaration",
+              "outcome": "materialized_deterministically",
+              "prerequisites": [
+                {
+                  "basis_evidence_ids": [
+                    "EV_fc9b174787840263b3c39126"
+                  ],
+                  "reason_code": "syntactic_extraction",
+                  "status": "not_required"
+                }
+              ],
+              "reason_code": "syntactic_extraction",
+              "required_candidate_ids": [
+                "CAND_f1d05ede361d6859fcdbdeb7"
+              ],
+              "resolution": {
+                "basis_evidence_ids": [
+                  "EV_fc9b174787840263b3c39126"
+                ],
+                "reason_code": "syntactic_extraction",
+                "status": "not_required"
+              },
+              "rule": "ddl_declaration",
+              "rule_version": "4.0"
+            }
+          ],
+          "evidence_id": "EV_fc9b174787840263b3c39126",
+          "format": ".sql",
+          "locator": {
+            "char_end": 222,
+            "char_start": 0,
+            "end_exclusive": true,
+            "line_end": 9,
+            "line_start": 1,
+            "offset_unit": "character",
+            "representation": "decoded_source"
+          },
+          "outcome": "materialized_deterministically",
+          "parser": "deterministic-parser/4:10e34e4867ae3a8b79d7347dc78038998b24c91bb843d8eded0297500df49f97",
+          "subtype": "primary_key",
+          "type": "ddl_constraint"
+        }
+      ],
+      "fully_derived": true,
+      "parser_errors": [],
+      "rule_version": "4.0"
+    },
+    "facts": [
+      {
+        "assertion_type": "explicit",
+        "attributes": {},
+        "candidate_id": "DER_a41789b07cdb94bd4c5643c0",
+        "chunk_id": null,
+        "confidence": "high",
+        "derivation": {
+          "component": "declaration",
+          "context_fingerprint": "d9aa2ce3df1a535d893f552e06db7d20e542f968fedeaa0821134447a0538dce",
+          "resolution": {
+            "basis_evidence_ids": [
+              "EV_894e5099c02259a55b235b96"
+            ],
+            "reason_code": "syntactic_extraction",
+            "status": "not_required"
+          },
+          "rule_version": "4.0"
+        },
+        "deterministic_contract": "4",
+        "entity_name": "T.C2",
+        "evidence_id": "EV_894e5099c02259a55b235b96",
+        "evidence_text": "CREATE TABLE T (\n    K NUMBER PRIMARY KEY,\n    X VARCHAR2(20) NOT NULL,\n    Y NUMBER(12, 2) NOT NULL,\n    CONSTRAINT C1\n        CHECK (X IN ('BOZZA', 'CONFERMATO', 'ANNULLATO')),\n    CONSTRAINT C2\n        CHECK (Y >= 0)\n);",
+        "fact_type": "database_constraint",
+        "fragment_id": "EV_894e5099c02259a55b235b96",
+        "property_name": "constraint",
+        "property_value": {
+          "columns": [
+            "Y"
+          ],
+          "constraint_id": "T.C2",
+          "constraint_name": "C2",
+          "constraint_type": "check",
+          "dialect": "oracle",
+          "expression": "Y >= 0",
+          "expression_ast": {
+            "args": {
+              "expression": {
+                "node": "literal",
+                "type": "number",
+                "value": "0"
+              },
+              "this": {
+                "name": "Y",
+                "node": "column"
+              }
+            },
+            "node": "gte"
+          },
+          "table": "T"
+        },
+        "record_type": "candidate_fact",
+        "source_revision_id": "REV_fa2bf826ba3cf7a08ae640e8"
+      },
+      {
+        "assertion_type": "explicit",
+        "attributes": {
+          "column": "X",
+          "constraints": [
+            {
+              "columns": [
+                "X"
+              ],
+              "constraint_id": "T.C1",
+              "constraint_name": "C1",
+              "constraint_type": "check",
+              "dialect": "oracle",
+              "expression": "X IN ('BOZZA', 'CONFERMATO', 'ANNULLATO')",
+              "expression_ast": {
+                "args": {
+                  "expressions": [
+                    {
+                      "node": "literal",
+                      "type": "string",
+                      "value": "BOZZA"
+                    },
+                    {
+                      "node": "literal",
+                      "type": "string",
+                      "value": "CONFERMATO"
+                    },
+                    {
+                      "node": "literal",
+                      "type": "string",
+                      "value": "ANNULLATO"
+                    }
+                  ],
+                  "this": {
+                    "name": "X",
+                    "node": "column"
+                  }
+                },
+                "node": "in"
+              },
+              "table": "T"
+            }
+          ],
+          "datatype": "VARCHAR2(20)",
+          "datatype_ast": {
+            "args": {
+              "expressions": [
+                {
+                  "args": {
+                    "this": {
+                      "node": "literal",
+                      "type": "number",
+                      "value": "20"
+                    }
+                  },
+                  "node": "datatypeparam"
+                }
+              ],
+              "nested": false,
+              "this": "VARCHAR"
+            },
+            "node": "datatype"
+          },
+          "default": {
+            "expression_ast": null,
+            "present": false,
+            "sql": null
+          },
+          "dialect": "oracle",
+          "name": "T.X",
+          "nullability_basis": "declared",
+          "nullability_declaration": "not_null",
+          "nullable": false,
+          "table": "T"
+        },
+        "candidate_id": "DER_db82ba19b549c4c5d7714091",
+        "chunk_id": null,
+        "confidence": "high",
+        "derivation": {
+          "component": "definition",
+          "context_fingerprint": "1362e01f6de1d2e97dbe3bca12cddb5eae18c1bf89b999e10e50aa5caee3132f",
+          "resolution": {
+            "basis_evidence_ids": [
+              "EV_40a2f5ccfc7dc7e491a3eaef"
+            ],
+            "reason_code": "syntactic_extraction",
+            "status": "not_required"
+          },
+          "rule_version": "4.0"
+        },
+        "deterministic_contract": "4",
+        "entity_name": "T.X",
+        "evidence_id": "EV_40a2f5ccfc7dc7e491a3eaef",
+        "evidence_text": "CREATE TABLE T (\n    K NUMBER PRIMARY KEY,\n    X VARCHAR2(20) NOT NULL,\n    Y NUMBER(12, 2) NOT NULL,\n    CONSTRAINT C1\n        CHECK (X IN ('BOZZA', 'CONFERMATO', 'ANNULLATO')),\n    CONSTRAINT C2\n        CHECK (Y >= 0)\n);",
+        "fact_type": "database_column",
+        "fragment_id": "EV_40a2f5ccfc7dc7e491a3eaef",
+        "property_name": "data_type",
+        "property_value": "VARCHAR2(20)",
+        "record_type": "candidate_fact",
+        "source_revision_id": "REV_fa2bf826ba3cf7a08ae640e8"
+      },
+      {
+        "assertion_type": "explicit",
+        "attributes": {
+          "dialect": "oracle",
+          "name": "T",
+          "object_type": "table"
+        },
+        "candidate_id": "DER_2f484ae7d7ad3654b1d26cd5",
+        "chunk_id": null,
+        "confidence": "high",
+        "derivation": {
+          "component": "declaration",
+          "context_fingerprint": "cd2517c5681916416c2e2d9dde17b8814b79b2c5b32698bb8642defebc1ab249",
+          "resolution": {
+            "basis_evidence_ids": [
+              "EV_59c22aacb61d6c2feedfdc4e"
+            ],
+            "reason_code": "syntactic_extraction",
+            "status": "not_required"
+          },
+          "rule_version": "4.0"
+        },
+        "deterministic_contract": "4",
+        "entity_name": "T",
+        "evidence_id": "EV_59c22aacb61d6c2feedfdc4e",
+        "evidence_text": "CREATE TABLE T (\n    K NUMBER PRIMARY KEY,\n    X VARCHAR2(20) NOT NULL,\n    Y NUMBER(12, 2) NOT NULL,\n    CONSTRAINT C1\n        CHECK (X IN ('BOZZA', 'CONFERMATO', 'ANNULLATO')),\n    CONSTRAINT C2\n        CHECK (Y >= 0)\n);",
+        "fact_type": "database_table",
+        "fragment_id": "EV_59c22aacb61d6c2feedfdc4e",
+        "property_name": "object_type",
+        "property_value": "table",
+        "record_type": "candidate_fact",
+        "source_revision_id": "REV_fa2bf826ba3cf7a08ae640e8"
+      },
+      {
+        "assertion_type": "explicit",
+        "attributes": {},
+        "candidate_id": "DER_453ee15e209474d35a82744b",
+        "chunk_id": null,
+        "confidence": "high",
+        "derivation": {
+          "component": "declaration",
+          "context_fingerprint": "3affca0ed37ff82d5178f58506658ca6a9b291182e24142dfa5a0186fe52a060",
+          "resolution": {
+            "basis_evidence_ids": [
+              "EV_317321afd7509ed234e416b2"
+            ],
+            "reason_code": "syntactic_extraction",
+            "status": "not_required"
+          },
+          "rule_version": "4.0"
+        },
+        "deterministic_contract": "4",
+        "entity_name": "T.C1",
+        "evidence_id": "EV_317321afd7509ed234e416b2",
+        "evidence_text": "CREATE TABLE T (\n    K NUMBER PRIMARY KEY,\n    X VARCHAR2(20) NOT NULL,\n    Y NUMBER(12, 2) NOT NULL,\n    CONSTRAINT C1\n        CHECK (X IN ('BOZZA', 'CONFERMATO', 'ANNULLATO')),\n    CONSTRAINT C2\n        CHECK (Y >= 0)\n);",
+        "fact_type": "database_constraint",
+        "fragment_id": "EV_317321afd7509ed234e416b2",
+        "property_name": "constraint",
+        "property_value": {
+          "columns": [
+            "X"
+          ],
+          "constraint_id": "T.C1",
+          "constraint_name": "C1",
+          "constraint_type": "check",
+          "dialect": "oracle",
+          "expression": "X IN ('BOZZA', 'CONFERMATO', 'ANNULLATO')",
+          "expression_ast": {
+            "args": {
+              "expressions": [
+                {
+                  "node": "literal",
+                  "type": "string",
+                  "value": "BOZZA"
+                },
+                {
+                  "node": "literal",
+                  "type": "string",
+                  "value": "CONFERMATO"
+                },
+                {
+                  "node": "literal",
+                  "type": "string",
+                  "value": "ANNULLATO"
+                }
+              ],
+              "this": {
+                "name": "X",
+                "node": "column"
+              }
+            },
+            "node": "in"
+          },
+          "table": "T"
+        },
+        "record_type": "candidate_fact",
+        "source_revision_id": "REV_fa2bf826ba3cf7a08ae640e8"
+      },
+      {
+        "assertion_type": "explicit",
+        "attributes": {
+          "column": "Y",
+          "constraints": [
+            {
+              "columns": [
+                "Y"
+              ],
+              "constraint_id": "T.C2",
+              "constraint_name": "C2",
+              "constraint_type": "check",
+              "dialect": "oracle",
+              "expression": "Y >= 0",
+              "expression_ast": {
+                "args": {
+                  "expression": {
+                    "node": "literal",
+                    "type": "number",
+                    "value": "0"
+                  },
+                  "this": {
+                    "name": "Y",
+                    "node": "column"
+                  }
+                },
+                "node": "gte"
+              },
+              "table": "T"
+            }
+          ],
+          "datatype": "NUMBER(12, 2)",
+          "datatype_ast": {
+            "args": {
+              "expressions": [
+                {
+                  "args": {
+                    "this": {
+                      "node": "literal",
+                      "type": "number",
+                      "value": "12"
+                    }
+                  },
+                  "node": "datatypeparam"
+                },
+                {
+                  "args": {
+                    "this": {
+                      "node": "literal",
+                      "type": "number",
+                      "value": "2"
+                    }
+                  },
+                  "node": "datatypeparam"
+                }
+              ],
+              "nested": false,
+              "this": "DECIMAL"
+            },
+            "node": "datatype"
+          },
+          "default": {
+            "expression_ast": null,
+            "present": false,
+            "sql": null
+          },
+          "dialect": "oracle",
+          "name": "T.Y",
+          "nullability_basis": "declared",
+          "nullability_declaration": "not_null",
+          "nullable": false,
+          "table": "T"
+        },
+        "candidate_id": "DER_eaca96f990f96989868b2504",
+        "chunk_id": null,
+        "confidence": "high",
+        "derivation": {
+          "component": "definition",
+          "context_fingerprint": "fcbd20f53b418009b8c0d71f83b47b1f0751aa6bf65a1429c763faf162e2a213",
+          "resolution": {
+            "basis_evidence_ids": [
+              "EV_f06a35e61b85a741dfcc02aa"
+            ],
+            "reason_code": "syntactic_extraction",
+            "status": "not_required"
+          },
+          "rule_version": "4.0"
+        },
+        "deterministic_contract": "4",
+        "entity_name": "T.Y",
+        "evidence_id": "EV_f06a35e61b85a741dfcc02aa",
+        "evidence_text": "CREATE TABLE T (\n    K NUMBER PRIMARY KEY,\n    X VARCHAR2(20) NOT NULL,\n    Y NUMBER(12, 2) NOT NULL,\n    CONSTRAINT C1\n        CHECK (X IN ('BOZZA', 'CONFERMATO', 'ANNULLATO')),\n    CONSTRAINT C2\n        CHECK (Y >= 0)\n);",
+        "fact_type": "database_column",
+        "fragment_id": "EV_f06a35e61b85a741dfcc02aa",
+        "property_name": "data_type",
+        "property_value": "NUMBER(12, 2)",
+        "record_type": "candidate_fact",
+        "source_revision_id": "REV_fa2bf826ba3cf7a08ae640e8"
+      },
+      {
+        "assertion_type": "explicit",
+        "attributes": {
+          "column": "K",
+          "constraints": [
+            {
+              "columns": [
+                "K"
+              ],
+              "constraint_id": "CONSTRAINT_90b34f562a6ffb42a2938abf",
+              "constraint_name": null,
+              "constraint_type": "primary_key",
+              "dialect": "oracle",
+              "table": "T"
+            }
+          ],
+          "datatype": "NUMBER",
+          "datatype_ast": {
+            "args": {
+              "nested": false,
+              "this": "DECIMAL"
+            },
+            "node": "datatype"
+          },
+          "default": {
+            "expression_ast": null,
+            "present": false,
+            "sql": null
+          },
+          "dialect": "oracle",
+          "name": "T.K",
+          "nullability_basis": "primary_key",
+          "nullability_declaration": "unspecified",
+          "nullable": false,
+          "table": "T"
+        },
+        "candidate_id": "DER_569924c52505dd8f5679a6e2",
+        "chunk_id": null,
+        "confidence": "high",
+        "derivation": {
+          "component": "definition",
+          "context_fingerprint": "ec313e71885cce40ee02c01b23a840454306175d1e2431c87822b840d11584a7",
+          "resolution": {
+            "basis_evidence_ids": [
+              "EV_05cf5684339b07e97229d54b"
+            ],
+            "reason_code": "syntactic_extraction",
+            "status": "not_required"
+          },
+          "rule_version": "4.0"
+        },
+        "deterministic_contract": "4",
+        "entity_name": "T.K",
+        "evidence_id": "EV_05cf5684339b07e97229d54b",
+        "evidence_text": "CREATE TABLE T (\n    K NUMBER PRIMARY KEY,\n    X VARCHAR2(20) NOT NULL,\n    Y NUMBER(12, 2) NOT NULL,\n    CONSTRAINT C1\n        CHECK (X IN ('BOZZA', 'CONFERMATO', 'ANNULLATO')),\n    CONSTRAINT C2\n        CHECK (Y >= 0)\n);",
+        "fact_type": "database_column",
+        "fragment_id": "EV_05cf5684339b07e97229d54b",
+        "property_name": "data_type",
+        "property_value": "NUMBER",
+        "record_type": "candidate_fact",
+        "source_revision_id": "REV_fa2bf826ba3cf7a08ae640e8"
+      },
+      {
+        "assertion_type": "explicit",
+        "attributes": {},
+        "candidate_id": "DER_1384ece5752bad99ecc2bf9f",
+        "chunk_id": null,
+        "confidence": "high",
+        "derivation": {
+          "component": "declaration",
+          "context_fingerprint": "efe9ac6d9cc7c95bf3d3be244b5cd2335a092837a3de4a89aa650e3edcc8dda2",
+          "resolution": {
+            "basis_evidence_ids": [
+              "EV_fc9b174787840263b3c39126"
+            ],
+            "reason_code": "syntactic_extraction",
+            "status": "not_required"
+          },
+          "rule_version": "4.0"
+        },
+        "deterministic_contract": "4",
+        "entity_name": "CONSTRAINT_90b34f562a6ffb42a2938abf",
+        "evidence_id": "EV_fc9b174787840263b3c39126",
+        "evidence_text": "CREATE TABLE T (\n    K NUMBER PRIMARY KEY,\n    X VARCHAR2(20) NOT NULL,\n    Y NUMBER(12, 2) NOT NULL,\n    CONSTRAINT C1\n        CHECK (X IN ('BOZZA', 'CONFERMATO', 'ANNULLATO')),\n    CONSTRAINT C2\n        CHECK (Y >= 0)\n);",
+        "fact_type": "database_constraint",
+        "fragment_id": "EV_fc9b174787840263b3c39126",
+        "property_name": "constraint",
+        "property_value": {
+          "columns": [
+            "K"
+          ],
+          "constraint_id": "CONSTRAINT_90b34f562a6ffb42a2938abf",
+          "constraint_name": null,
+          "constraint_type": "primary_key",
+          "dialect": "oracle",
+          "table": "T"
+        },
+        "record_type": "candidate_fact",
+        "source_revision_id": "REV_fa2bf826ba3cf7a08ae640e8"
+      }
+    ]
+  },
+  "expected": {
+    "mapping": {
+      "CK_ORDINE_PROVA_STATO": "C1",
+      "CK_ORDINE_PROVA_TOTALE": "C2",
+      "ID": "K",
+      "ORDINE_PROVA": "T",
+      "STATO": "X",
+      "TOTALE": "Y"
+    },
+    "structure": {
+      "allowed_values": [
+        "BOZZA",
+        "CONFERMATO",
+        "ANNULLATO"
+      ],
+      "constraints": [
+        "ORDINE_PROVA.CK_ORDINE_PROVA_STATO",
+        "ORDINE_PROVA.CK_ORDINE_PROVA_TOTALE"
+      ],
+      "dialect": "oracle",
+      "explicit_not_null": [
+        "STATO",
+        "TOTALE"
+      ],
+      "forbidden_inferences": [
+        "workflow transitions",
+        "authorized actors",
+        "currency",
+        "accounting meaning",
+        "runtime state",
+        "inventory reservation"
+      ],
+      "precision": [
+        "12",
+        "2"
+      ],
+      "total_boundary": {
+        "node": "literal",
+        "type": "number",
+        "value": "0"
+      },
+      "total_operator": "gte"
+    }
+  },
+  "origin": "executed_pytest_assertions",
+  "status": "passed"
+}

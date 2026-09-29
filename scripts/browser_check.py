@@ -26,7 +26,15 @@ server = subprocess.Popen(
     stdout=subprocess.DEVNULL,
     stderr=subprocess.DEVNULL,
 )
-atexit.register(server.terminate)
+
+
+def stop_server():
+    if server.poll() is None:
+        server.terminate()
+        server.wait(timeout=10)
+
+
+atexit.register(stop_server)
 opener = urllib.request.build_opener(urllib.request.ProxyHandler({}))
 for _ in range(100):
     try:
@@ -36,8 +44,12 @@ for _ in range(100):
         time.sleep(0.1)
 else:
     raise RuntimeError("Local test server did not start")
-reports = Path(__file__).resolve().parents[1] / "reports"
-reports.mkdir(exist_ok=True)
+reports = (
+    Path(sys.argv[2])
+    if len(sys.argv) > 2
+    else Path(__file__).resolve().parents[1] / "reports"
+)
+reports.mkdir(parents=True, exist_ok=True)
 with sync_playwright() as p:
     browser = p.chromium.launch(headless=True, args=["--no-sandbox"])
     page = browser.new_page(
@@ -99,7 +111,11 @@ with sync_playwright() as p:
     package = next(x for x in packages if x["route"] == "domain_interpretation")
     evidence = page.evaluate("fetch('/api/evidence').then(r=>r.json())")
     e = next(
-        e for e in evidence if e["kind"] == "chunk" and e["path"].endswith(".docx")
+        e
+        for e in evidence
+        if e["kind"] == "chunk"
+        and e["path"].endswith(".docx")
+        and "Una richiesta P1 deve essere presa in carico entro 30 minuti." in e["text"]
     )
     payload = {
         "record_type": "candidate_fact",
@@ -122,19 +138,29 @@ with sync_playwright() as p:
             "buffer": (json.dumps(payload) + "\n").encode(),
         }
     )
-    assert wait_job(before)["status"] == "success"
+    imported_job = wait_job(before)
+    assert imported_job["status"] == "success", imported_job
     expect(page.locator("#job-banner")).to_be_hidden(timeout=10000)
     page.locator("nav a[data-page=review]").click()
-    # The v1-parity profile intentionally keeps explicit button operations pending.
-    # Select the AI-imported proposal by semantic label instead of assuming it is
-    # the only pending candidate in the review queue.
-    button_operation = page.locator(".candidate-row").filter(
-        has_text="FRM_RICHIESTA.BTN_PRENOTA"
+    candidates = page.evaluate("fetch('/api/candidates').then(r=>r.json())")
+    operation = next(
+        c
+        for c in candidates
+        if c["rule"] == "xml_button_operation" and c["current_derivation"]
     )
-    expect(button_operation).to_have_count(1)
+    assert operation["state"] == "confirmed"
+    assert operation["policy"] == "explicit_xml_button_operation_only/1"
+    page.locator("#review-filter").select_option("confirmed")
+    expect(page.locator(f'.candidate-check[value="{operation["id"]}"]')).to_have_count(
+        1
+    )
+    page.locator("#review-filter").select_option("pending")
     ai_candidate = page.locator(".candidate-row").filter(has_text="Priorità P1")
     expect(ai_candidate).to_have_count(1)
     ai_candidate.locator(".candidate-check").check()
+    page.locator("#batch-review-reason").fill(
+        "Verifica browser della risposta controllata"
+    )
     run(page.get_by_role("button", name="Conferma selezionate"))
     run(page.get_by_role("button", name="Merge delle confermate"))
     page.locator("#review-filter").select_option("confirmed")

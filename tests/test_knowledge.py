@@ -35,12 +35,13 @@ def payload(app, value="yes", candidate_id="human_1"):
 def test_governance_review_merge_idempotence_and_revoke(app):
     k = Knowledge(app)
     r = k.derive()
-    assert r["count"] == 3
+    assert r["count"] == 4  # Table, two columns and the formerly lost inline PK.
+    assert {c["payload"]["property_name"] for c in k.candidates()} == {"object_type", "data_type", "constraint"}
     assert k.merge()["created"] == 0
     assert not k.objects()
     app.store.configure({"automatic_policies": list(POLICIES.values())})
-    assert k.auto_review()["count"] == 3
-    assert k.merge()["created"] == 3
+    assert k.auto_review()["count"] == 4
+    assert k.merge()["created"] == 4
     assert k.merge()["created"] == 0
     assert k.derive()["batch_id"] == r["batch_id"]
     cid = r["candidate_ids"][0]
@@ -60,7 +61,7 @@ def test_governance_review_merge_idempotence_and_revoke(app):
         k.review(cid, "confirmed", idempotency_key="revoke_1")
     with pytest.raises(DomainError, match="cambiata"):
         k.review(cid, "confirmed", expected_head=head, check_head=True)
-    assert len(k.objects()) == 2
+    assert len(k.objects()) == 3
     assert app.status()["counts"]["open_reconciliations"] == 1
     assert k.reconcile()["closed"] == 1
 
@@ -185,7 +186,7 @@ def test_source_revision_and_append_only(app):
     k.derive()
     k.auto_review()
     k.merge()
-    assert len(k.objects()) == 3
+    assert len(k.objects()) == 4
 
 
 def test_parse_retry_keeps_evidence_and_candidates_stable(app):

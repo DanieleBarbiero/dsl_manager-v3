@@ -11,7 +11,7 @@ from dslm3.parsers.documents import parse_document
 
 
 def main():
-    request = json.loads(Path(sys.argv[1]).read_text())
+    request = json.loads(Path(sys.argv[1]).read_text(encoding="utf-8"))
     os.environ.setdefault("OMP_NUM_THREADS", "2")
     os.environ.setdefault("TOKENIZERS_PARALLELISM", "false")
     try:

@@ -9,6 +9,9 @@ from itertools import combinations
 from dslm3.common import DomainError, canonical, digest, name_key, now, uid
 
 POLICIES = {
+    "ddl_declaration": "explicit_ddl_declaration_only/1",
+    "sql_statement": "explicit_sql_syntax_only/1",
+    "structured_record": "explicit_structured_record_only/1",
     "ddl_table": "explicit_ddl_table_only/1",
     "ddl_column": "explicit_ddl_column_only/1",
     "ddl_constraint": "explicit_resolved_ddl_fk_only/1",
@@ -87,6 +90,32 @@ class Knowledge:
             raise DomainError(
                 "candidate_schema", "attributes deve essere un oggetto JSON."
             )
+        if payload.get("property_name") == "assigned_value" and (
+            payload.get("fact_type") == "sql_operation"
+            or isinstance(payload.get("property_value"), dict)
+        ):
+            value = payload.get("property_value")
+            valid = isinstance(value, dict) and "type" in value and "value" in value
+            if valid:
+                kind, literal = value["type"], value["value"]
+                valid = (
+                    kind == "null"
+                    and literal is None
+                    or kind == "boolean"
+                    and type(literal) is bool
+                    or kind == "string"
+                    and isinstance(literal, str)
+                    or kind == "number"
+                    and isinstance(literal, str)
+                    and re.fullmatch(
+                        r"[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?", literal
+                    )
+                    is not None
+                )
+            if not valid:
+                raise DomainError(
+                    "candidate_schema", "Literal SQL tipizzato non valido."
+                )
         for key in [
             "candidate_id",
             "source_revision_id",
@@ -107,13 +136,9 @@ class Knowledge:
             basis = payload.get("question_basis")
             status = payload.get("question_status")
             if basis is not None and basis not in {"source_question", "derived_gap"}:
-                raise DomainError(
-                    "candidate_schema", "question_basis non ammesso."
-                )
+                raise DomainError("candidate_schema", "question_basis non ammesso.")
             if status is not None and status not in {"open", "resolved"}:
-                raise DomainError(
-                    "candidate_schema", "question_status non ammesso."
-                )
+                raise DomainError("candidate_schema", "question_status non ammesso.")
             if basis == "derived_gap" and payload["assertion_type"] == "explicit":
                 raise DomainError(
                     "candidate_schema",
@@ -242,7 +267,7 @@ class Knowledge:
                     uid(
                         "CAND",
                         [
-                            "deterministic/3",
+                            "deterministic/4",
                             item,
                             (rules or {}).get(item["candidate_id"]),
                         ],
@@ -270,218 +295,99 @@ class Knowledge:
                 )
         return {"batch_id": batch, "candidate_ids": created, "count": len(created)}
 
-    def derive(self):
-        evidence = self.app.evidence()
-        schema = self.app.schema()
-        payloads = []
-        rules = {}
-        skipped = []
+    def _inventory(self):
+        from dslm3.deterministic import inventory
 
-        def add(e, type_, rule, **fields):
-            cid = uid("DER", [e["id"], type_, fields])
-            base = {
-                "candidate_id": cid,
-                "source_revision_id": e["revision_id"],
-                "evidence_id": e["id"],
-                "fragment_id": e["id"] if e["kind"] == "fragment" else None,
-                "chunk_id": e["id"] if e["kind"] == "chunk" else None,
-                "evidence_text": e["text"],
-                "record_type": type_,
-                "assertion_type": "explicit",
-                "confidence": "high",
-                **fields,
-            }
-            payloads.append(base)
-            rules[cid] = rule
+        return inventory(self.app.evidence())
 
-        def fact(e, rule, entity, prop, value, fact_type="technical", **extra):
-            add(
-                e,
-                "candidate_fact",
-                rule,
-                entity_name=entity,
-                property_name=prop,
-                property_value=value,
-                fact_type=fact_type,
-                **extra,
+    def sync_current(self, rows=None):
+        from dslm3.deterministic import planned
+
+        expected = planned(self._inventory() if rows is None else rows)
+        with self.store.connect(True) as conn:
+            conn.execute("DELETE FROM deterministic_active")
+            conn.executemany(
+                "INSERT OR IGNORE INTO deterministic_active VALUES(?)",
+                [(r["id"],) for r in expected],
             )
+        return expected
 
-        for e in evidence:
-            d = e["data"]
-            kind = e["type"]
-            if kind == "ddl_table":
-                fact(
-                    e,
-                    "ddl_table",
-                    d["name"],
-                    "object_type",
-                    "table",
-                    fact_type="database_table",
-                )
-            elif kind == "ddl_column":
-                fact(
-                    e,
-                    "ddl_column",
-                    d["name"],
-                    "definition",
-                    {
-                        "datatype": d["datatype"],
-                        "nullable": d["nullable"],
-                        "constraints": d["constraints"],
-                    },
-                    fact_type="database_column",
-                )
-            elif kind == "ddl_constraint" and d["constraint_type"] == "foreign_key":
-                target = d["target_table"]
-                cols = d["target_columns"]
-                if target in schema and all(c in schema[target] for c in cols):
-                    add(
-                        e,
-                        "candidate_relation",
-                        "ddl_constraint",
-                        source_entity=d["table"],
-                        relation_type="foreign_key",
-                        target_entity=target,
-                        attributes={"columns": d["columns"], "target_columns": cols},
-                    )
-                else:
-                    skipped.append(
-                        {"evidence_id": e["id"], "reason": "unresolved_foreign_key"}
-                    )
-            elif kind.startswith("ddl_") and kind not in {
-                "ddl_constraint",
-                "ddl_alter",
-                "ddl_drop",
-                "ddl_grant",
-                "ddl_revoke",
-            }:
-                fact(
-                    e,
-                    "sql_unit",
-                    d["name"],
-                    "object_type",
-                    d.get("object_type", kind[4:]),
-                    fact_type="database_object",
-                )
-            elif kind in {
-                "sql_procedure",
-                "sql_function",
-                "sql_trigger",
-                "sql_package",
-                "sql_package_body",
-                "sql_type",
-                "sql_type_body",
-            }:
-                fact(
-                    e,
-                    "sql_unit",
-                    d["name"],
-                    "object_type",
-                    kind[4:],
-                    fact_type="database_code_unit",
-                )
-            elif kind in {"sql_dependency", "xml_dependency", "xml_button_operation"}:
-                target = d["target"]
-                if "." in target and kind == "sql_dependency":
-                    table, column = target.rsplit(".", 1)
-                    if table in schema and column not in schema[table]:
-                        skipped.append(
-                            {
-                                "evidence_id": e["id"],
-                                "reason": "column_absent_from_schema",
-                            }
-                        )
-                        continue
-                add(
-                    e,
-                    "candidate_relation",
-                    kind,
-                    source_entity=d["source"],
-                    relation_type=d["relation_type"],
-                    target_entity=target,
-                    assertion_type="observed"
-                    if kind == "sql_dependency"
-                    else "explicit",
-                )
-            elif kind in {"xml_form", "xml_field", "xml_button", "xml_block"}:
-                xml_fact_type = {
-                    "xml_form": "xml_form",
-                    "xml_field": "xml_form_field",
-                    "xml_button": "xml_form_button",
-                    "xml_block": "xml_form_block",
-                }[kind]
-                fact(
-                    e,
-                    "xml_structure",
-                    d["name"],
-                    "definition",
-                    {
-                        "object_type": kind[4:],
-                        **{k: v for k, v in d.items() if k != "name"},
-                    },
-                    fact_type=xml_fact_type,
-                )
-            elif kind == "log_event":
-                entity = "event:" + e["id"]
-                fact(
-                    e,
-                    "log_event",
-                    entity,
-                    "occurrence",
-                    d,
-                    fact_type="log_event",
-                    assertion_type="observed",
-                )
-                add(
-                    e,
-                    "candidate_relation",
-                    "log_event",
-                    source_entity=entity,
-                    relation_type="observed_on",
-                    target_entity=d["component"],
-                    assertion_type="observed",
-                )
-            elif kind in {
-                "excel_workbook",
-                "excel_sheet",
-                "excel_region",
-                "excel_named_range",
-                "excel_table",
-            }:
-                details = {
-                    k: v
-                    for k, v in d.items()
-                    if k
-                    not in {
-                        "name",
-                        "cells",
-                        "manifest",
-                        "fragment_id",
-                        "source_revision_id",
-                    }
-                }
-                fact(
-                    e,
-                    kind,
-                    d["name"],
-                    "definition",
-                    {"object_type": kind, **details},
-                    fact_type=kind,
-                )
-            elif kind == "excel_explicit_reference":
-                add(
-                    e,
-                    "candidate_relation",
-                    None,
-                    source_entity=d["name"],
-                    relation_type="references_external",
-                    target_entity=d["target"],
-                )
-        if not payloads:
-            return {"count": 0, "candidate_ids": [], "skipped": skipped}
+    def coverage(self, check=False):
+        from dslm3.deterministic import coverage, require_complete
+
+        rows = self._inventory()
+        actual = {}
+        for c in self.store.rows(
+            "SELECT * FROM candidate_states WHERE current_revision=1 AND current_parse=1 AND current_derivation=1 AND source_status='active'"
+        ):
+            c["payload"] = json.loads(c["payload"])
+            actual[c["id"]] = c
+        report = coverage(rows, actual)
+        report["parser_errors"] = [
+            {"path": s["path"], "reason": s["parse"].get("reason")}
+            for s in self.app.sources()
+            if s["status"] == "active"
+            and s["parse"]
+            and s["parse"]["status"] == "error"
+        ]
+        report["counts"]["parser_errors"] = len(report["parser_errors"])
+        report["counts"]["internal_errors"] = sum(
+            e["reason"] in {"parse_error", "worker_failed"}
+            for e in report["parser_errors"]
+        )
+        report["complete"] = report["complete"] and not report["parser_errors"]
+        report["fully_derived"] = report["complete"] and not any(
+            report["counts"][k]
+            for k in (
+                "blocked_unresolved_components",
+                "blocked_ambiguous_components",
+                "blocked_inconsistent_components",
+                "unsupported_components",
+            )
+        )
+        report["candidate_review_states"] = dict(
+            __import__("collections").Counter(
+                c["state"] for c in actual.values() if c["current_derivation"]
+            )
+        )
+        report["effective_object_count"] = self.store.one(
+            "SELECT COUNT(*) AS n FROM effective_objects"
+        )["n"]
+        return require_complete(report) if check else report
+
+    def derive(self):
+        from dslm3.deterministic import CONTRACT_VERSION, RULE_VERSION
+
+        rows = self._inventory()
+        expected = self.sync_current(rows)
+        if expected:
+            result = self.import_candidates(
+                [r["payload"] for r in expected],
+                "deterministic",
+                {r["payload"]["candidate_id"]: r["rule"] for r in expected},
+                metadata={
+                    "contract_version": CONTRACT_VERSION,
+                    "rule_version": RULE_VERSION,
+                },
+            )
+        else:
+            result = {"count": 0, "candidate_ids": []}
+        report = self.coverage()
         return {
-            **self.import_candidates(payloads, "deterministic", rules),
-            "skipped": skipped,
+            **result,
+            "status": "success" if report["fully_derived"] else "partial",
+            "coverage": report,
+            "skipped": [
+                {
+                    "evidence_id": r["evidence_id"],
+                    "component": c["key"],
+                    "reason": c["reason_code"],
+                }
+                for r in report["evidence"]
+                for c in r["components"]
+                if c["outcome"]
+                not in {"materialized_deterministically", "evidence_only_by_design"}
+            ],
         }
 
     def candidates(self, state: str | None = None, batch: str | None = None):
@@ -516,7 +422,10 @@ class Knowledge:
                 )
                 if evidence:
                     row["evidence_locators"].append(
-                        {"evidence_id": evidence_id, "locator": json.loads(evidence["locator"])}
+                        {
+                            "evidence_id": evidence_id,
+                            "locator": json.loads(evidence["locator"]),
+                        }
                     )
             batch = self.store.one(
                 "SELECT origin,payload FROM batches WHERE id=?", (row["batch_id"],)
@@ -527,7 +436,8 @@ class Knowledge:
             package_id = row["batch_metadata"].get("package_id")
             if package_id:
                 package = self.store.one(
-                    "SELECT selection_id,payload FROM packages WHERE id=?", (package_id,)
+                    "SELECT selection_id,payload FROM packages WHERE id=?",
+                    (package_id,),
                 )
                 if package:
                     package_payload = json.loads(package["payload"])
@@ -607,7 +517,11 @@ class Knowledge:
             configured_ok = actor_id in configured or (
                 LEGACY_POLICY_ALIASES.get(actor_id) in configured
             )
-            if not configured_ok or POLICIES.get(c["rule"]) != actor_id:
+            if (
+                not configured_ok
+                or POLICIES.get(c["rule"]) != actor_id
+                or not c["current_derivation"]
+            ):
                 raise DomainError(
                     "policy_not_allowed",
                     "Policy assente dall’allowlist o non applicabile.",
@@ -707,6 +621,7 @@ class Knowledge:
                 c["leaf"]
                 and c["current_revision"]
                 and c["current_parse"]
+                and c["current_derivation"]
                 and c["source_status"] == "active"
                 and policy_allowed
                 and c["rule"] not in AUTOMATIC_REVIEW_FORBIDDEN
@@ -817,6 +732,7 @@ class Knowledge:
                 or not c["leaf"]
                 or not c["current_revision"]
                 or not c["current_parse"]
+                or not c["current_derivation"]
                 or c["source_status"] != "active"
             ]
             if strict and ineligible:
@@ -841,6 +757,8 @@ class Knowledge:
                         "entity_name": name_key(p["entity_name"]),
                         "property_name": name_key(p["property_name"]),
                         "property_value": p["property_value"],
+                        "fact_type": p["fact_type"],
+                        "attributes": p.get("attributes", {}),
                     }
                     payload = {
                         k: p[k]
@@ -852,6 +770,8 @@ class Knowledge:
                         )
                     }
                     payload["assertion_type"] = p["assertion_type"]
+                    payload["attributes"] = p.get("attributes", {})
+                    payload["confidence"] = p["confidence"]
                     kind = "fact"
                 elif kind == "candidate_relation":
                     semantic = {
@@ -998,13 +918,20 @@ class Knowledge:
             if o["kind"] == "fact":
                 p = o["payload"]
                 groups[
-                    (name_key(p["entity_name"]), name_key(p["property_name"]))
+                    (
+                        name_key(p["entity_name"]),
+                        name_key(p["property_name"]),
+                        p.get("fact_type"),
+                        canonical(p.get("attributes", {}).get("context", {})),
+                    )
                 ].append(o)
         conflicts = []
         for group, items in groups.items():
             for a, b in combinations(items, 2):
-                if canonical(a["payload"]["property_value"]) == canonical(
-                    b["payload"]["property_value"]
+                if canonical(
+                    [a["payload"]["property_value"], a["payload"].get("attributes", {})]
+                ) == canonical(
+                    [b["payload"]["property_value"], b["payload"].get("attributes", {})]
                 ):
                     continue
                 if intervals[a["id"]] and intervals[b["id"]]:

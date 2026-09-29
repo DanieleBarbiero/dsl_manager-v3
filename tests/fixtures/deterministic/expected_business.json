@@ -1,0 +1,10 @@
+{
+  "dialect": "oracle",
+  "allowed_values": ["BOZZA", "CONFERMATO", "ANNULLATO"],
+  "constraints": ["ORDINE_PROVA.CK_ORDINE_PROVA_STATO", "ORDINE_PROVA.CK_ORDINE_PROVA_TOTALE"],
+  "total_operator": "gte",
+  "total_boundary": {"node": "literal", "type": "number", "value": "0"},
+  "precision": ["12", "2"],
+  "explicit_not_null": ["STATO", "TOTALE"],
+  "forbidden_inferences": ["workflow transitions", "authorized actors", "currency", "accounting meaning", "runtime state", "inventory reservation"]
+}

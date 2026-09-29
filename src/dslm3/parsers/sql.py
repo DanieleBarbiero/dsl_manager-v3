@@ -26,6 +26,12 @@ UNIT = re.compile(
     re.I,
 )
 CONTEXT = (exp.Select, exp.Update, exp.Delete, exp.Insert, exp.Merge)
+
+
+class UnsupportedStatement(ValueError):
+    """Expected capability boundary, distinct from implementation defects."""
+
+
 HINTS = {
     "oracle": [
         r"\bVARCHAR2\b",
@@ -239,13 +245,9 @@ def units(text: str):
 
 
 def sql_name(node) -> str:
-    if isinstance(node, exp.Table):
-        return ".".join(
-            x.name if x.args.get("quoted") else x.name.upper() for x in node.parts
-        )
-    if isinstance(node, exp.Identifier):
-        return node.name if node.args.get("quoted") else node.name.upper()
-    return str(node).strip('"`[]').upper()
+    from dslm3.parsers.sql_shapes import identifier
+
+    return identifier(node)
 
 
 def nearest(node):
@@ -255,7 +257,7 @@ def nearest(node):
 def dependencies(
     tree, schema: dict[str, list[str]], parameters: set[str]
 ) -> tuple[list[dict], list[dict]]:
-    schema = {k.upper(): {x.upper() for x in v} for k, v in schema.items()}
+    schema = {k: set(v) for k, v in schema.items()}
     deps = set()
     unresolved = []
     cte_names = {c.alias_or_name.upper() for c in tree.find_all(exp.CTE)}
@@ -275,16 +277,26 @@ def dependencies(
         is_target = target is table and not isinstance(context, exp.Select)
         deps.add(("writes_to" if is_target else "reads_from", sql_name(table)))
     for column in tree.find_all(exp.Column):
-        col = column.name.upper()
+        col = sql_name(column.this)
         if col in {"ROWNUM", "ROWID", "LEVEL", "SQLCODE", "SQLERRM"}:
             continue
-        if col in parameters and not any(col in values for values in schema.values()):
+        if col in parameters and not column.table:
+            # An assignment LHS is a column; an unqualified RHS parameter is not.
+            if not (
+                isinstance(column.parent, exp.EQ)
+                and column.parent.this is column
+                and isinstance(column.parent.parent, exp.Update)
+            ):
+                continue
+        if column.find_ancestor(exp.Placeholder, exp.Parameter):
             continue
         context = nearest(column)
         if context is None:
             continue
         if column.table.upper() in {"NEW", "OLD"}:
             continue
+        if column.table.upper() in cte_names:
+            continue  # Local CTE projection; physical inputs are visited in its query.
         lookup = context
         resolved = None
         while lookup is not None:
@@ -329,7 +341,18 @@ def dependencies(
         elif not any(x["name"] == column.sql() for x in unresolved):
             unresolved.append({"name": column.sql(), "reason": "unresolved_reference"})
     return [
-        {"relation_type": kind, "target": target} for kind, target in sorted(deps)
+        {
+            "relation_type": kind,
+            "target": target,
+            "target_kind": "column"
+            if any(
+                target == sql_name(t) + "." + sql_name(c.this)
+                for t in tree.find_all(exp.Table)
+                for c in tree.find_all(exp.Column)
+            )
+            else "data_object",
+        }
+        for kind, target in sorted(deps)
     ], unresolved
 
 
@@ -361,7 +384,7 @@ def embedded_sql(body: str):
 def parse_sql(
     text: str, dialect: str = "auto", schema: dict | None = None
 ) -> ParseResult:
-    result = ParseResult("sql/3")
+    result = ParseResult("sql/4")
     info = identify(text, dialect)
     result.metadata = info
     read = (
@@ -380,14 +403,32 @@ def parse_sql(
             "dialect_lexical_only",
             "Dialetto riconosciuto: conservazione lessicale; AST generico solo dove accettato.",
         )
-    for start, end, raw in units(text):
+    spans = list(units(text))
+    for _, _, raw in spans:
+        if not re.search(r"\bCREATE\s+TABLE\b", mask_literals(raw), re.I):
+            continue
+        try:
+            declaration = sqlglot.parse_one(
+                raw, read=read, error_level=sqlglot.ErrorLevel.RAISE
+            )
+        except (sqlglot.errors.ParseError, sqlglot.errors.TokenError):
+            continue  # The main pass retains and diagnoses the original statement.
+        if isinstance(declaration, exp.Create) and isinstance(
+            declaration.this, exp.Schema
+        ):
+            schema[sql_name(declaration.this.this)] = [
+                sql_name(c.this)
+                for c in declaration.this.expressions
+                if isinstance(c, exp.ColumnDef)
+            ]
+    for start, end, raw in spans:
         loc = location(text, start, end)
         unit = UNIT.search(mask_literals(raw))
         anonymous = re.match(r"\s*(?:DECLARE|BEGIN)\b", mask_literals(raw), re.I)
         if unit or anonymous:
             kind = re.sub(r"\s+", "_", unit[1].lower()) if unit else "anonymous_block"
             name = (
-                unit[2].replace(" ", "").strip('"').upper()
+                sql_name(sqlglot.parse_one(unit[2], into=exp.Table, read=read))
                 if unit
                 else "ANONYMOUS::" + str(loc["line_start"])
             )
@@ -426,7 +467,16 @@ def parse_sql(
                     re.I,
                 ):
                     nstart = unit.end() + nested.start()
-                    nname = name + "." + nested[2].upper()
+                    member = sql_name(
+                        sqlglot.parse_one(nested[2], into=exp.Table, read=read)
+                    )
+                    nname = name + "." + member
+                    signature_end = masked.find(";", nstart)
+                    signature = raw[
+                        nstart : signature_end
+                        if signature_end >= 0
+                        else nstart + len(nested[0])
+                    ]
                     result.add(
                         "sql_" + nested[1].lower(),
                         raw[nstart : nstart + len(nested[0])],
@@ -434,6 +484,8 @@ def parse_sql(
                             "name": nname,
                             "parent_unit": name,
                             "unit_type": nested[1].lower(),
+                            "signature": signature,
+                            "dialect": read or "generic",
                         },
                         location(text, start + nstart, start + nstart + len(nested[0])),
                     )
@@ -481,6 +533,7 @@ def parse_sql(
                                 "source": name,
                                 "relation_type": relation,
                                 "target": trigger_table + "." + column,
+                                "target_kind": "column",
                             },
                             loc,
                         )
@@ -506,7 +559,18 @@ def parse_sql(
                     result.add(
                         "sql_dependency",
                         body[call.start() : call.end()],
-                        {"source": name, "relation_type": "calls", "target": called},
+                        {
+                            "source": name,
+                            "relation_type": "calls",
+                            "target": called,
+                            **(
+                                {"builtin": True}
+                                if read == "oracle"
+                                and called
+                                in {"RAISE_APPLICATION_ERROR", "DBMS_OUTPUT.PUT_LINE"}
+                                else {}
+                            ),
+                        },
                         location(
                             text,
                             start + body_offset + call.start(),
@@ -518,6 +582,7 @@ def parse_sql(
                 masked,
                 re.I,
             ):
+                data["dynamic_sql"] = True
                 result.warn(
                     "dynamic_sql_unresolved",
                     "SQL dinamico conservato: dipendenze runtime non inferite.",
@@ -533,6 +598,24 @@ def _statement(
 ):
     loc = location(source, start, end)
     masked = mask_literals(raw)
+    # SQLGlot exposes CALL as Command. The procedural scanner can still identify
+    # the explicit callee; argument evaluation and overload inference are excluded.
+    call = re.match(
+        r"\s*(?:CALL|EXEC(?:UTE)?)\s+(" + IDENT + r")(?=\s|\(|;|$)", raw, re.I
+    )
+    if call and call[1].upper() != "IMMEDIATE":
+        result.add(
+            "sql_dependency",
+            raw,
+            {
+                "source": owner or "CALL::" + str(start),
+                "relation_type": "calls",
+                "target": call[1],
+                "target_kind": "code_unit",
+            },
+            loc,
+        )
+        return
     special = re.search(
         r"\bCREATE\s+(?:OR\s+REPLACE\s+)?(?:PUBLIC\s+)?(SYNONYM|DATABASE\s+LINK|DIRECTORY|TABLESPACE|CLUSTER|CONTEXT|LIBRARY)\s+("
         + IDENT
@@ -611,8 +694,12 @@ def _statement(
                 exp.Pragma,
             ),
         ):
-            raise ValueError("costrutto senza AST strutturato")
-    except Exception as exc:
+            raise UnsupportedStatement("costrutto senza AST strutturato")
+    except (
+        sqlglot.errors.ParseError,
+        sqlglot.errors.TokenError,
+        UnsupportedStatement,
+    ) as exc:
         result.add(
             "sql_unparsed", raw, {"owner": owner, "parse_error": str(exc)[:600]}, loc
         )
@@ -632,72 +719,25 @@ def _statement(
         if isinstance(target, exp.Index):
             table = target.this
         name = sql_name(table)
-        result.add("ddl_" + kind, raw, {"name": name, "object_type": kind}, loc)
+        from dslm3.parsers.sql_shapes import columns, constraints, expression
+
+        declaration = {"name": name, "object_type": kind, "dialect": read or "generic"}
+        if isinstance(target, exp.Index):
+            declaration.update(
+                table=sql_name(target.args["table"]),
+                unique=bool(tree.args.get("unique")),
+                index=expression(target.args.get("params"), read),
+            )
+        if kind in {"view", "materialized view"}:
+            declaration["query"] = expression(tree.expression, read)
+        result.add("ddl_" + kind, raw, declaration, loc)
         if kind == "table" and isinstance(target, exp.Schema):
-            cols = []
-            for column in target.expressions:
-                if not isinstance(column, exp.ColumnDef):
-                    continue
-                cname = sql_name(column.this)
-                cols.append(cname)
-                constraints = [c.sql(dialect=read) for c in column.constraints]
-                result.add(
-                    "ddl_column",
-                    raw,
-                    {
-                        "name": name + "." + cname,
-                        "table": name,
-                        "column": cname,
-                        "datatype": column.args["kind"].sql(dialect=read),
-                        "constraints": constraints,
-                        "nullable": not any(
-                            isinstance(c.kind, exp.NotNullColumnConstraint)
-                            for c in column.constraints
-                        ),
-                    },
-                    loc,
-                )
-            schema[name] = cols
-            for constraint in target.find_all(exp.Reference):
-                referenced = constraint.this
-                other = (
-                    referenced.this
-                    if isinstance(referenced, exp.Schema)
-                    else referenced
-                )
-                local = constraint.find_ancestor(exp.ForeignKey, exp.ColumnDef)
-                local_cols = (
-                    [sql_name(x) for x in local.expressions]
-                    if isinstance(local, exp.ForeignKey)
-                    else [sql_name(local.this)]
-                    if local
-                    else []
-                )
-                result.add(
-                    "ddl_constraint",
-                    raw,
-                    {
-                        "table": name,
-                        "constraint_type": "foreign_key",
-                        "columns": local_cols,
-                        "target_table": sql_name(other),
-                        "target_columns": [sql_name(x) for x in referenced.expressions]
-                        if isinstance(referenced, exp.Schema)
-                        else [],
-                    },
-                    loc,
-                )
-            for pk in target.find_all(exp.PrimaryKey):
-                result.add(
-                    "ddl_constraint",
-                    raw,
-                    {
-                        "table": name,
-                        "constraint_type": "primary_key",
-                        "columns": [sql_name(x) for x in pk.expressions],
-                    },
-                    loc,
-                )
+            column_data = columns(target, name, read)
+            schema[name] = [c["column"] for c in column_data]
+            for column in column_data:
+                result.add("ddl_column", raw, column, loc)
+            for constraint in constraints(target, name, read):
+                result.add("ddl_constraint", raw, constraint, loc)
         if kind in {"view", "materialized view"}:
             owner = name
         if kind == "index" and isinstance(target, exp.Index):
@@ -712,12 +752,24 @@ def _statement(
                 loc,
             )
     elif isinstance(tree, exp.Alter):
+        from dslm3.parsers.sql_shapes import constraints
+
+        supported = bool(tree.args.get("actions")) and all(
+            isinstance(a, exp.AddConstraint) for a in tree.args["actions"]
+        )
         result.add(
             "ddl_alter",
             raw,
-            {"name": sql_name(tree.this), "ast": tree.sql(dialect=read)},
+            {
+                "name": sql_name(tree.this),
+                "ast": tree.sql(dialect=read),
+                "supported": supported,
+            },
             loc,
         )
+        if supported:
+            for constraint in constraints(tree, sql_name(tree.this), read):
+                result.add("ddl_constraint", raw, constraint, loc)
     elif isinstance(tree, (exp.Drop, exp.Grant, exp.Revoke)):
         result.add(
             "ddl_" + tree.key,
@@ -726,11 +778,20 @@ def _statement(
             loc,
         )
     else:
-        result.add(
-            "sql_statement", raw, {"owner": owner, "statement_type": tree.key}, loc
-        )
+        from dslm3.parsers.sql_shapes import statement
+
+        data = statement(tree, owner, [start, end], read)
+        result.add("sql_statement", raw, data, loc)
+        owner = owner or data["statement_id"]
     if owner:
         deps, unresolved = dependencies(tree, schema, parameters)
+        if result.evidence and any(
+            e["type"] == "sql_statement" and e["locator"] == loc
+            for e in result.evidence
+        ):
+            for e in result.evidence:
+                if e["type"] == "sql_statement" and e["locator"] == loc:
+                    e["data"]["unresolved_references"] = unresolved
         for dep in deps:
             result.add("sql_dependency", raw, {"source": owner, **dep}, loc)
         for item in unresolved:

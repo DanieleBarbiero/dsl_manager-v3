@@ -3,6 +3,7 @@ from __future__ import annotations
 import hashlib
 import json
 import os
+import re
 import tempfile
 import unicodedata
 from datetime import datetime, timezone
@@ -41,7 +42,9 @@ def now() -> str:
 
 
 def name_key(value: str) -> str:
-    return unicodedata.normalize("NFC", " ".join(value.split())).casefold()
+    # Preserve significant case and whitespace inside SQL quoted identifiers.
+    parts = re.split(r'("(?:""|[^"])*")', unicodedata.normalize("NFC", value))
+    return "".join(p if i % 2 else " ".join(p.split()).casefold() for i, p in enumerate(parts))
 
 
 def atomic_write(path: Path, data: str | bytes) -> None:

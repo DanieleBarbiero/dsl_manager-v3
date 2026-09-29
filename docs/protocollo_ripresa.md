@@ -25,7 +25,9 @@ Non creare ZIP come memoria di progetto. Conservare i singoli file. Un gate fall
 
 ## Ripresa della modifica workflow UI / workspace multipli
 
-Finché lo Step 09 è aperto:
+Questa sezione è storica rispetto all'incarico core del 29 settembre. Le prove
+workflow/workspace sono comprese nella suite e nel browser dell'acceptance corrente.
+Per riprodurre autonomamente la vecchia modifica:
 
 1. Verificare che `src/dslm3/workspaces.py` e `tests/test_workspaces.py` esistano.
 2. Eseguire almeno:
@@ -35,6 +37,31 @@ Finché lo Step 09 è aperto:
 4. Eseguire Vega M3 in un workspace nuovo.
 5. Correggere ogni regressione prima di aggiornare le prove/documenti come concluse.
 6. Solo dopo tutti i gate: decidere il version bump, aggiornare il rapporto di rilascio e rigenerare integralmente `release_manifest.json`.
+
+## Ripresa del core deterministico
+
+Checkpoint concluso: G01–G18 e COV/BIZ passed; 136 test, Vega deterministico 12/12,
+integrato 19/19, browser e wheel passati. Non resta implementazione obbligatoria
+aperta per questo incarico. Per un'ulteriore modifica ripartire dal rapporto e
+rieseguire i controlli pertinenti; i risultati correnti non certificano codice futuro.
+
+Restare su `feat/deterministic-core-upgrade`, HEAD di partenza
+`a7117e061b393123e3b7b2ec22bf171687756447`. Non creare altri branch né scrivere
+su remoti. Il checkout v1 contiene lavoro esterno all'incarico: non modificarlo.
+
+1. Leggere `docs/rapporto_core_deterministico.md` e
+   `reports/deterministic_core/final/acceptance.json`. In un report intermedio
+   l'assenza di `status` finale o un gate `not_run` significa esecuzione incompleta.
+2. Usare solo Python 3.12 x64 del progetto. I comandi nativi PowerShell 5.1 sono
+   in `docs/verifica_core_windows.md`; il wrapper conserva gli exit code.
+3. Per una nuova verifica scegliere una directory report distinta e un runtime
+   nuovo. Non sovrascrivere una prova conclusa mentre la si usa come evidenza.
+4. In caso di errore leggere il log del comando e il JUnit, correggere e ripetere
+   i controlli pertinenti. La chiusura richiede G01–G18 e COV/BIZ passed sullo
+   stesso snapshot dei sorgenti; uno stato dirty è atteso e viene hashato.
+5. Il manifest 3.0.0 rimane storico, esplicitamente non rigenerato per questi file.
+   Patch locale in `reports/deterministic_core/change.patch`, con nuovi file e
+   output Git binario; nessun database runtime o ambiente virtuale nella consegna.
 
 ## Workspace e interruzioni
 

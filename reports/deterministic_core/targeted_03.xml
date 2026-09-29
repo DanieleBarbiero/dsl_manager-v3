@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="5" skipped="0" tests="37" time="74.490" timestamp="2026-09-29T15:25:59.619651+02:00" hostname="DBARBIEROW"><testcase classname="tests.test_deterministic_lifecycle" name="test_windows_bytes_bom_paths_and_locations[utf-8-\n]" time="2.539"><failure message="AssertionError: {'results': [{'message': &quot;[Errno 2] No such file or directory: 'C:\\\\Users\\\\dbarbiero\\\\AppData\\\\Local\\\\Temp\\...rror', 'status': 'error', 'parse_id': 'PARSE_32df92e3f9e567aeecd3ad54', ...}], 'success': 0, 'partial': 0, 'errors': 1}&#10;assert 1 == 0">tmp_path = WindowsPath('C:/Users/dbarbiero/AppData/Local/Temp/pytest-of-dbarbiero/pytest-42/test_windows_bytes_bom_paths_a0')
+encoding = 'utf-8', newline = '\n'
+
+    @pytest.mark.parametrize("encoding,newline", [("utf-8", "\n"), ("utf-8", "\r\n"), ("utf-8-sig", "\r\n"), ("utf-16", "\n"), ("utf-16-be", "\r\n")])
+    def test_windows_bytes_bom_paths_and_locations(tmp_path, encoding, newline):
+        text = '-- città 日本\nCREATE TABLE "Tà" ("X" VARCHAR2(40));\nUPDATE "Tà" SET "X"=\'caffè 日本\';'.replace("\n", newline)
+        data = text.encode(encoding)
+        if encoding == "utf-16-be":
+            data = codecs.BOM_UTF16_BE + data
+        app = Application(tmp_path / "spazi e città")
+        app.store.configure({"sql_dialect": "oracle"})
+        rev = app.ingest("cartella con spazi/città.sql", data)
+        parsed = app.parse_all()
+&gt;       assert parsed["errors"] == 0, parsed
+E       AssertionError: {'results': [{'message': "[Errno 2] No such file or directory: 'C:\\\\Users\\\\dbarbiero\\\\AppData\\\\Local\\\\Temp\\...rror', 'status': 'error', 'parse_id': 'PARSE_32df92e3f9e567aeecd3ad54', ...}], 'success': 0, 'partial': 0, 'errors': 1}
+E       assert 1 == 0
+
+tests\test_deterministic_lifecycle.py:30: AssertionError</failure></testcase><testcase classname="tests.test_deterministic_lifecycle" name="test_windows_bytes_bom_paths_and_locations[utf-8-\r\n]" time="1.107"><failure message="AssertionError: {'results': [{'message': &quot;[Errno 2] No such file or directory: 'C:\\\\Users\\\\dbarbiero\\\\AppData\\\\Local\\\\Temp\\...rror', 'status': 'error', 'parse_id': 'PARSE_84351c0da05190bf95d76e66', ...}], 'success': 0, 'partial': 0, 'errors': 1}&#10;assert 1 == 0">tmp_path = WindowsPath('C:/Users/dbarbiero/AppData/Local/Temp/pytest-of-dbarbiero/pytest-42/test_windows_bytes_bom_paths_a1')
+encoding = 'utf-8', newline = '\r\n'
+
+    @pytest.mark.parametrize("encoding,newline", [("utf-8", "\n"), ("utf-8", "\r\n"), ("utf-8-sig", "\r\n"), ("utf-16", "\n"), ("utf-16-be", "\r\n")])
+    def test_windows_bytes_bom_paths_and_locations(tmp_path, encoding, newline):
+        text = '-- città 日本\nCREATE TABLE "Tà" ("X" VARCHAR2(40));\nUPDATE "Tà" SET "X"=\'caffè 日本\';'.replace("\n", newline)
+        data = text.encode(encoding)
+        if encoding == "utf-16-be":
+            data = codecs.BOM_UTF16_BE + data
+        app = Application(tmp_path / "spazi e città")
+        app.store.configure({"sql_dialect": "oracle"})
+        rev = app.ingest("cartella con spazi/città.sql", data)
+        parsed = app.parse_all()
+&gt;       assert parsed["errors"] == 0, parsed
+E       AssertionError: {'results': [{'message': "[Errno 2] No such file or directory: 'C:\\\\Users\\\\dbarbiero\\\\AppData\\\\Local\\\\Temp\\...rror', 'status': 'error', 'parse_id': 'PARSE_84351c0da05190bf95d76e66', ...}], 'success': 0, 'partial': 0, 'errors': 1}
+E       assert 1 == 0
+
+tests\test_deterministic_lifecycle.py:30: AssertionError</failure></testcase><testcase classname="tests.test_deterministic_lifecycle" name="test_windows_bytes_bom_paths_and_locations[utf-8-sig-\r\n]" time="1.108"><failure message="AssertionError: {'results': [{'message': &quot;[Errno 2] No such file or directory: 'C:\\\\Users\\\\dbarbiero\\\\AppData\\\\Local\\\\Temp\\...rror', 'status': 'error', 'parse_id': 'PARSE_201f036743f89a03a8cc044d', ...}], 'success': 0, 'partial': 0, 'errors': 1}&#10;assert 1 == 0">tmp_path = WindowsPath('C:/Users/dbarbiero/AppData/Local/Temp/pytest-of-dbarbiero/pytest-42/test_windows_bytes_bom_paths_a2')
+encoding = 'utf-8-sig', newline = '\r\n'
+
+    @pytest.mark.parametrize("encoding,newline", [("utf-8", "\n"), ("utf-8", "\r\n"), ("utf-8-sig", "\r\n"), ("utf-16", "\n"), ("utf-16-be", "\r\n")])
+    def test_windows_bytes_bom_paths_and_locations(tmp_path, encoding, newline):
+        text = '-- città 日本\nCREATE TABLE "Tà" ("X" VARCHAR2(40));\nUPDATE "Tà" SET "X"=\'caffè 日本\';'.replace("\n", newline)
+        data = text.encode(encoding)
+        if encoding == "utf-16-be":
+            data = codecs.BOM_UTF16_BE + data
+        app = Application(tmp_path / "spazi e città")
+        app.store.configure({"sql_dialect": "oracle"})
+        rev = app.ingest("cartella con spazi/città.sql", data)
+        parsed = app.parse_all()
+&gt;       assert parsed["errors"] == 0, parsed
+E       AssertionError: {'results': [{'message': "[Errno 2] No such file or directory: 'C:\\\\Users\\\\dbarbiero\\\\AppData\\\\Local\\\\Temp\\...rror', 'status': 'error', 'parse_id': 'PARSE_201f036743f89a03a8cc044d', ...}], 'success': 0, 'partial': 0, 'errors': 1}
+E       assert 1 == 0
+
+tests\test_deterministic_lifecycle.py:30: AssertionError</failure></testcase><testcase classname="tests.test_deterministic_lifecycle" name="test_windows_bytes_bom_paths_and_locations[utf-16-\n]" time="1.090"><failure message="AssertionError: {'results': [{'message': &quot;[Errno 2] No such file or directory: 'C:\\\\Users\\\\dbarbiero\\\\AppData\\\\Local\\\\Temp\\...rror', 'status': 'error', 'parse_id': 'PARSE_09d28aeb7f03446641c4bf64', ...}], 'success': 0, 'partial': 0, 'errors': 1}&#10;assert 1 == 0">tmp_path = WindowsPath('C:/Users/dbarbiero/AppData/Local/Temp/pytest-of-dbarbiero/pytest-42/test_windows_bytes_bom_paths_a3')
+encoding = 'utf-16', newline = '\n'
+
+    @pytest.mark.parametrize("encoding,newline", [("utf-8", "\n"), ("utf-8", "\r\n"), ("utf-8-sig", "\r\n"), ("utf-16", "\n"), ("utf-16-be", "\r\n")])
+    def test_windows_bytes_bom_paths_and_locations(tmp_path, encoding, newline):
+        text = '-- città 日本\nCREATE TABLE "Tà" ("X" VARCHAR2(40));\nUPDATE "Tà" SET "X"=\'caffè 日本\';'.replace("\n", newline)
+        data = text.encode(encoding)
+        if encoding == "utf-16-be":
+            data = codecs.BOM_UTF16_BE + data
+        app = Application(tmp_path / "spazi e città")
+        app.store.configure({"sql_dialect": "oracle"})
+        rev = app.ingest("cartella con spazi/città.sql", data)
+        parsed = app.parse_all()
+&gt;       assert parsed["errors"] == 0, parsed
+E       AssertionError: {'results': [{'message': "[Errno 2] No such file or directory: 'C:\\\\Users\\\\dbarbiero\\\\AppData\\\\Local\\\\Temp\\...rror', 'status': 'error', 'parse_id': 'PARSE_09d28aeb7f03446641c4bf64', ...}], 'success': 0, 'partial': 0, 'errors': 1}
+E       assert 1 == 0
+
+tests\test_deterministic_lifecycle.py:30: AssertionError</failure></testcase><testcase classname="tests.test_deterministic_lifecycle" name="test_windows_bytes_bom_paths_and_locations[utf-16-be-\r\n]" time="1.120"><failure message="AssertionError: {'results': [{'message': &quot;[Errno 2] No such file or directory: 'C:\\\\Users\\\\dbarbiero\\\\AppData\\\\Local\\\\Temp\\...rror', 'status': 'error', 'parse_id': 'PARSE_588a56be1cdf16d3803ceeb7', ...}], 'success': 0, 'partial': 0, 'errors': 1}&#10;assert 1 == 0">tmp_path = WindowsPath('C:/Users/dbarbiero/AppData/Local/Temp/pytest-of-dbarbiero/pytest-42/test_windows_bytes_bom_paths_a4')
+encoding = 'utf-16-be', newline = '\r\n'
+
+    @pytest.mark.parametrize("encoding,newline", [("utf-8", "\n"), ("utf-8", "\r\n"), ("utf-8-sig", "\r\n"), ("utf-16", "\n"), ("utf-16-be", "\r\n")])
+    def test_windows_bytes_bom_paths_and_locations(tmp_path, encoding, newline):
+        text = '-- città 日本\nCREATE TABLE "Tà" ("X" VARCHAR2(40));\nUPDATE "Tà" SET "X"=\'caffè 日本\';'.replace("\n", newline)
+        data = text.encode(encoding)
+        if encoding == "utf-16-be":
+            data = codecs.BOM_UTF16_BE + data
+        app = Application(tmp_path / "spazi e città")
+        app.store.configure({"sql_dialect": "oracle"})
+        rev = app.ingest("cartella con spazi/città.sql", data)
+        parsed = app.parse_all()
+&gt;       assert parsed["errors"] == 0, parsed
+E       AssertionError: {'results': [{'message': "[Errno 2] No such file or directory: 'C:\\\\Users\\\\dbarbiero\\\\AppData\\\\Local\\\\Temp\\...rror', 'status': 'error', 'parse_id': 'PARSE_588a56be1cdf16d3803ceeb7', ...}], 'success': 0, 'partial': 0, 'errors': 1}
+E       assert 1 == 0
+
+tests\test_deterministic_lifecycle.py:30: AssertionError</failure></testcase><testcase classname="tests.test_deterministic_lifecycle" name="test_chunk_configuration_all_paths_and_cache" time="7.320" /><testcase classname="tests.test_deterministic_lifecycle" name="test_rule_only_change_obsoletes_old_outputs_without_review_loss" time="2.534" /><testcase classname="tests.test_deterministic_lifecycle" name="test_schema2_upgrade_preserves_history" time="4.316" /><testcase classname="tests.test_deterministic_lifecycle" name="test_partial_ai_remains_visible_and_package_preserves_coverage" time="3.475" /><testcase classname="tests.test_deterministic_lifecycle" name="test_log_json_identical_occurrences_retry_and_no_conflict" time="1.789" /><testcase classname="tests.test_deterministic_lifecycle" name="test_call_overload_and_dialect_quoting" time="0.066" /><testcase classname="tests.test_deterministic_lifecycle" name="test_fk_inferred_target_key_order_and_insert_select" time="0.024" /><testcase classname="tests.test_deterministic_core" name="test_cov_01_missing_fk_retains_declaration" time="0.011" /><testcase classname="tests.test_deterministic_core" name="test_cov_02_missing_due_result_is_failure" time="0.017" /><testcase classname="tests.test_deterministic_core" name="test_cov_03_ambiguous_and_inconsistent" time="0.026" /><testcase classname="tests.test_deterministic_core" name="test_cov_04_composite_counts_and_cov_05_unexpected_resolution" time="0.052" /><testcase classname="tests.test_deterministic_core" name="test_cov_06_dependency_lifecycle_cache_and_history" time="7.826" /><testcase classname="tests.test_deterministic_core" name="test_cov_07_governance_and_cov_08_unknown_irrelevant" time="6.499" /><testcase classname="tests.test_deterministic_core" name="test_biz_01_02_05_06_08_business_cycle" time="9.694" /><testcase classname="tests.test_deterministic_core" name="test_biz_03_04_07_decrement_and_names" time="9.147" /><testcase classname="tests.test_deterministic_core" name="test_update_typed_literals[NULL-expected0]" time="0.004" /><testcase classname="tests.test_deterministic_core" name="test_update_typed_literals[''-expected1]" time="0.010" /><testcase classname="tests.test_deterministic_core" name="test_update_typed_literals[TRUE-expected2]" time="0.004" /><testcase classname="tests.test_deterministic_core" name="test_update_typed_literals[-123.456789012345678901-expected3]" time="0.008" /><testcase classname="tests.test_deterministic_core" name="test_update_typed_literals['001'-expected4]" time="0.006" /><testcase classname="tests.test_deterministic_core" name="test_update_typed_literals[('x')-expected5]" time="0.007" /><testcase classname="tests.test_deterministic_core" name="test_update_expression_context_and_real_conflicts" time="6.078" /><testcase classname="tests.test_deterministic_core" name="test_other_sql_shapes_ddl_and_quoted_resolver" time="0.046" /><testcase classname="tests.test_deterministic_core" name="test_chunk_exact_whitespace_fences[]" time="0.002" /><testcase classname="tests.test_deterministic_core" name="test_chunk_exact_whitespace_fences[ \n\n\t  ]" time="0.005" /><testcase classname="tests.test_deterministic_core" name="test_chunk_exact_whitespace_fences[# A\n\ntext\n\n### C\nlast]" time="0.004" /><testcase classname="tests.test_deterministic_core" name="test_chunk_exact_whitespace_fences[# A\n```sql\n# not heading\n```\n## B\nlast]" time="0.004" /><testcase classname="tests.test_deterministic_core" name="test_chunk_exact_whitespace_fences[xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]" time="0.003" /><testcase classname="tests.test_deterministic_core" name="test_chunk_exact_whitespace_fences[\r\n# Accenti \xe0 \u6f22\u5b57\r\n\t]" time="0.003" /><testcase classname="tests.test_deterministic_core" name="test_forms_resolution_modes_and_namespace" time="5.379" /><testcase classname="tests.test_deterministic_oracle" name="test_pinned_v1_ddl_oracle_superset" time="0.250" /><testcase classname="tests.test_deterministic_oracle" name="test_pinned_v1_db_code_forms_and_chunk_oracle" time="0.893" /></testsuite></testsuites>

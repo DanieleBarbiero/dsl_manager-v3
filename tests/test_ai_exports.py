@@ -52,7 +52,7 @@ def test_selection_coverage_explainability_and_budget(ready):
     ai = AI(ready)
     technical = ai.select("technical_extraction")
     domain = ai.select()
-    assert any("already_confirmed" in x["reason_codes"] for x in technical["items"])
+    assert any("deterministic_components_complete" in x["reason_codes"] for x in technical["items"])
     assert any(
         x["coverage"] == "confirmed" and x["outcome"] == "included"
         for x in domain["items"]

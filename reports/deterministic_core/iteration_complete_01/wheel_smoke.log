@@ -1,0 +1,2 @@
+installed code provenance: {'source_snapshot_sha256': 'a96c7667d9a581f8811dc4226329a908d8ea913514c655f197431376d77bf790', 'source_file_count': 42, 'head': None, 'branch': None, 'dirty': None}
+wheel: six real sources, resources, deterministic derivation passed

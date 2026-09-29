@@ -27,6 +27,8 @@ La numerazione è quindi intenzionalmente a ciclo: **00 → 01 → 02 → 03 →
 
 Il laboratorio automatizzato `python -m dslm3.lab --workspace ...` aggiunge risposte AI controllate e verifica l'intero round-trip. La sola acquisizione Vega nella UI non inventa un'interpretazione AI: i pacchetti devono essere elaborati esternamente e reimportati, oppure si può eseguire il laboratorio dichiaratamente simulato.
 
+Il laboratorio separato `python -m dslm3.deterministic_lab --workspace ... --report ...` verifica le stesse sei fonti senza AI e controlla i quattro slot UPDATE di Vega. Richiede un workspace nuovo. Le conferme nel laboratorio sono esplicitamente attribuite al revisore di test; nell'uso normale le proposte rimangono pending finché interviene una review autorizzata.
+
 Le fonti sono DDL Oracle, procedura/trigger, Forms XML, cinque eventi log, manuale DOCX e matrice XLSX. Il manuale indica P1 entro **30 minuti**, la matrice **1 ora**: il laboratorio conserva le due affermazioni come conflitto reale. Gli eventi log distinti non diventano falsi conflitti di stato.
 
 ## 3. Acquisire il proprio corpus
@@ -46,6 +48,12 @@ Un cambio di dialetto e una nuova elaborazione possono produrre evidenze diverse
 `success` indica che il parser ha terminato; leggere comunque gli avvisi. `partial` indica un risultato parziale dichiarato. `error` non produce evidenze consolidate e rimanda al log. SQL non riconosciuto resta testo con diagnostica e non viene trasformato in colonne inventate. Il worker ha timeout, limite di memoria e limite di output; un arresto per risorse è visibile.
 
 Per Excel OOXML la vista strutturale è autorevole per formule, cache, fogli nascosti, named range, tabelle, link e hash VBA. Il testo Docling serve alla lettura e all'AI. Le due viste consumano gli stessi byte. Macro e link non vengono eseguiti; formule e valori memorizzati non sono confusi.
+
+La copertura deterministica compare nei dettagli di stato ed è disponibile con `python -m dslm3 -w <workspace> coverage`. Aggiungere `--check` per un exit code nonzero sui gap. I contatori sono componenti, non candidati: un vincolo può richiedere più candidati. `derived=due` non basta se esistono componenti sconosciuti o bloccati. Una relazione assente per FK o colonna non risolta richiede di acquisire/correggere le dichiarazioni, rianalizzare e derivare; non si conferma una destinazione ipotizzata.
+
+La selezione `technical_extraction` esclude le evidenze completamente coperte anche quando le proposte sono pending o rejected. Un rifiuto umano non riapre automaticamente lo stesso lavoro per l'AI. Le evidenze parziali mostrano componenti coperti e residui; `domain_interpretation` rimane selezionabile. Per default il dominio non viene dedotto dal nome di tabella/colonna: un CHECK esplicito è estraibile, un workflow immaginato no.
+
+Per aggiornare un workspace esistente, conservarne prima una copia completa a server fermo. La riapertura migra lo schema; eseguire parse → derive → coverage, controllare le nuove proposte, quindi review → merge → reconcile. I vecchi supporti non correnti restano nello storico. Non riusare conferme per payload o versioni regola differenti. I dettagli e la prova della migrazione sono in [verifica Windows](verifica_core_windows.md).
 
 ## 5. Review, correzioni e conoscenza
 

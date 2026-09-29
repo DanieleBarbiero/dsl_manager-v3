@@ -1,0 +1,87 @@
+{
+  "actual": {
+    "by_format_type_subtype": {
+      ".txt/new_unknown/default": 1
+    },
+    "complete": false,
+    "context_fingerprint": "e831c7a6cf2ff6753c9cbb52737dd49ba19e8a21b3282705e9eceac22f8f32a5",
+    "contract_version": "4",
+    "counts": {
+      "active_evidence_count": 1,
+      "blocked_ambiguous_components": 0,
+      "blocked_inconsistent_components": 0,
+      "blocked_unresolved_components": 0,
+      "derived_components": 0,
+      "due_applicable_components": 0,
+      "due_missing_components": 0,
+      "evidence_only_components": 0,
+      "expected_components": 1,
+      "internal_errors": 0,
+      "supported_components": 0,
+      "unclassified_components": 1,
+      "unclassified_evidence_count": 1,
+      "unsupported_components": 0
+    },
+    "evidence": [
+      {
+        "components": [
+          {
+            "applicability": "not_required",
+            "candidate_ids": [],
+            "capability": "unclassified",
+            "context_fingerprint": "60e312d8abc172526c9cc24497666aecfc8c1578f2d190c4a134e49db2f080e4",
+            "governance": {},
+            "key": "unclassified",
+            "outcome": "unclassified",
+            "prerequisites": [
+              {
+                "basis_evidence_ids": [
+                  "unknown"
+                ],
+                "reason_code": "syntactic_extraction",
+                "status": "not_required"
+              }
+            ],
+            "reason_code": "unregistered_type_or_subtype",
+            "required_candidate_ids": [],
+            "resolution": {
+              "basis_evidence_ids": [
+                "unknown"
+              ],
+              "reason_code": "syntactic_extraction",
+              "status": "not_required"
+            },
+            "rule": null,
+            "rule_version": "4.0"
+          }
+        ],
+        "evidence_id": "unknown",
+        "format": ".txt",
+        "locator": {
+          "char_end": 10,
+          "char_start": 0,
+          "end_exclusive": true,
+          "heading_path": [],
+          "line_end": 1,
+          "line_start": 1,
+          "normalized": true,
+          "normalized_sha256": "1da02d708b161f822902d351f67055fdaa72eb45dac9aeb683b95f2f869ccc1f",
+          "offset_unit": "character",
+          "representation": "decoded_source"
+        },
+        "outcome": "unclassified",
+        "parser": "deterministic-parser/4:10e34e4867ae3a8b79d7347dc78038998b24c91bb843d8eded0297500df49f97",
+        "subtype": "default",
+        "type": "new_unknown"
+      }
+    ],
+    "rule_version": "4.0"
+  },
+  "expected": {
+    "gate_rejects": true,
+    "irrelevant_preserves_candidates": true,
+    "unclassified": 1
+  },
+  "origin": "executed_pytest_assertions",
+  "status": "passed"
+}

@@ -1,5 +1,22 @@
 # DSLM3 — obiettivi, gate e protocollo anti-drift
 
+## Incarico corrente — core deterministico, 2026-09-29
+
+Branch locale `feat/deterministic-core-upgrade`, baseline
+`a7117e061b393123e3b7b2ec22bf171687756447`, padre `fix/vega-quality-backlog`.
+Nessun nuovo branch, push o aggiornamento remoto. Le sezioni del rilascio 3.0.0
+qui sotto documentano la storia; non attestano questa modifica.
+
+Contratto e registro: [contratto v4](contratto_deterministico.md),
+[copertura per componente](copertura_deterministica.md).
+G01–G18, COV-01–08 e BIZ-01–08 sono tracciati con test e attesi nel
+[rapporto eseguibile](../reports/deterministic_core/final/acceptance.json).
+Stato conclusivo: **G01–G18, COV-01–08, BIZ-01–08 passed** su Windows nativo
+PowerShell 5.1 e Python 3.12.10 x64. Suite 136 passed, zero failed/skipped;
+Vega deterministico 12/12, integrato 19/19, browser e wheel verificati.
+Il [rapporto corrente](rapporto_core_deterministico.md) delimita il subset e
+i limiti. Il manifest 3.0.0 rimane storico e non certifica gli hash modificati.
+
 Stato iniziale: 17 settembre 2026. Richiesta: riscrittura di DSL Manager v1 con UI web locale centrale; GitHub solo lettura; tutti i deliverable in `gdrive/projects/dslm3`.
 Baseline: `DanieleBarbiero/dsl_manager-v1`, commit `c443b6a457b78229517a481fc5850dc8b44ecc3a`, applicazione 1.1.0, 77 file / 40.092 righe Python. Allegato: `dslm1+vega.md`.
 
@@ -38,12 +55,14 @@ Le prove correnti sono identificate in `rapporto_finale.md`; `reports/precedente
 
 ## Step 09 — chiarezza workflow UI e workspace multipli (modifica 2026-09-18)
 
-Stato iniziale della modifica: **patch preparata, gate da rieseguire**. Le prove 3.0.0 restano storiche finché la nuova versione non viene verificata.
+Stato iniziale storico: patch preparata, gate da rieseguire. Il 29 settembre i
+controlli seguenti sono stati verificati nuovamente nella suite/browser/Vega
+dell'acceptance core; le prove 3.0.0 rimangono storiche.
 
-- [ ] UI: rendere esplicito il percorso `00 → 01 → 02 → 03 → 02 → 04 → 02 → 05 → 06`, con 02 come gate ricorrente e la pipeline completa dichiarata come scorciatoia.
-- [ ] Workspace: registry locale, create/register/switch/forget non distruttivo, isolamento dei dati, switch bloccato durante job attivi.
-- [ ] Regressioni: `tests/test_workspaces.py`, `tests/test_web.py`, suite completa.
-- [ ] Browser: navigazione, guida E2E e selettore workspace verificati in Chromium desktop/mobile.
-- [ ] Vega: nuovo workspace, laboratorio 19/19 o spiegazione documentata di ogni variazione legittima.
-- [ ] Documentazione: README, manuale, architettura, limiti, diario, protocollo di ripresa e START_HERE allineati.
-- [ ] Release: solo dopo i gate, aggiornare rapporto finale/versione se previsto e rigenerare integralmente `release_manifest.json` con nuovi hash/conteggi; non riusare i 79 test come prova della modifica.
+- [x] UI: percorso `00 → 01 → 02 → 03 → 02 → 04 → 02 → 05 → 06`, con 02 come gate ricorrente e pipeline rapida come scorciatoia.
+- [x] Workspace: registry locale, create/register/switch/forget, isolamento e switch bloccato durante job attivi.
+- [x] Regressioni: `tests/test_workspaces.py`, `tests/test_web.py`, suite completa 136 passed.
+- [x] Browser: navigazione e selettore workspace in Chromium desktop/mobile.
+- [x] Vega integrato: nuovo workspace, 19/19; prova deterministica separata 12/12.
+- [x] Documentazione: README, manuale, architettura, limiti, diario, protocollo e START_HERE allineati.
+- [x] Consegna locale: rapporto corrente, patch binaria completa e manifest storico contrassegnato come non rigenerato/non certificante i file correnti, come consentito dall'incarico. Nessuna pubblicazione di release.

@@ -15,6 +15,9 @@
 | `web.py`, `static/` | FastAPI, coda seriale, protezioni localhost, UI HTML/CSS/JS |
 | `cli.py` | Fallback CLI sullo stesso dispatch applicativo |
 | `lab.py` | Laboratorio Vega riproducibile, con AI simulata esplicita |
+| `deterministic.py`, `resolution.py` | Registro componenti, inventario atteso, verifica copertura e risoluzione strutturale condivisa |
+| `parsers/sql_shapes.py` | Forme AST canoniche, literal tipizzati, vincoli e statement SQL |
+| `deterministic_lab.py`, `provenance.py` | Laboratorio senza AI e identificazione del codice realmente eseguito |
 
 ## Flusso e confini
 
@@ -23,6 +26,10 @@ Il servizio copia i byte immutabili, registra fonte/revisione e avvia un solo ti
 La derivazione e il rientro AI usano lo stesso contratto di candidato. Una review append-only modifica una testa transazionale; una correzione aggiunge una nuova foglia. Il merge materializza oggetti semantici e supporti. Le viste effettive richiedono almeno un supporto confermato, foglia, fonte attiva, revisione e interpretazione correnti.
 
 La migrazione SQLite 2 aggiunge `current_parse` e l'appartenenza dei candidati ai batch. L'identità delle proposte deterministiche dipende dall'evidenza e dal contenuto, non dall'intero corpus: aggiungere una fonte non riapre review invariate. Riattivare un parsing in cache crea un nuovo record append-only. Gli schemi hanno checksum e la migrazione preserva i registri precedenti.
+
+La migrazione 3 lascia intatte le migrazioni precedenti e aggiunge `deterministic_active`: indice ricostruibile dei candidati attualmente attesi. `current_derivation` integra l'eleggibilità dei supporti con versione regola e contesto risolutivo. Rimuovere una dichiarazione, cambiare schema o regola invalida il supporto corrente senza cancellare review, candidati o snapshot; ripristinare lo stesso contesto riattiva l'identità precedente. L'indice si aggiorna anche prima di una nuova derivazione, dopo ingest/scan/parse e riapertura.
+
+Il registro v4 inventaria i componenti di ogni evidenza prima di confrontarli con i candidati persistiti. Ogni componente distingue supporto, applicabilità, risoluzione, payload attesi e governance. Nessun tipo non registrato equivale implicitamente a evidence-only. L'identità dei fatti SQL include proprietario, occorrenza e ramo dello statement; default, nullability, vincoli e AST restano attributi strutturati fino agli export e al diff. Le dipendenze risolte conservano premesse e fingerprint; i blocchi rimangono visibili e non producono relazioni inventate.
 
 La storia resta disponibile; la revoca non cancella un oggetto fisico. La riconciliazione chiude il lavoro derivante da decisioni mutate e gli export normali ne verificano lo stato. Lo snapshot conserva supporti, citazioni, hash e sorgenti, separati dalle strutture semantiche.
 

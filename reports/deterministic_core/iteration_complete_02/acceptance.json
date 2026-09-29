@@ -1,0 +1,135 @@
+{
+  "baseline": "a7117e061b393123e3b7b2ec22bf171687756447",
+  "code_provenance": {
+    "branch": "feat/deterministic-core-upgrade",
+    "dirty": true,
+    "head": "a7117e061b393123e3b7b2ec22bf171687756447",
+    "source_file_count": 42,
+    "source_snapshot_sha256": "aca8319ed77ffbde95b2a987b63e2cd3037f84c1e800adcc82e3c8a3d111a3fa"
+  },
+  "commands": [
+    {
+      "argv": [
+        "C:\\_Support\\.venv_dslm3\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "check"
+      ],
+      "cwd": "C:\\Users\\dbarbiero\\OneDrive - Engineering Ingegneria Informatica S.p.A\\Projects\\dsl_manager-v3",
+      "duration_seconds": 1.61,
+      "exit_code": 0,
+      "log": "pip_check.log",
+      "name": "pip_check",
+      "status": "passed"
+    },
+    {
+      "argv": [
+        "C:\\_Support\\.venv_dslm3\\Scripts\\python.exe",
+        "-m",
+        "ruff",
+        "check",
+        "--select",
+        "F",
+        "src/dslm3",
+        "tests",
+        "scripts/core_acceptance.py"
+      ],
+      "cwd": "C:\\Users\\dbarbiero\\OneDrive - Engineering Ingegneria Informatica S.p.A\\Projects\\dsl_manager-v3",
+      "duration_seconds": 1.031,
+      "exit_code": 0,
+      "log": "lint.log",
+      "name": "lint",
+      "status": "passed"
+    },
+    {
+      "argv": [
+        "C:\\_Support\\.venv_dslm3\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "-q",
+        "--junitxml=C:\\Users\\dbarbiero\\OneDrive - Engineering Ingegneria Informatica S.p.A\\Projects\\dsl_manager-v3\\reports\\deterministic_core\\final\\pytest.xml"
+      ],
+      "cwd": "C:\\Users\\dbarbiero\\OneDrive - Engineering Ingegneria Informatica S.p.A\\Projects\\dsl_manager-v3",
+      "duration_seconds": 357.187,
+      "exit_code": 1,
+      "log": "pytest.log",
+      "name": "pytest",
+      "status": "failed"
+    }
+  ],
+  "environment": {
+    "architecture_bits": 64,
+    "packages": {
+      "docling": "2.128.0",
+      "fastapi": "0.141.1",
+      "numpy": "2.2.6",
+      "opencv-python": "4.12.0.88",
+      "playwright": "1.56.0",
+      "pytest": "9.1.1",
+      "sqlglot": "30.18.0"
+    },
+    "platform": "Windows-11-10.0.26200-SP0",
+    "powershell": "5.1.26100.9444",
+    "python": "C:\\_Support\\.venv_dslm3\\Scripts\\python.exe",
+    "version": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]"
+  },
+  "gates": {
+    "G01": {
+      "status": "not_run"
+    },
+    "G02": {
+      "status": "not_run"
+    },
+    "G03": {
+      "status": "not_run"
+    },
+    "G04": {
+      "status": "not_run"
+    },
+    "G05": {
+      "status": "not_run"
+    },
+    "G06": {
+      "status": "not_run"
+    },
+    "G07": {
+      "status": "not_run"
+    },
+    "G08": {
+      "status": "not_run"
+    },
+    "G09": {
+      "status": "not_run"
+    },
+    "G10": {
+      "status": "not_run"
+    },
+    "G11": {
+      "status": "not_run"
+    },
+    "G12": {
+      "status": "not_run"
+    },
+    "G13": {
+      "status": "not_run"
+    },
+    "G14": {
+      "status": "not_run"
+    },
+    "G15": {
+      "status": "not_run"
+    },
+    "G16": {
+      "status": "not_run"
+    },
+    "G17": {
+      "status": "not_run"
+    },
+    "G18": {
+      "status": "failed"
+    }
+  },
+  "runtime": "C:\\_Support\\dslm3_acceptance\\run_20260929_155248",
+  "status": "failed",
+  "termination_reason": "Stopped own acceptance process tree after pytest: 1 failed, 132 passed. Unsupported syntax used ValueError; corrected with dedicated UnsupportedStatement. Remaining commands not certified."
+}
