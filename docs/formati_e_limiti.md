@@ -2,7 +2,7 @@
 
 La copertura sotto distingue parser disponibile e prova eseguita. Gli esiti reali sono nei report della consegna; la disponibilità di un backend non implica che ogni documento del formato sia leggibile.
 
-Aggiornamento 2026-09-29: per il core corrente fanno fede [acceptance Windows](../reports/deterministic_core/final/acceptance.md) e [registro di copertura](copertura_deterministica.md). La prova PDF/OCR del rilascio 3.0.0 rimane storica; questa modifica non ricertifica tutti i backend Docling.
+Aggiornamento 2026-09-29: per il core corrente fanno fede [acceptance Windows](../reports/deterministic_core/closure_20260930/acceptance.md) e [registro di copertura](copertura_deterministica.md). La prova PDF/OCR del rilascio 3.0.0 rimane storica; questa modifica non ricertifica tutti i backend Docling.
 
 | Formato | Percorso | Prove eseguite |
 |---|---|---|

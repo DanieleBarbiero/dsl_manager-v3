@@ -1,0 +1,86 @@
+{
+  "actual": {
+    "diagnostics": [
+      {
+        "column": "MISSING",
+        "message": "Colonna trigger non presente nello schema.",
+        "reason": "column_absent_from_schema",
+        "severity": "warning",
+        "table": "T"
+      },
+      {
+        "column": "ABSENT",
+        "message": "Colonna trigger non presente nello schema.",
+        "reason": "column_absent_from_schema",
+        "severity": "warning",
+        "table": "T"
+      }
+    ],
+    "relations": [
+      [
+        "reads_from",
+        "TRG",
+        "T.A"
+      ],
+      [
+        "reads_from",
+        "TRG",
+        "T.B"
+      ],
+      [
+        "reads_from",
+        "TRG",
+        "T.ID"
+      ],
+      [
+        "trigger_on",
+        "TRG",
+        "T"
+      ],
+      [
+        "writes_to",
+        "TRG",
+        "T.A"
+      ],
+      [
+        "writes_to",
+        "TRG",
+        "T.B"
+      ]
+    ]
+  },
+  "expected": [
+    [
+      "reads_from",
+      "TRG",
+      "T.A"
+    ],
+    [
+      "reads_from",
+      "TRG",
+      "T.B"
+    ],
+    [
+      "reads_from",
+      "TRG",
+      "T.ID"
+    ],
+    [
+      "trigger_on",
+      "TRG",
+      "T"
+    ],
+    [
+      "writes_to",
+      "TRG",
+      "T.A"
+    ],
+    [
+      "writes_to",
+      "TRG",
+      "T.B"
+    ]
+  ],
+  "origin": "executed_pytest_assertions",
+  "status": "passed"
+}

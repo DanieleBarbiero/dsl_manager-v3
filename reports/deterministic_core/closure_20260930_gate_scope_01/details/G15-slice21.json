@@ -1,0 +1,329 @@
+{
+  "actual": {
+    "legacy_fk": [
+      {
+        "assertion_type": "explicit",
+        "candidate_id": "DDL_FK_RELATION_C43F4966D7944A0F",
+        "columns": [
+          "A",
+          "B"
+        ],
+        "confidence": "high",
+        "constraint_name": "FK",
+        "evidence_locator": {
+          "fragment_id": "F1",
+          "line_end": 1,
+          "line_start": 1,
+          "path_or_selector": "/F1",
+          "source_revision_id": "R1"
+        },
+        "evidence_text": "explicit evidence",
+        "fragment_id": "F1",
+        "producer_type": "deterministic_rule",
+        "record_type": "candidate_relation",
+        "referenced_columns": [
+          "X",
+          "Y"
+        ],
+        "relation_type": "references",
+        "rule_id": "ddl_fk_relation",
+        "rule_version": "1",
+        "source_entity": "T",
+        "source_revision_id": "R1",
+        "target_entity": "P"
+      }
+    ],
+    "v3_fk": {
+      "assertion_type": "explicit",
+      "attributes": {
+        "columns": [
+          "B",
+          "A"
+        ],
+        "constraint_id": "T.FK",
+        "target_columns": [
+          "Y",
+          "X"
+        ]
+      },
+      "candidate_id": "DER_3a17a6b63a4e068e2123e63b",
+      "chunk_id": null,
+      "confidence": "high",
+      "derivation": {
+        "component": "resolved_relation",
+        "context_fingerprint": "17a9b07301c57b113318c760f19b6ec31e19ba10ca3eb37bf23e8e517323a879",
+        "resolution": {
+          "basis_evidence_ids": [
+            "EV_301bcc9ad57add69bf7674f9",
+            "EV_68825e7abb159c66d294d0e4",
+            "EV_aff1e234a123e172848224d9",
+            "EV_b9730d2b58be266fc96b636a",
+            "EV_c2b6576ea5d5f37096d5f4ef",
+            "EV_c598400dd819ac2f57c7993d"
+          ],
+          "canonical_target": "P",
+          "columns": [
+            "B",
+            "A"
+          ],
+          "context_fingerprint": "17a9b07301c57b113318c760f19b6ec31e19ba10ca3eb37bf23e8e517323a879",
+          "prerequisites": [
+            {
+              "alternatives": [
+                "T"
+              ],
+              "basis_evidence_ids": [
+                "EV_aff1e234a123e172848224d9"
+              ],
+              "canonical_target": "T",
+              "context_fingerprint": "6eb257e8a99522e8cab7fbf936b5ecb458ef6ee72e9d0e630e674dc2c18dca34",
+              "lookup": {
+                "kind": "data_object",
+                "scope": "current_structural_evidence",
+                "segments": [
+                  "T"
+                ]
+              },
+              "prerequisites": [],
+              "raw_target": "T",
+              "reason_code": "unique_declaration",
+              "status": "resolved",
+              "target_kind": "data_object"
+            },
+            {
+              "alternatives": [
+                "P"
+              ],
+              "basis_evidence_ids": [
+                "EV_68825e7abb159c66d294d0e4"
+              ],
+              "canonical_target": "P",
+              "context_fingerprint": "c72cd85b3a1374f9e407092df7cc9d0434bc42a986657228e242e579f1364d17",
+              "lookup": {
+                "kind": "data_object",
+                "scope": "current_structural_evidence",
+                "segments": [
+                  "P"
+                ]
+              },
+              "prerequisites": [],
+              "raw_target": "P",
+              "reason_code": "unique_declaration",
+              "status": "resolved",
+              "target_kind": "data_object"
+            },
+            {
+              "alternatives": [
+                "T.B"
+              ],
+              "basis_evidence_ids": [
+                "EV_301bcc9ad57add69bf7674f9",
+                "EV_aff1e234a123e172848224d9"
+              ],
+              "canonical_target": "T.B",
+              "context_fingerprint": "6a8ad795e91212e551080b588809afa381623e5971a17bc21a86db89b3cfe87c",
+              "lookup": {
+                "kind": "column",
+                "scope": "current_structural_evidence",
+                "segments": [
+                  "T",
+                  "B"
+                ]
+              },
+              "prerequisites": [
+                {
+                  "alternatives": [
+                    "T"
+                  ],
+                  "basis_evidence_ids": [
+                    "EV_aff1e234a123e172848224d9"
+                  ],
+                  "canonical_target": "T",
+                  "context_fingerprint": "6eb257e8a99522e8cab7fbf936b5ecb458ef6ee72e9d0e630e674dc2c18dca34",
+                  "lookup": {
+                    "kind": "data_object",
+                    "scope": "current_structural_evidence",
+                    "segments": [
+                      "T"
+                    ]
+                  },
+                  "prerequisites": [],
+                  "raw_target": "T",
+                  "reason_code": "unique_declaration",
+                  "status": "resolved",
+                  "target_kind": "data_object"
+                }
+              ],
+              "raw_target": "T.B",
+              "reason_code": "unique_declaration",
+              "status": "resolved",
+              "target_kind": "column"
+            },
+            {
+              "alternatives": [
+                "T.A"
+              ],
+              "basis_evidence_ids": [
+                "EV_aff1e234a123e172848224d9",
+                "EV_c598400dd819ac2f57c7993d"
+              ],
+              "canonical_target": "T.A",
+              "context_fingerprint": "2a7549fe2d981ebef10454d66199c3b62cdf04ac289849cdbffb52b04524c44d",
+              "lookup": {
+                "kind": "column",
+                "scope": "current_structural_evidence",
+                "segments": [
+                  "T",
+                  "A"
+                ]
+              },
+              "prerequisites": [
+                {
+                  "alternatives": [
+                    "T"
+                  ],
+                  "basis_evidence_ids": [
+                    "EV_aff1e234a123e172848224d9"
+                  ],
+                  "canonical_target": "T",
+                  "context_fingerprint": "6eb257e8a99522e8cab7fbf936b5ecb458ef6ee72e9d0e630e674dc2c18dca34",
+                  "lookup": {
+                    "kind": "data_object",
+                    "scope": "current_structural_evidence",
+                    "segments": [
+                      "T"
+                    ]
+                  },
+                  "prerequisites": [],
+                  "raw_target": "T",
+                  "reason_code": "unique_declaration",
+                  "status": "resolved",
+                  "target_kind": "data_object"
+                }
+              ],
+              "raw_target": "T.A",
+              "reason_code": "unique_declaration",
+              "status": "resolved",
+              "target_kind": "column"
+            },
+            {
+              "alternatives": [
+                "P.Y"
+              ],
+              "basis_evidence_ids": [
+                "EV_68825e7abb159c66d294d0e4",
+                "EV_b9730d2b58be266fc96b636a"
+              ],
+              "canonical_target": "P.Y",
+              "context_fingerprint": "4ef5891ad3087eb28fb4838b504484768b855d67e78e44d9694f00e9ab3f6e07",
+              "lookup": {
+                "kind": "column",
+                "scope": "current_structural_evidence",
+                "segments": [
+                  "P",
+                  "Y"
+                ]
+              },
+              "prerequisites": [
+                {
+                  "alternatives": [
+                    "P"
+                  ],
+                  "basis_evidence_ids": [
+                    "EV_68825e7abb159c66d294d0e4"
+                  ],
+                  "canonical_target": "P",
+                  "context_fingerprint": "c72cd85b3a1374f9e407092df7cc9d0434bc42a986657228e242e579f1364d17",
+                  "lookup": {
+                    "kind": "data_object",
+                    "scope": "current_structural_evidence",
+                    "segments": [
+                      "P"
+                    ]
+                  },
+                  "prerequisites": [],
+                  "raw_target": "P",
+                  "reason_code": "unique_declaration",
+                  "status": "resolved",
+                  "target_kind": "data_object"
+                }
+              ],
+              "raw_target": "P.Y",
+              "reason_code": "unique_declaration",
+              "status": "resolved",
+              "target_kind": "column"
+            },
+            {
+              "alternatives": [
+                "P.X"
+              ],
+              "basis_evidence_ids": [
+                "EV_68825e7abb159c66d294d0e4",
+                "EV_c2b6576ea5d5f37096d5f4ef"
+              ],
+              "canonical_target": "P.X",
+              "context_fingerprint": "8f6349916b2bcc368c5a3ae925fb97802aa4278aaec67ca09ac0a6a4a7112fc5",
+              "lookup": {
+                "kind": "column",
+                "scope": "current_structural_evidence",
+                "segments": [
+                  "P",
+                  "X"
+                ]
+              },
+              "prerequisites": [
+                {
+                  "alternatives": [
+                    "P"
+                  ],
+                  "basis_evidence_ids": [
+                    "EV_68825e7abb159c66d294d0e4"
+                  ],
+                  "canonical_target": "P",
+                  "context_fingerprint": "c72cd85b3a1374f9e407092df7cc9d0434bc42a986657228e242e579f1364d17",
+                  "lookup": {
+                    "kind": "data_object",
+                    "scope": "current_structural_evidence",
+                    "segments": [
+                      "P"
+                    ]
+                  },
+                  "prerequisites": [],
+                  "raw_target": "P",
+                  "reason_code": "unique_declaration",
+                  "status": "resolved",
+                  "target_kind": "data_object"
+                }
+              ],
+              "raw_target": "P.X",
+              "reason_code": "unique_declaration",
+              "status": "resolved",
+              "target_kind": "column"
+            }
+          ],
+          "raw_target": "P",
+          "reason_code": "foreign_key_endpoints_verified",
+          "source": "T",
+          "status": "resolved",
+          "target_columns": [
+            "Y",
+            "X"
+          ]
+        },
+        "rule_version": "4.0"
+      },
+      "deterministic_contract": "4",
+      "evidence_id": "EV_eaa70d43056f141e12d1b9a5",
+      "evidence_text": "CREATE TABLE T(A NUMBER,B NUMBER,CONSTRAINT FK FOREIGN KEY(B,A) REFERENCES P(Y,X));",
+      "fragment_id": "EV_eaa70d43056f141e12d1b9a5",
+      "record_type": "candidate_relation",
+      "relation_type": "foreign_key",
+      "source_entity": "T",
+      "source_revision_id": "REV_test",
+      "target_entity": "P"
+    }
+  },
+  "expected": "ordered FK, idempotence, pending, missing target",
+  "origin": "executed_pytest_assertions",
+  "status": "passed"
+}

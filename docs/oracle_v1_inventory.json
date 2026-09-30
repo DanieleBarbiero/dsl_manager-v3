@@ -1,0 +1,77 @@
+{
+  "v1_commit": "8b576eb605b2509ebe84785aae6b2d1e94046b8b",
+  "requirement": "Prompt v1.3 section 13; information oracle, no nominal schema cloning",
+  "mapping": "docs/oracle_v1_chiusura.md",
+  "files": [
+    {
+      "path": "src/dsl_mngr/core/schema_resolution.py",
+      "sha256": "114f996a10aaf91c90b2e3c36f100d7623948e44a2dfe7c7399dba8d0ceffdf9",
+      "bytes": 4710
+    },
+    {
+      "path": "src/dsl_mngr/core/candidate_derivation.py",
+      "sha256": "72d7cdd339fbf5035fd82a6493645166ff486b5dc5279bb25004a8cab486c31a",
+      "bytes": 80042
+    },
+    {
+      "path": "src/dsl_mngr/core/ddl_parser.py",
+      "sha256": "d1002b79f69a415e6084b4f59f31a176d90837530dfa0f7b4d2fef9626b9dc45",
+      "bytes": 42060
+    },
+    {
+      "path": "src/dsl_mngr/core/db_code_parser.py",
+      "sha256": "a93ddb5a9c585472279320ee36312a15dbde3b82c3f5603d81d0c14eb3528122",
+      "bytes": 35073
+    },
+    {
+      "path": "src/dsl_mngr/core/xml_form_parser.py",
+      "sha256": "c3f88b8eec22bfe35367af7708bf2ae6d3a490e680e3f6a84914ec954990927e",
+      "bytes": 23756
+    },
+    {
+      "path": "src/dsl_mngr/core/chunking.py",
+      "sha256": "edba84a758d99bf4641a8e94b0da08766a8b23439c231472997a86b5d8c9dabb",
+      "bytes": 11781
+    },
+    {
+      "path": "src/dsl_mngr/core/conflict_semantics.py",
+      "sha256": "cd38bfb44c0edc08b4c3be385678b7d3a45ee7da66001672dfb311f60aa95b34",
+      "bytes": 1820
+    },
+    {
+      "path": "tests/test_slice_11_chunking.py",
+      "sha256": "ed2983b28be67b61612fbb4af3c9fb72b834ec3beac16501d4c4ca8ed4e1f1ca",
+      "bytes": 14417
+    },
+    {
+      "path": "tests/test_slice_12_parse_ddl.py",
+      "sha256": "432c9c9cdf9c7ac366ea84769de1b546666a121ba50f4a909f6d565a7a5f8d13",
+      "bytes": 15729
+    },
+    {
+      "path": "tests/test_slice_13_parse_xml_form.py",
+      "sha256": "7176311a35740d576f10e482411191388ea19a277d624bba7e71fe4976efa995",
+      "bytes": 16851
+    },
+    {
+      "path": "tests/test_slice_14_parse_db_code_log.py",
+      "sha256": "9c976bfe86cef4b37919690b303e50632e618ac3fc5d96694484970f4b2728c6",
+      "bytes": 26300
+    },
+    {
+      "path": "tests/test_slice_21_deterministic_derivation.py",
+      "sha256": "bf96f276181cd60cb99efbfd33b1b7cd29b9bdd4622d6d62a47ced2f3a570632",
+      "bytes": 17121
+    },
+    {
+      "path": "tests/test_slice_25_excel_candidates.py",
+      "sha256": "4cb139b7ebcab1bb23438c474f383c9d0f92f51288d91cc9533b9799f861a7f0",
+      "bytes": 20306
+    },
+    {
+      "path": "tests/test_slice_32_semantic_integrity.py",
+      "sha256": "660a49101bfea6601f98468d1bf58272f7fd229b09b8819c045c5a0587ab333f",
+      "bytes": 16594
+    }
+  ]
+}

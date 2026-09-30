@@ -132,6 +132,19 @@ aggiungono Windows, migrazioni, rule-only, cache e governance dei residui.
 `test_deterministic_oracle.py` legge i moduli v1 dal commit
 `8b576eb605b2509ebe84785aae6b2d1e94046b8b`, senza modificare il checkout v1.
 Golden OOXML e fixture business hanno attesi indipendenti.
-Le prove definitive e i comandi sono in `reports/deterministic_core/final`;
+Le prove correnti e i comandi sono in `reports/deterministic_core/closure_20260930`;
+`final/` conserva la prova storica del 29 settembre. La chiusura G05/G15/G18
+è descritta in `oracle_v1_chiusura.md` e `closure_checks.json`;
 le iterazioni precedenti documentano anche errori e correzioni e non certificano
 lo snapshot finale.
+
+
+## Residui chiusi con prove nominate
+
+G05 è collegato a `test_trigger_new_old_g05_table_binding_and_schema_diagnostics`.
+G15 comprende i confronti diretti di schema_resolution e candidate_derivation
+(slices21/25/32), oltre agli oracle DDL/DB/XML/chunk precedenti. La matrice
+`oracle_v1_chiusura.md` distingue informazioni conservate, rappresentazioni v3
+più complete, difetti v1 dimostrati e dettagli amministrativi non applicabili.
+G18 verifica artefatti e provenienza, non soltanto exit code; i controlli manuali
+sono espliciti in `revisione_chiusura_core.json` e legati allo snapshot esaminato.

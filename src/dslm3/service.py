@@ -234,6 +234,10 @@ class Application:
             "max_file_bytes": config["max_file_bytes"],
             "max_evidence": config["max_evidence"],
         }
+        if source.suffix.lower() in {".xlsx", ".xlsm"}:
+            from dslm3.parsers.documents import WORKBOOK_CONTRACT
+
+            relevant["workbook_contract"] = WORKBOOK_CONTRACT
         parser_version = "deterministic-parser/4:" + digest(relevant)
         cached = self.store.one(
             "SELECT * FROM parses WHERE revision_id=? AND parser_version=? AND status IN ('success','partial') ORDER BY created_at DESC LIMIT 1",

@@ -9,7 +9,7 @@ Applicazione locale per trasformare file tecnici e documentali in conoscenza ver
 3. Esegui **`avvia.cmd`**. Si apre `http://127.0.0.1:8765`.
 4. In **Impostazioni (00)** scegli identità/policy; in **Fonti (01)** carica Vega o il tuo corpus. Il percorso consigliato è esplicito: analizza → genera proposte → **Review + consolida (02)**. AI (03) e Temporalità (04) sono rami opzionali che ritornano sempre al gate 02.
 
-Il collaudo del core deterministico usa Windows nativo, PowerShell 5.1 e Python 3.12 x64 del progetto. Comandi, ambiente ed esiti correnti sono in [verifica Windows](docs/verifica_core_windows.md) e [acceptance](reports/deterministic_core/final/acceptance.md). Non servono WSL, Docker, Node o un account AI.
+Il collaudo del core deterministico usa Windows nativo, PowerShell 5.1 e Python 3.12 x64 del progetto. Comandi, ambiente ed esiti correnti sono in [verifica Windows](docs/verifica_core_windows.md) e [acceptance](reports/deterministic_core/closure_20260930/acceptance.md). Non servono WSL, Docker, Node o un account AI.
 
 ## Avvio su Linux
 

@@ -1,0 +1,1963 @@
+{
+  "actual": {
+    "legacy_candidates": [
+      {
+        "assertion_type": "explicit",
+        "candidate_id": "EXCEL_WORKBOOK_FACT_611460E9BC470C59",
+        "confidence": "high",
+        "entity_name": "excel_workbook:751848e1c7c91bf7406a35a88d23b62c2b4f6923fcd5fd5db77290e26b6e0498",
+        "evidence_locator": {
+          "coordinate": "A1:B3",
+          "fragment_id": "FRAG_000001",
+          "manifest_id": "M1",
+          "part_name": "xl/worksheets/sheet1.xml",
+          "path_or_selector": "A1:B3",
+          "sheet_name": "Main",
+          "source_revision_id": "R1"
+        },
+        "evidence_text": "{\"fragment_id\": \"FRAG_000001\", \"fragment_type\": \"excel_region\", \"sequence\": 1, \"source_revision_id\": \"R1\", \"fragment_hash\": \"894ddbe8327e1de39403c788ecaff268ae39813c3d26a4f7d2c5c4831b691cbf\", \"sheet\": {\"index\": 0, \"name\": \"Main\"}, \"start_cell\": \"A1\", \"end_cell\": \"B3\", \"region_kind\": \"connected_cells\", \"region_hash\": \"6261d9b68bc095f2e059d476771562b6e9f2229acf9f5722d337cabb533e61c4\", \"detector\": {\"id\": \"connected_non_empty_cells\", \"version\": \"1\"}, \"cells\": [{\"coordinate\": \"A1\", \"row\": 1, \"column\": 1, \"type\": \"string\", \"value\": \"Code\", \"formula\": null, \"cached_value\": null, \"style_id\": 0}, {\"coordinate\": \"B1\", \"row\": 1, \"column\": 2, \"type\": \"string\", \"value\": \"Amount\", \"formula\": null, \"cached_value\": null, \"style_id\": 0}, {\"coordinate\": \"A2\", \"row\": 2, \"column\": 1, \"type\": \"string\", \"value\": \"A\", \"formula\": null, \"cached_value\": null, \"style_id\": 0}, {\"coordinate\": \"B2\", \"row\": 2, \"column\": 2, \"type\": \"number\", \"value\": \"10\", \"formula\": null, \"cached_value\": null, \"style_id\": 0}, {\"coordinate\": \"A3\", \"row\": 3, \"column\": 1, \"type\": \"string\", \"value\": \"B\", \"formula\": null, \"cached_value\": null, \"style_id\": 0}, {\"coordinate\": \"B3\", \"row\": 3, \"column\": 2, \"type\": \"number\", \"value\": \"20\", \"formula\": null, \"cached_value\": null, \"style_id\": 0}], \"locator\": {\"part_name\": \"xl/worksheets/sheet1.xml\", \"range\": \"A1:B3\"}}",
+        "fact_type": "excel_workbook",
+        "fragment_id": "FRAG_000001",
+        "manifest_id": "M1",
+        "producer_type": "deterministic_rule",
+        "property_name": "object_type",
+        "property_value": "excel_workbook",
+        "record_type": "candidate_fact",
+        "rule_id": "excel_workbook_fact",
+        "rule_version": "1",
+        "source_revision_id": "R1",
+        "technical_attributes": {
+          "calculation_properties": {
+            "calcId": "124519",
+            "calcMode": "manual",
+            "calcOnSave": "0"
+          },
+          "date_system": "1900",
+          "macro_presence": false,
+          "package_content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml",
+          "part_name": "xl/workbook.xml",
+          "source_extension": ".xlsx"
+        }
+      },
+      {
+        "assertion_type": "explicit",
+        "candidate_id": "EXCEL_SHEET_FACT_2A0961F378237DF0",
+        "confidence": "high",
+        "entity_name": "excel_workbook:751848e1c7c91bf7406a35a88d23b62c2b4f6923fcd5fd5db77290e26b6e0498/sheet:0",
+        "evidence_locator": {
+          "coordinate": "A1:B3",
+          "fragment_id": "FRAG_000001",
+          "manifest_id": "M1",
+          "part_name": "xl/worksheets/sheet1.xml",
+          "path_or_selector": "A1:B3",
+          "sheet_name": "Main",
+          "source_revision_id": "R1"
+        },
+        "evidence_text": "{\"fragment_id\": \"FRAG_000001\", \"fragment_type\": \"excel_region\", \"sequence\": 1, \"source_revision_id\": \"R1\", \"fragment_hash\": \"894ddbe8327e1de39403c788ecaff268ae39813c3d26a4f7d2c5c4831b691cbf\", \"sheet\": {\"index\": 0, \"name\": \"Main\"}, \"start_cell\": \"A1\", \"end_cell\": \"B3\", \"region_kind\": \"connected_cells\", \"region_hash\": \"6261d9b68bc095f2e059d476771562b6e9f2229acf9f5722d337cabb533e61c4\", \"detector\": {\"id\": \"connected_non_empty_cells\", \"version\": \"1\"}, \"cells\": [{\"coordinate\": \"A1\", \"row\": 1, \"column\": 1, \"type\": \"string\", \"value\": \"Code\", \"formula\": null, \"cached_value\": null, \"style_id\": 0}, {\"coordinate\": \"B1\", \"row\": 1, \"column\": 2, \"type\": \"string\", \"value\": \"Amount\", \"formula\": null, \"cached_value\": null, \"style_id\": 0}, {\"coordinate\": \"A2\", \"row\": 2, \"column\": 1, \"type\": \"string\", \"value\": \"A\", \"formula\": null, \"cached_value\": null, \"style_id\": 0}, {\"coordinate\": \"B2\", \"row\": 2, \"column\": 2, \"type\": \"number\", \"value\": \"10\", \"formula\": null, \"cached_value\": null, \"style_id\": 0}, {\"coordinate\": \"A3\", \"row\": 3, \"column\": 1, \"type\": \"string\", \"value\": \"B\", \"formula\": null, \"cached_value\": null, \"style_id\": 0}, {\"coordinate\": \"B3\", \"row\": 3, \"column\": 2, \"type\": \"number\", \"value\": \"20\", \"formula\": null, \"cached_value\": null, \"style_id\": 0}], \"locator\": {\"part_name\": \"xl/worksheets/sheet1.xml\", \"range\": \"A1:B3\"}}",
+        "fact_type": "excel_sheet",
+        "fragment_id": "FRAG_000001",
+        "manifest_id": "M1",
+        "producer_type": "deterministic_rule",
+        "property_name": "object_type",
+        "property_value": "excel_sheet",
+        "record_type": "candidate_fact",
+        "rule_id": "excel_sheet_fact",
+        "rule_version": "1",
+        "source_revision_id": "R1",
+        "technical_attributes": {
+          "dimensions": {
+            "declared": "A1:H7",
+            "max_column": 8,
+            "max_row": 7,
+            "min_column": 1,
+            "min_row": 1
+          },
+          "part_name": "xl/worksheets/sheet1.xml",
+          "relationship_id": "rId1",
+          "sheet_index": 0,
+          "sheet_name": "Main",
+          "visibility": "visible"
+        }
+      },
+      {
+        "assertion_type": "explicit",
+        "candidate_id": "EXCEL_SHEET_FACT_E431C22CFC02EFCD",
+        "confidence": "high",
+        "entity_name": "excel_workbook:751848e1c7c91bf7406a35a88d23b62c2b4f6923fcd5fd5db77290e26b6e0498/sheet:1",
+        "evidence_locator": {
+          "coordinate": "A1",
+          "fragment_id": "FRAG_000007",
+          "manifest_id": "M1",
+          "part_name": "xl/worksheets/sheet2.xml",
+          "path_or_selector": "A1",
+          "sheet_name": "Hidden",
+          "source_revision_id": "R1"
+        },
+        "evidence_text": "{\"fragment_id\": \"FRAG_000007\", \"fragment_type\": \"excel_region\", \"sequence\": 7, \"source_revision_id\": \"R1\", \"fragment_hash\": \"cb1b4788c6bae74b6d20404cb4c9ccaea34e61f55df2cde940506da7c0a87b45\", \"sheet\": {\"index\": 1, \"name\": \"Hidden\"}, \"start_cell\": \"A1\", \"end_cell\": \"A1\", \"region_kind\": \"connected_cells\", \"region_hash\": \"cffd66e761069246aacee1801330173d9b6380fc7f2dbd00f7f202d43b4cba38\", \"detector\": {\"id\": \"connected_non_empty_cells\", \"version\": \"1\"}, \"cells\": [{\"coordinate\": \"A1\", \"row\": 1, \"column\": 1, \"type\": \"number\", \"value\": \"7\", \"formula\": null, \"cached_value\": null, \"style_id\": 0}], \"locator\": {\"part_name\": \"xl/worksheets/sheet2.xml\", \"range\": \"A1\"}}",
+        "fact_type": "excel_sheet",
+        "fragment_id": "FRAG_000007",
+        "manifest_id": "M1",
+        "producer_type": "deterministic_rule",
+        "property_name": "object_type",
+        "property_value": "excel_sheet",
+        "record_type": "candidate_fact",
+        "rule_id": "excel_sheet_fact",
+        "rule_version": "1",
+        "source_revision_id": "R1",
+        "technical_attributes": {
+          "dimensions": {
+            "declared": "A1",
+            "max_column": 1,
+            "max_row": 1,
+            "min_column": 1,
+            "min_row": 1
+          },
+          "part_name": "xl/worksheets/sheet2.xml",
+          "relationship_id": "rId2",
+          "sheet_index": 1,
+          "sheet_name": "Hidden",
+          "visibility": "hidden"
+        }
+      },
+      {
+        "assertion_type": "explicit",
+        "candidate_id": "EXCEL_SHEET_FACT_254696B3491D69E9",
+        "confidence": "high",
+        "entity_name": "excel_workbook:751848e1c7c91bf7406a35a88d23b62c2b4f6923fcd5fd5db77290e26b6e0498/sheet:2",
+        "evidence_locator": {
+          "coordinate": "B2",
+          "fragment_id": "FRAG_000008",
+          "manifest_id": "M1",
+          "part_name": "xl/worksheets/sheet3.xml",
+          "path_or_selector": "B2",
+          "sheet_name": "VeryHidden",
+          "source_revision_id": "R1"
+        },
+        "evidence_text": "{\"fragment_id\": \"FRAG_000008\", \"fragment_type\": \"excel_region\", \"sequence\": 8, \"source_revision_id\": \"R1\", \"fragment_hash\": \"e31e12301337a9e061bf372a329061eb3101e3baf0b1207b7bc3ec8842168ffa\", \"sheet\": {\"index\": 2, \"name\": \"VeryHidden\"}, \"start_cell\": \"B2\", \"end_cell\": \"B2\", \"region_kind\": \"connected_cells\", \"region_hash\": \"f76bca447ae67dab7dd5d5a15de1850b22c218b02aec78e0a4aa1af16b409712\", \"detector\": {\"id\": \"connected_non_empty_cells\", \"version\": \"1\"}, \"cells\": [{\"coordinate\": \"B2\", \"row\": 2, \"column\": 2, \"type\": \"string\", \"value\": \"very hidden evidence\", \"formula\": null, \"cached_value\": null, \"style_id\": 0}], \"locator\": {\"part_name\": \"xl/worksheets/sheet3.xml\", \"range\": \"B2\"}}",
+        "fact_type": "excel_sheet",
+        "fragment_id": "FRAG_000008",
+        "manifest_id": "M1",
+        "producer_type": "deterministic_rule",
+        "property_name": "object_type",
+        "property_value": "excel_sheet",
+        "record_type": "candidate_fact",
+        "rule_id": "excel_sheet_fact",
+        "rule_version": "1",
+        "source_revision_id": "R1",
+        "technical_attributes": {
+          "dimensions": {
+            "declared": "B2",
+            "max_column": 2,
+            "max_row": 2,
+            "min_column": 2,
+            "min_row": 2
+          },
+          "part_name": "xl/worksheets/sheet3.xml",
+          "relationship_id": "rId3",
+          "sheet_index": 2,
+          "sheet_name": "VeryHidden",
+          "visibility": "very_hidden"
+        }
+      },
+      {
+        "assertion_type": "explicit",
+        "candidate_id": "EXCEL_REGION_FACT_7F85094AFBB9F953",
+        "confidence": "high",
+        "entity_name": "excel_workbook:751848e1c7c91bf7406a35a88d23b62c2b4f6923fcd5fd5db77290e26b6e0498/sheet:0/region:A1:B3",
+        "evidence_locator": {
+          "coordinate": "A1:B3",
+          "fragment_id": "FRAG_000001",
+          "manifest_id": "M1",
+          "part_name": "xl/worksheets/sheet1.xml",
+          "path_or_selector": "A1:B3",
+          "sheet_name": "Main",
+          "source_revision_id": "R1"
+        },
+        "evidence_text": "{\"fragment_id\": \"FRAG_000001\", \"fragment_type\": \"excel_region\", \"sequence\": 1, \"source_revision_id\": \"R1\", \"fragment_hash\": \"894ddbe8327e1de39403c788ecaff268ae39813c3d26a4f7d2c5c4831b691cbf\", \"sheet\": {\"index\": 0, \"name\": \"Main\"}, \"start_cell\": \"A1\", \"end_cell\": \"B3\", \"region_kind\": \"connected_cells\", \"region_hash\": \"6261d9b68bc095f2e059d476771562b6e9f2229acf9f5722d337cabb533e61c4\", \"detector\": {\"id\": \"connected_non_empty_cells\", \"version\": \"1\"}, \"cells\": [{\"coordinate\": \"A1\", \"row\": 1, \"column\": 1, \"type\": \"string\", \"value\": \"Code\", \"formula\": null, \"cached_value\": null, \"style_id\": 0}, {\"coordinate\": \"B1\", \"row\": 1, \"column\": 2, \"type\": \"string\", \"value\": \"Amount\", \"formula\": null, \"cached_value\": null, \"style_id\": 0}, {\"coordinate\": \"A2\", \"row\": 2, \"column\": 1, \"type\": \"string\", \"value\": \"A\", \"formula\": null, \"cached_value\": null, \"style_id\": 0}, {\"coordinate\": \"B2\", \"row\": 2, \"column\": 2, \"type\": \"number\", \"value\": \"10\", \"formula\": null, \"cached_value\": null, \"style_id\": 0}, {\"coordinate\": \"A3\", \"row\": 3, \"column\": 1, \"type\": \"string\", \"value\": \"B\", \"formula\": null, \"cached_value\": null, \"style_id\": 0}, {\"coordinate\": \"B3\", \"row\": 3, \"column\": 2, \"type\": \"number\", \"value\": \"20\", \"formula\": null, \"cached_value\": null, \"style_id\": 0}], \"locator\": {\"part_name\": \"xl/worksheets/sheet1.xml\", \"range\": \"A1:B3\"}}",
+        "fact_type": "excel_region",
+        "fragment_id": "FRAG_000001",
+        "manifest_id": "M1",
+        "producer_type": "deterministic_rule",
+        "property_name": "object_type",
+        "property_value": "excel_region",
+        "record_type": "candidate_fact",
+        "rule_id": "excel_region_fact",
+        "rule_version": "1",
+        "source_revision_id": "R1",
+        "technical_attributes": {
+          "cell_attributes": [
+            {
+              "cached_value": null,
+              "column": 1,
+              "coordinate": "A1",
+              "formula": null,
+              "row": 1,
+              "style_id": 0,
+              "type": "string",
+              "value": "Code"
+            },
+            {
+              "cached_value": null,
+              "column": 2,
+              "coordinate": "B1",
+              "formula": null,
+              "row": 1,
+              "style_id": 0,
+              "type": "string",
+              "value": "Amount"
+            },
+            {
+              "cached_value": null,
+              "column": 1,
+              "coordinate": "A2",
+              "formula": null,
+              "row": 2,
+              "style_id": 0,
+              "type": "string",
+              "value": "A"
+            },
+            {
+              "cached_value": null,
+              "column": 2,
+              "coordinate": "B2",
+              "formula": null,
+              "row": 2,
+              "style_id": 0,
+              "type": "number",
+              "value": "10"
+            },
+            {
+              "cached_value": null,
+              "column": 1,
+              "coordinate": "A3",
+              "formula": null,
+              "row": 3,
+              "style_id": 0,
+              "type": "string",
+              "value": "B"
+            },
+            {
+              "cached_value": null,
+              "column": 2,
+              "coordinate": "B3",
+              "formula": null,
+              "row": 3,
+              "style_id": 0,
+              "type": "number",
+              "value": "20"
+            }
+          ],
+          "detector": {
+            "id": "connected_non_empty_cells",
+            "version": "1"
+          },
+          "end_cell": "B3",
+          "region_hash": "6261d9b68bc095f2e059d476771562b6e9f2229acf9f5722d337cabb533e61c4",
+          "region_kind": "connected_cells",
+          "sheet_index": 0,
+          "sheet_name": "Main",
+          "start_cell": "A1"
+        }
+      },
+      {
+        "assertion_type": "explicit",
+        "candidate_id": "EXCEL_REGION_FACT_D6E873BB20BBBD8A",
+        "confidence": "high",
+        "entity_name": "excel_workbook:751848e1c7c91bf7406a35a88d23b62c2b4f6923fcd5fd5db77290e26b6e0498/sheet:0/region:E1:F3",
+        "evidence_locator": {
+          "coordinate": "E1:F3",
+          "fragment_id": "FRAG_000002",
+          "manifest_id": "M1",
+          "part_name": "xl/worksheets/sheet1.xml",
+          "path_or_selector": "E1:F3",
+          "sheet_name": "Main",
+          "source_revision_id": "R1"
+        },
+        "evidence_text": "{\"fragment_id\": \"FRAG_000002\", \"fragment_type\": \"excel_region\", \"sequence\": 2, \"source_revision_id\": \"R1\", \"fragment_hash\": \"e6b6b48ffb8ab4370a9e61bbb3d7f7d505678cc79fe48db12841c4cb89436d2c\", \"sheet\": {\"index\": 0, \"name\": \"Main\"}, \"start_cell\": \"E1\", \"end_cell\": \"F3\", \"region_kind\": \"connected_cells\", \"region_hash\": \"bd80a38c57cf6763c12b3c2f0618d002bb586b8508fea0e2fc083daf30452e0d\", \"detector\": {\"id\": \"connected_non_empty_cells\", \"version\": \"1\"}, \"cells\": [{\"coordinate\": \"E1\", \"row\": 1, \"column\": 5, \"type\": \"string\", \"value\": \"Code\", \"formula\": null, \"cached_value\": null, \"style_id\": 0}, {\"coordinate\": \"F1\", \"row\": 1, \"column\": 6, \"type\": \"string\", \"value\": \"Amount\", \"formula\": null, \"cached_value\": null, \"style_id\": 0}, {\"coordinate\": \"E2\", \"row\": 2, \"column\": 5, \"type\": \"string\", \"value\": \"A\", \"formula\": null, \"cached_value\": null, \"style_id\": 0}, {\"coordinate\": \"F2\", \"row\": 2, \"column\": 6, \"type\": \"number\", \"value\": \"10\", \"formula\": null, \"cached_value\": null, \"style_id\": 0}, {\"coordinate\": \"E3\", \"row\": 3, \"column\": 5, \"type\": \"string\", \"value\": \"B\", \"formula\": null, \"cached_value\": null, \"style_id\": 0}, {\"coordinate\": \"F3\", \"row\": 3, \"column\": 6, \"type\": \"number\", \"value\": \"20\", \"formula\": null, \"cached_value\": null, \"style_id\": 0}], \"locator\": {\"part_name\": \"xl/worksheets/sheet1.xml\", \"range\": \"E1:F3\"}}",
+        "fact_type": "excel_region",
+        "fragment_id": "FRAG_000002",
+        "manifest_id": "M1",
+        "producer_type": "deterministic_rule",
+        "property_name": "object_type",
+        "property_value": "excel_region",
+        "record_type": "candidate_fact",
+        "rule_id": "excel_region_fact",
+        "rule_version": "1",
+        "source_revision_id": "R1",
+        "technical_attributes": {
+          "cell_attributes": [
+            {
+              "cached_value": null,
+              "column": 5,
+              "coordinate": "E1",
+              "formula": null,
+              "row": 1,
+              "style_id": 0,
+              "type": "string",
+              "value": "Code"
+            },
+            {
+              "cached_value": null,
+              "column": 6,
+              "coordinate": "F1",
+              "formula": null,
+              "row": 1,
+              "style_id": 0,
+              "type": "string",
+              "value": "Amount"
+            },
+            {
+              "cached_value": null,
+              "column": 5,
+              "coordinate": "E2",
+              "formula": null,
+              "row": 2,
+              "style_id": 0,
+              "type": "string",
+              "value": "A"
+            },
+            {
+              "cached_value": null,
+              "column": 6,
+              "coordinate": "F2",
+              "formula": null,
+              "row": 2,
+              "style_id": 0,
+              "type": "number",
+              "value": "10"
+            },
+            {
+              "cached_value": null,
+              "column": 5,
+              "coordinate": "E3",
+              "formula": null,
+              "row": 3,
+              "style_id": 0,
+              "type": "string",
+              "value": "B"
+            },
+            {
+              "cached_value": null,
+              "column": 6,
+              "coordinate": "F3",
+              "formula": null,
+              "row": 3,
+              "style_id": 0,
+              "type": "number",
+              "value": "20"
+            }
+          ],
+          "detector": {
+            "id": "connected_non_empty_cells",
+            "version": "1"
+          },
+          "end_cell": "F3",
+          "region_hash": "bd80a38c57cf6763c12b3c2f0618d002bb586b8508fea0e2fc083daf30452e0d",
+          "region_kind": "connected_cells",
+          "sheet_index": 0,
+          "sheet_name": "Main",
+          "start_cell": "E1"
+        }
+      },
+      {
+        "assertion_type": "explicit",
+        "candidate_id": "EXCEL_REGION_FACT_EC22EA4457257494",
+        "confidence": "high",
+        "entity_name": "excel_workbook:751848e1c7c91bf7406a35a88d23b62c2b4f6923fcd5fd5db77290e26b6e0498/sheet:0/region:H1",
+        "evidence_locator": {
+          "coordinate": "H1",
+          "fragment_id": "FRAG_000003",
+          "manifest_id": "M1",
+          "part_name": "xl/worksheets/sheet1.xml",
+          "path_or_selector": "H1",
+          "sheet_name": "Main",
+          "source_revision_id": "R1"
+        },
+        "evidence_text": "{\"fragment_id\": \"FRAG_000003\", \"fragment_type\": \"excel_region\", \"sequence\": 3, \"source_revision_id\": \"R1\", \"fragment_hash\": \"98fdb686bfa414a00c2ba8be7a511758637c7e5695299844d795fd0a19d4f655\", \"sheet\": {\"index\": 0, \"name\": \"Main\"}, \"start_cell\": \"H1\", \"end_cell\": \"H1\", \"region_kind\": \"connected_cells\", \"region_hash\": \"2a3780c54ab0461dda759bb05c2a664ae2707c107187d19e25580a6d581c2a6b\", \"detector\": {\"id\": \"connected_non_empty_cells\", \"version\": \"1\"}, \"cells\": [{\"coordinate\": \"H1\", \"row\": 1, \"column\": 8, \"type\": \"number\", \"value\": null, \"formula\": \"SUM(Orders[Amount])\", \"cached_value\": \"30\", \"style_id\": 0}], \"locator\": {\"part_name\": \"xl/worksheets/sheet1.xml\", \"range\": \"H1\"}}",
+        "fact_type": "excel_region",
+        "fragment_id": "FRAG_000003",
+        "manifest_id": "M1",
+        "producer_type": "deterministic_rule",
+        "property_name": "object_type",
+        "property_value": "excel_region",
+        "record_type": "candidate_fact",
+        "rule_id": "excel_region_fact",
+        "rule_version": "1",
+        "source_revision_id": "R1",
+        "technical_attributes": {
+          "cell_attributes": [
+            {
+              "cached_value": "30",
+              "column": 8,
+              "coordinate": "H1",
+              "formula": "SUM(Orders[Amount])",
+              "row": 1,
+              "style_id": 0,
+              "type": "number",
+              "value": null
+            }
+          ],
+          "detector": {
+            "id": "connected_non_empty_cells",
+            "version": "1"
+          },
+          "end_cell": "H1",
+          "region_hash": "2a3780c54ab0461dda759bb05c2a664ae2707c107187d19e25580a6d581c2a6b",
+          "region_kind": "connected_cells",
+          "sheet_index": 0,
+          "sheet_name": "Main",
+          "start_cell": "H1"
+        }
+      },
+      {
+        "assertion_type": "explicit",
+        "candidate_id": "EXCEL_REGION_FACT_7BB16232F6135BDD",
+        "confidence": "high",
+        "entity_name": "excel_workbook:751848e1c7c91bf7406a35a88d23b62c2b4f6923fcd5fd5db77290e26b6e0498/sheet:0/region:H3",
+        "evidence_locator": {
+          "coordinate": "H3",
+          "fragment_id": "FRAG_000004",
+          "manifest_id": "M1",
+          "part_name": "xl/worksheets/sheet1.xml",
+          "path_or_selector": "H3",
+          "sheet_name": "Main",
+          "source_revision_id": "R1"
+        },
+        "evidence_text": "{\"fragment_id\": \"FRAG_000004\", \"fragment_type\": \"excel_region\", \"sequence\": 4, \"source_revision_id\": \"R1\", \"fragment_hash\": \"e57dc1a31e35ca287d6d766e817eca5f225dad7219f49e5f61ee2a5cfe400310\", \"sheet\": {\"index\": 0, \"name\": \"Main\"}, \"start_cell\": \"H3\", \"end_cell\": \"H3\", \"region_kind\": \"connected_cells\", \"region_hash\": \"bc4c2a851fa0215a411cd1e1d98a36477d7ca08947b6ea35afc70f2396ba4ef0\", \"detector\": {\"id\": \"connected_non_empty_cells\", \"version\": \"1\"}, \"cells\": [{\"coordinate\": \"H3\", \"row\": 3, \"column\": 8, \"type\": \"number\", \"value\": null, \"formula\": \"SUM(LocalBlock)\", \"cached_value\": \"30\", \"style_id\": 0}], \"locator\": {\"part_name\": \"xl/worksheets/sheet1.xml\", \"range\": \"H3\"}}",
+        "fact_type": "excel_region",
+        "fragment_id": "FRAG_000004",
+        "manifest_id": "M1",
+        "producer_type": "deterministic_rule",
+        "property_name": "object_type",
+        "property_value": "excel_region",
+        "record_type": "candidate_fact",
+        "rule_id": "excel_region_fact",
+        "rule_version": "1",
+        "source_revision_id": "R1",
+        "technical_attributes": {
+          "cell_attributes": [
+            {
+              "cached_value": "30",
+              "column": 8,
+              "coordinate": "H3",
+              "formula": "SUM(LocalBlock)",
+              "row": 3,
+              "style_id": 0,
+              "type": "number",
+              "value": null
+            }
+          ],
+          "detector": {
+            "id": "connected_non_empty_cells",
+            "version": "1"
+          },
+          "end_cell": "H3",
+          "region_hash": "bc4c2a851fa0215a411cd1e1d98a36477d7ca08947b6ea35afc70f2396ba4ef0",
+          "region_kind": "connected_cells",
+          "sheet_index": 0,
+          "sheet_name": "Main",
+          "start_cell": "H3"
+        }
+      },
+      {
+        "assertion_type": "explicit",
+        "candidate_id": "EXCEL_REGION_FACT_4FCC5618B541850D",
+        "confidence": "high",
+        "entity_name": "excel_workbook:751848e1c7c91bf7406a35a88d23b62c2b4f6923fcd5fd5db77290e26b6e0498/sheet:0/region:H5",
+        "evidence_locator": {
+          "coordinate": "H5",
+          "fragment_id": "FRAG_000005",
+          "manifest_id": "M1",
+          "part_name": "xl/worksheets/sheet1.xml",
+          "path_or_selector": "H5",
+          "sheet_name": "Main",
+          "source_revision_id": "R1"
+        },
+        "evidence_text": "{\"fragment_id\": \"FRAG_000005\", \"fragment_type\": \"excel_region\", \"sequence\": 5, \"source_revision_id\": \"R1\", \"fragment_hash\": \"cdd5b10b20dc571d8d5e01dff1c76b6d321c4831f519435f8ef5d1e8c27ce9e3\", \"sheet\": {\"index\": 0, \"name\": \"Main\"}, \"start_cell\": \"H5\", \"end_cell\": \"H5\", \"region_kind\": \"connected_cells\", \"region_hash\": \"307ed1ffd2e9859b74f11ddf96d4177ed986abd1fbebc1e81ee2aefac4aec93b\", \"detector\": {\"id\": \"connected_non_empty_cells\", \"version\": \"1\"}, \"cells\": [{\"coordinate\": \"H5\", \"row\": 5, \"column\": 8, \"type\": \"number\", \"value\": null, \"formula\": \"'Hidden'!$A$1\", \"cached_value\": \"7\", \"style_id\": 0}], \"locator\": {\"part_name\": \"xl/worksheets/sheet1.xml\", \"range\": \"H5\"}}",
+        "fact_type": "excel_region",
+        "fragment_id": "FRAG_000005",
+        "manifest_id": "M1",
+        "producer_type": "deterministic_rule",
+        "property_name": "object_type",
+        "property_value": "excel_region",
+        "record_type": "candidate_fact",
+        "rule_id": "excel_region_fact",
+        "rule_version": "1",
+        "source_revision_id": "R1",
+        "technical_attributes": {
+          "cell_attributes": [
+            {
+              "cached_value": "7",
+              "column": 8,
+              "coordinate": "H5",
+              "formula": "'Hidden'!$A$1",
+              "row": 5,
+              "style_id": 0,
+              "type": "number",
+              "value": null
+            }
+          ],
+          "detector": {
+            "id": "connected_non_empty_cells",
+            "version": "1"
+          },
+          "end_cell": "H5",
+          "region_hash": "307ed1ffd2e9859b74f11ddf96d4177ed986abd1fbebc1e81ee2aefac4aec93b",
+          "region_kind": "connected_cells",
+          "sheet_index": 0,
+          "sheet_name": "Main",
+          "start_cell": "H5"
+        }
+      },
+      {
+        "assertion_type": "explicit",
+        "candidate_id": "EXCEL_REGION_FACT_022161D1B6C9C9B1",
+        "confidence": "high",
+        "entity_name": "excel_workbook:751848e1c7c91bf7406a35a88d23b62c2b4f6923fcd5fd5db77290e26b6e0498/sheet:0/region:H7",
+        "evidence_locator": {
+          "coordinate": "H7",
+          "fragment_id": "FRAG_000006",
+          "manifest_id": "M1",
+          "part_name": "xl/worksheets/sheet1.xml",
+          "path_or_selector": "H7",
+          "sheet_name": "Main",
+          "source_revision_id": "R1"
+        },
+        "evidence_text": "{\"fragment_id\": \"FRAG_000006\", \"fragment_type\": \"excel_region\", \"sequence\": 6, \"source_revision_id\": \"R1\", \"fragment_hash\": \"4b42083d69b2dc9088df754b07f9485054aa1cbfb7edc202d2e4dd6439ba8073\", \"sheet\": {\"index\": 0, \"name\": \"Main\"}, \"start_cell\": \"H7\", \"end_cell\": \"H7\", \"region_kind\": \"connected_cells\", \"region_hash\": \"7233ff9a13d9b2b0bcff16453a937c8ff2a2b522e913c43112c8feffd96b279d\", \"detector\": {\"id\": \"connected_non_empty_cells\", \"version\": \"1\"}, \"cells\": [{\"coordinate\": \"H7\", \"row\": 7, \"column\": 8, \"type\": \"number\", \"value\": null, \"formula\": \"'https://example.invalid/[external.xlsx]Sheet1'!$A$1\", \"cached_value\": \"41\", \"style_id\": 0}], \"locator\": {\"part_name\": \"xl/worksheets/sheet1.xml\", \"range\": \"H7\"}}",
+        "fact_type": "excel_region",
+        "fragment_id": "FRAG_000006",
+        "manifest_id": "M1",
+        "producer_type": "deterministic_rule",
+        "property_name": "object_type",
+        "property_value": "excel_region",
+        "record_type": "candidate_fact",
+        "rule_id": "excel_region_fact",
+        "rule_version": "1",
+        "source_revision_id": "R1",
+        "technical_attributes": {
+          "cell_attributes": [
+            {
+              "cached_value": "41",
+              "column": 8,
+              "coordinate": "H7",
+              "formula": "'https://example.invalid/[external.xlsx]Sheet1'!$A$1",
+              "row": 7,
+              "style_id": 0,
+              "type": "number",
+              "value": null
+            }
+          ],
+          "detector": {
+            "id": "connected_non_empty_cells",
+            "version": "1"
+          },
+          "end_cell": "H7",
+          "region_hash": "7233ff9a13d9b2b0bcff16453a937c8ff2a2b522e913c43112c8feffd96b279d",
+          "region_kind": "connected_cells",
+          "sheet_index": 0,
+          "sheet_name": "Main",
+          "start_cell": "H7"
+        }
+      },
+      {
+        "assertion_type": "explicit",
+        "candidate_id": "EXCEL_REGION_FACT_A0DF92A08DEE7E85",
+        "confidence": "high",
+        "entity_name": "excel_workbook:751848e1c7c91bf7406a35a88d23b62c2b4f6923fcd5fd5db77290e26b6e0498/sheet:1/region:A1",
+        "evidence_locator": {
+          "coordinate": "A1",
+          "fragment_id": "FRAG_000007",
+          "manifest_id": "M1",
+          "part_name": "xl/worksheets/sheet2.xml",
+          "path_or_selector": "A1",
+          "sheet_name": "Hidden",
+          "source_revision_id": "R1"
+        },
+        "evidence_text": "{\"fragment_id\": \"FRAG_000007\", \"fragment_type\": \"excel_region\", \"sequence\": 7, \"source_revision_id\": \"R1\", \"fragment_hash\": \"cb1b4788c6bae74b6d20404cb4c9ccaea34e61f55df2cde940506da7c0a87b45\", \"sheet\": {\"index\": 1, \"name\": \"Hidden\"}, \"start_cell\": \"A1\", \"end_cell\": \"A1\", \"region_kind\": \"connected_cells\", \"region_hash\": \"cffd66e761069246aacee1801330173d9b6380fc7f2dbd00f7f202d43b4cba38\", \"detector\": {\"id\": \"connected_non_empty_cells\", \"version\": \"1\"}, \"cells\": [{\"coordinate\": \"A1\", \"row\": 1, \"column\": 1, \"type\": \"number\", \"value\": \"7\", \"formula\": null, \"cached_value\": null, \"style_id\": 0}], \"locator\": {\"part_name\": \"xl/worksheets/sheet2.xml\", \"range\": \"A1\"}}",
+        "fact_type": "excel_region",
+        "fragment_id": "FRAG_000007",
+        "manifest_id": "M1",
+        "producer_type": "deterministic_rule",
+        "property_name": "object_type",
+        "property_value": "excel_region",
+        "record_type": "candidate_fact",
+        "rule_id": "excel_region_fact",
+        "rule_version": "1",
+        "source_revision_id": "R1",
+        "technical_attributes": {
+          "cell_attributes": [
+            {
+              "cached_value": null,
+              "column": 1,
+              "coordinate": "A1",
+              "formula": null,
+              "row": 1,
+              "style_id": 0,
+              "type": "number",
+              "value": "7"
+            }
+          ],
+          "detector": {
+            "id": "connected_non_empty_cells",
+            "version": "1"
+          },
+          "end_cell": "A1",
+          "region_hash": "cffd66e761069246aacee1801330173d9b6380fc7f2dbd00f7f202d43b4cba38",
+          "region_kind": "connected_cells",
+          "sheet_index": 1,
+          "sheet_name": "Hidden",
+          "start_cell": "A1"
+        }
+      },
+      {
+        "assertion_type": "explicit",
+        "candidate_id": "EXCEL_REGION_FACT_C745AF7F47AFF70F",
+        "confidence": "high",
+        "entity_name": "excel_workbook:751848e1c7c91bf7406a35a88d23b62c2b4f6923fcd5fd5db77290e26b6e0498/sheet:2/region:B2",
+        "evidence_locator": {
+          "coordinate": "B2",
+          "fragment_id": "FRAG_000008",
+          "manifest_id": "M1",
+          "part_name": "xl/worksheets/sheet3.xml",
+          "path_or_selector": "B2",
+          "sheet_name": "VeryHidden",
+          "source_revision_id": "R1"
+        },
+        "evidence_text": "{\"fragment_id\": \"FRAG_000008\", \"fragment_type\": \"excel_region\", \"sequence\": 8, \"source_revision_id\": \"R1\", \"fragment_hash\": \"e31e12301337a9e061bf372a329061eb3101e3baf0b1207b7bc3ec8842168ffa\", \"sheet\": {\"index\": 2, \"name\": \"VeryHidden\"}, \"start_cell\": \"B2\", \"end_cell\": \"B2\", \"region_kind\": \"connected_cells\", \"region_hash\": \"f76bca447ae67dab7dd5d5a15de1850b22c218b02aec78e0a4aa1af16b409712\", \"detector\": {\"id\": \"connected_non_empty_cells\", \"version\": \"1\"}, \"cells\": [{\"coordinate\": \"B2\", \"row\": 2, \"column\": 2, \"type\": \"string\", \"value\": \"very hidden evidence\", \"formula\": null, \"cached_value\": null, \"style_id\": 0}], \"locator\": {\"part_name\": \"xl/worksheets/sheet3.xml\", \"range\": \"B2\"}}",
+        "fact_type": "excel_region",
+        "fragment_id": "FRAG_000008",
+        "manifest_id": "M1",
+        "producer_type": "deterministic_rule",
+        "property_name": "object_type",
+        "property_value": "excel_region",
+        "record_type": "candidate_fact",
+        "rule_id": "excel_region_fact",
+        "rule_version": "1",
+        "source_revision_id": "R1",
+        "technical_attributes": {
+          "cell_attributes": [
+            {
+              "cached_value": null,
+              "column": 2,
+              "coordinate": "B2",
+              "formula": null,
+              "row": 2,
+              "style_id": 0,
+              "type": "string",
+              "value": "very hidden evidence"
+            }
+          ],
+          "detector": {
+            "id": "connected_non_empty_cells",
+            "version": "1"
+          },
+          "end_cell": "B2",
+          "region_hash": "f76bca447ae67dab7dd5d5a15de1850b22c218b02aec78e0a4aa1af16b409712",
+          "region_kind": "connected_cells",
+          "sheet_index": 2,
+          "sheet_name": "VeryHidden",
+          "start_cell": "B2"
+        }
+      },
+      {
+        "assertion_type": "explicit",
+        "candidate_id": "EXCEL_NAMED_RANGE_FACT_D43C225569BE2701",
+        "confidence": "high",
+        "entity_name": "excel_workbook:751848e1c7c91bf7406a35a88d23b62c2b4f6923fcd5fd5db77290e26b6e0498/named_range:sheet:Main:LocalBlock",
+        "evidence_locator": {
+          "coordinate": "E2:F3",
+          "fragment_id": "FRAG_000002",
+          "manifest_id": "M1",
+          "part_name": "xl/worksheets/sheet1.xml",
+          "path_or_selector": "E1:F3",
+          "sheet_name": "Main",
+          "source_revision_id": "R1"
+        },
+        "evidence_text": "{\"fragment_id\": \"FRAG_000002\", \"fragment_type\": \"excel_region\", \"sequence\": 2, \"source_revision_id\": \"R1\", \"fragment_hash\": \"e6b6b48ffb8ab4370a9e61bbb3d7f7d505678cc79fe48db12841c4cb89436d2c\", \"sheet\": {\"index\": 0, \"name\": \"Main\"}, \"start_cell\": \"E1\", \"end_cell\": \"F3\", \"region_kind\": \"connected_cells\", \"region_hash\": \"bd80a38c57cf6763c12b3c2f0618d002bb586b8508fea0e2fc083daf30452e0d\", \"detector\": {\"id\": \"connected_non_empty_cells\", \"version\": \"1\"}, \"cells\": [{\"coordinate\": \"E1\", \"row\": 1, \"column\": 5, \"type\": \"string\", \"value\": \"Code\", \"formula\": null, \"cached_value\": null, \"style_id\": 0}, {\"coordinate\": \"F1\", \"row\": 1, \"column\": 6, \"type\": \"string\", \"value\": \"Amount\", \"formula\": null, \"cached_value\": null, \"style_id\": 0}, {\"coordinate\": \"E2\", \"row\": 2, \"column\": 5, \"type\": \"string\", \"value\": \"A\", \"formula\": null, \"cached_value\": null, \"style_id\": 0}, {\"coordinate\": \"F2\", \"row\": 2, \"column\": 6, \"type\": \"number\", \"value\": \"10\", \"formula\": null, \"cached_value\": null, \"style_id\": 0}, {\"coordinate\": \"E3\", \"row\": 3, \"column\": 5, \"type\": \"string\", \"value\": \"B\", \"formula\": null, \"cached_value\": null, \"style_id\": 0}, {\"coordinate\": \"F3\", \"row\": 3, \"column\": 6, \"type\": \"number\", \"value\": \"20\", \"formula\": null, \"cached_value\": null, \"style_id\": 0}], \"locator\": {\"part_name\": \"xl/worksheets/sheet1.xml\", \"range\": \"E1:F3\"}}",
+        "fact_type": "excel_named_range",
+        "fragment_id": "FRAG_000002",
+        "manifest_id": "M1",
+        "producer_type": "deterministic_rule",
+        "property_name": "object_type",
+        "property_value": "excel_named_range",
+        "record_type": "candidate_fact",
+        "rule_id": "excel_named_range_fact",
+        "rule_version": "1",
+        "source_revision_id": "R1",
+        "technical_attributes": {
+          "name": "LocalBlock",
+          "refers_to": "Main!$E$2:$F$3",
+          "scope": "sheet",
+          "sheet_name": "Main"
+        }
+      },
+      {
+        "assertion_type": "explicit",
+        "candidate_id": "EXCEL_NAMED_RANGE_FACT_D8958EE7E3C7148A",
+        "confidence": "high",
+        "entity_name": "excel_workbook:751848e1c7c91bf7406a35a88d23b62c2b4f6923fcd5fd5db77290e26b6e0498/named_range:workbook:*:GlobalBlock",
+        "evidence_locator": {
+          "coordinate": "A1:B3",
+          "fragment_id": "FRAG_000001",
+          "manifest_id": "M1",
+          "part_name": "xl/worksheets/sheet1.xml",
+          "path_or_selector": "A1:B3",
+          "sheet_name": "Main",
+          "source_revision_id": "R1"
+        },
+        "evidence_text": "{\"fragment_id\": \"FRAG_000001\", \"fragment_type\": \"excel_region\", \"sequence\": 1, \"source_revision_id\": \"R1\", \"fragment_hash\": \"894ddbe8327e1de39403c788ecaff268ae39813c3d26a4f7d2c5c4831b691cbf\", \"sheet\": {\"index\": 0, \"name\": \"Main\"}, \"start_cell\": \"A1\", \"end_cell\": \"B3\", \"region_kind\": \"connected_cells\", \"region_hash\": \"6261d9b68bc095f2e059d476771562b6e9f2229acf9f5722d337cabb533e61c4\", \"detector\": {\"id\": \"connected_non_empty_cells\", \"version\": \"1\"}, \"cells\": [{\"coordinate\": \"A1\", \"row\": 1, \"column\": 1, \"type\": \"string\", \"value\": \"Code\", \"formula\": null, \"cached_value\": null, \"style_id\": 0}, {\"coordinate\": \"B1\", \"row\": 1, \"column\": 2, \"type\": \"string\", \"value\": \"Amount\", \"formula\": null, \"cached_value\": null, \"style_id\": 0}, {\"coordinate\": \"A2\", \"row\": 2, \"column\": 1, \"type\": \"string\", \"value\": \"A\", \"formula\": null, \"cached_value\": null, \"style_id\": 0}, {\"coordinate\": \"B2\", \"row\": 2, \"column\": 2, \"type\": \"number\", \"value\": \"10\", \"formula\": null, \"cached_value\": null, \"style_id\": 0}, {\"coordinate\": \"A3\", \"row\": 3, \"column\": 1, \"type\": \"string\", \"value\": \"B\", \"formula\": null, \"cached_value\": null, \"style_id\": 0}, {\"coordinate\": \"B3\", \"row\": 3, \"column\": 2, \"type\": \"number\", \"value\": \"20\", \"formula\": null, \"cached_value\": null, \"style_id\": 0}], \"locator\": {\"part_name\": \"xl/worksheets/sheet1.xml\", \"range\": \"A1:B3\"}}",
+        "fact_type": "excel_named_range",
+        "fragment_id": "FRAG_000001",
+        "manifest_id": "M1",
+        "producer_type": "deterministic_rule",
+        "property_name": "object_type",
+        "property_value": "excel_named_range",
+        "record_type": "candidate_fact",
+        "rule_id": "excel_named_range_fact",
+        "rule_version": "1",
+        "source_revision_id": "R1",
+        "technical_attributes": {
+          "name": "GlobalBlock",
+          "refers_to": "Main!$A$1:$B$3",
+          "scope": "workbook",
+          "sheet_name": "Main"
+        }
+      },
+      {
+        "assertion_type": "explicit",
+        "candidate_id": "EXCEL_NAMED_RANGE_FACT_89048DC90C573B75",
+        "confidence": "high",
+        "entity_name": "excel_workbook:751848e1c7c91bf7406a35a88d23b62c2b4f6923fcd5fd5db77290e26b6e0498/named_range:workbook:*:LocalBlock",
+        "evidence_locator": {
+          "coordinate": "A2:B3",
+          "fragment_id": "FRAG_000001",
+          "manifest_id": "M1",
+          "part_name": "xl/worksheets/sheet1.xml",
+          "path_or_selector": "A1:B3",
+          "sheet_name": "Main",
+          "source_revision_id": "R1"
+        },
+        "evidence_text": "{\"fragment_id\": \"FRAG_000001\", \"fragment_type\": \"excel_region\", \"sequence\": 1, \"source_revision_id\": \"R1\", \"fragment_hash\": \"894ddbe8327e1de39403c788ecaff268ae39813c3d26a4f7d2c5c4831b691cbf\", \"sheet\": {\"index\": 0, \"name\": \"Main\"}, \"start_cell\": \"A1\", \"end_cell\": \"B3\", \"region_kind\": \"connected_cells\", \"region_hash\": \"6261d9b68bc095f2e059d476771562b6e9f2229acf9f5722d337cabb533e61c4\", \"detector\": {\"id\": \"connected_non_empty_cells\", \"version\": \"1\"}, \"cells\": [{\"coordinate\": \"A1\", \"row\": 1, \"column\": 1, \"type\": \"string\", \"value\": \"Code\", \"formula\": null, \"cached_value\": null, \"style_id\": 0}, {\"coordinate\": \"B1\", \"row\": 1, \"column\": 2, \"type\": \"string\", \"value\": \"Amount\", \"formula\": null, \"cached_value\": null, \"style_id\": 0}, {\"coordinate\": \"A2\", \"row\": 2, \"column\": 1, \"type\": \"string\", \"value\": \"A\", \"formula\": null, \"cached_value\": null, \"style_id\": 0}, {\"coordinate\": \"B2\", \"row\": 2, \"column\": 2, \"type\": \"number\", \"value\": \"10\", \"formula\": null, \"cached_value\": null, \"style_id\": 0}, {\"coordinate\": \"A3\", \"row\": 3, \"column\": 1, \"type\": \"string\", \"value\": \"B\", \"formula\": null, \"cached_value\": null, \"style_id\": 0}, {\"coordinate\": \"B3\", \"row\": 3, \"column\": 2, \"type\": \"number\", \"value\": \"20\", \"formula\": null, \"cached_value\": null, \"style_id\": 0}], \"locator\": {\"part_name\": \"xl/worksheets/sheet1.xml\", \"range\": \"A1:B3\"}}",
+        "fact_type": "excel_named_range",
+        "fragment_id": "FRAG_000001",
+        "manifest_id": "M1",
+        "producer_type": "deterministic_rule",
+        "property_name": "object_type",
+        "property_value": "excel_named_range",
+        "record_type": "candidate_fact",
+        "rule_id": "excel_named_range_fact",
+        "rule_version": "1",
+        "source_revision_id": "R1",
+        "technical_attributes": {
+          "name": "LocalBlock",
+          "refers_to": "Main!$A$2:$B$3",
+          "scope": "workbook",
+          "sheet_name": "Main"
+        }
+      },
+      {
+        "assertion_type": "explicit",
+        "candidate_id": "EXCEL_TABLE_FACT_4053814157214E37",
+        "confidence": "high",
+        "entity_name": "excel_workbook:751848e1c7c91bf7406a35a88d23b62c2b4f6923fcd5fd5db77290e26b6e0498/sheet:0/table:Orders",
+        "evidence_locator": {
+          "coordinate": "A1:B3",
+          "fragment_id": "FRAG_000001",
+          "manifest_id": "M1",
+          "part_name": "xl/worksheets/sheet1.xml",
+          "path_or_selector": "A1:B3",
+          "sheet_name": "Main",
+          "source_revision_id": "R1"
+        },
+        "evidence_text": "{\"fragment_id\": \"FRAG_000001\", \"fragment_type\": \"excel_region\", \"sequence\": 1, \"source_revision_id\": \"R1\", \"fragment_hash\": \"894ddbe8327e1de39403c788ecaff268ae39813c3d26a4f7d2c5c4831b691cbf\", \"sheet\": {\"index\": 0, \"name\": \"Main\"}, \"start_cell\": \"A1\", \"end_cell\": \"B3\", \"region_kind\": \"connected_cells\", \"region_hash\": \"6261d9b68bc095f2e059d476771562b6e9f2229acf9f5722d337cabb533e61c4\", \"detector\": {\"id\": \"connected_non_empty_cells\", \"version\": \"1\"}, \"cells\": [{\"coordinate\": \"A1\", \"row\": 1, \"column\": 1, \"type\": \"string\", \"value\": \"Code\", \"formula\": null, \"cached_value\": null, \"style_id\": 0}, {\"coordinate\": \"B1\", \"row\": 1, \"column\": 2, \"type\": \"string\", \"value\": \"Amount\", \"formula\": null, \"cached_value\": null, \"style_id\": 0}, {\"coordinate\": \"A2\", \"row\": 2, \"column\": 1, \"type\": \"string\", \"value\": \"A\", \"formula\": null, \"cached_value\": null, \"style_id\": 0}, {\"coordinate\": \"B2\", \"row\": 2, \"column\": 2, \"type\": \"number\", \"value\": \"10\", \"formula\": null, \"cached_value\": null, \"style_id\": 0}, {\"coordinate\": \"A3\", \"row\": 3, \"column\": 1, \"type\": \"string\", \"value\": \"B\", \"formula\": null, \"cached_value\": null, \"style_id\": 0}, {\"coordinate\": \"B3\", \"row\": 3, \"column\": 2, \"type\": \"number\", \"value\": \"20\", \"formula\": null, \"cached_value\": null, \"style_id\": 0}], \"locator\": {\"part_name\": \"xl/worksheets/sheet1.xml\", \"range\": \"A1:B3\"}}",
+        "fact_type": "excel_table",
+        "fragment_id": "FRAG_000001",
+        "manifest_id": "M1",
+        "producer_type": "deterministic_rule",
+        "property_name": "object_type",
+        "property_value": "excel_table",
+        "record_type": "candidate_fact",
+        "rule_id": "excel_table_fact",
+        "rule_version": "1",
+        "source_revision_id": "R1",
+        "technical_attributes": {
+          "columns": [
+            {
+              "id": "1",
+              "name": "Code"
+            },
+            {
+              "id": "2",
+              "name": "Amount"
+            }
+          ],
+          "display_name": "Orders",
+          "name": "Orders",
+          "part_name": "xl/tables/table1.xml",
+          "refers_to": "A1:B3",
+          "relationship_id": "rId1",
+          "sheet_name": "Main"
+        }
+      },
+      {
+        "assertion_type": "explicit",
+        "candidate_id": "EXCEL_EXPLICIT_REFERENCE_2D28E50BFE8D71E1",
+        "confidence": "high",
+        "evidence_locator": {
+          "coordinate": "H1",
+          "fragment_id": "FRAG_000003",
+          "manifest_id": "M1",
+          "part_name": "xl/worksheets/sheet1.xml",
+          "path_or_selector": "H1",
+          "sheet_name": "Main",
+          "source_revision_id": "R1"
+        },
+        "evidence_text": "{\"fragment_id\": \"FRAG_000003\", \"fragment_type\": \"excel_region\", \"sequence\": 3, \"source_revision_id\": \"R1\", \"fragment_hash\": \"98fdb686bfa414a00c2ba8be7a511758637c7e5695299844d795fd0a19d4f655\", \"sheet\": {\"index\": 0, \"name\": \"Main\"}, \"start_cell\": \"H1\", \"end_cell\": \"H1\", \"region_kind\": \"connected_cells\", \"region_hash\": \"2a3780c54ab0461dda759bb05c2a664ae2707c107187d19e25580a6d581c2a6b\", \"detector\": {\"id\": \"connected_non_empty_cells\", \"version\": \"1\"}, \"cells\": [{\"coordinate\": \"H1\", \"row\": 1, \"column\": 8, \"type\": \"number\", \"value\": null, \"formula\": \"SUM(Orders[Amount])\", \"cached_value\": \"30\", \"style_id\": 0}], \"locator\": {\"part_name\": \"xl/worksheets/sheet1.xml\", \"range\": \"H1\"}}",
+        "fragment_id": "FRAG_000003",
+        "manifest_id": "M1",
+        "producer_type": "deterministic_rule",
+        "record_type": "candidate_relation",
+        "relation_type": "references",
+        "rule_id": "excel_explicit_reference",
+        "rule_version": "1",
+        "source_entity": "excel_workbook:751848e1c7c91bf7406a35a88d23b62c2b4f6923fcd5fd5db77290e26b6e0498/sheet:0/region:H1",
+        "source_revision_id": "R1",
+        "target_entity": "excel_workbook:751848e1c7c91bf7406a35a88d23b62c2b4f6923fcd5fd5db77290e26b6e0498/sheet:0/table:Orders",
+        "technical_attributes": {
+          "formula": "SUM(Orders[Amount])",
+          "reference_kind": "table",
+          "reference_token": "Orders",
+          "sheet_name": "Main",
+          "source_coordinate": "H1"
+        }
+      },
+      {
+        "assertion_type": "explicit",
+        "candidate_id": "EXCEL_EXPLICIT_REFERENCE_17A6ECADE79E4052",
+        "confidence": "high",
+        "evidence_locator": {
+          "coordinate": "H3",
+          "fragment_id": "FRAG_000004",
+          "manifest_id": "M1",
+          "part_name": "xl/worksheets/sheet1.xml",
+          "path_or_selector": "H3",
+          "sheet_name": "Main",
+          "source_revision_id": "R1"
+        },
+        "evidence_text": "{\"fragment_id\": \"FRAG_000004\", \"fragment_type\": \"excel_region\", \"sequence\": 4, \"source_revision_id\": \"R1\", \"fragment_hash\": \"e57dc1a31e35ca287d6d766e817eca5f225dad7219f49e5f61ee2a5cfe400310\", \"sheet\": {\"index\": 0, \"name\": \"Main\"}, \"start_cell\": \"H3\", \"end_cell\": \"H3\", \"region_kind\": \"connected_cells\", \"region_hash\": \"bc4c2a851fa0215a411cd1e1d98a36477d7ca08947b6ea35afc70f2396ba4ef0\", \"detector\": {\"id\": \"connected_non_empty_cells\", \"version\": \"1\"}, \"cells\": [{\"coordinate\": \"H3\", \"row\": 3, \"column\": 8, \"type\": \"number\", \"value\": null, \"formula\": \"SUM(LocalBlock)\", \"cached_value\": \"30\", \"style_id\": 0}], \"locator\": {\"part_name\": \"xl/worksheets/sheet1.xml\", \"range\": \"H3\"}}",
+        "fragment_id": "FRAG_000004",
+        "manifest_id": "M1",
+        "producer_type": "deterministic_rule",
+        "record_type": "candidate_relation",
+        "relation_type": "references",
+        "rule_id": "excel_explicit_reference",
+        "rule_version": "1",
+        "source_entity": "excel_workbook:751848e1c7c91bf7406a35a88d23b62c2b4f6923fcd5fd5db77290e26b6e0498/sheet:0/region:H3",
+        "source_revision_id": "R1",
+        "target_entity": "excel_workbook:751848e1c7c91bf7406a35a88d23b62c2b4f6923fcd5fd5db77290e26b6e0498/named_range:sheet:Main:LocalBlock",
+        "technical_attributes": {
+          "formula": "SUM(LocalBlock)",
+          "reference_kind": "named_range",
+          "reference_token": "LocalBlock",
+          "sheet_name": "Main",
+          "source_coordinate": "H3"
+        }
+      },
+      {
+        "assertion_type": "explicit",
+        "candidate_id": "EXCEL_EXPLICIT_REFERENCE_221EFC05E220AB5F",
+        "confidence": "high",
+        "evidence_locator": {
+          "coordinate": "H5",
+          "fragment_id": "FRAG_000005",
+          "manifest_id": "M1",
+          "part_name": "xl/worksheets/sheet1.xml",
+          "path_or_selector": "H5",
+          "sheet_name": "Main",
+          "source_revision_id": "R1"
+        },
+        "evidence_text": "{\"fragment_id\": \"FRAG_000005\", \"fragment_type\": \"excel_region\", \"sequence\": 5, \"source_revision_id\": \"R1\", \"fragment_hash\": \"cdd5b10b20dc571d8d5e01dff1c76b6d321c4831f519435f8ef5d1e8c27ce9e3\", \"sheet\": {\"index\": 0, \"name\": \"Main\"}, \"start_cell\": \"H5\", \"end_cell\": \"H5\", \"region_kind\": \"connected_cells\", \"region_hash\": \"307ed1ffd2e9859b74f11ddf96d4177ed986abd1fbebc1e81ee2aefac4aec93b\", \"detector\": {\"id\": \"connected_non_empty_cells\", \"version\": \"1\"}, \"cells\": [{\"coordinate\": \"H5\", \"row\": 5, \"column\": 8, \"type\": \"number\", \"value\": null, \"formula\": \"'Hidden'!$A$1\", \"cached_value\": \"7\", \"style_id\": 0}], \"locator\": {\"part_name\": \"xl/worksheets/sheet1.xml\", \"range\": \"H5\"}}",
+        "fragment_id": "FRAG_000005",
+        "manifest_id": "M1",
+        "producer_type": "deterministic_rule",
+        "record_type": "candidate_relation",
+        "relation_type": "references",
+        "rule_id": "excel_explicit_reference",
+        "rule_version": "1",
+        "source_entity": "excel_workbook:751848e1c7c91bf7406a35a88d23b62c2b4f6923fcd5fd5db77290e26b6e0498/sheet:0/region:H5",
+        "source_revision_id": "R1",
+        "target_entity": "excel_workbook:751848e1c7c91bf7406a35a88d23b62c2b4f6923fcd5fd5db77290e26b6e0498/sheet:1/region:A1",
+        "technical_attributes": {
+          "formula": "'Hidden'!$A$1",
+          "reference_kind": "region",
+          "reference_token": "'Hidden'!$A$1",
+          "sheet_name": "Main",
+          "source_coordinate": "H5"
+        }
+      }
+    ],
+    "v1_commit": "8b576eb605b2509ebe84785aae6b2d1e94046b8b",
+    "v3_candidates": [
+      {
+        "assertion_type": "explicit",
+        "attributes": {},
+        "candidate_id": "DER_39b7b46b50524695e3e8160e",
+        "chunk_id": null,
+        "confidence": "high",
+        "derivation": {
+          "component": "definition",
+          "context_fingerprint": "4f3e5ec954ccfdc77d01dfdc79f44dc551890b65fcdc7ec9f4c37e57c2a8a8b5",
+          "resolution": {
+            "basis_evidence_ids": [
+              "EV_11a6843b409d174283fc9449"
+            ],
+            "reason_code": "syntactic_extraction",
+            "status": "not_required"
+          },
+          "rule_version": "4.0"
+        },
+        "deterministic_contract": "4",
+        "entity_name": "candidate_workbook.xlsx",
+        "evidence_id": "EV_11a6843b409d174283fc9449",
+        "evidence_text": "{\"part_name\": \"xl/workbook.xml\", \"date_system\": \"1900\", \"calculation_properties\": {\"calcId\": \"124519\", \"calcMode\": \"manual\", \"calcOnSave\": \"0\"}, \"macro_presence\": false}",
+        "fact_type": "excel_workbook",
+        "fragment_id": "EV_11a6843b409d174283fc9449",
+        "property_name": "definition",
+        "property_value": {
+          "manifest": {
+            "external_links": [
+              {
+                "disposition": "not_dereferenced",
+                "relationship_id": "rId1",
+                "source_part": "xl/externalLinks/externalLink1.xml",
+                "target": "https://example.invalid/external.xlsx"
+              }
+            ],
+            "macros": {
+              "content_hash": null,
+              "executed": false,
+              "part_name": null,
+              "present": false
+            },
+            "named_ranges": [
+              {
+                "name": "GlobalBlock",
+                "refers_to": "Main!$A$1:$B$3",
+                "scope": "workbook",
+                "sheet_name": null
+              },
+              {
+                "name": "LocalBlock",
+                "refers_to": "Main!$A$2:$B$3",
+                "scope": "workbook",
+                "sheet_name": null
+              },
+              {
+                "name": "LocalBlock",
+                "refers_to": "Main!$E$2:$F$3",
+                "scope": "sheet",
+                "sheet_name": "Main"
+              }
+            ],
+            "relationships": [
+              {
+                "relationship_id": "rId1",
+                "source_part": "/",
+                "target": "xl/workbook.xml",
+                "target_mode": "internal",
+                "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument"
+              },
+              {
+                "relationship_id": "rId2",
+                "source_part": "/",
+                "target": "docProps/core.xml",
+                "target_mode": "internal",
+                "type": "http://schemas.openxmlformats.org/package/2006/relationships/metadata/core-properties"
+              },
+              {
+                "relationship_id": "rId3",
+                "source_part": "/",
+                "target": "docProps/app.xml",
+                "target_mode": "internal",
+                "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/extended-properties"
+              },
+              {
+                "relationship_id": "rId1",
+                "source_part": "xl/externalLinks/externalLink1.xml",
+                "target": "https://example.invalid/external.xlsx",
+                "target_mode": "external",
+                "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/externalLinkPath"
+              },
+              {
+                "relationship_id": "rId1",
+                "source_part": "xl/workbook.xml",
+                "target": "xl/worksheets/sheet1.xml",
+                "target_mode": "internal",
+                "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet"
+              },
+              {
+                "relationship_id": "rId2",
+                "source_part": "xl/workbook.xml",
+                "target": "xl/worksheets/sheet2.xml",
+                "target_mode": "internal",
+                "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet"
+              },
+              {
+                "relationship_id": "rId3",
+                "source_part": "xl/workbook.xml",
+                "target": "xl/worksheets/sheet3.xml",
+                "target_mode": "internal",
+                "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet"
+              },
+              {
+                "relationship_id": "rId4",
+                "source_part": "xl/workbook.xml",
+                "target": "xl/theme/theme1.xml",
+                "target_mode": "internal",
+                "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/theme"
+              },
+              {
+                "relationship_id": "rId5",
+                "source_part": "xl/workbook.xml",
+                "target": "xl/styles.xml",
+                "target_mode": "internal",
+                "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles"
+              },
+              {
+                "relationship_id": "rId6",
+                "source_part": "xl/workbook.xml",
+                "target": "xl/sharedStrings.xml",
+                "target_mode": "internal",
+                "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/sharedStrings"
+              },
+              {
+                "relationship_id": "rId99",
+                "source_part": "xl/workbook.xml",
+                "target": "xl/externalLinks/externalLink1.xml",
+                "target_mode": "internal",
+                "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/externalLink"
+              },
+              {
+                "relationship_id": "rId1",
+                "source_part": "xl/worksheets/sheet1.xml",
+                "target": "xl/tables/table1.xml",
+                "target_mode": "internal",
+                "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/table"
+              }
+            ],
+            "schema_version": "1",
+            "source_revision": {
+              "content_hash": "751848e1c7c91bf7406a35a88d23b62c2b4f6923fcd5fd5db77290e26b6e0498",
+              "extension": ".xlsx",
+              "id": "R1",
+              "package_content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"
+            },
+            "tables": [
+              {
+                "columns": [
+                  {
+                    "id": "1",
+                    "name": "Code"
+                  },
+                  {
+                    "id": "2",
+                    "name": "Amount"
+                  }
+                ],
+                "display_name": "Orders",
+                "name": "Orders",
+                "part_name": "xl/tables/table1.xml",
+                "refers_to": "A1:B3",
+                "relationship_id": "rId1",
+                "sheet_index": 0,
+                "sheet_name": "Main"
+              }
+            ],
+            "warnings": [],
+            "workbook": {
+              "calculation_properties": {
+                "calcId": "124519",
+                "calcMode": "manual",
+                "calcOnSave": "0"
+              },
+              "date_system": "1900",
+              "macro_presence": false,
+              "part_name": "xl/workbook.xml"
+            }
+          },
+          "object_type": "excel_workbook"
+        },
+        "record_type": "candidate_fact",
+        "source_revision_id": "R1"
+      },
+      {
+        "assertion_type": "explicit",
+        "attributes": {},
+        "candidate_id": "DER_912e52841fb84f1cac2ecb86",
+        "chunk_id": null,
+        "confidence": "high",
+        "derivation": {
+          "component": "definition",
+          "context_fingerprint": "15f3810b6d3834df0978277fbd14a1633a503aa5a1e220c9b6a24bce91f0ca5d",
+          "resolution": {
+            "basis_evidence_ids": [
+              "EV_9e0aad30094dc163bec9683d"
+            ],
+            "reason_code": "syntactic_extraction",
+            "status": "not_required"
+          },
+          "rule_version": "4.0"
+        },
+        "deterministic_contract": "4",
+        "entity_name": "candidate_workbook.xlsx::Main",
+        "evidence_id": "EV_9e0aad30094dc163bec9683d",
+        "evidence_text": "Main",
+        "fact_type": "excel_sheet",
+        "fragment_id": "EV_9e0aad30094dc163bec9683d",
+        "property_name": "definition",
+        "property_value": {
+          "dimensions": {
+            "declared": "A1:H7",
+            "max_column": 8,
+            "max_row": 7,
+            "min_column": 1,
+            "min_row": 1
+          },
+          "object_type": "excel_sheet",
+          "sheet_name": "Main",
+          "visibility": "visible"
+        },
+        "record_type": "candidate_fact",
+        "source_revision_id": "R1"
+      },
+      {
+        "assertion_type": "explicit",
+        "attributes": {},
+        "candidate_id": "DER_3656442bc49946ebcb48c78f",
+        "chunk_id": null,
+        "confidence": "high",
+        "derivation": {
+          "component": "definition",
+          "context_fingerprint": "800c0408c40cc4362c5c8f742b2faf4830c7be6569227a0e7c904cb0fb9fa3dd",
+          "resolution": {
+            "basis_evidence_ids": [
+              "EV_44cd9553d435766cba3dd5cc"
+            ],
+            "reason_code": "syntactic_extraction",
+            "status": "not_required"
+          },
+          "rule_version": "4.0"
+        },
+        "deterministic_contract": "4",
+        "entity_name": "candidate_workbook.xlsx::Hidden",
+        "evidence_id": "EV_44cd9553d435766cba3dd5cc",
+        "evidence_text": "Hidden",
+        "fact_type": "excel_sheet",
+        "fragment_id": "EV_44cd9553d435766cba3dd5cc",
+        "property_name": "definition",
+        "property_value": {
+          "dimensions": {
+            "declared": "A1",
+            "max_column": 1,
+            "max_row": 1,
+            "min_column": 1,
+            "min_row": 1
+          },
+          "object_type": "excel_sheet",
+          "sheet_name": "Hidden",
+          "visibility": "hidden"
+        },
+        "record_type": "candidate_fact",
+        "source_revision_id": "R1"
+      },
+      {
+        "assertion_type": "explicit",
+        "attributes": {},
+        "candidate_id": "DER_0bca58d52bfa5a314d87e3ef",
+        "chunk_id": null,
+        "confidence": "high",
+        "derivation": {
+          "component": "definition",
+          "context_fingerprint": "4b46eaab1de1639ef8285a3165ff2fa7cdd6b1d7b0e921df3c2dd907792a5fcd",
+          "resolution": {
+            "basis_evidence_ids": [
+              "EV_77c8317a37fa9680ed42e687"
+            ],
+            "reason_code": "syntactic_extraction",
+            "status": "not_required"
+          },
+          "rule_version": "4.0"
+        },
+        "deterministic_contract": "4",
+        "entity_name": "candidate_workbook.xlsx::VeryHidden",
+        "evidence_id": "EV_77c8317a37fa9680ed42e687",
+        "evidence_text": "VeryHidden",
+        "fact_type": "excel_sheet",
+        "fragment_id": "EV_77c8317a37fa9680ed42e687",
+        "property_name": "definition",
+        "property_value": {
+          "dimensions": {
+            "declared": "B2",
+            "max_column": 2,
+            "max_row": 2,
+            "min_column": 2,
+            "min_row": 2
+          },
+          "object_type": "excel_sheet",
+          "sheet_name": "VeryHidden",
+          "visibility": "very_hidden"
+        },
+        "record_type": "candidate_fact",
+        "source_revision_id": "R1"
+      },
+      {
+        "assertion_type": "explicit",
+        "attributes": {},
+        "candidate_id": "DER_8d6718636998a73626f3deba",
+        "chunk_id": null,
+        "confidence": "high",
+        "derivation": {
+          "component": "definition",
+          "context_fingerprint": "84f36b99f19c9266331da0fe46f950ee6897576360c6dd175dc0f95d8179d6ba",
+          "resolution": {
+            "basis_evidence_ids": [
+              "EV_174786a748a7b27acb941ffd"
+            ],
+            "reason_code": "syntactic_extraction",
+            "status": "not_required"
+          },
+          "rule_version": "4.0"
+        },
+        "deterministic_contract": "4",
+        "entity_name": "candidate_workbook.xlsx::Main::A1:B3",
+        "evidence_id": "EV_174786a748a7b27acb941ffd",
+        "evidence_text": "{\"fragment_id\": \"FRAG_000001\", \"fragment_type\": \"excel_region\", \"sequence\": 1, \"source_revision_id\": \"R1\", \"fragment_hash\": \"894ddbe8327e1de39403c788ecaff268ae39813c3d26a4f7d2c5c4831b691cbf\", \"sheet\": {\"index\": 0, \"name\": \"Main\"}, \"start_cell\": \"A1\", \"end_cell\": \"B3\", \"region_kind\": \"connected_cells\", \"region_hash\": \"6261d9b68bc095f2e059d476771562b6e9f2229acf9f5722d337cabb533e61c4\", \"detector\": {\"id\": \"connected_non_empty_cells\", \"version\": \"1\"}, \"cells\": [{\"coordinate\": \"A1\", \"row\": 1, \"column\": 1, \"type\": \"string\", \"value\": \"Code\", \"formula\": null, \"cached_value\": null, \"style_id\": 0}, {\"coordinate\": \"B1\", \"row\": 1, \"column\": 2, \"type\": \"string\", \"value\": \"Amount\", \"formula\": null, \"cached_value\": null, \"style_id\": 0}, {\"coordinate\": \"A2\", \"row\": 2, \"column\": 1, \"type\": \"string\", \"value\": \"A\", \"formula\": null, \"cached_value\": null, \"style_id\": 0}, {\"coordinate\": \"B2\", \"row\": 2, \"column\": 2, \"type\": \"number\", \"value\": \"10\", \"formula\": null, \"cached_value\": null, \"style_id\": 0}, {\"coordinate\": \"A3\", \"row\": 3, \"column\": 1, \"type\": \"string\", \"value\": \"B\", \"formula\": null, \"cached_value\": null, \"style_id\": 0}, {\"coordinate\": \"B3\", \"row\": 3, \"column\": 2, \"type\": \"number\", \"value\": \"20\", \"formula\": null, \"cached_value\": null, \"style_id\": 0}], \"locator\": {\"part_name\": \"xl/worksheets/sheet1.xml\", \"range\": \"A1:B3\"}}",
+        "fact_type": "excel_region",
+        "fragment_id": "EV_174786a748a7b27acb941ffd",
+        "property_name": "definition",
+        "property_value": {
+          "cells": [
+            {
+              "cached_value": null,
+              "column": 1,
+              "coordinate": "A1",
+              "formula": null,
+              "row": 1,
+              "style_id": 0,
+              "type": "string",
+              "value": "Code"
+            },
+            {
+              "cached_value": null,
+              "column": 2,
+              "coordinate": "B1",
+              "formula": null,
+              "row": 1,
+              "style_id": 0,
+              "type": "string",
+              "value": "Amount"
+            },
+            {
+              "cached_value": null,
+              "column": 1,
+              "coordinate": "A2",
+              "formula": null,
+              "row": 2,
+              "style_id": 0,
+              "type": "string",
+              "value": "A"
+            },
+            {
+              "cached_value": null,
+              "column": 2,
+              "coordinate": "B2",
+              "formula": null,
+              "row": 2,
+              "style_id": 0,
+              "type": "number",
+              "value": "10"
+            },
+            {
+              "cached_value": null,
+              "column": 1,
+              "coordinate": "A3",
+              "formula": null,
+              "row": 3,
+              "style_id": 0,
+              "type": "string",
+              "value": "B"
+            },
+            {
+              "cached_value": null,
+              "column": 2,
+              "coordinate": "B3",
+              "formula": null,
+              "row": 3,
+              "style_id": 0,
+              "type": "number",
+              "value": "20"
+            }
+          ],
+          "detector": {
+            "id": "connected_non_empty_cells",
+            "version": "1"
+          },
+          "end_cell": "B3",
+          "fragment_hash": "894ddbe8327e1de39403c788ecaff268ae39813c3d26a4f7d2c5c4831b691cbf",
+          "fragment_type": "excel_region",
+          "object_type": "excel_region",
+          "region_hash": "6261d9b68bc095f2e059d476771562b6e9f2229acf9f5722d337cabb533e61c4",
+          "region_kind": "connected_cells",
+          "sequence": 1,
+          "sheet": {
+            "index": 0,
+            "name": "Main"
+          },
+          "start_cell": "A1"
+        },
+        "record_type": "candidate_fact",
+        "source_revision_id": "R1"
+      },
+      {
+        "assertion_type": "explicit",
+        "attributes": {},
+        "candidate_id": "DER_a07e013750492e5dd8866837",
+        "chunk_id": null,
+        "confidence": "high",
+        "derivation": {
+          "component": "definition",
+          "context_fingerprint": "864a7f39f0ef07cbb23e3e57872335f4d4438c40ca8bd6f6cc5a5d6bf33dc311",
+          "resolution": {
+            "basis_evidence_ids": [
+              "EV_df14c38fcfeb73bba6f8f757"
+            ],
+            "reason_code": "syntactic_extraction",
+            "status": "not_required"
+          },
+          "rule_version": "4.0"
+        },
+        "deterministic_contract": "4",
+        "entity_name": "candidate_workbook.xlsx::Main::E1:F3",
+        "evidence_id": "EV_df14c38fcfeb73bba6f8f757",
+        "evidence_text": "{\"fragment_id\": \"FRAG_000002\", \"fragment_type\": \"excel_region\", \"sequence\": 2, \"source_revision_id\": \"R1\", \"fragment_hash\": \"e6b6b48ffb8ab4370a9e61bbb3d7f7d505678cc79fe48db12841c4cb89436d2c\", \"sheet\": {\"index\": 0, \"name\": \"Main\"}, \"start_cell\": \"E1\", \"end_cell\": \"F3\", \"region_kind\": \"connected_cells\", \"region_hash\": \"bd80a38c57cf6763c12b3c2f0618d002bb586b8508fea0e2fc083daf30452e0d\", \"detector\": {\"id\": \"connected_non_empty_cells\", \"version\": \"1\"}, \"cells\": [{\"coordinate\": \"E1\", \"row\": 1, \"column\": 5, \"type\": \"string\", \"value\": \"Code\", \"formula\": null, \"cached_value\": null, \"style_id\": 0}, {\"coordinate\": \"F1\", \"row\": 1, \"column\": 6, \"type\": \"string\", \"value\": \"Amount\", \"formula\": null, \"cached_value\": null, \"style_id\": 0}, {\"coordinate\": \"E2\", \"row\": 2, \"column\": 5, \"type\": \"string\", \"value\": \"A\", \"formula\": null, \"cached_value\": null, \"style_id\": 0}, {\"coordinate\": \"F2\", \"row\": 2, \"column\": 6, \"type\": \"number\", \"value\": \"10\", \"formula\": null, \"cached_value\": null, \"style_id\": 0}, {\"coordinate\": \"E3\", \"row\": 3, \"column\": 5, \"type\": \"string\", \"value\": \"B\", \"formula\": null, \"cached_value\": null, \"style_id\": 0}, {\"coordinate\": \"F3\", \"row\": 3, \"column\": 6, \"type\": \"number\", \"value\": \"20\", \"formula\": null, \"cached_value\": null, \"style_id\": 0}], \"locator\": {\"part_name\": \"xl/worksheets/sheet1.xml\", \"range\": \"E1:F3\"}}",
+        "fact_type": "excel_region",
+        "fragment_id": "EV_df14c38fcfeb73bba6f8f757",
+        "property_name": "definition",
+        "property_value": {
+          "cells": [
+            {
+              "cached_value": null,
+              "column": 5,
+              "coordinate": "E1",
+              "formula": null,
+              "row": 1,
+              "style_id": 0,
+              "type": "string",
+              "value": "Code"
+            },
+            {
+              "cached_value": null,
+              "column": 6,
+              "coordinate": "F1",
+              "formula": null,
+              "row": 1,
+              "style_id": 0,
+              "type": "string",
+              "value": "Amount"
+            },
+            {
+              "cached_value": null,
+              "column": 5,
+              "coordinate": "E2",
+              "formula": null,
+              "row": 2,
+              "style_id": 0,
+              "type": "string",
+              "value": "A"
+            },
+            {
+              "cached_value": null,
+              "column": 6,
+              "coordinate": "F2",
+              "formula": null,
+              "row": 2,
+              "style_id": 0,
+              "type": "number",
+              "value": "10"
+            },
+            {
+              "cached_value": null,
+              "column": 5,
+              "coordinate": "E3",
+              "formula": null,
+              "row": 3,
+              "style_id": 0,
+              "type": "string",
+              "value": "B"
+            },
+            {
+              "cached_value": null,
+              "column": 6,
+              "coordinate": "F3",
+              "formula": null,
+              "row": 3,
+              "style_id": 0,
+              "type": "number",
+              "value": "20"
+            }
+          ],
+          "detector": {
+            "id": "connected_non_empty_cells",
+            "version": "1"
+          },
+          "end_cell": "F3",
+          "fragment_hash": "e6b6b48ffb8ab4370a9e61bbb3d7f7d505678cc79fe48db12841c4cb89436d2c",
+          "fragment_type": "excel_region",
+          "object_type": "excel_region",
+          "region_hash": "bd80a38c57cf6763c12b3c2f0618d002bb586b8508fea0e2fc083daf30452e0d",
+          "region_kind": "connected_cells",
+          "sequence": 2,
+          "sheet": {
+            "index": 0,
+            "name": "Main"
+          },
+          "start_cell": "E1"
+        },
+        "record_type": "candidate_fact",
+        "source_revision_id": "R1"
+      },
+      {
+        "assertion_type": "explicit",
+        "attributes": {},
+        "candidate_id": "DER_7a3116a997c03e717ccb9ff4",
+        "chunk_id": null,
+        "confidence": "high",
+        "derivation": {
+          "component": "definition",
+          "context_fingerprint": "b8389632d755849a17790627852d3d472a2c99323a1d365eef26deb9c75c65ff",
+          "resolution": {
+            "basis_evidence_ids": [
+              "EV_a5c6a7852cd21c3017a06e17"
+            ],
+            "reason_code": "syntactic_extraction",
+            "status": "not_required"
+          },
+          "rule_version": "4.0"
+        },
+        "deterministic_contract": "4",
+        "entity_name": "candidate_workbook.xlsx::Main::H1",
+        "evidence_id": "EV_a5c6a7852cd21c3017a06e17",
+        "evidence_text": "{\"fragment_id\": \"FRAG_000003\", \"fragment_type\": \"excel_region\", \"sequence\": 3, \"source_revision_id\": \"R1\", \"fragment_hash\": \"98fdb686bfa414a00c2ba8be7a511758637c7e5695299844d795fd0a19d4f655\", \"sheet\": {\"index\": 0, \"name\": \"Main\"}, \"start_cell\": \"H1\", \"end_cell\": \"H1\", \"region_kind\": \"connected_cells\", \"region_hash\": \"2a3780c54ab0461dda759bb05c2a664ae2707c107187d19e25580a6d581c2a6b\", \"detector\": {\"id\": \"connected_non_empty_cells\", \"version\": \"1\"}, \"cells\": [{\"coordinate\": \"H1\", \"row\": 1, \"column\": 8, \"type\": \"number\", \"value\": null, \"formula\": \"SUM(Orders[Amount])\", \"cached_value\": \"30\", \"style_id\": 0}], \"locator\": {\"part_name\": \"xl/worksheets/sheet1.xml\", \"range\": \"H1\"}}",
+        "fact_type": "excel_region",
+        "fragment_id": "EV_a5c6a7852cd21c3017a06e17",
+        "property_name": "definition",
+        "property_value": {
+          "cells": [
+            {
+              "cached_value": "30",
+              "column": 8,
+              "coordinate": "H1",
+              "formula": "SUM(Orders[Amount])",
+              "row": 1,
+              "style_id": 0,
+              "type": "number",
+              "value": null
+            }
+          ],
+          "detector": {
+            "id": "connected_non_empty_cells",
+            "version": "1"
+          },
+          "end_cell": "H1",
+          "fragment_hash": "98fdb686bfa414a00c2ba8be7a511758637c7e5695299844d795fd0a19d4f655",
+          "fragment_type": "excel_region",
+          "object_type": "excel_region",
+          "region_hash": "2a3780c54ab0461dda759bb05c2a664ae2707c107187d19e25580a6d581c2a6b",
+          "region_kind": "connected_cells",
+          "sequence": 3,
+          "sheet": {
+            "index": 0,
+            "name": "Main"
+          },
+          "start_cell": "H1"
+        },
+        "record_type": "candidate_fact",
+        "source_revision_id": "R1"
+      },
+      {
+        "assertion_type": "explicit",
+        "attributes": {},
+        "candidate_id": "DER_596795dabf171b689f42427d",
+        "chunk_id": null,
+        "confidence": "high",
+        "derivation": {
+          "component": "definition",
+          "context_fingerprint": "cfd10d0f86061084f59bf9c34f6c1a048d2c11d0fae11a7be1e9d11b0075fb63",
+          "resolution": {
+            "basis_evidence_ids": [
+              "EV_ae6d6d3376635670acb9c461"
+            ],
+            "reason_code": "syntactic_extraction",
+            "status": "not_required"
+          },
+          "rule_version": "4.0"
+        },
+        "deterministic_contract": "4",
+        "entity_name": "candidate_workbook.xlsx::Main::H3",
+        "evidence_id": "EV_ae6d6d3376635670acb9c461",
+        "evidence_text": "{\"fragment_id\": \"FRAG_000004\", \"fragment_type\": \"excel_region\", \"sequence\": 4, \"source_revision_id\": \"R1\", \"fragment_hash\": \"e57dc1a31e35ca287d6d766e817eca5f225dad7219f49e5f61ee2a5cfe400310\", \"sheet\": {\"index\": 0, \"name\": \"Main\"}, \"start_cell\": \"H3\", \"end_cell\": \"H3\", \"region_kind\": \"connected_cells\", \"region_hash\": \"bc4c2a851fa0215a411cd1e1d98a36477d7ca08947b6ea35afc70f2396ba4ef0\", \"detector\": {\"id\": \"connected_non_empty_cells\", \"version\": \"1\"}, \"cells\": [{\"coordinate\": \"H3\", \"row\": 3, \"column\": 8, \"type\": \"number\", \"value\": null, \"formula\": \"SUM(LocalBlock)\", \"cached_value\": \"30\", \"style_id\": 0}], \"locator\": {\"part_name\": \"xl/worksheets/sheet1.xml\", \"range\": \"H3\"}}",
+        "fact_type": "excel_region",
+        "fragment_id": "EV_ae6d6d3376635670acb9c461",
+        "property_name": "definition",
+        "property_value": {
+          "cells": [
+            {
+              "cached_value": "30",
+              "column": 8,
+              "coordinate": "H3",
+              "formula": "SUM(LocalBlock)",
+              "row": 3,
+              "style_id": 0,
+              "type": "number",
+              "value": null
+            }
+          ],
+          "detector": {
+            "id": "connected_non_empty_cells",
+            "version": "1"
+          },
+          "end_cell": "H3",
+          "fragment_hash": "e57dc1a31e35ca287d6d766e817eca5f225dad7219f49e5f61ee2a5cfe400310",
+          "fragment_type": "excel_region",
+          "object_type": "excel_region",
+          "region_hash": "bc4c2a851fa0215a411cd1e1d98a36477d7ca08947b6ea35afc70f2396ba4ef0",
+          "region_kind": "connected_cells",
+          "sequence": 4,
+          "sheet": {
+            "index": 0,
+            "name": "Main"
+          },
+          "start_cell": "H3"
+        },
+        "record_type": "candidate_fact",
+        "source_revision_id": "R1"
+      },
+      {
+        "assertion_type": "explicit",
+        "attributes": {},
+        "candidate_id": "DER_e4b36ead06b154c1bce8d888",
+        "chunk_id": null,
+        "confidence": "high",
+        "derivation": {
+          "component": "definition",
+          "context_fingerprint": "6b16d22a690f4bada3eef50732f0217a19a0409797de4f5e5dc39d6f9ee8f2f9",
+          "resolution": {
+            "basis_evidence_ids": [
+              "EV_b0242f607b8774aa6ab278ea"
+            ],
+            "reason_code": "syntactic_extraction",
+            "status": "not_required"
+          },
+          "rule_version": "4.0"
+        },
+        "deterministic_contract": "4",
+        "entity_name": "candidate_workbook.xlsx::Main::H5",
+        "evidence_id": "EV_b0242f607b8774aa6ab278ea",
+        "evidence_text": "{\"fragment_id\": \"FRAG_000005\", \"fragment_type\": \"excel_region\", \"sequence\": 5, \"source_revision_id\": \"R1\", \"fragment_hash\": \"cdd5b10b20dc571d8d5e01dff1c76b6d321c4831f519435f8ef5d1e8c27ce9e3\", \"sheet\": {\"index\": 0, \"name\": \"Main\"}, \"start_cell\": \"H5\", \"end_cell\": \"H5\", \"region_kind\": \"connected_cells\", \"region_hash\": \"307ed1ffd2e9859b74f11ddf96d4177ed986abd1fbebc1e81ee2aefac4aec93b\", \"detector\": {\"id\": \"connected_non_empty_cells\", \"version\": \"1\"}, \"cells\": [{\"coordinate\": \"H5\", \"row\": 5, \"column\": 8, \"type\": \"number\", \"value\": null, \"formula\": \"'Hidden'!$A$1\", \"cached_value\": \"7\", \"style_id\": 0}], \"locator\": {\"part_name\": \"xl/worksheets/sheet1.xml\", \"range\": \"H5\"}}",
+        "fact_type": "excel_region",
+        "fragment_id": "EV_b0242f607b8774aa6ab278ea",
+        "property_name": "definition",
+        "property_value": {
+          "cells": [
+            {
+              "cached_value": "7",
+              "column": 8,
+              "coordinate": "H5",
+              "formula": "'Hidden'!$A$1",
+              "row": 5,
+              "style_id": 0,
+              "type": "number",
+              "value": null
+            }
+          ],
+          "detector": {
+            "id": "connected_non_empty_cells",
+            "version": "1"
+          },
+          "end_cell": "H5",
+          "fragment_hash": "cdd5b10b20dc571d8d5e01dff1c76b6d321c4831f519435f8ef5d1e8c27ce9e3",
+          "fragment_type": "excel_region",
+          "object_type": "excel_region",
+          "region_hash": "307ed1ffd2e9859b74f11ddf96d4177ed986abd1fbebc1e81ee2aefac4aec93b",
+          "region_kind": "connected_cells",
+          "sequence": 5,
+          "sheet": {
+            "index": 0,
+            "name": "Main"
+          },
+          "start_cell": "H5"
+        },
+        "record_type": "candidate_fact",
+        "source_revision_id": "R1"
+      },
+      {
+        "assertion_type": "explicit",
+        "attributes": {},
+        "candidate_id": "DER_d4718858cf1c41a027aa5066",
+        "chunk_id": null,
+        "confidence": "high",
+        "derivation": {
+          "component": "definition",
+          "context_fingerprint": "5fe8e87013099c7bbb256eb04abef17df96bde35bc4fd8bcbbb0a7c74df6152d",
+          "resolution": {
+            "basis_evidence_ids": [
+              "EV_5f2b1199b4fabdf8a5d3b73a"
+            ],
+            "reason_code": "syntactic_extraction",
+            "status": "not_required"
+          },
+          "rule_version": "4.0"
+        },
+        "deterministic_contract": "4",
+        "entity_name": "candidate_workbook.xlsx::Main::H7",
+        "evidence_id": "EV_5f2b1199b4fabdf8a5d3b73a",
+        "evidence_text": "{\"fragment_id\": \"FRAG_000006\", \"fragment_type\": \"excel_region\", \"sequence\": 6, \"source_revision_id\": \"R1\", \"fragment_hash\": \"4b42083d69b2dc9088df754b07f9485054aa1cbfb7edc202d2e4dd6439ba8073\", \"sheet\": {\"index\": 0, \"name\": \"Main\"}, \"start_cell\": \"H7\", \"end_cell\": \"H7\", \"region_kind\": \"connected_cells\", \"region_hash\": \"7233ff9a13d9b2b0bcff16453a937c8ff2a2b522e913c43112c8feffd96b279d\", \"detector\": {\"id\": \"connected_non_empty_cells\", \"version\": \"1\"}, \"cells\": [{\"coordinate\": \"H7\", \"row\": 7, \"column\": 8, \"type\": \"number\", \"value\": null, \"formula\": \"'https://example.invalid/[external.xlsx]Sheet1'!$A$1\", \"cached_value\": \"41\", \"style_id\": 0}], \"locator\": {\"part_name\": \"xl/worksheets/sheet1.xml\", \"range\": \"H7\"}}",
+        "fact_type": "excel_region",
+        "fragment_id": "EV_5f2b1199b4fabdf8a5d3b73a",
+        "property_name": "definition",
+        "property_value": {
+          "cells": [
+            {
+              "cached_value": "41",
+              "column": 8,
+              "coordinate": "H7",
+              "formula": "'https://example.invalid/[external.xlsx]Sheet1'!$A$1",
+              "row": 7,
+              "style_id": 0,
+              "type": "number",
+              "value": null
+            }
+          ],
+          "detector": {
+            "id": "connected_non_empty_cells",
+            "version": "1"
+          },
+          "end_cell": "H7",
+          "fragment_hash": "4b42083d69b2dc9088df754b07f9485054aa1cbfb7edc202d2e4dd6439ba8073",
+          "fragment_type": "excel_region",
+          "object_type": "excel_region",
+          "region_hash": "7233ff9a13d9b2b0bcff16453a937c8ff2a2b522e913c43112c8feffd96b279d",
+          "region_kind": "connected_cells",
+          "sequence": 6,
+          "sheet": {
+            "index": 0,
+            "name": "Main"
+          },
+          "start_cell": "H7"
+        },
+        "record_type": "candidate_fact",
+        "source_revision_id": "R1"
+      },
+      {
+        "assertion_type": "explicit",
+        "attributes": {},
+        "candidate_id": "DER_0d367434fe6ee46d3b307074",
+        "chunk_id": null,
+        "confidence": "high",
+        "derivation": {
+          "component": "definition",
+          "context_fingerprint": "193068c953807bfc96a9920424c1db6f5ba0fc2fc5783478b069f22ef2dc7dad",
+          "resolution": {
+            "basis_evidence_ids": [
+              "EV_8ae969a300f58d2445c0ab57"
+            ],
+            "reason_code": "syntactic_extraction",
+            "status": "not_required"
+          },
+          "rule_version": "4.0"
+        },
+        "deterministic_contract": "4",
+        "entity_name": "candidate_workbook.xlsx::Hidden::A1",
+        "evidence_id": "EV_8ae969a300f58d2445c0ab57",
+        "evidence_text": "{\"fragment_id\": \"FRAG_000007\", \"fragment_type\": \"excel_region\", \"sequence\": 7, \"source_revision_id\": \"R1\", \"fragment_hash\": \"cb1b4788c6bae74b6d20404cb4c9ccaea34e61f55df2cde940506da7c0a87b45\", \"sheet\": {\"index\": 1, \"name\": \"Hidden\"}, \"start_cell\": \"A1\", \"end_cell\": \"A1\", \"region_kind\": \"connected_cells\", \"region_hash\": \"cffd66e761069246aacee1801330173d9b6380fc7f2dbd00f7f202d43b4cba38\", \"detector\": {\"id\": \"connected_non_empty_cells\", \"version\": \"1\"}, \"cells\": [{\"coordinate\": \"A1\", \"row\": 1, \"column\": 1, \"type\": \"number\", \"value\": \"7\", \"formula\": null, \"cached_value\": null, \"style_id\": 0}], \"locator\": {\"part_name\": \"xl/worksheets/sheet2.xml\", \"range\": \"A1\"}}",
+        "fact_type": "excel_region",
+        "fragment_id": "EV_8ae969a300f58d2445c0ab57",
+        "property_name": "definition",
+        "property_value": {
+          "cells": [
+            {
+              "cached_value": null,
+              "column": 1,
+              "coordinate": "A1",
+              "formula": null,
+              "row": 1,
+              "style_id": 0,
+              "type": "number",
+              "value": "7"
+            }
+          ],
+          "detector": {
+            "id": "connected_non_empty_cells",
+            "version": "1"
+          },
+          "end_cell": "A1",
+          "fragment_hash": "cb1b4788c6bae74b6d20404cb4c9ccaea34e61f55df2cde940506da7c0a87b45",
+          "fragment_type": "excel_region",
+          "object_type": "excel_region",
+          "region_hash": "cffd66e761069246aacee1801330173d9b6380fc7f2dbd00f7f202d43b4cba38",
+          "region_kind": "connected_cells",
+          "sequence": 7,
+          "sheet": {
+            "index": 1,
+            "name": "Hidden"
+          },
+          "start_cell": "A1"
+        },
+        "record_type": "candidate_fact",
+        "source_revision_id": "R1"
+      },
+      {
+        "assertion_type": "explicit",
+        "attributes": {},
+        "candidate_id": "DER_77b1131f531ce65da770457c",
+        "chunk_id": null,
+        "confidence": "high",
+        "derivation": {
+          "component": "definition",
+          "context_fingerprint": "0ab376c6b9ada466f3dac4e5c6c73cdb64e9aff879d2ca4dc6ee0ff9fa125bf1",
+          "resolution": {
+            "basis_evidence_ids": [
+              "EV_2b5b779d4d0ccae08651a4db"
+            ],
+            "reason_code": "syntactic_extraction",
+            "status": "not_required"
+          },
+          "rule_version": "4.0"
+        },
+        "deterministic_contract": "4",
+        "entity_name": "candidate_workbook.xlsx::VeryHidden::B2",
+        "evidence_id": "EV_2b5b779d4d0ccae08651a4db",
+        "evidence_text": "{\"fragment_id\": \"FRAG_000008\", \"fragment_type\": \"excel_region\", \"sequence\": 8, \"source_revision_id\": \"R1\", \"fragment_hash\": \"e31e12301337a9e061bf372a329061eb3101e3baf0b1207b7bc3ec8842168ffa\", \"sheet\": {\"index\": 2, \"name\": \"VeryHidden\"}, \"start_cell\": \"B2\", \"end_cell\": \"B2\", \"region_kind\": \"connected_cells\", \"region_hash\": \"f76bca447ae67dab7dd5d5a15de1850b22c218b02aec78e0a4aa1af16b409712\", \"detector\": {\"id\": \"connected_non_empty_cells\", \"version\": \"1\"}, \"cells\": [{\"coordinate\": \"B2\", \"row\": 2, \"column\": 2, \"type\": \"string\", \"value\": \"very hidden evidence\", \"formula\": null, \"cached_value\": null, \"style_id\": 0}], \"locator\": {\"part_name\": \"xl/worksheets/sheet3.xml\", \"range\": \"B2\"}}",
+        "fact_type": "excel_region",
+        "fragment_id": "EV_2b5b779d4d0ccae08651a4db",
+        "property_name": "definition",
+        "property_value": {
+          "cells": [
+            {
+              "cached_value": null,
+              "column": 2,
+              "coordinate": "B2",
+              "formula": null,
+              "row": 2,
+              "style_id": 0,
+              "type": "string",
+              "value": "very hidden evidence"
+            }
+          ],
+          "detector": {
+            "id": "connected_non_empty_cells",
+            "version": "1"
+          },
+          "end_cell": "B2",
+          "fragment_hash": "e31e12301337a9e061bf372a329061eb3101e3baf0b1207b7bc3ec8842168ffa",
+          "fragment_type": "excel_region",
+          "object_type": "excel_region",
+          "region_hash": "f76bca447ae67dab7dd5d5a15de1850b22c218b02aec78e0a4aa1af16b409712",
+          "region_kind": "connected_cells",
+          "sequence": 8,
+          "sheet": {
+            "index": 2,
+            "name": "VeryHidden"
+          },
+          "start_cell": "B2"
+        },
+        "record_type": "candidate_fact",
+        "source_revision_id": "R1"
+      },
+      {
+        "assertion_type": "explicit",
+        "attributes": {},
+        "candidate_id": "DER_f445f2678b897cdaed66bafb",
+        "chunk_id": null,
+        "confidence": "high",
+        "derivation": {
+          "component": "definition",
+          "context_fingerprint": "12bad67af9f9fa0c426215a86dbda0b97226ff1346c83c2c2a600d0881f3268b",
+          "resolution": {
+            "basis_evidence_ids": [
+              "EV_27b4e37179dd6c8ac9eb1b69"
+            ],
+            "reason_code": "syntactic_extraction",
+            "status": "not_required"
+          },
+          "rule_version": "4.0"
+        },
+        "deterministic_contract": "4",
+        "entity_name": "candidate_workbook.xlsx::excel_named_range::workbook::*::GlobalBlock",
+        "evidence_id": "EV_27b4e37179dd6c8ac9eb1b69",
+        "evidence_text": "{\"scope\": \"workbook\", \"sheet_name\": null, \"name\": \"GlobalBlock\", \"refers_to\": \"Main!$A$1:$B$3\"}",
+        "fact_type": "excel_named_range",
+        "fragment_id": "EV_27b4e37179dd6c8ac9eb1b69",
+        "property_name": "definition",
+        "property_value": {
+          "object_name": "GlobalBlock",
+          "object_type": "excel_named_range",
+          "refers_to": "Main!$A$1:$B$3",
+          "scope": "workbook",
+          "sheet_name": null
+        },
+        "record_type": "candidate_fact",
+        "source_revision_id": "R1"
+      },
+      {
+        "assertion_type": "explicit",
+        "attributes": {},
+        "candidate_id": "DER_d3399fa8f214d72f80e6c865",
+        "chunk_id": null,
+        "confidence": "high",
+        "derivation": {
+          "component": "definition",
+          "context_fingerprint": "b09bf750367dc9d709be34562bf275b376817051ed9f2287fba94ba90c92fdd4",
+          "resolution": {
+            "basis_evidence_ids": [
+              "EV_1d61b223ef2def9f2dca20d6"
+            ],
+            "reason_code": "syntactic_extraction",
+            "status": "not_required"
+          },
+          "rule_version": "4.0"
+        },
+        "deterministic_contract": "4",
+        "entity_name": "candidate_workbook.xlsx::excel_named_range::workbook::*::LocalBlock",
+        "evidence_id": "EV_1d61b223ef2def9f2dca20d6",
+        "evidence_text": "{\"scope\": \"workbook\", \"sheet_name\": null, \"name\": \"LocalBlock\", \"refers_to\": \"Main!$A$2:$B$3\"}",
+        "fact_type": "excel_named_range",
+        "fragment_id": "EV_1d61b223ef2def9f2dca20d6",
+        "property_name": "definition",
+        "property_value": {
+          "object_name": "LocalBlock",
+          "object_type": "excel_named_range",
+          "refers_to": "Main!$A$2:$B$3",
+          "scope": "workbook",
+          "sheet_name": null
+        },
+        "record_type": "candidate_fact",
+        "source_revision_id": "R1"
+      },
+      {
+        "assertion_type": "explicit",
+        "attributes": {},
+        "candidate_id": "DER_c7f4cc76ea81892f071aa5e2",
+        "chunk_id": null,
+        "confidence": "high",
+        "derivation": {
+          "component": "definition",
+          "context_fingerprint": "9831eec493d920c60b4a77641bd432b1347e5c017d1e33683e268021106fe56b",
+          "resolution": {
+            "basis_evidence_ids": [
+              "EV_ec06c6555388ab34c1a715e7"
+            ],
+            "reason_code": "syntactic_extraction",
+            "status": "not_required"
+          },
+          "rule_version": "4.0"
+        },
+        "deterministic_contract": "4",
+        "entity_name": "candidate_workbook.xlsx::excel_named_range::sheet::Main::LocalBlock",
+        "evidence_id": "EV_ec06c6555388ab34c1a715e7",
+        "evidence_text": "{\"scope\": \"sheet\", \"sheet_name\": \"Main\", \"name\": \"LocalBlock\", \"refers_to\": \"Main!$E$2:$F$3\"}",
+        "fact_type": "excel_named_range",
+        "fragment_id": "EV_ec06c6555388ab34c1a715e7",
+        "property_name": "definition",
+        "property_value": {
+          "object_name": "LocalBlock",
+          "object_type": "excel_named_range",
+          "refers_to": "Main!$E$2:$F$3",
+          "scope": "sheet",
+          "sheet_name": "Main"
+        },
+        "record_type": "candidate_fact",
+        "source_revision_id": "R1"
+      },
+      {
+        "assertion_type": "explicit",
+        "attributes": {},
+        "candidate_id": "DER_c774d720136c658586fab8db",
+        "chunk_id": null,
+        "confidence": "high",
+        "derivation": {
+          "component": "definition",
+          "context_fingerprint": "e33c2f670690633e463e7faeffb087456b285770ded8c07c522f088918168854",
+          "resolution": {
+            "basis_evidence_ids": [
+              "EV_2145cd739cfe77cd434350a9"
+            ],
+            "reason_code": "syntactic_extraction",
+            "status": "not_required"
+          },
+          "rule_version": "4.0"
+        },
+        "deterministic_contract": "4",
+        "entity_name": "candidate_workbook.xlsx::excel_table::sheet::Main::Orders",
+        "evidence_id": "EV_2145cd739cfe77cd434350a9",
+        "evidence_text": "{\"columns\": [{\"id\": \"1\", \"name\": \"Code\"}, {\"id\": \"2\", \"name\": \"Amount\"}], \"display_name\": \"Orders\", \"name\": \"Orders\", \"part_name\": \"xl/tables/table1.xml\", \"refers_to\": \"A1:B3\", \"relationship_id\": \"rId1\", \"sheet_index\": 0, \"sheet_name\": \"Main\"}",
+        "fact_type": "excel_table",
+        "fragment_id": "EV_2145cd739cfe77cd434350a9",
+        "property_name": "definition",
+        "property_value": {
+          "columns": [
+            {
+              "id": "1",
+              "name": "Code"
+            },
+            {
+              "id": "2",
+              "name": "Amount"
+            }
+          ],
+          "display_name": "Orders",
+          "object_name": "Orders",
+          "object_type": "excel_table",
+          "part_name": "xl/tables/table1.xml",
+          "refers_to": "A1:B3",
+          "relationship_id": "rId1",
+          "sheet_index": 0,
+          "sheet_name": "Main"
+        },
+        "record_type": "candidate_fact",
+        "source_revision_id": "R1"
+      },
+      {
+        "assertion_type": "explicit",
+        "candidate_id": "DER_80aace72d2742004e3c225f1",
+        "chunk_id": null,
+        "confidence": "high",
+        "derivation": {
+          "component": "reference",
+          "context_fingerprint": "859e2fe72c5204caf58ff1f61fc32cd85b6aca2490579fd6b20bcc927594bb07",
+          "resolution": {
+            "basis_evidence_ids": [
+              "EV_6fa6a61374365d2169adf9af"
+            ],
+            "reason_code": "syntactic_extraction",
+            "status": "not_required"
+          },
+          "rule_version": "4.0"
+        },
+        "deterministic_contract": "4",
+        "evidence_id": "EV_6fa6a61374365d2169adf9af",
+        "evidence_text": "{\"source_part\": \"xl/externalLinks/externalLink1.xml\", \"relationship_id\": \"rId1\", \"target\": \"https://example.invalid/external.xlsx\", \"disposition\": \"not_dereferenced\"}",
+        "fragment_id": "EV_6fa6a61374365d2169adf9af",
+        "record_type": "candidate_relation",
+        "relation_type": "references_external",
+        "source_entity": "candidate_workbook.xlsx::rId1",
+        "source_revision_id": "R1",
+        "target_entity": "https://example.invalid/external.xlsx"
+      }
+    ],
+    "workbook_sha256": "751848e1c7c91bf7406a35a88d23b62c2b4f6923fcd5fd5db77290e26b6e0498"
+  },
+  "expected": "pinned workbook, all six derivation rules, formula/cache/scope/anchors",
+  "origin": "executed_pytest_assertions",
+  "status": "passed"
+}

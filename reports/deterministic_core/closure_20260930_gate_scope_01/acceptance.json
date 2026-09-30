@@ -1,0 +1,1253 @@
+{
+  "baseline": "a7117e061b393123e3b7b2ec22bf171687756447",
+  "code_provenance": {
+    "branch": "feat/deterministic-core-upgrade",
+    "dirty": true,
+    "head": "53bf0c31638199c26fb86c1523018680bf9c34c1",
+    "source_file_count": 42,
+    "source_snapshot_sha256": "b05c6c86037860bf92f7bce8cc72606d83b3a019bbb8f1c12cf3016eb4e09f84"
+  },
+  "commands": [
+    {
+      "argv": [
+        "C:\\_Support\\.venv_dslm3\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "check"
+      ],
+      "cwd": "C:\\Users\\dbarbiero\\OneDrive - Engineering Ingegneria Informatica S.p.A\\Projects\\dsl_manager-v3",
+      "duration_seconds": 7.438,
+      "exit_code": 0,
+      "log": "pip_check.log",
+      "name": "pip_check",
+      "status": "passed"
+    },
+    {
+      "argv": [
+        "C:\\_Support\\.venv_dslm3\\Scripts\\python.exe",
+        "-m",
+        "ruff",
+        "check",
+        "--select",
+        "F",
+        "src/dslm3",
+        "tests",
+        "scripts/core_acceptance.py",
+        "scripts/acceptance_closure.py",
+        "scripts/export_deterministic_patch.py",
+        "scripts/wheel_core_smoke.py"
+      ],
+      "cwd": "C:\\Users\\dbarbiero\\OneDrive - Engineering Ingegneria Informatica S.p.A\\Projects\\dsl_manager-v3",
+      "duration_seconds": 1.422,
+      "exit_code": 0,
+      "log": "lint.log",
+      "name": "lint",
+      "status": "passed"
+    },
+    {
+      "argv": [
+        "C:\\_Support\\.venv_dslm3\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "-q",
+        "--junitxml=C:\\Users\\dbarbiero\\OneDrive - Engineering Ingegneria Informatica S.p.A\\Projects\\dsl_manager-v3\\reports\\deterministic_core\\closure_20260930\\pytest.xml"
+      ],
+      "cwd": "C:\\Users\\dbarbiero\\OneDrive - Engineering Ingegneria Informatica S.p.A\\Projects\\dsl_manager-v3",
+      "duration_seconds": 386.078,
+      "exit_code": 0,
+      "log": "pytest.log",
+      "name": "pytest",
+      "status": "passed"
+    },
+    {
+      "argv": [
+        "C:\\_Support\\.venv_dslm3\\Scripts\\python.exe",
+        "-m",
+        "dslm3.deterministic_lab",
+        "--workspace",
+        "C:\\_Support\\dslm3_acceptance\\run_20260930_112901\\vega_deterministic",
+        "--report",
+        "C:\\Users\\dbarbiero\\OneDrive - Engineering Ingegneria Informatica S.p.A\\Projects\\dsl_manager-v3\\reports\\deterministic_core\\closure_20260930\\vega_deterministic.json"
+      ],
+      "cwd": "C:\\Users\\dbarbiero\\OneDrive - Engineering Ingegneria Informatica S.p.A\\Projects\\dsl_manager-v3",
+      "duration_seconds": 96.171,
+      "exit_code": 0,
+      "log": "vega_deterministic.log",
+      "name": "vega_deterministic",
+      "status": "passed"
+    },
+    {
+      "argv": [
+        "C:\\_Support\\.venv_dslm3\\Scripts\\python.exe",
+        "-m",
+        "dslm3.lab",
+        "--workspace",
+        "C:\\_Support\\dslm3_acceptance\\run_20260930_112901\\vega_integrated",
+        "--report",
+        "C:\\Users\\dbarbiero\\OneDrive - Engineering Ingegneria Informatica S.p.A\\Projects\\dsl_manager-v3\\reports\\deterministic_core\\closure_20260930\\vega_integrated.json"
+      ],
+      "cwd": "C:\\Users\\dbarbiero\\OneDrive - Engineering Ingegneria Informatica S.p.A\\Projects\\dsl_manager-v3",
+      "duration_seconds": 67.016,
+      "exit_code": 0,
+      "log": "vega_integrated.log",
+      "name": "vega_integrated",
+      "status": "passed"
+    },
+    {
+      "argv": [
+        "C:\\_Support\\.venv_dslm3\\Scripts\\python.exe",
+        "C:\\Users\\dbarbiero\\OneDrive - Engineering Ingegneria Informatica S.p.A\\Projects\\dsl_manager-v3\\scripts\\browser_check.py",
+        "C:\\_Support\\dslm3_acceptance\\run_20260930_112901\\browser",
+        "C:\\Users\\dbarbiero\\OneDrive - Engineering Ingegneria Informatica S.p.A\\Projects\\dsl_manager-v3\\reports\\deterministic_core\\closure_20260930\\browser"
+      ],
+      "cwd": "C:\\Users\\dbarbiero\\OneDrive - Engineering Ingegneria Informatica S.p.A\\Projects\\dsl_manager-v3",
+      "duration_seconds": 101.781,
+      "exit_code": 0,
+      "log": "browser.log",
+      "name": "browser",
+      "status": "passed"
+    },
+    {
+      "argv": [
+        "C:\\_Support\\.venv_dslm3\\Scripts\\python.exe",
+        "-m",
+        "build",
+        "--wheel",
+        "--no-isolation",
+        "--outdir",
+        "C:\\_Support\\dslm3_acceptance\\run_20260930_112901\\dist"
+      ],
+      "cwd": "C:\\Users\\dbarbiero\\OneDrive - Engineering Ingegneria Informatica S.p.A\\Projects\\dsl_manager-v3",
+      "duration_seconds": 7.625,
+      "exit_code": 0,
+      "log": "build.log",
+      "name": "build",
+      "status": "passed"
+    },
+    {
+      "argv": [
+        "C:\\_Support\\.venv_dslm3\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "install",
+        "--no-deps",
+        "--target",
+        "C:\\_Support\\dslm3_acceptance\\run_20260930_112901\\wheel_install",
+        "C:\\_Support\\dslm3_acceptance\\run_20260930_112901\\dist\\dslm3-3.0.0-py3-none-any.whl"
+      ],
+      "cwd": "C:\\Users\\dbarbiero\\OneDrive - Engineering Ingegneria Informatica S.p.A\\Projects\\dsl_manager-v3",
+      "duration_seconds": 3.75,
+      "exit_code": 0,
+      "log": "wheel_install.log",
+      "name": "wheel_install",
+      "status": "passed"
+    },
+    {
+      "argv": [
+        "C:\\_Support\\.venv_dslm3\\Scripts\\python.exe",
+        "C:\\Users\\dbarbiero\\OneDrive - Engineering Ingegneria Informatica S.p.A\\Projects\\dsl_manager-v3\\scripts\\wheel_core_smoke.py",
+        "C:\\_Support\\dslm3_acceptance\\run_20260930_112901\\wheel_install",
+        "C:\\_Support\\dslm3_acceptance\\run_20260930_112901\\wheel_workspace",
+        "C:\\Users\\dbarbiero\\OneDrive - Engineering Ingegneria Informatica S.p.A\\Projects\\dsl_manager-v3\\reports\\deterministic_core\\closure_20260930\\wheel_smoke.json"
+      ],
+      "cwd": "C:\\_Support\\dslm3_acceptance\\run_20260930_112901",
+      "duration_seconds": 45.406,
+      "exit_code": 0,
+      "log": "wheel_smoke.log",
+      "name": "wheel_smoke",
+      "status": "passed"
+    }
+  ],
+  "corpus_audit": [
+    "business_audit.json",
+    "decrement_audit.json"
+  ],
+  "environment": {
+    "architecture_bits": 64,
+    "packages": {
+      "docling": "2.128.0",
+      "fastapi": "0.141.1",
+      "numpy": "2.2.6",
+      "opencv-python": "4.12.0.88",
+      "playwright": "1.56.0",
+      "pytest": "9.1.1",
+      "sqlglot": "30.18.0"
+    },
+    "platform": "Windows-11-10.0.26200-SP0",
+    "powershell": "5.1.26100.9444",
+    "python": "C:\\_Support\\.venv_dslm3\\Scripts\\python.exe",
+    "version": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]"
+  },
+  "executable_snapshot": {
+    "files": {
+      "MANIFEST.in": "59a3a2f0f59429142482d2793339a5c25cda608f9f6318a2dde46ff08b3f75da",
+      "docs/oracle_v1_inventory.json": "068344e2f3cb9e4bd97879e4ab485d3646fdc9add5e622e00df04e6374d7b1b9",
+      "pyproject.toml": "0fdf34ca2f4a9f2eae8f0e3d537736f2372b289a19879303295c8a53214c7454",
+      "scripts/acceptance_closure.py": "8f199da02d1eece24b15990dbf5e09b71ab6c0533f1bebdcefa6e106f8fb29bd",
+      "scripts/activate_offline_kit.sh": "acdb2785d5cb4bdca34557bd35b1204a7db36908f6fca36189b6766860e072b7",
+      "scripts/browser_check.py": "affb89bc559cf263cbef2a13d1cb4f065e61fb31b9eb0da8badad9feaf43d1d2",
+      "scripts/check_deterministic_core.ps1": "b3d40070c1311cf5700041fc080bf3ee1cefac9394d8ffd537c0e7bd83614292",
+      "scripts/core_acceptance.py": "4f7d6a15d4153dbe335b60f192b54bebe1034195925de07cfc2dad8645cff520",
+      "scripts/export_deterministic_patch.py": "a7f16a9e24a9c314b84ba032c317d63f55ee3129092ba229dde3fb66723d24ff",
+      "scripts/pdf_check.py": "afd4b82f3ebaf3aba7753dea445ed229314ce310a97a47433d16b9aa8a031584",
+      "scripts/wheel_check.py": "0df012969c9f32186c187397f2535a45994da7e039b785ffa2a711bac6d90848",
+      "scripts/wheel_core_smoke.py": "efadeacef5e035d44bb7a1079ee08d173e50da6a027254bfd2015656d824c7ed",
+      "src/dslm3/__init__.py": "520c1ca0795d43ceb101b2643434bbcbda3f9888e456436f419e7d1835771185",
+      "src/dslm3/__main__.py": "357c7c389d431559b80cd9ce7641a1f2d9b2f75af512728d7258186096be99cc",
+      "src/dslm3/ai.py": "63269e19d43dbcce5c0b4d85e3996a24e523a7affc45038dea4b84f745a9268f",
+      "src/dslm3/cli.py": "9b5cd5f52ead56379f227def5550b9802ec0096c24872055be9652c7efa94d27",
+      "src/dslm3/common.py": "64757cabe0cbdfb774e985553bcf376a158db689b49e5c6f60f862ecc35c9575",
+      "src/dslm3/deterministic.py": "2c2c20c2488c75e8c020a3ff3e0c8ca1238e5cae3f79ee1587d9a9e726447acd",
+      "src/dslm3/deterministic_lab.py": "9c1c0773fbf2ea2b902f58646f350787a869953e54564634548f3373a9a9fcfe",
+      "src/dslm3/exports.py": "55b6e247843ad66012848a12db676dc82cba40faac9a09cd147e65ada7099067",
+      "src/dslm3/knowledge.py": "62687fdae7f1898a22f4280987a30e016ef783eb38d1deb896b40161bbd266f1",
+      "src/dslm3/lab.py": "fed29489beb3e77c25580ae9d0eb62f80f304a9fbb23203c6a0f1240187c820d",
+      "src/dslm3/parsers/__init__.py": "eb2732b65989cfd8ba25774eaf9320635c02284d6641376c10b967191b8dedeb",
+      "src/dslm3/parsers/base.py": "7fc6adb62383a6d5267987f0040dd1712c006c81750da2586151b3a60a1b6962",
+      "src/dslm3/parsers/documents.py": "7873ac6c0b61d6045752c505f184c591806a032974761fcbf810824b5471ac02",
+      "src/dslm3/parsers/sql.py": "a6d8bd7880e04e4e1e56a14603d7d9ef8e08c5e29d1ec9842ffb11c7fe1da8b1",
+      "src/dslm3/parsers/sql_shapes.py": "4d6cf607f3eb5793a2d09d18ec4b4bfe914c377d4e728d8163fc489740b5607b",
+      "src/dslm3/provenance.py": "d934d00801eb605fe3ee0cc40158ae3c476954241345210b53b30f3a128ce176",
+      "src/dslm3/resolution.py": "30dbe0946ee9c7e9ea5581e9041fe865bcfc7ac8b72f113804844eba444e5a56",
+      "src/dslm3/resources/gexf/LICENSE.txt": "90b6e892d38eae46116edf3894c0ec1cbab5f60528fc93a24b2d912e057d41d7",
+      "src/dslm3/resources/gexf/dynamics.xsd": "d5ee084a858baf6efebe210d4799050723bfce71fb44c9ddbf20a53f45be8298",
+      "src/dslm3/resources/gexf/gexf.xsd": "a8e1d0a6a5237fc4ce0825692fa3db49fb04d70cf3a84334f7a87c15422c1257",
+      "src/dslm3/resources/gexf/manifest.json": "ff1a275c106debc7722c84a27f7ca6c8edbd85fff0c15be29a769429e34e525a",
+      "src/dslm3/resources/gexf/viz.xsd": "e20e40bcfd4531026d4d1c74da5cbadc413ff5b81cf4418ca14f42ea994e2dc4",
+      "src/dslm3/resources/vega/database/schema_vega.sql": "7e6820245c0f13e44f60ac25bf5c32bfb17decdb4665b0432240fef5c87f36ae",
+      "src/dslm3/resources/vega/documenti/manuale_operativo_vega_2026.docx": "bca1c3408141adc0df112e2076f2d681d761c06b0b3550cf48bef331a39c204a",
+      "src/dslm3/resources/vega/documenti/matrice_priorita_vega_2026.xlsx": "0c24c3d8a3a1dc1c5952b4854eb529d33cb135619545aa0080bcb365add25ca9",
+      "src/dslm3/resources/vega/forms/frm_richiesta.xml": "7a00c5af251f1f0eb539bfb2f9ece4298387d5df0b9fd10fdce595b20594c2b7",
+      "src/dslm3/resources/vega/logs/vega_2026.log": "aacbe1a633720e316cade6b5c24b2b96508ca69a0eac0360f7c77a2753386565",
+      "src/dslm3/resources/vega/plsql/logica_vega.sql": "173890efa27d685ac2b16139162acdfa131f341cf83c1dfcc1cafda077a84318",
+      "src/dslm3/service.py": "2bd86bec0c1a3d88ee3d74235b19e519c38951b6ab41da93a1f28c9e2f96c384",
+      "src/dslm3/static/app.js": "f6f65e68b627687b86eeb8c7b01f07d1fb0a780ccbce97152d62e88f4a9b069e",
+      "src/dslm3/static/favicon.ico": "f8ee0d1853462b08ac24530190ae926451443075b3d17cc6c1e379e41811fa81",
+      "src/dslm3/static/index.html": "9cab8232bfb12c5c9482912dfe6d9f86aea69974b3d4ea8248bf13defc3ff3a4",
+      "src/dslm3/static/style.css": "d1f44b9f1a5d5daf1b74294c6bc1a0a8e21d14d1f3e781f9652fdd341d5f17ce",
+      "src/dslm3/storage.py": "0f781b4f92f9d7aac6f52d5352ad41b99006b7249b2ef62d4197c50049ecc302",
+      "src/dslm3/temporal.py": "7c8d237f0d729cc079c69ea295986d3842a20f3c9ff14e24433b158e828cd778",
+      "src/dslm3/vendor/__init__.py": "52aaccfa84dac0cb8c9fedf02478bbb1c8f1d3215c112bcf1aeda008100e2223",
+      "src/dslm3/vendor/canonical.py": "4c37790c9443c50ba6193943729ccd6387000e8a60c3cc86e40c800dbdb5909b",
+      "src/dslm3/vendor/ooxml_preflight.py": "149275ede4dd9e334858de0315681a7655dcccbba15b0febc7d680cbae9abe20",
+      "src/dslm3/vendor/workbook_regions.py": "b81552a96037d7a48270f2010b4e4de56160e0a80522521ba8161ab975e7551c",
+      "src/dslm3/web.py": "042c662da72924c726e57d6635878eba05d2a67f84a7b934a0855fe376fc0ad4",
+      "src/dslm3/worker.py": "09dfb883786659e750edbd2c790591bb7814f011126aeee565b7c28a54f92883",
+      "src/dslm3/workspaces.py": "203d604acd10a398ebb7c2d1d172a2bdb7c9ea2c3bd7aab313785feec131bc4d",
+      "tests/fixtures/deterministic/business.sql": "eb0a93f6ac9283912499d2a2ce9a0b11443593b2900f80104cc35b4742b2f091",
+      "tests/fixtures/deterministic/decrement.sql": "e48c20a3a27a52c15182f3190ef4bee969fee1a6f224f8f5c0d6649ab9a700a3",
+      "tests/fixtures/deterministic/expected_business.json": "89b030fa072d9f70b2b7639ae026d46fd3fd25537acd1c740198e6455182790a",
+      "tests/fixtures/pdf/manuale_vega.pdf": "8a5cc0cc38cf1ca2bf3e418cb68b8ed018c42fff7ff4a3cbcfe37079528a80d8",
+      "tests/fixtures/slice_23/checksums.json": "e20541357051dc977ef4fff765a59d8fc976e7b5cbeb714e3532aab5a2d4ab14",
+      "tests/fixtures/slice_23/real_macro_workbook.xlsm": "17f2858e53262098f899180d470a5390c3072ba5415e7d59a3cd9a4b2bd4caf4",
+      "tests/fixtures/slice_23/real_workbook.xlsx": "9ed7bda6d838c4142e7e673d5d6faba7e5e93a7e2fd6d83e0fb90b955aac0247",
+      "tests/fixtures/slice_24/checksums.json": "b25e36a08fc606bf6c972bab3174ac3221d70105b7a03963fec0312c8eafde80",
+      "tests/fixtures/slice_24/macro_workbook.xlsm": "17f2858e53262098f899180d470a5390c3072ba5415e7d59a3cd9a4b2bd4caf4",
+      "tests/fixtures/slice_24/structural_workbook.xlsx": "8691d24f3b6748d76a51731e6dfe362733cc26c2b8ea84769339832346754081",
+      "tests/fixtures/workbook_manifest_golden.json": "2ef2c10794330b80f95b0144a562f29baeca6f5c6109378b6593bd081fbc3bdd",
+      "tests/test_acceptance_closure.py": "aa44a264eb7658d778b50c8ea56dd588d727af6eea10b84ee0644132c66f4912",
+      "tests/test_ai_exports.py": "11531c034a35733d9c70423ed55f24324adb79a676566a9fc11908848b164635",
+      "tests/test_deterministic_closure.py": "d9f63dff7823d09dc8a7c7c0e90dfae031cd8935e32e5ece217103ba32053f97",
+      "tests/test_deterministic_core.py": "9963a39527abef159b41c09511887d75b6355255f082c7ce488082c514febb3d",
+      "tests/test_deterministic_lifecycle.py": "c9cbbc87da347e85a203a279bf990a7dd43976ada3aac66d2cad3ed764496e49",
+      "tests/test_deterministic_oracle.py": "d98fd97898430118d5f4e8a356a689227b3733a66b5e5dd6e4d60cb1cf89adc3",
+      "tests/test_deterministic_precision.py": "daa86a4fbb33e69dd3f91531d79202fee4f2aabaa171ecc2a75c1fab48c08f41",
+      "tests/test_formats_real.py": "a91194f3b97e2585e80835423228b4895915341662475797a68b7bd284b80703",
+      "tests/test_knowledge.py": "9b2383efd8029783f13416c1aeaadb6a9dba9d58a874aaac10858fc8d15ab582",
+      "tests/test_parsers.py": "88fbca98b0256873e1d18cab39965ea27f3b6c7f1f088435341d31d13f6e0908",
+      "tests/test_resume_regressions.py": "d0c84561812e07ef7807c90aeeba6e3a19f7120f71af5ea7b8fc780b829ea62f",
+      "tests/test_temporal.py": "ad5730687d23a172c78c42cda80b55be6b7942ba3d82306c75726e142fb33158",
+      "tests/test_v1_parity_regressions.py": "89a59dda9a3c6e7a7b8e2ad9df4c4e40a16c3c40e073789786ed905720638ed3",
+      "tests/test_web.py": "1c8841f6641342056f13a3b8b788ce6b578d56891fe388ca44a68da733fad2ff",
+      "tests/test_workspaces.py": "0ef93ea48ed0aad3a84533887b9194749bfb894e3df13c4e474234194401ebe1"
+    },
+    "sha256": "d6f2dd5fb157fa89a015e096d7c29074a5457a58dca8565a1d77118d0a6a3861"
+  },
+  "final_code_provenance": {
+    "branch": "feat/deterministic-core-upgrade",
+    "dirty": true,
+    "head": "53bf0c31638199c26fb86c1523018680bf9c34c1",
+    "source_file_count": 42,
+    "source_snapshot_sha256": "b05c6c86037860bf92f7bce8cc72606d83b3a019bbb8f1c12cf3016eb4e09f84"
+  },
+  "fixture_integrity": [
+    {
+      "actual_git_blob": "ffee982a43aead5ee45ee16d2e245704632200e8",
+      "blob_sha256": "a972c0b4cbbf50543d017bf91519ee9e6deb799c9e8685b9d417084c961d040d",
+      "checkout_sha256": "7e6820245c0f13e44f60ac25bf5c32bfb17decdb4665b0432240fef5c87f36ae",
+      "expected_git_blob": "ffee982a43aead5ee45ee16d2e245704632200e8",
+      "path": "database/schema_vega.sql",
+      "status": "passed"
+    },
+    {
+      "actual_git_blob": "59a57fe4813af9fe691c60881d2a87dc2633ea6c",
+      "blob_sha256": "bca1c3408141adc0df112e2076f2d681d761c06b0b3550cf48bef331a39c204a",
+      "checkout_sha256": "bca1c3408141adc0df112e2076f2d681d761c06b0b3550cf48bef331a39c204a",
+      "expected_git_blob": "59a57fe4813af9fe691c60881d2a87dc2633ea6c",
+      "path": "documenti/manuale_operativo_vega_2026.docx",
+      "status": "passed"
+    },
+    {
+      "actual_git_blob": "13d2b5a333f7dd5896a458c05d8b6954bef84c7e",
+      "blob_sha256": "0c24c3d8a3a1dc1c5952b4854eb529d33cb135619545aa0080bcb365add25ca9",
+      "checkout_sha256": "0c24c3d8a3a1dc1c5952b4854eb529d33cb135619545aa0080bcb365add25ca9",
+      "expected_git_blob": "13d2b5a333f7dd5896a458c05d8b6954bef84c7e",
+      "path": "documenti/matrice_priorita_vega_2026.xlsx",
+      "status": "passed"
+    },
+    {
+      "actual_git_blob": "e49fe679af927d96af37326e466b190bf713fef1",
+      "blob_sha256": "db3ae1c80ee4bf333e605a058978b36a86b0093b9990bb4822ca560340a25d9a",
+      "checkout_sha256": "7a00c5af251f1f0eb539bfb2f9ece4298387d5df0b9fd10fdce595b20594c2b7",
+      "expected_git_blob": "e49fe679af927d96af37326e466b190bf713fef1",
+      "path": "forms/frm_richiesta.xml",
+      "status": "passed"
+    },
+    {
+      "actual_git_blob": "1ba8749b71bb3cfd50edd058eb0d02cf26f468db",
+      "blob_sha256": "a1e69986569ae7f053041f1b180db540ab3d858e9f71ad5088da122bb1708873",
+      "checkout_sha256": "aacbe1a633720e316cade6b5c24b2b96508ca69a0eac0360f7c77a2753386565",
+      "expected_git_blob": "1ba8749b71bb3cfd50edd058eb0d02cf26f468db",
+      "path": "logs/vega_2026.log",
+      "status": "passed"
+    },
+    {
+      "actual_git_blob": "159e1005d30ebe741faed2581fbe8fefa2b3b385",
+      "blob_sha256": "2bc89867201b4390cf0380678c2d2136fbe0d76c6ae166167aebaef85f466f3d",
+      "checkout_sha256": "173890efa27d685ac2b16139162acdfa131f341cf83c1dfcc1cafda077a84318",
+      "expected_git_blob": "159e1005d30ebe741faed2581fbe8fefa2b3b385",
+      "path": "plsql/logica_vega.sql",
+      "status": "passed"
+    }
+  ],
+  "gates": {
+    "G01": {
+      "missing_test_patterns": [],
+      "status": "passed",
+      "tests": [
+        {
+          "name": "tests.test_deterministic_core::test_cov_01_missing_fk_retains_declaration",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_deterministic_core::test_cov_02_missing_due_result_is_failure",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_deterministic_core::test_cov_03_ambiguous_and_inconsistent",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_deterministic_core::test_cov_04_composite_counts_and_cov_05_unexpected_resolution",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_deterministic_core::test_cov_07_governance_and_cov_08_unknown_irrelevant",
+          "status": "passed"
+        }
+      ]
+    },
+    "G02": {
+      "missing_test_patterns": [],
+      "status": "passed",
+      "tests": [
+        {
+          "name": "tests.test_deterministic_core::test_biz_01_02_05_06_08_business_cycle",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_deterministic_core::test_other_sql_shapes_ddl_and_quoted_resolver",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_deterministic_lifecycle::test_fk_inferred_target_key_order_and_insert_select",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_deterministic_oracle::test_pinned_v1_ddl_oracle_superset",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_deterministic_precision::test_default_null_distinct_from_absent_and_string_literal",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_deterministic_precision::test_sqlite_primary_key_does_not_force_not_null",
+          "status": "passed"
+        }
+      ]
+    },
+    "G03": {
+      "missing_test_patterns": [],
+      "status": "passed",
+      "tests": [
+        {
+          "name": "tests.test_deterministic_core::test_biz_03_04_07_decrement_and_names",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_deterministic_core::test_update_typed_literals[NULL-expected0]",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_deterministic_core::test_update_typed_literals[''-expected1]",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_deterministic_core::test_update_typed_literals[TRUE-expected2]",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_deterministic_core::test_update_typed_literals[-123.456789012345678901-expected3]",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_deterministic_core::test_update_typed_literals['001'-expected4]",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_deterministic_core::test_update_typed_literals[('x')-expected5]",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_deterministic_core::test_update_expression_context_and_real_conflicts",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_deterministic_precision::test_typed_null_boolean_exact_decimal_full_roundtrip",
+          "status": "passed"
+        }
+      ]
+    },
+    "G04": {
+      "missing_test_patterns": [],
+      "status": "passed",
+      "tests": [
+        {
+          "name": "tests.test_deterministic_core::test_update_expression_context_and_real_conflicts",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_deterministic_core::test_other_sql_shapes_ddl_and_quoted_resolver",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_deterministic_lifecycle::test_merge_branches_survive_full_cycle_without_conflict",
+          "status": "passed"
+        }
+      ]
+    },
+    "G05": {
+      "missing_test_patterns": [],
+      "status": "passed",
+      "tests": [
+        {
+          "name": "tests.test_deterministic_closure::test_trigger_new_old_g05_table_binding_and_schema_diagnostics",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_deterministic_core::test_other_sql_shapes_ddl_and_quoted_resolver",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_deterministic_lifecycle::test_call_overload_and_dialect_quoting",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_deterministic_lifecycle::test_fk_inferred_target_key_order_and_insert_select",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_deterministic_lifecycle::test_call_package_body_only_and_spec_precedence",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_deterministic_lifecycle::test_resolver_import_order_and_same_named_columns",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_parsers::test_sql_literals_and_unrecognized_preserved",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_parsers::test_oracle_package_members_and_mysql_delimiter",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_parsers::test_cte_alias_not_invented_as_physical_table",
+          "status": "passed"
+        }
+      ]
+    },
+    "G06": {
+      "missing_test_patterns": [],
+      "status": "passed",
+      "tests": [
+        {
+          "name": "tests.test_deterministic_core::test_cov_01_missing_fk_retains_declaration",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_deterministic_core::test_cov_02_missing_due_result_is_failure",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_deterministic_core::test_cov_03_ambiguous_and_inconsistent",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_deterministic_core::test_cov_04_composite_counts_and_cov_05_unexpected_resolution",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_deterministic_core::test_cov_06_dependency_lifecycle_cache_and_history",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_deterministic_lifecycle::test_call_overload_and_dialect_quoting",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_deterministic_lifecycle::test_resolver_import_order_and_same_named_columns",
+          "status": "passed"
+        }
+      ]
+    },
+    "G07": {
+      "missing_test_patterns": [],
+      "status": "passed",
+      "tests": [
+        {
+          "name": "tests.test_deterministic_core::test_forms_resolution_modes_and_namespace",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_deterministic_lifecycle::test_forms_qualified_column_and_inconsistent_table",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_parsers::test_xml_entities_rejected",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_v1_parity_regressions::test_forms_items_keep_block_identity_and_button_operation_can_auto_review",
+          "status": "passed"
+        }
+      ]
+    },
+    "G08": {
+      "missing_test_patterns": [],
+      "status": "passed",
+      "tests": [
+        {
+          "name": "tests.test_deterministic_core::test_chunk_exact_whitespace_fences[]",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_deterministic_core::test_chunk_exact_whitespace_fences[ \\n\\n\\t  ]",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_deterministic_core::test_chunk_exact_whitespace_fences[# A\\n\\ntext\\n\\n### C\\nlast]",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_deterministic_core::test_chunk_exact_whitespace_fences[# A\\n```sql\\n# not heading\\n```\\n## B\\nlast]",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_deterministic_core::test_chunk_exact_whitespace_fences[xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_deterministic_core::test_chunk_exact_whitespace_fences[\\r\\n# Accenti \\xe0 \\u6f22\\u5b57\\r\\n\\t]",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_deterministic_lifecycle::test_chunk_configuration_all_paths_and_cache",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_v1_parity_regressions::test_structural_chunker_preserves_text_and_heading_context",
+          "status": "passed"
+        }
+      ]
+    },
+    "G09": {
+      "missing_test_patterns": [],
+      "status": "passed",
+      "tests": [
+        {
+          "name": "tests.test_deterministic_lifecycle::test_log_json_identical_occurrences_retry_and_no_conflict",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_parsers::test_log_occurrences",
+          "status": "passed"
+        }
+      ]
+    },
+    "G10": {
+      "missing_test_patterns": [],
+      "status": "passed",
+      "tests": [
+        {
+          "name": "tests.test_formats_real::test_format_worker_real[data.csv]",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_formats_real::test_format_worker_real[data.tsv]",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_formats_real::test_format_worker_real[data.json]",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_formats_real::test_format_worker_real[data.jsonl]",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_formats_real::test_format_worker_real[data.yaml]",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_formats_real::test_format_worker_real[data.eml]",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_formats_real::test_format_worker_real[data.mhtml]",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_formats_real::test_format_worker_real[data.xls]",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_formats_real::test_format_worker_real[data.ods]",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_formats_real::test_format_worker_real[data.pptx]",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_formats_real::test_format_worker_real[data.html]",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_formats_real::test_format_worker_real[data.sql]",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_parsers::test_excel_exact_structural_contract_offline",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_parsers::test_macro_never_executed",
+          "status": "passed"
+        }
+      ]
+    },
+    "G11": {
+      "missing_test_patterns": [],
+      "status": "passed",
+      "tests": [
+        {
+          "name": "tests.test_ai_exports::test_multi_package_import_review_merge_and_true_conflict",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_deterministic_core::test_biz_01_02_05_06_08_business_cycle",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_v1_parity_regressions::test_deterministic_fact_types_and_relation_epistemics_survive_export",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_v1_parity_regressions::test_diff_tracks_value_correction_as_semantic_change",
+          "status": "passed"
+        }
+      ]
+    },
+    "G12": {
+      "missing_test_patterns": [],
+      "status": "passed",
+      "tests": [
+        {
+          "name": "tests.test_deterministic_core::test_cov_07_governance_and_cov_08_unknown_irrelevant",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_knowledge::test_governance_review_merge_idempotence_and_revoke",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_knowledge::test_ai_cannot_autoapprove_and_strict_atomic",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_knowledge::test_supports_corrections_and_conflicts",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_v1_parity_regressions::test_forms_items_keep_block_identity_and_button_operation_can_auto_review",
+          "status": "passed"
+        }
+      ]
+    },
+    "G13": {
+      "missing_test_patterns": [],
+      "status": "passed",
+      "tests": [
+        {
+          "name": "tests.test_deterministic_core::test_cov_06_dependency_lifecycle_cache_and_history",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_deterministic_lifecycle::test_chunk_configuration_all_paths_and_cache",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_deterministic_lifecycle::test_rule_only_change_obsoletes_old_outputs_without_review_loss",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_deterministic_lifecycle::test_schema2_upgrade_preserves_history",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_resume_regressions::test_dialect_reinterpretation_and_cached_reactivation",
+          "status": "passed"
+        }
+      ]
+    },
+    "G14": {
+      "missing_test_patterns": [],
+      "status": "passed",
+      "tests": [
+        {
+          "name": "tests.test_ai_exports::test_selection_coverage_explainability_and_budget",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_deterministic_core::test_cov_07_governance_and_cov_08_unknown_irrelevant",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_deterministic_core::test_biz_01_02_05_06_08_business_cycle",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_deterministic_core::test_biz_03_04_07_decrement_and_names",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_deterministic_core::test_biz_04_positive_table_column_constraint_rename",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_deterministic_lifecycle::test_partial_ai_remains_visible_and_package_preserves_coverage",
+          "status": "passed"
+        }
+      ]
+    },
+    "G15": {
+      "missing_test_patterns": [],
+      "status": "passed",
+      "tests": [
+        {
+          "name": "tests.test_deterministic_closure::test_pinned_v1_oracle_source_inventory",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_deterministic_closure::test_pinned_v1_schema_resolution_information",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_deterministic_closure::test_pinned_v1_candidate_derivation_slice21",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_deterministic_closure::test_pinned_v1_slice25_excel_candidates",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_deterministic_closure::test_pinned_v1_slice32_scope_and_event_information",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_deterministic_closure::test_pinned_v1_slice32_multivalue_representation",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_deterministic_core::test_forms_resolution_modes_and_namespace",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_deterministic_lifecycle::test_log_json_identical_occurrences_retry_and_no_conflict",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_deterministic_oracle::test_pinned_v1_ddl_oracle_superset",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_deterministic_oracle::test_pinned_v1_db_code_forms_and_chunk_oracle",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_knowledge::test_provenance_atomic_batch",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_knowledge::test_ai_cannot_autoapprove_and_strict_atomic",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_parsers::test_excel_exact_structural_contract_offline",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_v1_parity_regressions::test_forms_items_keep_block_identity_and_button_operation_can_auto_review",
+          "status": "passed"
+        }
+      ]
+    },
+    "G16": {
+      "report": "vega_deterministic.json",
+      "status": "passed"
+    },
+    "G17": {
+      "missing_test_patterns": [],
+      "status": "passed",
+      "tests": [
+        {
+          "name": "tests.test_deterministic_lifecycle::test_windows_bytes_bom_paths_and_locations[utf-8-\\n]",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_deterministic_lifecycle::test_windows_bytes_bom_paths_and_locations[utf-8-\\r\\n]",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_deterministic_lifecycle::test_windows_bytes_bom_paths_and_locations[utf-8-sig-\\r\\n]",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_deterministic_lifecycle::test_windows_bytes_bom_paths_and_locations[utf-16-\\n]",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_deterministic_lifecycle::test_windows_bytes_bom_paths_and_locations[utf-16-be-\\r\\n]",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_deterministic_lifecycle::test_chunk_configuration_all_paths_and_cache",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_deterministic_lifecycle::test_schema2_upgrade_preserves_history",
+          "status": "passed"
+        }
+      ]
+    },
+    "G18": {
+      "report": "closure_checks.json",
+      "status": "failed"
+    }
+  },
+  "precision_tests": {
+    "BIZ-01": {
+      "command": "pytest",
+      "details": [
+        "details/BIZ-01-02-05-06-08.json",
+        "details/BIZ-03-04-07.json",
+        "details/BIZ-04-positive.json"
+      ],
+      "dialect": "oracle",
+      "expected": "CHECK IN contains BOZZA, CONFERMATO, ANNULLATO; TOTALE >= exact numeric zero",
+      "missing_test_patterns": [],
+      "reason": "Independent assertions for expected structures and forbidden outputs all passed",
+      "status": "passed",
+      "tests": [
+        {
+          "name": "tests.test_deterministic_core::test_biz_01_02_05_06_08_business_cycle",
+          "status": "passed"
+        }
+      ],
+      "versions": {
+        "contract": "4",
+        "parser": "sql/4",
+        "rule": "4.0"
+      }
+    },
+    "BIZ-02": {
+      "command": "pytest",
+      "details": [
+        "details/BIZ-01-02-05-06-08.json",
+        "details/BIZ-03-04-07.json",
+        "details/BIZ-04-positive.json"
+      ],
+      "dialect": "oracle",
+      "expected": "NOT NULL is separate from CHECK; removing it changes nullability, precision 12,2 is retained",
+      "missing_test_patterns": [],
+      "reason": "Independent assertions for expected structures and forbidden outputs all passed",
+      "status": "passed",
+      "tests": [
+        {
+          "name": "tests.test_deterministic_core::test_biz_01_02_05_06_08_business_cycle",
+          "status": "passed"
+        }
+      ],
+      "versions": {
+        "contract": "4",
+        "parser": "sql/4",
+        "rule": "4.0"
+      }
+    },
+    "BIZ-03": {
+      "command": "pytest",
+      "details": [
+        "details/BIZ-01-02-05-06-08.json",
+        "details/BIZ-03-04-07.json",
+        "details/BIZ-04-positive.json"
+      ],
+      "dialect": "oracle",
+      "expected": "QTA_DISPONIBILE - 1 is present; no inventory reservation, units, permissions or domain intentions invented",
+      "missing_test_patterns": [],
+      "reason": "Independent assertions for expected structures and forbidden outputs all passed",
+      "status": "passed",
+      "tests": [
+        {
+          "name": "tests.test_deterministic_core::test_biz_03_04_07_decrement_and_names",
+          "status": "passed"
+        }
+      ],
+      "versions": {
+        "contract": "4",
+        "parser": "sql/4",
+        "rule": "4.0"
+      }
+    },
+    "BIZ-04": {
+      "command": "pytest",
+      "details": [
+        "details/BIZ-01-02-05-06-08.json",
+        "details/BIZ-03-04-07.json",
+        "details/BIZ-04-positive.json"
+      ],
+      "dialect": "oracle",
+      "expected": "Renamed table, columns and constraints preserve AST operators and literal values under explicit mapping",
+      "missing_test_patterns": [],
+      "reason": "Independent assertions for expected structures and forbidden outputs all passed",
+      "status": "passed",
+      "tests": [
+        {
+          "name": "tests.test_deterministic_core::test_biz_04_positive_table_column_constraint_rename",
+          "status": "passed"
+        }
+      ],
+      "versions": {
+        "contract": "4",
+        "parser": "sql/4",
+        "rule": "4.0"
+      }
+    },
+    "BIZ-05": {
+      "command": "pytest",
+      "details": [
+        "details/BIZ-01-02-05-06-08.json",
+        "details/BIZ-03-04-07.json",
+        "details/BIZ-04-positive.json"
+      ],
+      "dialect": "oracle",
+      "expected": "SOSPESO and boundary 10 replace prior effective values; history remains and diff is nonempty",
+      "missing_test_patterns": [],
+      "reason": "Independent assertions for expected structures and forbidden outputs all passed",
+      "status": "passed",
+      "tests": [
+        {
+          "name": "tests.test_deterministic_core::test_biz_01_02_05_06_08_business_cycle",
+          "status": "passed"
+        }
+      ],
+      "versions": {
+        "contract": "4",
+        "parser": "sql/4",
+        "rule": "4.0"
+      }
+    },
+    "BIZ-06": {
+      "command": "pytest",
+      "details": [
+        "details/BIZ-01-02-05-06-08.json",
+        "details/BIZ-03-04-07.json",
+        "details/BIZ-04-positive.json"
+      ],
+      "dialect": "oracle",
+      "expected": "Fresh workspaces; zero AI response imports; only deterministic candidates before explicit test review",
+      "missing_test_patterns": [],
+      "reason": "Independent assertions for expected structures and forbidden outputs all passed",
+      "status": "passed",
+      "tests": [
+        {
+          "name": "tests.test_deterministic_core::test_biz_01_02_05_06_08_business_cycle",
+          "status": "passed"
+        }
+      ],
+      "versions": {
+        "contract": "4",
+        "parser": "sql/4",
+        "rule": "4.0"
+      }
+    },
+    "BIZ-07": {
+      "command": "pytest",
+      "details": [
+        "details/BIZ-01-02-05-06-08.json",
+        "details/BIZ-03-04-07.json",
+        "details/BIZ-04-positive.json"
+      ],
+      "dialect": "oracle",
+      "expected": "Covered statements excluded from technical route even pending/rejected; partial and domain remain usable",
+      "missing_test_patterns": [],
+      "reason": "Independent assertions for expected structures and forbidden outputs all passed",
+      "status": "passed",
+      "tests": [
+        {
+          "name": "tests.test_deterministic_core::test_cov_07_governance_and_cov_08_unknown_irrelevant",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_deterministic_core::test_biz_03_04_07_decrement_and_names",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_deterministic_lifecycle::test_partial_ai_remains_visible_and_package_preserves_coverage",
+          "status": "passed"
+        }
+      ],
+      "versions": {
+        "contract": "4",
+        "parser": "sql/4",
+        "rule": "4.0"
+      }
+    },
+    "BIZ-08": {
+      "command": "pytest",
+      "details": [
+        "details/BIZ-01-02-05-06-08.json",
+        "details/BIZ-03-04-07.json",
+        "details/BIZ-04-positive.json"
+      ],
+      "dialect": "oracle",
+      "expected": "Literal citations, locators and attributes survive review, merge, reopen and JSON/YAML/Markdown exports",
+      "missing_test_patterns": [],
+      "reason": "Independent assertions for expected structures and forbidden outputs all passed",
+      "status": "passed",
+      "tests": [
+        {
+          "name": "tests.test_deterministic_core::test_biz_01_02_05_06_08_business_cycle",
+          "status": "passed"
+        }
+      ],
+      "versions": {
+        "contract": "4",
+        "parser": "sql/4",
+        "rule": "4.0"
+      }
+    },
+    "COV-01": {
+      "command": "pytest",
+      "details": [
+        "details/COV-01.json"
+      ],
+      "dialect": "oracle",
+      "expected": "FK declaration retained; missing target blocks exactly the resolved relation",
+      "missing_test_patterns": [],
+      "reason": "Independent assertions for expected structures and forbidden outputs all passed",
+      "status": "passed",
+      "tests": [
+        {
+          "name": "tests.test_deterministic_core::test_cov_01_missing_fk_retains_declaration",
+          "status": "passed"
+        }
+      ],
+      "versions": {
+        "contract": "4",
+        "parser": "sql/4",
+        "rule": "4.0"
+      }
+    },
+    "COV-02": {
+      "command": "pytest",
+      "details": [
+        "details/COV-02.json"
+      ],
+      "dialect": "oracle",
+      "expected": "Complete target resolves; omission of one required output makes the validator fail",
+      "missing_test_patterns": [],
+      "reason": "Independent assertions for expected structures and forbidden outputs all passed",
+      "status": "passed",
+      "tests": [
+        {
+          "name": "tests.test_deterministic_core::test_cov_02_missing_due_result_is_failure",
+          "status": "passed"
+        }
+      ],
+      "versions": {
+        "contract": "4",
+        "parser": "sql/4",
+        "rule": "4.0"
+      }
+    },
+    "COV-03": {
+      "command": "pytest",
+      "details": [
+        "details/COV-03.json"
+      ],
+      "dialect": "oracle",
+      "expected": "Two schema alternatives are ambiguous; mismatched FK arity is inconsistent",
+      "missing_test_patterns": [],
+      "reason": "Independent assertions for expected structures and forbidden outputs all passed",
+      "status": "passed",
+      "tests": [
+        {
+          "name": "tests.test_deterministic_core::test_cov_03_ambiguous_and_inconsistent",
+          "status": "passed"
+        }
+      ],
+      "versions": {
+        "contract": "4",
+        "parser": "sql/4",
+        "rule": "4.0"
+      }
+    },
+    "COV-04": {
+      "command": "pytest",
+      "details": [
+        "details/COV-04.json"
+      ],
+      "dialect": "oracle",
+      "expected": "Derived, missing and blocked components coexist; evidence stays partial",
+      "missing_test_patterns": [],
+      "reason": "Independent assertions for expected structures and forbidden outputs all passed",
+      "status": "passed",
+      "tests": [
+        {
+          "name": "tests.test_deterministic_core::test_cov_04_composite_counts_and_cov_05_unexpected_resolution",
+          "status": "passed"
+        }
+      ],
+      "versions": {
+        "contract": "4",
+        "parser": "sql/4",
+        "rule": "4.0"
+      }
+    },
+    "COV-05": {
+      "command": "pytest",
+      "details": [
+        "details/COV-05.json"
+      ],
+      "dialect": "oracle",
+      "expected": "Internal defects propagate as errors; unexpected unresolved in positive fixture is rejected",
+      "missing_test_patterns": [],
+      "reason": "Independent assertions for expected structures and forbidden outputs all passed",
+      "status": "passed",
+      "tests": [
+        {
+          "name": "tests.test_deterministic_core::test_cov_04_composite_counts_and_cov_05_unexpected_resolution",
+          "status": "passed"
+        },
+        {
+          "name": "tests.test_deterministic_lifecycle::test_internal_parser_error_is_never_evidence_only",
+          "status": "passed"
+        }
+      ],
+      "versions": {
+        "contract": "4",
+        "parser": "sql/4",
+        "rule": "4.0"
+      }
+    },
+    "COV-06": {
+      "command": "pytest",
+      "details": [
+        "details/COV-06.json"
+      ],
+      "dialect": "oracle",
+      "expected": "Absent/added/modified/removed/restored target invalidates and restores supports without losing review",
+      "missing_test_patterns": [],
+      "reason": "Independent assertions for expected structures and forbidden outputs all passed",
+      "status": "passed",
+      "tests": [
+        {
+          "name": "tests.test_deterministic_core::test_cov_06_dependency_lifecycle_cache_and_history",
+          "status": "passed"
+        }
+      ],
+      "versions": {
+        "contract": "4",
+        "parser": "sql/4",
+        "rule": "4.0"
+      }
+    },
+    "COV-07": {
+      "command": "pytest",
+      "details": [
+        "details/COV-07-confirmed.json",
+        "details/COV-07-pending.json",
+        "details/COV-07-rejected.json"
+      ],
+      "dialect": "oracle",
+      "expected": "Pending/confirmed/rejected do not change technical coverage; review still gates merge",
+      "missing_test_patterns": [],
+      "reason": "Independent assertions for expected structures and forbidden outputs all passed",
+      "status": "passed",
+      "tests": [
+        {
+          "name": "tests.test_deterministic_core::test_cov_07_governance_and_cov_08_unknown_irrelevant",
+          "status": "passed"
+        }
+      ],
+      "versions": {
+        "contract": "4",
+        "parser": "sql/4",
+        "rule": "4.0"
+      }
+    },
+    "COV-08": {
+      "command": "pytest",
+      "details": [
+        "details/COV-08.json"
+      ],
+      "dialect": "oracle",
+      "expected": "Unknown type fails; unsupported variant explicit; unrelated text does not change candidates",
+      "missing_test_patterns": [],
+      "reason": "Independent assertions for expected structures and forbidden outputs all passed",
+      "status": "passed",
+      "tests": [
+        {
+          "name": "tests.test_deterministic_core::test_cov_07_governance_and_cov_08_unknown_irrelevant",
+          "status": "passed"
+        }
+      ],
+      "versions": {
+        "contract": "4",
+        "parser": "sql/4",
+        "rule": "4.0"
+      }
+    }
+  },
+  "runtime": "C:\\_Support\\dslm3_acceptance\\run_20260930_112901",
+  "source_unchanged_during_run": true,
+  "status": "failed",
+  "test_totals": {
+    "failed": 0,
+    "passed": 152,
+    "skipped": 0
+  }
+}

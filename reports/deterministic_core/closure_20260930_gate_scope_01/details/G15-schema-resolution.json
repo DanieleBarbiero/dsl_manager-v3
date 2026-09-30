@@ -1,0 +1,49 @@
+{
+  "actual": {
+    "alternatives": [],
+    "basis_evidence_ids": [
+      "EV_a679ec8e96475b8292212f15"
+    ],
+    "canonical_target": null,
+    "context_fingerprint": "bd373dd75fc210e20ed35cd5f3b239de208f0bb809ce418f8e1e445692642b33",
+    "lookup": {
+      "kind": "column",
+      "scope": "current_structural_evidence",
+      "segments": [
+        "T",
+        "B"
+      ]
+    },
+    "prerequisites": [
+      {
+        "alternatives": [
+          "T"
+        ],
+        "basis_evidence_ids": [
+          "EV_a679ec8e96475b8292212f15"
+        ],
+        "canonical_target": "T",
+        "context_fingerprint": "38585e1239e6e90a120e848363505cb746790126407709bec0d53a6b6402fa8e",
+        "lookup": {
+          "kind": "data_object",
+          "scope": "current_structural_evidence",
+          "segments": [
+            "T"
+          ]
+        },
+        "prerequisites": [],
+        "raw_target": "T",
+        "reason_code": "unique_declaration",
+        "status": "resolved",
+        "target_kind": "data_object"
+      }
+    ],
+    "raw_target": "T.B",
+    "reason_code": "column_absent_from_schema",
+    "status": "unresolved",
+    "target_kind": "column"
+  },
+  "expected": "v1 statuses and known-parent incompatibility",
+  "origin": "executed_pytest_assertions",
+  "status": "passed"
+}

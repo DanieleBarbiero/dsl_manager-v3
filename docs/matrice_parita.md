@@ -1,11 +1,11 @@
 # Matrice di parità v1 → DSLM3
 
-## Aggiornamento deterministico 2026-09-29
+## Chiusura deterministica 2026-09-30
 
 L'oracle corrente legge i moduli v1 dal commit
 `8b576eb605b2509ebe84785aae6b2d1e94046b8b`; il baseline v3 è
 `a7117e061b393123e3b7b2ec22bf171687756447`. I conteggi storici in fondo a questo
-documento non sostituiscono [G01–G18 correnti](../reports/deterministic_core/final/acceptance.md).
+documento non sostituiscono [G01–G18 correnti](../reports/deterministic_core/closure_20260930/acceptance.md).
 
 | Area | Confronto semantico e contratto corrente |
 |---|---|
@@ -13,9 +13,11 @@ documento non sostituiscono [G01–G18 correnti](../reports/deterministic_core/f
 | DB code | Dipendenze comuni della procedura v1 incluse; v3 conserva statement, RHS/predicati, literal tipizzati, owner/occorrenza/branch |
 | Forms | Identità F.B.ITEM, mapping/calls strutturali; target risolti contro dichiarazioni correnti; nessuna inferenza di scrittura da solo mapping |
 | Chunk | Heading comparabili; ricostruzione v3 esatta. Eccezione verificata: v1 perde un newline fra `beta` e `## Child` nella fixture condivisa |
-| Excel | Golden OOXML dei moduli puri già riutilizzati invariato; le candidate conservano dati strutturali più ricchi |
+| Excel | Confronto effettivo con manifest e sei producer del commit v1, sul workbook slice25 originale; formule/cache/scope preservati in definition e manifest |
 | Business dichiarato | Attesi manuali indipendenti: CHECK IN, limite numerico, nullability e precisione; rinomina e mutazioni strutturali; nessuna AI |
 | Persistenza | Nuovi ID/shape v4 e migrazione v3 espliciti; compatibilità funzionale, senza uguaglianza obbligatoria degli ID fra v1/v3 |
+
+[Matrice G15 puntuale](oracle_v1_chiusura.md): schema_resolution, candidate_derivation e invarianti slice21/25/32, con prove dirette o motivazione esplicita della rappresentazione v3 e delle non applicabilità.
 
 `tests/test_deterministic_oracle.py` non rigenera un golden da v3. Le sole
 normalizzazioni armonizzano contenitori e shape; non eliminano ordine delle FK,

@@ -6,7 +6,7 @@ from collections import defaultdict
 
 from dslm3.common import canonical, digest
 
-VERSION = "1"
+VERSION = "2"
 _PART = re.compile(r'"(?:""|[^"])*"|`(?:``|[^`])*`|\[(?:\]\]|[^\]])*\]|[^.\s]+')
 CODE_TYPES = {
     "sql_procedure",
@@ -107,6 +107,17 @@ class Resolver:
         )
         bases = sorted(e["id"] for e in rows)
         prerequisites = []
+        if kind == "column" and not rows and len(key) > 1:
+            # Retain the distinction between an absent table and a column that
+            # contradicts a known schema. Keep v3's blocked-column status while
+            # exposing the reason and the declaration that establishes it.
+            parent = ".".join(_PART.findall(raw)[:-1])
+            prerequisites = [self.resolve(parent)]
+            bases = prerequisites[0]["basis_evidence_ids"]
+            if prerequisites[0]["status"] == "resolved":
+                reason = "column_absent_from_schema"
+            elif prerequisites[0]["status"] == "ambiguous":
+                status, reason = "ambiguous", "column_parent_ambiguous"
         if kind == "column" and rows:
             prerequisites = [
                 self.resolve(table)

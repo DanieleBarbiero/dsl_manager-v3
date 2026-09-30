@@ -40,17 +40,20 @@ Per riprodurre autonomamente la vecchia modifica:
 
 ## Ripresa del core deterministico
 
-Checkpoint concluso: G01–G18 e COV/BIZ passed; 136 test, Vega deterministico 12/12,
-integrato 19/19, browser e wheel passati. Non resta implementazione obbligatoria
-aperta per questo incarico. Per un'ulteriore modifica ripartire dal rapporto e
-rieseguire i controlli pertinenti; i risultati correnti non certificano codice futuro.
+Pass di chiusura del 30 settembre concluso: G01–G18 e COV/BIZ passed,
+153 test, Vega 12/12 e 19/19, browser e wheel. G05/G15/G18 hanno prove
+esplicite; non rimangono gate obbligatori aperti nel subset dichiarato.
+Gli esiti del 29 settembre (136 test) rimangono storici in final/.
+Gli esiti correnti sono in closure_20260930; un report privo di status finale
+non certifica la chiusura. Non attribuire un test dirty al solo hash HEAD.
 
-Restare su `feat/deterministic-core-upgrade`, HEAD di partenza
-`a7117e061b393123e3b7b2ec22bf171687756447`. Non creare altri branch né scrivere
-su remoti. Il checkout v1 contiene lavoro esterno all'incarico: non modificarlo.
+Restare su `feat/deterministic-core-upgrade`, commit di partenza
+`53bf0c31638199c26fb86c1523018680bf9c34c1`; baseline originaria
+`a7117e061b393123e3b7b2ec22bf171687756447`. Nessun nuovo branch, merge o scrittura
+remota. Il checkout v1 è esclusivamente un oracle pinned in lettura.
 
 1. Leggere `docs/rapporto_core_deterministico.md` e
-   `reports/deterministic_core/final/acceptance.json`. In un report intermedio
+   `reports/deterministic_core/closure_20260930/acceptance.json`. In un report intermedio
    l'assenza di `status` finale o un gate `not_run` significa esecuzione incompleta.
 2. Usare solo Python 3.12 x64 del progetto. I comandi nativi PowerShell 5.1 sono
    in `docs/verifica_core_windows.md`; il wrapper conserva gli exit code.
@@ -60,7 +63,7 @@ su remoti. Il checkout v1 contiene lavoro esterno all'incarico: non modificarlo.
    i controlli pertinenti. La chiusura richiede G01–G18 e COV/BIZ passed sullo
    stesso snapshot dei sorgenti; uno stato dirty è atteso e viene hashato.
 5. Il manifest 3.0.0 rimane storico, esplicitamente non rigenerato per questi file.
-   Patch locale in `reports/deterministic_core/change.patch`, con nuovi file e
+   Patch locale in `reports/deterministic_core/closure_20260930/change.patch`, con nuovi file e
    output Git binario; nessun database runtime o ambiente virtuale nella consegna.
 
 ## Workspace e interruzioni

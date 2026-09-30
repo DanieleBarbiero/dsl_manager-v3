@@ -1,0 +1,142 @@
+ .gitignore                                         |      6 +-
+ README.md                                          |      8 +-
+ START_HERE.md                                      |      6 +-
+ docs/architettura.md                               |      7 +
+ docs/contratto_deterministico.md                   |     52 +
+ docs/copertura_deterministica.md                   |    150 +
+ docs/diario_tecnico.md                             |     47 +
+ docs/formati_e_limiti.md                           |      6 +-
+ docs/manuale_operativo.md                          |      8 +
+ docs/matrice_parita.md                             |     23 +
+ docs/obiettivi.md                                  |     35 +-
+ docs/protocollo_ripresa.md                         |     30 +-
+ docs/rapporto_core_deterministico.md               |    166 +
+ docs/rapporto_finale.md                            |      4 +
+ docs/verifica_core_windows.md                      |    107 +
+ release_manifest.json                              |      8 +-
+ reports/deterministic_core/baseline_pytest.log     |     13 +
+ .../deterministic_core/browser_02/ui_overview.png  |    Bin 0 -> 109792 bytes
+ reports/deterministic_core/change.patch            | 147345 ++++++++++++++++++
+ reports/deterministic_core/delivery.json           |    720 +
+ reports/deterministic_core/final/acceptance.json   |   1126 +
+ reports/deterministic_core/final/acceptance.md     |     57 +
+ reports/deterministic_core/final/browser.log       |      0
+ .../final/browser/browser_result.json              |     18 +
+ .../final/browser/ui_knowledge.png                 |    Bin 0 -> 692712 bytes
+ .../deterministic_core/final/browser/ui_mobile.png |    Bin 0 -> 33783 bytes
+ .../final/browser/ui_overview.png                  |    Bin 0 -> 110660 bytes
+ .../deterministic_core/final/browser/ui_review.png |    Bin 0 -> 111411 bytes
+ .../final/browser/ui_review_detail.png             |    Bin 0 -> 102073 bytes
+ reports/deterministic_core/final/build.log         |    159 +
+ .../deterministic_core/final/business_audit.json   |   3138 +
+ .../deterministic_core/final/decrement_audit.json  |   4662 +
+ .../final/details/BIZ-01-02-05-06-08.json          |   5314 +
+ .../final/details/BIZ-03-04-07.json                |   2511 +
+ .../final/details/BIZ-04-positive.json             |    918 +
+ .../deterministic_core/final/details/COV-01.json   |    501 +
+ .../deterministic_core/final/details/COV-02.json   |    678 +
+ .../deterministic_core/final/details/COV-03.json   |    443 +
+ .../deterministic_core/final/details/COV-04.json   |    789 +
+ .../deterministic_core/final/details/COV-05.json   |   1246 +
+ .../deterministic_core/final/details/COV-06.json   |   3269 +
+ .../final/details/COV-07-confirmed.json            |    888 +
+ .../final/details/COV-07-pending.json              |    888 +
+ .../final/details/COV-07-rejected.json             |    893 +
+ .../deterministic_core/final/details/COV-08.json   |     87 +
+ reports/deterministic_core/final/lint.log          |      1 +
+ reports/deterministic_core/final/pip_check.log     |      1 +
+ reports/deterministic_core/final/pytest.log        |     13 +
+ reports/deterministic_core/final/pytest.xml        |      1 +
+ .../final/vega_ai_controllata/risposta_01.jsonl    |      1 +
+ .../final/vega_ai_controllata/risposta_02.jsonl    |      1 +
+ .../final/vega_deterministic.json                  |  15510 ++
+ .../final/vega_deterministic.log                   |      1 +
+ .../deterministic_core/final/vega_integrated.json  |    271 +
+ .../deterministic_core/final/vega_integrated.log   |     14 +
+ .../deterministic_core/final/visual_review.json    |     15 +
+ reports/deterministic_core/final/wheel_install.log |      3 +
+ reports/deterministic_core/final/wheel_smoke.log   |      2 +
+ reports/deterministic_core/final_edge_cases.xml    |      1 +
+ reports/deterministic_core/iteration_01.xml        |     41 +
+ .../iteration_complete_01/acceptance.json          |    866 +
+ .../iteration_complete_01/acceptance.md            |     57 +
+ .../iteration_complete_01/browser.log              |      7 +
+ .../browser/browser_result.json                    |     18 +
+ .../iteration_complete_01/browser/ui_knowledge.png |    Bin 0 -> 692749 bytes
+ .../iteration_complete_01/browser/ui_mobile.png    |    Bin 0 -> 33783 bytes
+ .../iteration_complete_01/browser/ui_overview.png  |    Bin 0 -> 110691 bytes
+ .../iteration_complete_01/browser/ui_review.png    |    Bin 0 -> 110946 bytes
+ .../browser/ui_review_detail.png                   |    Bin 0 -> 106530 bytes
+ .../iteration_complete_01/build.log                |    159 +
+ .../iteration_complete_01/business_audit.json      |   3132 +
+ .../iteration_complete_01/decrement_audit.json     |   4656 +
+ .../iteration_complete_01/lint.log                 |      1 +
+ .../iteration_complete_01/pip_check.log            |      1 +
+ .../iteration_complete_01/pytest.log               |     13 +
+ .../iteration_complete_01/pytest.xml               |      1 +
+ .../vega_ai_controllata/risposta_01.jsonl          |      1 +
+ .../vega_ai_controllata/risposta_02.jsonl          |      1 +
+ .../iteration_complete_01/vega_deterministic.json  |  15507 ++
+ .../iteration_complete_01/vega_deterministic.log   |      1 +
+ .../iteration_complete_01/vega_integrated.log      |     19 +
+ .../iteration_complete_01/wheel_install.log        |      3 +
+ .../iteration_complete_01/wheel_smoke.log          |      2 +
+ .../iteration_complete_02/acceptance.json          |    135 +
+ .../details/BIZ-01-02-05-06-08.json                |   5314 +
+ .../details/BIZ-03-04-07.json                      |   2511 +
+ .../details/BIZ-04-positive.json                   |    918 +
+ .../iteration_complete_02/details/COV-01.json      |    501 +
+ .../iteration_complete_02/details/COV-02.json      |    678 +
+ .../iteration_complete_02/details/COV-03.json      |    443 +
+ .../iteration_complete_02/details/COV-04.json      |    789 +
+ .../iteration_complete_02/details/COV-05.json      |   1246 +
+ .../iteration_complete_02/details/COV-06.json      |   3269 +
+ .../details/COV-07-confirmed.json                  |    888 +
+ .../details/COV-07-pending.json                    |    888 +
+ .../details/COV-07-rejected.json                   |    893 +
+ .../iteration_complete_02/details/COV-08.json      |     87 +
+ .../iteration_complete_02/lint.log                 |      1 +
+ .../iteration_complete_02/pip_check.log            |      1 +
+ .../iteration_complete_02/precision.xml            |      1 +
+ .../iteration_complete_02/pytest.log               |    144 +
+ .../iteration_complete_02/pytest.xml               |    126 +
+ .../iteration_complete_02/vega_deterministic.log   |      0
+ reports/deterministic_core/targeted_02.xml         |     45 +
+ reports/deterministic_core/targeted_03.xml         |     86 +
+ .../deterministic_core/vega_deterministic_01.json  |  14547 ++
+ scripts/browser_check.py                           |     48 +-
+ scripts/check_deterministic_core.ps1               |     29 +
+ scripts/core_acceptance.py                         |    579 +
+ scripts/export_deterministic_patch.py              |    162 +
+ scripts/wheel_core_smoke.py                        |     39 +
+ src/dslm3/ai.py                                    |     94 +-
+ src/dslm3/cli.py                                   |      5 +-
+ src/dslm3/common.py                                |      5 +-
+ src/dslm3/deterministic.py                         |    682 +
+ src/dslm3/deterministic_lab.py                     |    160 +
+ src/dslm3/exports.py                               |     17 +-
+ src/dslm3/knowledge.py                             |    367 +-
+ src/dslm3/lab.py                                   |     27 +-
+ src/dslm3/parsers/base.py                          |    134 +-
+ src/dslm3/parsers/documents.py                     |    181 +-
+ src/dslm3/parsers/sql.py                           |    235 +-
+ src/dslm3/parsers/sql_shapes.py                    |    361 +
+ src/dslm3/provenance.py                            |     45 +
+ src/dslm3/resolution.py                            |    218 +
+ src/dslm3/service.py                               |     56 +-
+ src/dslm3/static/app.js                            |      6 +-
+ src/dslm3/storage.py                               |     36 +
+ src/dslm3/web.py                                   |      2 +
+ src/dslm3/worker.py                                |      2 +-
+ tests/fixtures/deterministic/business.sql          |      9 +
+ tests/fixtures/deterministic/decrement.sql         |      7 +
+ .../fixtures/deterministic/expected_business.json  |     10 +
+ tests/test_ai_exports.py                           |      2 +-
+ tests/test_deterministic_core.py                   |    666 +
+ tests/test_deterministic_lifecycle.py              |    376 +
+ tests/test_deterministic_oracle.py                 |    126 +
+ tests/test_deterministic_precision.py              |     91 +
+ tests/test_knowledge.py                            |     11 +-
+ tests/test_resume_regressions.py                   |      2 +-
+ tests/test_v1_parity_regressions.py                |      1 +
+ 141 files changed, 254509 insertions(+), 440 deletions(-)

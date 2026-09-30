@@ -4,7 +4,7 @@ Il progetto corrente è costituito dai **singoli file di questa cartella**, con 
 
 1. Leggere `README.md` per l'avvio.
 2. Leggere `docs/obiettivi.md`, l'ultima sezione di `docs/diario_tecnico.md` e `docs/protocollo_ripresa.md` per lo stato corrente e il punto esatto da cui riprendere.
-3. Leggere `reports/deterministic_core/final/acceptance.md` e `docs/rapporto_core_deterministico.md` per la modifica corrente. `docs/rapporto_finale.md` resta il rapporto del rilascio precedente.
+3. Leggere `reports/deterministic_core/closure_20260930/acceptance.md` e `docs/rapporto_core_deterministico.md` per la modifica corrente. `docs/rapporto_finale.md` resta il rapporto del rilascio precedente.
 4. Leggere `docs/formati_e_limiti.md` e `docs/matrice_parita.md` prima di estendere o dichiarare coperture.
 5. `release_manifest.json` identifica il baseline consegnato finché una modifica non supera nuovamente i gate e il manifest non viene rigenerato; i report in `reports/precedente` sono esclusivamente storici.
 

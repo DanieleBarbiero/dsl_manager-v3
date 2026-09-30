@@ -1,0 +1,789 @@
+{
+  "actual": {
+    "by_format_type_subtype": {
+      ".sql/ddl_column/default": 3,
+      ".sql/ddl_table/default": 1,
+      ".sql/sql_dependency/writes_to": 4,
+      ".sql/sql_statement/update": 1
+    },
+    "complete": false,
+    "context_fingerprint": "50661afd9e17769c34bad320466198c7d7ad56c0790211801f7a13682b1a12e3",
+    "contract_version": "4",
+    "counts": {
+      "active_evidence_count": 9,
+      "blocked_ambiguous_components": 0,
+      "blocked_inconsistent_components": 0,
+      "blocked_unresolved_components": 1,
+      "derived_components": 10,
+      "due_applicable_components": 11,
+      "due_missing_components": 1,
+      "evidence_only_components": 0,
+      "expected_components": 12,
+      "internal_errors": 0,
+      "supported_components": 12,
+      "unclassified_components": 0,
+      "unclassified_evidence_count": 0,
+      "unsupported_components": 0
+    },
+    "evidence": [
+      {
+        "components": [
+          {
+            "applicability": "applicable",
+            "candidate_ids": [
+              "CAND_f7dcfde9f24da12680a0e40c"
+            ],
+            "capability": "supported",
+            "context_fingerprint": "48fe0c7ddbbb5114172f92e38ea8f7cea7f5197dbda66aac9499322e77e00792",
+            "governance": {
+              "CAND_f7dcfde9f24da12680a0e40c": "pending"
+            },
+            "key": "declaration",
+            "outcome": "materialized_deterministically",
+            "prerequisites": [
+              {
+                "basis_evidence_ids": [
+                  "EV_ffc2de8381e03bec15bac5cd"
+                ],
+                "reason_code": "syntactic_extraction",
+                "status": "not_required"
+              }
+            ],
+            "reason_code": "syntactic_extraction",
+            "required_candidate_ids": [
+              "CAND_f7dcfde9f24da12680a0e40c"
+            ],
+            "resolution": {
+              "basis_evidence_ids": [
+                "EV_ffc2de8381e03bec15bac5cd"
+              ],
+              "reason_code": "syntactic_extraction",
+              "status": "not_required"
+            },
+            "rule": "ddl_table",
+            "rule_version": "4.0"
+          }
+        ],
+        "evidence_id": "EV_ffc2de8381e03bec15bac5cd",
+        "format": ".sql",
+        "locator": {
+          "char_end": 45,
+          "char_start": 0,
+          "end_exclusive": true,
+          "line_end": 1,
+          "line_start": 1,
+          "offset_unit": "character",
+          "representation": "decoded_source"
+        },
+        "outcome": "materialized_deterministically",
+        "parser": null,
+        "subtype": "default",
+        "type": "ddl_table"
+      },
+      {
+        "components": [
+          {
+            "applicability": "applicable",
+            "candidate_ids": [
+              "CAND_5fd9838a29e4c6dd6d91fad9"
+            ],
+            "capability": "supported",
+            "context_fingerprint": "50228d45b8bb929636e30090b934932dd1c21b746c61ab6759874aab29e187fe",
+            "governance": {
+              "CAND_5fd9838a29e4c6dd6d91fad9": "pending"
+            },
+            "key": "definition",
+            "outcome": "materialized_deterministically",
+            "prerequisites": [
+              {
+                "basis_evidence_ids": [
+                  "EV_84a8fa08bb4d93328cb9456e"
+                ],
+                "reason_code": "syntactic_extraction",
+                "status": "not_required"
+              }
+            ],
+            "reason_code": "syntactic_extraction",
+            "required_candidate_ids": [
+              "CAND_5fd9838a29e4c6dd6d91fad9"
+            ],
+            "resolution": {
+              "basis_evidence_ids": [
+                "EV_84a8fa08bb4d93328cb9456e"
+              ],
+              "reason_code": "syntactic_extraction",
+              "status": "not_required"
+            },
+            "rule": "ddl_column",
+            "rule_version": "4.0"
+          }
+        ],
+        "evidence_id": "EV_84a8fa08bb4d93328cb9456e",
+        "format": ".sql",
+        "locator": {
+          "char_end": 45,
+          "char_start": 0,
+          "end_exclusive": true,
+          "line_end": 1,
+          "line_start": 1,
+          "offset_unit": "character",
+          "representation": "decoded_source"
+        },
+        "outcome": "materialized_deterministically",
+        "parser": null,
+        "subtype": "default",
+        "type": "ddl_column"
+      },
+      {
+        "components": [
+          {
+            "applicability": "applicable",
+            "candidate_ids": [
+              "CAND_12c9a364ba05de98767abfb2"
+            ],
+            "capability": "supported",
+            "context_fingerprint": "d6e822c33d9409e65deaedfb30c67cdf1117a61e0d2122763a5b68649a4ff43a",
+            "governance": {
+              "CAND_12c9a364ba05de98767abfb2": "pending"
+            },
+            "key": "definition",
+            "outcome": "materialized_deterministically",
+            "prerequisites": [
+              {
+                "basis_evidence_ids": [
+                  "EV_3608268b3d261dec657cbce5"
+                ],
+                "reason_code": "syntactic_extraction",
+                "status": "not_required"
+              }
+            ],
+            "reason_code": "syntactic_extraction",
+            "required_candidate_ids": [
+              "CAND_12c9a364ba05de98767abfb2"
+            ],
+            "resolution": {
+              "basis_evidence_ids": [
+                "EV_3608268b3d261dec657cbce5"
+              ],
+              "reason_code": "syntactic_extraction",
+              "status": "not_required"
+            },
+            "rule": "ddl_column",
+            "rule_version": "4.0"
+          }
+        ],
+        "evidence_id": "EV_3608268b3d261dec657cbce5",
+        "format": ".sql",
+        "locator": {
+          "char_end": 45,
+          "char_start": 0,
+          "end_exclusive": true,
+          "line_end": 1,
+          "line_start": 1,
+          "offset_unit": "character",
+          "representation": "decoded_source"
+        },
+        "outcome": "materialized_deterministically",
+        "parser": null,
+        "subtype": "default",
+        "type": "ddl_column"
+      },
+      {
+        "components": [
+          {
+            "applicability": "applicable",
+            "candidate_ids": [
+              "CAND_0bc13c4b6fc268df6156d34d"
+            ],
+            "capability": "supported",
+            "context_fingerprint": "6474e4cdfccabf29b616dca722d28a906b887e109ccc462bb7e6e26ffde91fe4",
+            "governance": {
+              "CAND_0bc13c4b6fc268df6156d34d": "pending"
+            },
+            "key": "definition",
+            "outcome": "materialized_deterministically",
+            "prerequisites": [
+              {
+                "basis_evidence_ids": [
+                  "EV_4b930db688997d610a460b06"
+                ],
+                "reason_code": "syntactic_extraction",
+                "status": "not_required"
+              }
+            ],
+            "reason_code": "syntactic_extraction",
+            "required_candidate_ids": [
+              "CAND_0bc13c4b6fc268df6156d34d"
+            ],
+            "resolution": {
+              "basis_evidence_ids": [
+                "EV_4b930db688997d610a460b06"
+              ],
+              "reason_code": "syntactic_extraction",
+              "status": "not_required"
+            },
+            "rule": "ddl_column",
+            "rule_version": "4.0"
+          }
+        ],
+        "evidence_id": "EV_4b930db688997d610a460b06",
+        "format": ".sql",
+        "locator": {
+          "char_end": 45,
+          "char_start": 0,
+          "end_exclusive": true,
+          "line_end": 1,
+          "line_start": 1,
+          "offset_unit": "character",
+          "representation": "decoded_source"
+        },
+        "outcome": "materialized_deterministically",
+        "parser": null,
+        "subtype": "default",
+        "type": "ddl_column"
+      },
+      {
+        "components": [
+          {
+            "applicability": "applicable",
+            "candidate_ids": [
+              "CAND_0d6c7462b23c601be53d7387"
+            ],
+            "capability": "supported",
+            "context_fingerprint": "dd9b3ee5cabe4b3682886150ded688012ba610aa01ca223801796dbea9c67193",
+            "governance": {
+              "CAND_0d6c7462b23c601be53d7387": "pending"
+            },
+            "key": "statement",
+            "outcome": "materialized_deterministically",
+            "prerequisites": [
+              {
+                "basis_evidence_ids": [
+                  "EV_6b4e561a57322a565c0cce0f"
+                ],
+                "reason_code": "syntactic_extraction",
+                "status": "not_required"
+              }
+            ],
+            "reason_code": "syntactic_extraction",
+            "required_candidate_ids": [
+              "CAND_0d6c7462b23c601be53d7387"
+            ],
+            "resolution": {
+              "basis_evidence_ids": [
+                "EV_6b4e561a57322a565c0cce0f"
+              ],
+              "reason_code": "syntactic_extraction",
+              "status": "not_required"
+            },
+            "rule": "sql_statement",
+            "rule_version": "4.0"
+          },
+          {
+            "applicability": "applicable",
+            "candidate_ids": [
+              "CAND_361184c7a0e263062f509895"
+            ],
+            "capability": "supported",
+            "context_fingerprint": "5e02be2b2c6a949f58c7e33ed28e02e156135553de902dfd6ec4fb4e6a2e8d24",
+            "governance": {
+              "CAND_361184c7a0e263062f509895": "pending"
+            },
+            "key": "assignment:0",
+            "outcome": "materialized_deterministically",
+            "prerequisites": [
+              {
+                "basis_evidence_ids": [
+                  "EV_6b4e561a57322a565c0cce0f"
+                ],
+                "reason_code": "syntactic_extraction",
+                "status": "not_required"
+              }
+            ],
+            "reason_code": "syntactic_extraction",
+            "required_candidate_ids": [
+              "CAND_361184c7a0e263062f509895"
+            ],
+            "resolution": {
+              "basis_evidence_ids": [
+                "EV_6b4e561a57322a565c0cce0f"
+              ],
+              "reason_code": "syntactic_extraction",
+              "status": "not_required"
+            },
+            "rule": "sql_statement",
+            "rule_version": "4.0"
+          },
+          {
+            "applicability": "applicable",
+            "candidate_ids": [],
+            "capability": "supported",
+            "context_fingerprint": "0779e0f2a67710634839695804ce18fb87c24cebb3762a698b4b331afe22f353",
+            "governance": {},
+            "key": "assignment:1",
+            "outcome": "due_missing",
+            "prerequisites": [
+              {
+                "basis_evidence_ids": [
+                  "EV_6b4e561a57322a565c0cce0f"
+                ],
+                "reason_code": "syntactic_extraction",
+                "status": "not_required"
+              }
+            ],
+            "reason_code": "syntactic_extraction",
+            "required_candidate_ids": [
+              "CAND_eddc21aec84a8e07e91323cb"
+            ],
+            "resolution": {
+              "basis_evidence_ids": [
+                "EV_6b4e561a57322a565c0cce0f"
+              ],
+              "reason_code": "syntactic_extraction",
+              "status": "not_required"
+            },
+            "rule": "sql_statement",
+            "rule_version": "4.0"
+          },
+          {
+            "applicability": "blocked_by_resolution",
+            "candidate_ids": [],
+            "capability": "supported",
+            "context_fingerprint": "27c04e00b73091c2812144da15ba6152e66541f5497d1c48807b82214c28aecd",
+            "governance": {},
+            "key": "assignment:2",
+            "outcome": "unresolved",
+            "prerequisites": [
+              {
+                "basis_evidence_ids": [
+                  "EV_6b4e561a57322a565c0cce0f"
+                ],
+                "reason_code": "syntactic_extraction",
+                "status": "not_required"
+              }
+            ],
+            "reason_code": "syntactic_extraction",
+            "required_candidate_ids": [],
+            "resolution": {
+              "status": "unresolved"
+            },
+            "rule": "sql_statement",
+            "rule_version": "4.0"
+          }
+        ],
+        "evidence_id": "EV_6b4e561a57322a565c0cce0f",
+        "format": ".sql",
+        "locator": {
+          "char_end": 71,
+          "char_start": 46,
+          "end_exclusive": true,
+          "line_end": 1,
+          "line_start": 1,
+          "offset_unit": "character",
+          "representation": "decoded_source"
+        },
+        "outcome": "partial",
+        "parser": null,
+        "subtype": "update",
+        "type": "sql_statement"
+      },
+      {
+        "components": [
+          {
+            "applicability": "applicable",
+            "candidate_ids": [
+              "CAND_3ccafc1cdb2ffe6b271c7fcb"
+            ],
+            "capability": "supported",
+            "context_fingerprint": "d058039e3fc539b4aa331270e54d1b637678b68e3b337d3b0d94953518547338",
+            "governance": {
+              "CAND_3ccafc1cdb2ffe6b271c7fcb": "pending"
+            },
+            "key": "relation",
+            "outcome": "materialized_deterministically",
+            "prerequisites": [],
+            "reason_code": "unique_declaration",
+            "required_candidate_ids": [
+              "CAND_3ccafc1cdb2ffe6b271c7fcb"
+            ],
+            "resolution": {
+              "alternatives": [
+                "T"
+              ],
+              "basis_evidence_ids": [
+                "EV_ffc2de8381e03bec15bac5cd"
+              ],
+              "canonical_target": "T",
+              "context_fingerprint": "d058039e3fc539b4aa331270e54d1b637678b68e3b337d3b0d94953518547338",
+              "lookup": {
+                "kind": "data_object",
+                "scope": "current_structural_evidence",
+                "segments": [
+                  "T"
+                ]
+              },
+              "prerequisites": [],
+              "raw_target": "T",
+              "reason_code": "unique_declaration",
+              "status": "resolved",
+              "target_kind": "data_object"
+            },
+            "rule": "sql_dependency",
+            "rule_version": "4.0"
+          }
+        ],
+        "evidence_id": "EV_c3a2946c65638db31844c21d",
+        "format": ".sql",
+        "locator": {
+          "char_end": 71,
+          "char_start": 46,
+          "end_exclusive": true,
+          "line_end": 1,
+          "line_start": 1,
+          "offset_unit": "character",
+          "representation": "decoded_source"
+        },
+        "outcome": "materialized_deterministically",
+        "parser": null,
+        "subtype": "writes_to",
+        "type": "sql_dependency"
+      },
+      {
+        "components": [
+          {
+            "applicability": "applicable",
+            "candidate_ids": [
+              "CAND_f68461d32920146388942728"
+            ],
+            "capability": "supported",
+            "context_fingerprint": "0b1f75b8760f69d5353c3cf11373236dc56cb8005f60c3927cc3f4f5727cf716",
+            "governance": {
+              "CAND_f68461d32920146388942728": "pending"
+            },
+            "key": "relation",
+            "outcome": "materialized_deterministically",
+            "prerequisites": [
+              {
+                "alternatives": [
+                  "T"
+                ],
+                "basis_evidence_ids": [
+                  "EV_ffc2de8381e03bec15bac5cd"
+                ],
+                "canonical_target": "T",
+                "context_fingerprint": "d058039e3fc539b4aa331270e54d1b637678b68e3b337d3b0d94953518547338",
+                "lookup": {
+                  "kind": "data_object",
+                  "scope": "current_structural_evidence",
+                  "segments": [
+                    "T"
+                  ]
+                },
+                "prerequisites": [],
+                "raw_target": "T",
+                "reason_code": "unique_declaration",
+                "status": "resolved",
+                "target_kind": "data_object"
+              }
+            ],
+            "reason_code": "unique_declaration",
+            "required_candidate_ids": [
+              "CAND_f68461d32920146388942728"
+            ],
+            "resolution": {
+              "alternatives": [
+                "T.A"
+              ],
+              "basis_evidence_ids": [
+                "EV_84a8fa08bb4d93328cb9456e",
+                "EV_ffc2de8381e03bec15bac5cd"
+              ],
+              "canonical_target": "T.A",
+              "context_fingerprint": "0b1f75b8760f69d5353c3cf11373236dc56cb8005f60c3927cc3f4f5727cf716",
+              "lookup": {
+                "kind": "column",
+                "scope": "current_structural_evidence",
+                "segments": [
+                  "T",
+                  "A"
+                ]
+              },
+              "prerequisites": [
+                {
+                  "alternatives": [
+                    "T"
+                  ],
+                  "basis_evidence_ids": [
+                    "EV_ffc2de8381e03bec15bac5cd"
+                  ],
+                  "canonical_target": "T",
+                  "context_fingerprint": "d058039e3fc539b4aa331270e54d1b637678b68e3b337d3b0d94953518547338",
+                  "lookup": {
+                    "kind": "data_object",
+                    "scope": "current_structural_evidence",
+                    "segments": [
+                      "T"
+                    ]
+                  },
+                  "prerequisites": [],
+                  "raw_target": "T",
+                  "reason_code": "unique_declaration",
+                  "status": "resolved",
+                  "target_kind": "data_object"
+                }
+              ],
+              "raw_target": "T.A",
+              "reason_code": "unique_declaration",
+              "status": "resolved",
+              "target_kind": "column"
+            },
+            "rule": "sql_dependency",
+            "rule_version": "4.0"
+          }
+        ],
+        "evidence_id": "EV_27e7493ca25a5c6b135cc903",
+        "format": ".sql",
+        "locator": {
+          "char_end": 71,
+          "char_start": 46,
+          "end_exclusive": true,
+          "line_end": 1,
+          "line_start": 1,
+          "offset_unit": "character",
+          "representation": "decoded_source"
+        },
+        "outcome": "materialized_deterministically",
+        "parser": null,
+        "subtype": "writes_to",
+        "type": "sql_dependency"
+      },
+      {
+        "components": [
+          {
+            "applicability": "applicable",
+            "candidate_ids": [
+              "CAND_1dcc704215a8e9d7937ecf2c"
+            ],
+            "capability": "supported",
+            "context_fingerprint": "580eee53c75e3531f88e7e0c61a1ea8f8691d5a3295454f896e2502f1225d2e4",
+            "governance": {
+              "CAND_1dcc704215a8e9d7937ecf2c": "pending"
+            },
+            "key": "relation",
+            "outcome": "materialized_deterministically",
+            "prerequisites": [
+              {
+                "alternatives": [
+                  "T"
+                ],
+                "basis_evidence_ids": [
+                  "EV_ffc2de8381e03bec15bac5cd"
+                ],
+                "canonical_target": "T",
+                "context_fingerprint": "d058039e3fc539b4aa331270e54d1b637678b68e3b337d3b0d94953518547338",
+                "lookup": {
+                  "kind": "data_object",
+                  "scope": "current_structural_evidence",
+                  "segments": [
+                    "T"
+                  ]
+                },
+                "prerequisites": [],
+                "raw_target": "T",
+                "reason_code": "unique_declaration",
+                "status": "resolved",
+                "target_kind": "data_object"
+              }
+            ],
+            "reason_code": "unique_declaration",
+            "required_candidate_ids": [
+              "CAND_1dcc704215a8e9d7937ecf2c"
+            ],
+            "resolution": {
+              "alternatives": [
+                "T.B"
+              ],
+              "basis_evidence_ids": [
+                "EV_3608268b3d261dec657cbce5",
+                "EV_ffc2de8381e03bec15bac5cd"
+              ],
+              "canonical_target": "T.B",
+              "context_fingerprint": "580eee53c75e3531f88e7e0c61a1ea8f8691d5a3295454f896e2502f1225d2e4",
+              "lookup": {
+                "kind": "column",
+                "scope": "current_structural_evidence",
+                "segments": [
+                  "T",
+                  "B"
+                ]
+              },
+              "prerequisites": [
+                {
+                  "alternatives": [
+                    "T"
+                  ],
+                  "basis_evidence_ids": [
+                    "EV_ffc2de8381e03bec15bac5cd"
+                  ],
+                  "canonical_target": "T",
+                  "context_fingerprint": "d058039e3fc539b4aa331270e54d1b637678b68e3b337d3b0d94953518547338",
+                  "lookup": {
+                    "kind": "data_object",
+                    "scope": "current_structural_evidence",
+                    "segments": [
+                      "T"
+                    ]
+                  },
+                  "prerequisites": [],
+                  "raw_target": "T",
+                  "reason_code": "unique_declaration",
+                  "status": "resolved",
+                  "target_kind": "data_object"
+                }
+              ],
+              "raw_target": "T.B",
+              "reason_code": "unique_declaration",
+              "status": "resolved",
+              "target_kind": "column"
+            },
+            "rule": "sql_dependency",
+            "rule_version": "4.0"
+          }
+        ],
+        "evidence_id": "EV_bc2ddfc57f995c1c64d90698",
+        "format": ".sql",
+        "locator": {
+          "char_end": 71,
+          "char_start": 46,
+          "end_exclusive": true,
+          "line_end": 1,
+          "line_start": 1,
+          "offset_unit": "character",
+          "representation": "decoded_source"
+        },
+        "outcome": "materialized_deterministically",
+        "parser": null,
+        "subtype": "writes_to",
+        "type": "sql_dependency"
+      },
+      {
+        "components": [
+          {
+            "applicability": "applicable",
+            "candidate_ids": [
+              "CAND_72b66b1e051cd6bc8ef0ab40"
+            ],
+            "capability": "supported",
+            "context_fingerprint": "d5d8e14e716ab858c69dac15294f3d4f64d87c142d4530c274edd47e4f63d730",
+            "governance": {
+              "CAND_72b66b1e051cd6bc8ef0ab40": "pending"
+            },
+            "key": "relation",
+            "outcome": "materialized_deterministically",
+            "prerequisites": [
+              {
+                "alternatives": [
+                  "T"
+                ],
+                "basis_evidence_ids": [
+                  "EV_ffc2de8381e03bec15bac5cd"
+                ],
+                "canonical_target": "T",
+                "context_fingerprint": "d058039e3fc539b4aa331270e54d1b637678b68e3b337d3b0d94953518547338",
+                "lookup": {
+                  "kind": "data_object",
+                  "scope": "current_structural_evidence",
+                  "segments": [
+                    "T"
+                  ]
+                },
+                "prerequisites": [],
+                "raw_target": "T",
+                "reason_code": "unique_declaration",
+                "status": "resolved",
+                "target_kind": "data_object"
+              }
+            ],
+            "reason_code": "unique_declaration",
+            "required_candidate_ids": [
+              "CAND_72b66b1e051cd6bc8ef0ab40"
+            ],
+            "resolution": {
+              "alternatives": [
+                "T.C"
+              ],
+              "basis_evidence_ids": [
+                "EV_4b930db688997d610a460b06",
+                "EV_ffc2de8381e03bec15bac5cd"
+              ],
+              "canonical_target": "T.C",
+              "context_fingerprint": "d5d8e14e716ab858c69dac15294f3d4f64d87c142d4530c274edd47e4f63d730",
+              "lookup": {
+                "kind": "column",
+                "scope": "current_structural_evidence",
+                "segments": [
+                  "T",
+                  "C"
+                ]
+              },
+              "prerequisites": [
+                {
+                  "alternatives": [
+                    "T"
+                  ],
+                  "basis_evidence_ids": [
+                    "EV_ffc2de8381e03bec15bac5cd"
+                  ],
+                  "canonical_target": "T",
+                  "context_fingerprint": "d058039e3fc539b4aa331270e54d1b637678b68e3b337d3b0d94953518547338",
+                  "lookup": {
+                    "kind": "data_object",
+                    "scope": "current_structural_evidence",
+                    "segments": [
+                      "T"
+                    ]
+                  },
+                  "prerequisites": [],
+                  "raw_target": "T",
+                  "reason_code": "unique_declaration",
+                  "status": "resolved",
+                  "target_kind": "data_object"
+                }
+              ],
+              "raw_target": "T.C",
+              "reason_code": "unique_declaration",
+              "status": "resolved",
+              "target_kind": "column"
+            },
+            "rule": "sql_dependency",
+            "rule_version": "4.0"
+          }
+        ],
+        "evidence_id": "EV_809f2ae749cd91af8c114750",
+        "format": ".sql",
+        "locator": {
+          "char_end": 71,
+          "char_start": 46,
+          "end_exclusive": true,
+          "line_end": 1,
+          "line_start": 1,
+          "offset_unit": "character",
+          "representation": "decoded_source"
+        },
+        "outcome": "materialized_deterministically",
+        "parser": null,
+        "subtype": "writes_to",
+        "type": "sql_dependency"
+      }
+    ],
+    "rule_version": "4.0"
+  },
+  "expected": {
+    "blocked_unresolved": 1,
+    "due_missing": 1,
+    "probe": "controlled omission and resolution block",
+    "statement": "partial"
+  },
+  "origin": "executed_pytest_assertions",
+  "status": "passed"
+}

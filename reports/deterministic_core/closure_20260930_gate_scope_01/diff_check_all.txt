@@ -1,0 +1,182 @@
+reports/deterministic_core/change.patch:21: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:24: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:26: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:38: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:41: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:43: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:46: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:55: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:62: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:65: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:79: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:81: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:83: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:85: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:91: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:331: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:333: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:340: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:342: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:346: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:349: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:351: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:354: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:361: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:363: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:367: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:370: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:372: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:380: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:388: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:411: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:419: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:439: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:441: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:443: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:448: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:468: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:470: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:475: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:481: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:508: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:655: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:661: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:126740: trailing whitespace.
+++tests\test_parsers.py:97: 
+reports/deterministic_core/change.patch:126885: trailing whitespace.
+++tests\test_parsers.py:97: 
+reports/deterministic_core/change.patch:142571: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:142575: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:142689: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:142696: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:142794: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:142795: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:142801: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:142802: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:143728: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:143736: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:143805: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:143814: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:143835: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:143854: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:144107: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:144211: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:144212: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:144254: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:144279: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:144280: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:144286: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:144294: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:144427: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:144617: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:144618: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:144661: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:144662: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:144674: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:144675: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:144733: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:144734: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:145673: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:145702: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:145749: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:145809: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:145816: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:145840: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:145848: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:145934: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:145935: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:147311: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:147318: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:147319: trailing whitespace.
++ 
+reports/deterministic_core/change.patch:147339: trailing whitespace.
++ 
+reports/deterministic_core/iteration_complete_02/pytest.log:16: trailing whitespace.
++tests\test_parsers.py:97: 
+reports/deterministic_core/iteration_complete_02/pytest.xml:11: trailing whitespace.
++tests\test_parsers.py:97: 

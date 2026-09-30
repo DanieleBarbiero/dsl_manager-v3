@@ -9,6 +9,7 @@ import dslm3
 from dslm3.service import Application
 from dslm3.knowledge import Knowledge
 from dslm3.provenance import code_provenance
+from dslm3.common import dump_json
 
 assert Path(dslm3.__file__).resolve().is_relative_to(installed)
 package = Path(dslm3.__file__).parent
@@ -24,4 +25,15 @@ parsed = app.parse_all()
 assert parsed["success"] == 6 and parsed["errors"] == parsed["partial"] == 0, parsed
 Knowledge(app).derive()
 assert app.coverage(check=True)["complete"]
+if len(sys.argv) > 3:
+    dump_json(
+        Path(sys.argv[3]),
+        {
+            "status": "passed",
+            "code_provenance": provenance,
+            "parsed_sources": parsed["success"],
+            "coverage_complete": app.coverage(check=True)["complete"],
+            "installed_package": str(package),
+        },
+    )
 print("wheel: six real sources, resources, deterministic derivation passed")

@@ -1,0 +1,593 @@
+{
+  "checks": [
+    {
+      "evidence": {
+        "application_snapshot": "b05c6c86037860bf92f7bce8cc72606d83b3a019bbb8f1c12cf3016eb4e09f84",
+        "branch": "feat/deterministic-core-upgrade",
+        "current_executable_sha256": "14b4b0c8e16ce0da0945ff98ac8d34f8c579d355e01e67904a18b5add1265b51",
+        "head": "53bf0c31638199c26fb86c1523018680bf9c34c1",
+        "head_descends_from_baseline": true,
+        "original_baseline": "a7117e061b393123e3b7b2ec22bf171687756447",
+        "parent_branch": "fix/vega-quality-backlog",
+        "parent_head": "a7117e061b393123e3b7b2ec22bf171687756447",
+        "tested_executable_sha256": "14b4b0c8e16ce0da0945ff98ac8d34f8c579d355e01e67904a18b5add1265b51"
+      },
+      "mode": "automated",
+      "name": "branch_baseline_tested_snapshot",
+      "status": "passed"
+    },
+    {
+      "evidence": {
+        "diff_check_output": "",
+        "full_diff_check_exit_code": 2,
+        "full_diff_check_output": "diff_check_all.txt",
+        "note": "Source diff covers tracked files; executable_snapshot inventories new files by SHA-256 too.",
+        "source_diff": "source_diff.patch",
+        "source_diff_sha256": "7abbfb30ad1fb01eab142131726dfa4091c352f853baeebf680d0bdfbd6f20d6",
+        "stat": "diff_stat.txt",
+        "tracked_changed_paths": [
+          ".gitignore",
+          "README.md",
+          "START_HERE.md",
+          "docs/architettura.md",
+          "docs/contratto_deterministico.md",
+          "docs/copertura_deterministica.md",
+          "docs/diario_tecnico.md",
+          "docs/formati_e_limiti.md",
+          "docs/manuale_operativo.md",
+          "docs/matrice_parita.md",
+          "docs/obiettivi.md",
+          "docs/protocollo_ripresa.md",
+          "docs/rapporto_core_deterministico.md",
+          "docs/rapporto_finale.md",
+          "docs/verifica_core_windows.md",
+          "release_manifest.json",
+          "reports/deterministic_core/baseline_pytest.log",
+          "reports/deterministic_core/browser_02/ui_overview.png",
+          "reports/deterministic_core/change.patch",
+          "reports/deterministic_core/delivery.json",
+          "reports/deterministic_core/final/acceptance.json",
+          "reports/deterministic_core/final/acceptance.md",
+          "reports/deterministic_core/final/browser.log",
+          "reports/deterministic_core/final/browser/browser_result.json",
+          "reports/deterministic_core/final/browser/ui_knowledge.png",
+          "reports/deterministic_core/final/browser/ui_mobile.png",
+          "reports/deterministic_core/final/browser/ui_overview.png",
+          "reports/deterministic_core/final/browser/ui_review.png",
+          "reports/deterministic_core/final/browser/ui_review_detail.png",
+          "reports/deterministic_core/final/build.log",
+          "reports/deterministic_core/final/business_audit.json",
+          "reports/deterministic_core/final/decrement_audit.json",
+          "reports/deterministic_core/final/details/BIZ-01-02-05-06-08.json",
+          "reports/deterministic_core/final/details/BIZ-03-04-07.json",
+          "reports/deterministic_core/final/details/BIZ-04-positive.json",
+          "reports/deterministic_core/final/details/COV-01.json",
+          "reports/deterministic_core/final/details/COV-02.json",
+          "reports/deterministic_core/final/details/COV-03.json",
+          "reports/deterministic_core/final/details/COV-04.json",
+          "reports/deterministic_core/final/details/COV-05.json",
+          "reports/deterministic_core/final/details/COV-06.json",
+          "reports/deterministic_core/final/details/COV-07-confirmed.json",
+          "reports/deterministic_core/final/details/COV-07-pending.json",
+          "reports/deterministic_core/final/details/COV-07-rejected.json",
+          "reports/deterministic_core/final/details/COV-08.json",
+          "reports/deterministic_core/final/lint.log",
+          "reports/deterministic_core/final/pip_check.log",
+          "reports/deterministic_core/final/pytest.log",
+          "reports/deterministic_core/final/pytest.xml",
+          "reports/deterministic_core/final/vega_ai_controllata/risposta_01.jsonl",
+          "reports/deterministic_core/final/vega_ai_controllata/risposta_02.jsonl",
+          "reports/deterministic_core/final/vega_deterministic.json",
+          "reports/deterministic_core/final/vega_deterministic.log",
+          "reports/deterministic_core/final/vega_integrated.json",
+          "reports/deterministic_core/final/vega_integrated.log",
+          "reports/deterministic_core/final/visual_review.json",
+          "reports/deterministic_core/final/wheel_install.log",
+          "reports/deterministic_core/final/wheel_smoke.log",
+          "reports/deterministic_core/final_edge_cases.xml",
+          "reports/deterministic_core/iteration_01.xml",
+          "reports/deterministic_core/iteration_complete_01/acceptance.json",
+          "reports/deterministic_core/iteration_complete_01/acceptance.md",
+          "reports/deterministic_core/iteration_complete_01/browser.log",
+          "reports/deterministic_core/iteration_complete_01/browser/browser_result.json",
+          "reports/deterministic_core/iteration_complete_01/browser/ui_knowledge.png",
+          "reports/deterministic_core/iteration_complete_01/browser/ui_mobile.png",
+          "reports/deterministic_core/iteration_complete_01/browser/ui_overview.png",
+          "reports/deterministic_core/iteration_complete_01/browser/ui_review.png",
+          "reports/deterministic_core/iteration_complete_01/browser/ui_review_detail.png",
+          "reports/deterministic_core/iteration_complete_01/build.log",
+          "reports/deterministic_core/iteration_complete_01/business_audit.json",
+          "reports/deterministic_core/iteration_complete_01/decrement_audit.json",
+          "reports/deterministic_core/iteration_complete_01/lint.log",
+          "reports/deterministic_core/iteration_complete_01/pip_check.log",
+          "reports/deterministic_core/iteration_complete_01/pytest.log",
+          "reports/deterministic_core/iteration_complete_01/pytest.xml",
+          "reports/deterministic_core/iteration_complete_01/vega_ai_controllata/risposta_01.jsonl",
+          "reports/deterministic_core/iteration_complete_01/vega_ai_controllata/risposta_02.jsonl",
+          "reports/deterministic_core/iteration_complete_01/vega_deterministic.json",
+          "reports/deterministic_core/iteration_complete_01/vega_deterministic.log",
+          "reports/deterministic_core/iteration_complete_01/vega_integrated.log",
+          "reports/deterministic_core/iteration_complete_01/wheel_install.log",
+          "reports/deterministic_core/iteration_complete_01/wheel_smoke.log",
+          "reports/deterministic_core/iteration_complete_02/acceptance.json",
+          "reports/deterministic_core/iteration_complete_02/details/BIZ-01-02-05-06-08.json",
+          "reports/deterministic_core/iteration_complete_02/details/BIZ-03-04-07.json",
+          "reports/deterministic_core/iteration_complete_02/details/BIZ-04-positive.json",
+          "reports/deterministic_core/iteration_complete_02/details/COV-01.json",
+          "reports/deterministic_core/iteration_complete_02/details/COV-02.json",
+          "reports/deterministic_core/iteration_complete_02/details/COV-03.json",
+          "reports/deterministic_core/iteration_complete_02/details/COV-04.json",
+          "reports/deterministic_core/iteration_complete_02/details/COV-05.json",
+          "reports/deterministic_core/iteration_complete_02/details/COV-06.json",
+          "reports/deterministic_core/iteration_complete_02/details/COV-07-confirmed.json",
+          "reports/deterministic_core/iteration_complete_02/details/COV-07-pending.json",
+          "reports/deterministic_core/iteration_complete_02/details/COV-07-rejected.json",
+          "reports/deterministic_core/iteration_complete_02/details/COV-08.json",
+          "reports/deterministic_core/iteration_complete_02/lint.log",
+          "reports/deterministic_core/iteration_complete_02/pip_check.log",
+          "reports/deterministic_core/iteration_complete_02/precision.xml",
+          "reports/deterministic_core/iteration_complete_02/pytest.log",
+          "reports/deterministic_core/iteration_complete_02/pytest.xml",
+          "reports/deterministic_core/iteration_complete_02/vega_deterministic.log",
+          "reports/deterministic_core/targeted_02.xml",
+          "reports/deterministic_core/targeted_03.xml",
+          "reports/deterministic_core/vega_deterministic_01.json",
+          "scripts/browser_check.py",
+          "scripts/check_deterministic_core.ps1",
+          "scripts/core_acceptance.py",
+          "scripts/export_deterministic_patch.py",
+          "scripts/wheel_core_smoke.py",
+          "src/dslm3/ai.py",
+          "src/dslm3/cli.py",
+          "src/dslm3/common.py",
+          "src/dslm3/deterministic.py",
+          "src/dslm3/deterministic_lab.py",
+          "src/dslm3/exports.py",
+          "src/dslm3/knowledge.py",
+          "src/dslm3/lab.py",
+          "src/dslm3/parsers/base.py",
+          "src/dslm3/parsers/documents.py",
+          "src/dslm3/parsers/sql.py",
+          "src/dslm3/parsers/sql_shapes.py",
+          "src/dslm3/provenance.py",
+          "src/dslm3/resolution.py",
+          "src/dslm3/service.py",
+          "src/dslm3/static/app.js",
+          "src/dslm3/storage.py",
+          "src/dslm3/web.py",
+          "src/dslm3/worker.py",
+          "tests/fixtures/deterministic/business.sql",
+          "tests/fixtures/deterministic/decrement.sql",
+          "tests/fixtures/deterministic/expected_business.json",
+          "tests/test_ai_exports.py",
+          "tests/test_deterministic_core.py",
+          "tests/test_deterministic_lifecycle.py",
+          "tests/test_deterministic_oracle.py",
+          "tests/test_deterministic_precision.py",
+          "tests/test_knowledge.py",
+          "tests/test_resume_regressions.py",
+          "tests/test_v1_parity_regressions.py"
+        ],
+        "untracked_paths": [
+          "docs/oracle_v1_chiusura.md",
+          "docs/oracle_v1_inventory.json",
+          "docs/revisione_chiusura_core.json",
+          "reports/deterministic_core/closure_20260930/acceptance.json",
+          "reports/deterministic_core/closure_20260930/acceptance.md",
+          "reports/deterministic_core/closure_20260930/browser.log",
+          "reports/deterministic_core/closure_20260930/browser/browser_result.json",
+          "reports/deterministic_core/closure_20260930/browser/ui_knowledge.png",
+          "reports/deterministic_core/closure_20260930/browser/ui_mobile.png",
+          "reports/deterministic_core/closure_20260930/browser/ui_overview.png",
+          "reports/deterministic_core/closure_20260930/browser/ui_review.png",
+          "reports/deterministic_core/closure_20260930/browser/ui_review_detail.png",
+          "reports/deterministic_core/closure_20260930/build.log",
+          "reports/deterministic_core/closure_20260930/business_audit.json",
+          "reports/deterministic_core/closure_20260930/change.patch",
+          "reports/deterministic_core/closure_20260930/closure_checks.json",
+          "reports/deterministic_core/closure_20260930/decrement_audit.json",
+          "reports/deterministic_core/closure_20260930/delivery.json",
+          "reports/deterministic_core/closure_20260930/details/BIZ-01-02-05-06-08.json",
+          "reports/deterministic_core/closure_20260930/details/BIZ-03-04-07.json",
+          "reports/deterministic_core/closure_20260930/details/BIZ-04-positive.json",
+          "reports/deterministic_core/closure_20260930/details/COV-01.json",
+          "reports/deterministic_core/closure_20260930/details/COV-02.json",
+          "reports/deterministic_core/closure_20260930/details/COV-03.json",
+          "reports/deterministic_core/closure_20260930/details/COV-04.json",
+          "reports/deterministic_core/closure_20260930/details/COV-05.json",
+          "reports/deterministic_core/closure_20260930/details/COV-06.json",
+          "reports/deterministic_core/closure_20260930/details/COV-07-confirmed.json",
+          "reports/deterministic_core/closure_20260930/details/COV-07-pending.json",
+          "reports/deterministic_core/closure_20260930/details/COV-07-rejected.json",
+          "reports/deterministic_core/closure_20260930/details/COV-08.json",
+          "reports/deterministic_core/closure_20260930/details/G05-trigger.json",
+          "reports/deterministic_core/closure_20260930/details/G15-oracle-inventory.json",
+          "reports/deterministic_core/closure_20260930/details/G15-schema-resolution.json",
+          "reports/deterministic_core/closure_20260930/details/G15-slice21.json",
+          "reports/deterministic_core/closure_20260930/details/G15-slice25.json",
+          "reports/deterministic_core/closure_20260930/details/G15-slice32.json",
+          "reports/deterministic_core/closure_20260930/diff_check_all.txt",
+          "reports/deterministic_core/closure_20260930/diff_stat.txt",
+          "reports/deterministic_core/closure_20260930/lint.log",
+          "reports/deterministic_core/closure_20260930/pip_check.log",
+          "reports/deterministic_core/closure_20260930/pytest.log",
+          "reports/deterministic_core/closure_20260930/pytest.xml",
+          "reports/deterministic_core/closure_20260930/source_diff.patch",
+          "reports/deterministic_core/closure_20260930/vega_ai_controllata/risposta_01.jsonl",
+          "reports/deterministic_core/closure_20260930/vega_ai_controllata/risposta_02.jsonl",
+          "reports/deterministic_core/closure_20260930/vega_deterministic.json",
+          "reports/deterministic_core/closure_20260930/vega_deterministic.log",
+          "reports/deterministic_core/closure_20260930/vega_integrated.json",
+          "reports/deterministic_core/closure_20260930/vega_integrated.log",
+          "reports/deterministic_core/closure_20260930/wheel_install.log",
+          "reports/deterministic_core/closure_20260930/wheel_smoke.json",
+          "reports/deterministic_core/closure_20260930/wheel_smoke.log",
+          "reports/deterministic_core/closure_20260930_gate_scope_01/README.md",
+          "reports/deterministic_core/closure_20260930_gate_scope_01/acceptance.json",
+          "reports/deterministic_core/closure_20260930_gate_scope_01/acceptance.md",
+          "reports/deterministic_core/closure_20260930_gate_scope_01/browser.log",
+          "reports/deterministic_core/closure_20260930_gate_scope_01/browser/browser_result.json",
+          "reports/deterministic_core/closure_20260930_gate_scope_01/browser/ui_knowledge.png",
+          "reports/deterministic_core/closure_20260930_gate_scope_01/browser/ui_mobile.png",
+          "reports/deterministic_core/closure_20260930_gate_scope_01/browser/ui_overview.png",
+          "reports/deterministic_core/closure_20260930_gate_scope_01/browser/ui_review.png",
+          "reports/deterministic_core/closure_20260930_gate_scope_01/browser/ui_review_detail.png",
+          "reports/deterministic_core/closure_20260930_gate_scope_01/build.log",
+          "reports/deterministic_core/closure_20260930_gate_scope_01/business_audit.json",
+          "reports/deterministic_core/closure_20260930_gate_scope_01/closure_checks.json",
+          "reports/deterministic_core/closure_20260930_gate_scope_01/decrement_audit.json",
+          "reports/deterministic_core/closure_20260930_gate_scope_01/details/BIZ-01-02-05-06-08.json",
+          "reports/deterministic_core/closure_20260930_gate_scope_01/details/BIZ-03-04-07.json",
+          "reports/deterministic_core/closure_20260930_gate_scope_01/details/BIZ-04-positive.json",
+          "reports/deterministic_core/closure_20260930_gate_scope_01/details/COV-01.json",
+          "reports/deterministic_core/closure_20260930_gate_scope_01/details/COV-02.json",
+          "reports/deterministic_core/closure_20260930_gate_scope_01/details/COV-03.json",
+          "reports/deterministic_core/closure_20260930_gate_scope_01/details/COV-04.json",
+          "reports/deterministic_core/closure_20260930_gate_scope_01/details/COV-05.json",
+          "reports/deterministic_core/closure_20260930_gate_scope_01/details/COV-06.json",
+          "reports/deterministic_core/closure_20260930_gate_scope_01/details/COV-07-confirmed.json",
+          "reports/deterministic_core/closure_20260930_gate_scope_01/details/COV-07-pending.json",
+          "reports/deterministic_core/closure_20260930_gate_scope_01/details/COV-07-rejected.json",
+          "reports/deterministic_core/closure_20260930_gate_scope_01/details/COV-08.json",
+          "reports/deterministic_core/closure_20260930_gate_scope_01/details/G05-trigger.json",
+          "reports/deterministic_core/closure_20260930_gate_scope_01/details/G15-oracle-inventory.json",
+          "reports/deterministic_core/closure_20260930_gate_scope_01/details/G15-schema-resolution.json",
+          "reports/deterministic_core/closure_20260930_gate_scope_01/details/G15-slice21.json",
+          "reports/deterministic_core/closure_20260930_gate_scope_01/details/G15-slice25.json",
+          "reports/deterministic_core/closure_20260930_gate_scope_01/details/G15-slice32.json",
+          "reports/deterministic_core/closure_20260930_gate_scope_01/diff_check_all.txt",
+          "reports/deterministic_core/closure_20260930_gate_scope_01/diff_stat.txt",
+          "reports/deterministic_core/closure_20260930_gate_scope_01/lint.log",
+          "reports/deterministic_core/closure_20260930_gate_scope_01/pip_check.log",
+          "reports/deterministic_core/closure_20260930_gate_scope_01/pytest.log",
+          "reports/deterministic_core/closure_20260930_gate_scope_01/pytest.xml",
+          "reports/deterministic_core/closure_20260930_gate_scope_01/vega_ai_controllata/risposta_01.jsonl",
+          "reports/deterministic_core/closure_20260930_gate_scope_01/vega_ai_controllata/risposta_02.jsonl",
+          "reports/deterministic_core/closure_20260930_gate_scope_01/vega_deterministic.json",
+          "reports/deterministic_core/closure_20260930_gate_scope_01/vega_deterministic.log",
+          "reports/deterministic_core/closure_20260930_gate_scope_01/vega_integrated.json",
+          "reports/deterministic_core/closure_20260930_gate_scope_01/vega_integrated.log",
+          "reports/deterministic_core/closure_20260930_gate_scope_01/wheel_install.log",
+          "reports/deterministic_core/closure_20260930_gate_scope_01/wheel_smoke.json",
+          "reports/deterministic_core/closure_20260930_gate_scope_01/wheel_smoke.log",
+          "scripts/acceptance_closure.py",
+          "tests/test_acceptance_closure.py",
+          "tests/test_deterministic_closure.py"
+        ],
+        "whitespace_scope": "Code, tests, harness and documentation must be clean. Raw historical reports and patch framing are preserved verbatim; their whitespace diagnostics are recorded separately, not corrected or hidden."
+      },
+      "mode": "automated",
+      "name": "diff_against_parent_and_original_baseline",
+      "status": "passed"
+    },
+    {
+      "evidence": {
+        "file_count": 245,
+        "scope": "Delta from the original baseline plus nonignored new files, identical to patch selection. Unchanged historical runtime is preserved in the checkout and excluded from delivery.",
+        "unchanged_baseline_runtime_excluded": [
+          {
+            "baseline_blob": "9f12bef923f1887b0f22924e39bb023851f70129",
+            "path": "workspace/ai/inbox/response_AIPKG_bfac252ea85a5718add6fb2a.jsonl"
+          },
+          {
+            "baseline_blob": "294bbe886e9b8a3a6325ef7963463de790b8c0f8",
+            "path": "workspace/ai/outbox/AIPKG_bfac252ea85a5718add6fb2a.doc"
+          },
+          {
+            "baseline_blob": "4f42ab010455dc74f189d3f88508df7694ee8d66",
+            "path": "workspace/ai/outbox/AIPKG_bfac252ea85a5718add6fb2a/candidate_schema.json"
+          },
+          {
+            "baseline_blob": "66d4e2d6c4e122d1fb1d34b8a40c45a1c8abf901",
+            "path": "workspace/ai/outbox/AIPKG_bfac252ea85a5718add6fb2a/content.md"
+          },
+          {
+            "baseline_blob": "9ab209259c6a30fa03ee00d6f2182cbd0e4a4859",
+            "path": "workspace/ai/outbox/AIPKG_bfac252ea85a5718add6fb2a/instructions.md"
+          },
+          {
+            "baseline_blob": "ef7e5d910255a293b129c622c48c683cfa7a325c",
+            "path": "workspace/ai/outbox/AIPKG_bfac252ea85a5718add6fb2a/output_template.jsonl"
+          },
+          {
+            "baseline_blob": "70a2736dabc97d3c93caa07b9e0c8c7a2fd2f91c",
+            "path": "workspace/ai/outbox/AIPKG_bfac252ea85a5718add6fb2a/package_manifest.json"
+          },
+          {
+            "baseline_blob": "77dc124dccc403a6ff7ed995ef3fb4daba0cab93",
+            "path": "workspace/ai/outbox/AIPKG_bfac252ea85a5718add6fb2a/selection_plan.json"
+          },
+          {
+            "baseline_blob": "cfd41c164221702f2ff49b3edc152f19aed632c6",
+            "path": "workspace/ai/outbox/AIPKG_bfac252ea85a5718add6fb2a/source_manifest.json"
+          },
+          {
+            "baseline_blob": "0f0c913d55e1f59308f828d3bb3c56cecdddabb3",
+            "path": "workspace/artifacts/PARSE_40e4a1a43868390cdc081afb/conversion_status"
+          },
+          {
+            "baseline_blob": "fe51488c7066f6687ef680d6bfaa4f7768ef205c",
+            "path": "workspace/artifacts/PARSE_40e4a1a43868390cdc081afb/errors"
+          },
+          {
+            "baseline_blob": "34d5420a8d8d733bcde39b7b354e1e72a390f493",
+            "path": "workspace/artifacts/PARSE_40e4a1a43868390cdc081afb/normalized.json"
+          },
+          {
+            "baseline_blob": "4d8fea5670d95c5bd1e2292f63459462c7787673",
+            "path": "workspace/artifacts/PARSE_40e4a1a43868390cdc081afb/normalized.md"
+          },
+          {
+            "baseline_blob": "0f0c913d55e1f59308f828d3bb3c56cecdddabb3",
+            "path": "workspace/artifacts/PARSE_fd4ad8583840dbc0de6f5785/conversion_status"
+          },
+          {
+            "baseline_blob": "fe51488c7066f6687ef680d6bfaa4f7768ef205c",
+            "path": "workspace/artifacts/PARSE_fd4ad8583840dbc0de6f5785/errors"
+          },
+          {
+            "baseline_blob": "185846b50964fdf169b9f2f909878b59e8fb07dc",
+            "path": "workspace/artifacts/PARSE_fd4ad8583840dbc0de6f5785/normalized.json"
+          },
+          {
+            "baseline_blob": "fe3b4f007ec32aea1af08552531d1419d60581c3",
+            "path": "workspace/artifacts/PARSE_fd4ad8583840dbc0de6f5785/normalized.md"
+          },
+          {
+            "baseline_blob": "3673ea716d4483e30eee9d7580ff986f3d6f0b28",
+            "path": "workspace/artifacts/PARSE_fd4ad8583840dbc0de6f5785/workbook_manifest.json"
+          },
+          {
+            "baseline_blob": "ffee982a43aead5ee45ee16d2e245704632200e8",
+            "path": "workspace/corpus/vega/database/schema_vega.sql"
+          },
+          {
+            "baseline_blob": "59a57fe4813af9fe691c60881d2a87dc2633ea6c",
+            "path": "workspace/corpus/vega/documenti/manuale_operativo_vega_2026.docx"
+          },
+          {
+            "baseline_blob": "13d2b5a333f7dd5896a458c05d8b6954bef84c7e",
+            "path": "workspace/corpus/vega/documenti/matrice_priorita_vega_2026.xlsx"
+          },
+          {
+            "baseline_blob": "e49fe679af927d96af37326e466b190bf713fef1",
+            "path": "workspace/corpus/vega/forms/frm_richiesta.xml"
+          },
+          {
+            "baseline_blob": "1ba8749b71bb3cfd50edd058eb0d02cf26f468db",
+            "path": "workspace/corpus/vega/logs/vega_2026.log"
+          },
+          {
+            "baseline_blob": "159e1005d30ebe741faed2581fbe8fefa2b3b385",
+            "path": "workspace/corpus/vega/plsql/logica_vega.sql"
+          },
+          {
+            "baseline_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+            "path": "workspace/logs/PARSE_047f3b9a46037b8b4c24633a.log"
+          },
+          {
+            "baseline_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+            "path": "workspace/logs/PARSE_40e4a1a43868390cdc081afb.log"
+          },
+          {
+            "baseline_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+            "path": "workspace/logs/PARSE_6d294bc42ed49dff8b583b48.log"
+          },
+          {
+            "baseline_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+            "path": "workspace/logs/PARSE_9a4a353a01e9e26dd3a67304.log"
+          },
+          {
+            "baseline_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+            "path": "workspace/logs/PARSE_e42c7d7155a14665f1f781e1.log"
+          },
+          {
+            "baseline_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+            "path": "workspace/logs/PARSE_fd4ad8583840dbc0de6f5785.log"
+          },
+          {
+            "baseline_blob": "cdf33316e87337bc51b4eb0dc8166496a6878b1c",
+            "path": "workspace/logs/events.jsonl"
+          },
+          {
+            "baseline_blob": "13d2b5a333f7dd5896a458c05d8b6954bef84c7e",
+            "path": "workspace/objects/0c24c3d8a3a1dc1c5952b4854eb529d33cb135619545aa0080bcb365add25ca9/matrice_priorita_vega_2026.xlsx"
+          },
+          {
+            "baseline_blob": "159e1005d30ebe741faed2581fbe8fefa2b3b385",
+            "path": "workspace/objects/173890efa27d685ac2b16139162acdfa131f341cf83c1dfcc1cafda077a84318/logica_vega.sql"
+          },
+          {
+            "baseline_blob": "e49fe679af927d96af37326e466b190bf713fef1",
+            "path": "workspace/objects/7a00c5af251f1f0eb539bfb2f9ece4298387d5df0b9fd10fdce595b20594c2b7/frm_richiesta.xml"
+          },
+          {
+            "baseline_blob": "ffee982a43aead5ee45ee16d2e245704632200e8",
+            "path": "workspace/objects/7e6820245c0f13e44f60ac25bf5c32bfb17decdb4665b0432240fef5c87f36ae/schema_vega.sql"
+          },
+          {
+            "baseline_blob": "1ba8749b71bb3cfd50edd058eb0d02cf26f468db",
+            "path": "workspace/objects/aacbe1a633720e316cade6b5c24b2b96508ca69a0eac0360f7c77a2753386565/vega_2026.log"
+          },
+          {
+            "baseline_blob": "59a57fe4813af9fe691c60881d2a87dc2633ea6c",
+            "path": "workspace/objects/bca1c3408141adc0df112e2076f2d681d761c06b0b3550cf48bef331a39c204a/manuale_operativo_vega_2026.docx"
+          },
+          {
+            "baseline_blob": "b898d1dd5306b109dae49b0dd8f7ebef27c2cb35",
+            "path": "workspace/project.json"
+          },
+          {
+            "baseline_blob": "3f0144953b93def5f9626af3a3dcd79e4bb6c998",
+            "path": "workspace/registry.sqlite3"
+          }
+        ],
+        "violations": []
+      },
+      "mode": "automated",
+      "name": "delivery_contains_no_accidental_runtime",
+      "status": "passed"
+    },
+    {
+      "evidence": {
+        "document_sha256": {
+          "README.md": "86edc4ce7ccde32fb5776266298f2438aed166d3dac9aee4a7f8d98fbb768449",
+          "START_HERE.md": "560a3dc0210e101ee34d060e050fe55a707486fe0f41451ef74570d394577486",
+          "docs/contratto_deterministico.md": "2a61fc1b8f210628ce9af4cce620d69993a28d6180aef65d25a4235b714fcec6",
+          "docs/copertura_deterministica.md": "36bf9cccdb126d77f22a7ae60bc186dc5330d3a821d3ab8ed0c664dace86e926",
+          "docs/diario_tecnico.md": "e07a0a0d19f9b019102705e7d640a62507a5777defa433e0ea16fc786448136c",
+          "docs/matrice_parita.md": "8429750c7031b15af90b1682f0911685ffeae650c26dcc1dcbad1f228875e801",
+          "docs/obiettivi.md": "5c0164f489d4d796fbafbe6712eb358a42d8320a35d74e4683f3a7f0ed18f502",
+          "docs/oracle_v1_chiusura.md": "63897a17f70f7f9563fa6de83fd290cc92fb172d95c4dce763253fcc189b6a82",
+          "docs/oracle_v1_inventory.json": "068344e2f3cb9e4bd97879e4ab485d3646fdc9add5e622e00df04e6374d7b1b9",
+          "docs/protocollo_ripresa.md": "10b5f8d1ff431b94de72b7f3f49d18d1fe594822ea8e9adf18090b53f2f5e993",
+          "docs/rapporto_core_deterministico.md": "53071eec2e2f4645fdf65abb526bc15855cd6ab7edb624ec6e6074d022e5f2b8",
+          "docs/verifica_core_windows.md": "ea77c1ae7a37856097fa503d8bbcd72d35f043b63ba70c3ecdc1839f01590504"
+        },
+        "report_required_tokens": [
+          "a7117e061b393123e3b7b2ec22bf171687756447",
+          "feat/deterministic-core-upgrade",
+          "53bf0c31638199c26fb86c1523018680bf9c34c1",
+          "snapshot",
+          "storich",
+          "reports/deterministic_core/closure_20260930"
+        ]
+      },
+      "mode": "automated",
+      "name": "required_documentation_and_provenance",
+      "status": "passed"
+    },
+    {
+      "evidence": {
+        "current_change_acceptance": "reports/deterministic_core/closure_20260930/acceptance.json",
+        "current_change_report": "docs/rapporto_core_deterministico.md",
+        "manifest_scope": "Gli hash e i conteggi sotto identificano solo la consegna storica 3.0.0; non certificano lo snapshot corrente. La prova del 29 settembre in final/ resta storica. Il pass di chiusura e la sua provenienza sono nei report closure_20260930; nessuna nuova release viene dichiarata.",
+        "status": "historical_manifest_not_rebuilt_for_deterministic_core"
+      },
+      "mode": "automated",
+      "name": "release_manifest_historical_scope",
+      "status": "passed"
+    },
+    {
+      "evidence": {
+        "current_report": "reports/deterministic_core/closure_20260930/acceptance.json",
+        "historical_report": "reports/deterministic_core/final/acceptance.json",
+        "historical_sha256": "37be231d51b569144fd7ea6e817e3447b0a9ca31ba86d7672591f953a6fe5712",
+        "historical_tested_provenance": {
+          "branch": "feat/deterministic-core-upgrade",
+          "dirty": true,
+          "head": "a7117e061b393123e3b7b2ec22bf171687756447",
+          "source_file_count": 42,
+          "source_snapshot_sha256": "bf94e472ffdbf04f7dffc7d62ec419da5a90461720ce78028a3dbfe7e50870d6"
+        },
+        "note": "The historical dirty-tree run is not attributed to the present HEAD."
+      },
+      "mode": "automated",
+      "name": "current_and_historical_evidence_separated",
+      "status": "passed"
+    },
+    {
+      "evidence": {
+        "command_log_sha256": {
+          "browser": "0cd4a27730c6de40f342c3feef9fcefde27bb1b8b7d3017cd12a9c64c9816cb2",
+          "build": "3fc53108e87733a8f30cf1536ff4ed49004129d54022723970465d7460329545",
+          "lint": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+          "pip_check": "672aec65a45bed50e70229c70934a7eebf0462595c459b83023027645d57cccf",
+          "pytest": "4197ab1e36d581e6e7a972ec821e02b5e9fc0dd0694f64e94fdf96ce23eadcbc",
+          "vega_deterministic": "0982e693478e0f1048b3be14347776bdeb69e7246ff54b6f7c7223131fe212a6",
+          "vega_integrated": "be8590da8e12ab7a63176309d4d0c3a40213a926f1015286b268288a561f5985",
+          "wheel_install": "a9651d3d4780dd2fe74ecea43bb4fef7a48e1394eabf035e3f1e9028d51fff62",
+          "wheel_smoke": "12987d9779f275487e90fb6fc59fb9d8e4817fd7ca4a7ab25b8e3834f2cd8b59"
+        },
+        "junit_sha256": "c49950bfcc990c362498240b0ee5d5e9aa13e1fac3b28a22c04ec9a1a61d6907",
+        "lab_content_checks": true,
+        "lab_report_sha256": {
+          "browser/browser_result.json": "c3633e13bbfa2a22ebed6a3cdf9458521742eb2bfb9e0f61e0f4122e42ca24c6",
+          "vega_deterministic.json": "d31d35345437d591d6f7074714da44a59a227caaa0b4e1fc844bff55a76ae4b0",
+          "vega_integrated.json": "369d7aae33f14a85d4e5b44f1b81585b511b62155e6e5d9c2a27e36797f5f2b5"
+        },
+        "missing_commands": [],
+        "test_totals": {
+          "failed": 0,
+          "passed": 153,
+          "skipped": 0
+        },
+        "unsupported_claims": []
+      },
+      "mode": "automated",
+      "name": "passed_gates_have_current_evidence",
+      "status": "passed"
+    },
+    {
+      "evidence": {
+        "installed_provenance": {
+          "branch": null,
+          "dirty": null,
+          "head": null,
+          "source_file_count": 42,
+          "source_snapshot_sha256": "b05c6c86037860bf92f7bce8cc72606d83b3a019bbb8f1c12cf3016eb4e09f84"
+        },
+        "report": "wheel_smoke.json",
+        "sha256": "79334dab7c8aa6247e9f6d58bbdab7a4ca5fd8debd267cd9e236dc9be6607041"
+      },
+      "mode": "automated",
+      "name": "installed_wheel_matches_tested_sources",
+      "status": "passed"
+    },
+    {
+      "evidence": {
+        "evidence": "Esaminati diff baseline→HEAD, stat per sorgente e diff HEAD→working tree; i cambi applicativi di questo pass sono limitati a resolution.py, parsers/documents.py e service.py (diagnostica parent, scope Excel e cache). Letti i nuovi test e i runner. Nessuna riscrittura architetturale; fixture Vega e vendor intatti. Patch e log storici sono artefatti, non sorgenti: i loro whitespace grezzi sono conservati in diff_check_all.txt; controllo pulito obbligatorio su codice/test/harness/documenti. I nuovi file non tracciati sono letti direttamente e inventariati da executable_snapshot. Verificato workspace/registry.sqlite3 identico alla baseline, blob 3f0144953b93def5f9626af3a3dcd79e4bb6c998. Il delta da consegnare è lo stesso selezionato dall'exporter; runtime storico invariato escluso, nuovi/modificati runtime bloccati. Test del gate: 9 passed.",
+        "record": "docs/revisione_chiusura_core.json",
+        "reviewer": "Codex — revisione esplicita del pass di chiusura",
+        "status": "reviewed"
+      },
+      "mode": "manual",
+      "name": "diff_readability_and_scope",
+      "status": "passed"
+    },
+    {
+      "evidence": {
+        "evidence": "Confrontato il requisito §13 con schema_resolution.py, candidate_derivation.py e slices21/25/32 al pin 8b576eb; inventario SHA-256 e matrice docs/oracle_v1_chiusura.md. I test eseguono i producer v1 reali; FK ordinata diversamente in v1 è un difetto asserito, non una normalizzazione. Formula/manifest Excel, alias come relazioni, eventi distinti e blocchi coverage sono rappresentazioni esplicite; CLI/ID amministrativi e migrazione workspace v1 non applicabili. G15 non dipende soltanto dal golden v3.",
+        "record": "docs/revisione_chiusura_core.json",
+        "reviewer": "Codex — revisione esplicita del pass di chiusura",
+        "status": "reviewed"
+      },
+      "mode": "manual",
+      "name": "oracle_mapping_and_exceptions",
+      "status": "passed"
+    },
+    {
+      "evidence": {
+        "evidence": "Riletti rapporto, obiettivi, protocollo, diario, matrice e contratto dopo il run_20260930_114524: 153 test, G01–G18/COV/BIZ passed, Vega 12/12 e 19/19, browser e wheel. Confrontati conteggi con JUnit e JSON reali, hash del pacchetto e snapshot di 80 file invariati. Le prove storiche del 29 settembre e il primo ciclo G18 failed sono distinti dalla chiusura corrente. Baseline a7117e, HEAD iniziale 53bf0c3 e due snapshot separati; nessuna affermazione sulla storia dei push. Ispezionate le schermate correnti ui_overview.png, ui_mobile.png e ui_review_detail.png: navigazione, contenuti e dialogo leggibili. Workspace storico invariato fuori dal delta; manifest 3.0.0 storico, limiti/N.A. espliciti.",
+        "record": "docs/revisione_chiusura_core.json",
+        "reviewer": "Codex — revisione esplicita del pass di chiusura",
+        "status": "reviewed"
+      },
+      "mode": "manual",
+      "name": "documentation_claims",
+      "status": "passed"
+    }
+  ],
+  "report": "closure_checks.json",
+  "status": "passed"
+}

@@ -1,0 +1,267 @@
+{
+  "actual": {
+    "v1_events": [
+      {
+        "assertion_type": "observed",
+        "candidate_id": "LOG_EVENT_OBSERVATION_AA20D4D363AC7F99",
+        "component": "scanner",
+        "confidence": "high",
+        "entity_name": "log_event:R1:F0",
+        "evidence_locator": {
+          "fragment_id": "F0",
+          "line_end": 1,
+          "line_start": 1,
+          "path_or_selector": "/F0",
+          "source_revision_id": "R1"
+        },
+        "evidence_text": "explicit evidence",
+        "fact_type": "log_event",
+        "fragment_id": "F0",
+        "level": "INFO",
+        "message": "start",
+        "observation_timestamp": "2026-09-01 08:00:00",
+        "observed_identifiers": {},
+        "producer_type": "deterministic_rule",
+        "property_name": "event_kind",
+        "property_value": "start",
+        "record_type": "candidate_fact",
+        "rule_id": "log_event_observation",
+        "rule_version": "2",
+        "source_revision_id": "R1"
+      },
+      {
+        "assertion_type": "observed",
+        "candidate_id": "LOG_EVENT_OBSERVATION_60087A2D7D14E7C6",
+        "component": "scanner",
+        "confidence": "high",
+        "entity_name": "log_event:R1:F1",
+        "evidence_locator": {
+          "fragment_id": "F1",
+          "line_end": 1,
+          "line_start": 1,
+          "path_or_selector": "/F1",
+          "source_revision_id": "R1"
+        },
+        "evidence_text": "explicit evidence",
+        "fact_type": "log_event",
+        "fragment_id": "F1",
+        "level": "INFO",
+        "message": "processed",
+        "observation_timestamp": "2026-09-01 08:00:01",
+        "observed_identifiers": {},
+        "producer_type": "deterministic_rule",
+        "property_name": "event_kind",
+        "property_value": "processed",
+        "record_type": "candidate_fact",
+        "rule_id": "log_event_observation",
+        "rule_version": "2",
+        "source_revision_id": "R1"
+      },
+      {
+        "assertion_type": "observed",
+        "candidate_id": "LOG_EVENT_OBSERVATION_704A1617EFF0973E",
+        "component": "scanner",
+        "confidence": "high",
+        "entity_name": "log_event:R1:F2",
+        "evidence_locator": {
+          "fragment_id": "F2",
+          "line_end": 1,
+          "line_start": 1,
+          "path_or_selector": "/F2",
+          "source_revision_id": "R1"
+        },
+        "evidence_text": "explicit evidence",
+        "fact_type": "log_event",
+        "fragment_id": "F2",
+        "level": "INFO",
+        "message": "processed",
+        "observation_timestamp": "2026-09-01 08:00:02",
+        "observed_identifiers": {},
+        "producer_type": "deterministic_rule",
+        "property_name": "event_kind",
+        "property_value": "processed",
+        "record_type": "candidate_fact",
+        "rule_id": "log_event_observation",
+        "rule_version": "2",
+        "source_revision_id": "R1"
+      },
+      {
+        "assertion_type": "observed",
+        "candidate_id": "LOG_EVENT_OBSERVATION_E1B65A4D6857FD87",
+        "component": "scanner",
+        "confidence": "high",
+        "entity_name": "log_event:R1:F3",
+        "evidence_locator": {
+          "fragment_id": "F3",
+          "line_end": 1,
+          "line_start": 1,
+          "path_or_selector": "/F3",
+          "source_revision_id": "R1"
+        },
+        "evidence_text": "explicit evidence",
+        "fact_type": "log_event",
+        "fragment_id": "F3",
+        "level": "INFO",
+        "message": "end",
+        "observation_timestamp": "2026-09-01 08:00:03",
+        "observed_identifiers": {},
+        "producer_type": "deterministic_rule",
+        "property_name": "event_kind",
+        "property_value": "end",
+        "record_type": "candidate_fact",
+        "rule_id": "log_event_observation",
+        "rule_version": "2",
+        "source_revision_id": "R1"
+      }
+    ],
+    "v3_events": [
+      {
+        "assertion_type": "observed",
+        "attributes": {},
+        "candidate_id": "DER_2d2d9c47afb0f19c1e7919f0",
+        "chunk_id": null,
+        "confidence": "high",
+        "derivation": {
+          "component": "event",
+          "context_fingerprint": "47a8202e66aba700898094ba16da4ea2c5e9aa18f543fb05110e3ba08bf1b4bc",
+          "resolution": {
+            "basis_evidence_ids": [
+              "F0"
+            ],
+            "reason_code": "syntactic_extraction",
+            "status": "not_required"
+          },
+          "rule_version": "4.0"
+        },
+        "deterministic_contract": "4",
+        "entity_name": "event:F0",
+        "evidence_id": "F0",
+        "evidence_text": "explicit evidence",
+        "fact_type": "log_event",
+        "fragment_id": "F0",
+        "property_name": "occurrence",
+        "property_value": {
+          "component": "scanner",
+          "event_kind": "start",
+          "level": "INFO",
+          "message": "start",
+          "observed_identifiers": {},
+          "timestamp": "2026-09-01 08:00:00"
+        },
+        "record_type": "candidate_fact",
+        "source_revision_id": "R1"
+      },
+      {
+        "assertion_type": "observed",
+        "attributes": {},
+        "candidate_id": "DER_90791e65d61b70121654fa5e",
+        "chunk_id": null,
+        "confidence": "high",
+        "derivation": {
+          "component": "event",
+          "context_fingerprint": "d5245109247f1d51c2b5fd8f795ed5c51f4292f44628cbd0a0ce4207176da435",
+          "resolution": {
+            "basis_evidence_ids": [
+              "F1"
+            ],
+            "reason_code": "syntactic_extraction",
+            "status": "not_required"
+          },
+          "rule_version": "4.0"
+        },
+        "deterministic_contract": "4",
+        "entity_name": "event:F1",
+        "evidence_id": "F1",
+        "evidence_text": "explicit evidence",
+        "fact_type": "log_event",
+        "fragment_id": "F1",
+        "property_name": "occurrence",
+        "property_value": {
+          "component": "scanner",
+          "event_kind": "processed",
+          "level": "INFO",
+          "message": "processed",
+          "observed_identifiers": {},
+          "timestamp": "2026-09-01 08:00:01"
+        },
+        "record_type": "candidate_fact",
+        "source_revision_id": "R1"
+      },
+      {
+        "assertion_type": "observed",
+        "attributes": {},
+        "candidate_id": "DER_662a329b1b4fa9b26976adce",
+        "chunk_id": null,
+        "confidence": "high",
+        "derivation": {
+          "component": "event",
+          "context_fingerprint": "d5be322338bc8ef860e9b33bd87843de1af174a5a1549ffb82113ef9e913b267",
+          "resolution": {
+            "basis_evidence_ids": [
+              "F2"
+            ],
+            "reason_code": "syntactic_extraction",
+            "status": "not_required"
+          },
+          "rule_version": "4.0"
+        },
+        "deterministic_contract": "4",
+        "entity_name": "event:F2",
+        "evidence_id": "F2",
+        "evidence_text": "explicit evidence",
+        "fact_type": "log_event",
+        "fragment_id": "F2",
+        "property_name": "occurrence",
+        "property_value": {
+          "component": "scanner",
+          "event_kind": "processed",
+          "level": "INFO",
+          "message": "processed",
+          "observed_identifiers": {},
+          "timestamp": "2026-09-01 08:00:02"
+        },
+        "record_type": "candidate_fact",
+        "source_revision_id": "R1"
+      },
+      {
+        "assertion_type": "observed",
+        "attributes": {},
+        "candidate_id": "DER_dac00942b0196fc8a904a470",
+        "chunk_id": null,
+        "confidence": "high",
+        "derivation": {
+          "component": "event",
+          "context_fingerprint": "d0d41f55beebcda41bcd672716c04d7d8a0b788e2bf863d661af3e94c8771852",
+          "resolution": {
+            "basis_evidence_ids": [
+              "F3"
+            ],
+            "reason_code": "syntactic_extraction",
+            "status": "not_required"
+          },
+          "rule_version": "4.0"
+        },
+        "deterministic_contract": "4",
+        "entity_name": "event:F3",
+        "evidence_id": "F3",
+        "evidence_text": "explicit evidence",
+        "fact_type": "log_event",
+        "fragment_id": "F3",
+        "property_name": "occurrence",
+        "property_value": {
+          "component": "scanner",
+          "event_kind": "end",
+          "level": "INFO",
+          "message": "end",
+          "observed_identifiers": {},
+          "timestamp": "2026-09-01 08:00:03"
+        },
+        "record_type": "candidate_fact",
+        "source_revision_id": "R1"
+      }
+    ]
+  },
+  "expected": "scope-aware dependencies and occurrence identities",
+  "origin": "executed_pytest_assertions",
+  "status": "passed"
+}

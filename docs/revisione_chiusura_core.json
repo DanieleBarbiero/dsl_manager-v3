@@ -1,0 +1,34 @@
+{
+  "reviewer": "Codex — revisione esplicita del pass di chiusura",
+  "reviewed_at": "2026-09-30T10:18:47.056898+00:00",
+  "starting_head": "53bf0c31638199c26fb86c1523018680bf9c34c1",
+  "executable_sha256": "14b4b0c8e16ce0da0945ff98ac8d34f8c579d355e01e67904a18b5add1265b51",
+  "document_sha256": {
+    "README.md": "86edc4ce7ccde32fb5776266298f2438aed166d3dac9aee4a7f8d98fbb768449",
+    "START_HERE.md": "560a3dc0210e101ee34d060e050fe55a707486fe0f41451ef74570d394577486",
+    "docs/rapporto_core_deterministico.md": "53071eec2e2f4645fdf65abb526bc15855cd6ab7edb624ec6e6074d022e5f2b8",
+    "docs/copertura_deterministica.md": "36bf9cccdb126d77f22a7ae60bc186dc5330d3a821d3ab8ed0c664dace86e926",
+    "docs/matrice_parita.md": "8429750c7031b15af90b1682f0911685ffeae650c26dcc1dcbad1f228875e801",
+    "docs/oracle_v1_chiusura.md": "63897a17f70f7f9563fa6de83fd290cc92fb172d95c4dce763253fcc189b6a82",
+    "docs/oracle_v1_inventory.json": "068344e2f3cb9e4bd97879e4ab485d3646fdc9add5e622e00df04e6374d7b1b9",
+    "docs/contratto_deterministico.md": "2a61fc1b8f210628ce9af4cce620d69993a28d6180aef65d25a4235b714fcec6",
+    "docs/verifica_core_windows.md": "ea77c1ae7a37856097fa503d8bbcd72d35f043b63ba70c3ecdc1839f01590504",
+    "docs/obiettivi.md": "5c0164f489d4d796fbafbe6712eb358a42d8320a35d74e4683f3a7f0ed18f502",
+    "docs/diario_tecnico.md": "e07a0a0d19f9b019102705e7d640a62507a5777defa433e0ea16fc786448136c",
+    "docs/protocollo_ripresa.md": "10b5f8d1ff431b94de72b7f3f49d18d1fe594822ea8e9adf18090b53f2f5e993"
+  },
+  "checks": {
+    "diff_readability_and_scope": {
+      "status": "reviewed",
+      "evidence": "Esaminati diff baseline→HEAD, stat per sorgente e diff HEAD→working tree; i cambi applicativi di questo pass sono limitati a resolution.py, parsers/documents.py e service.py (diagnostica parent, scope Excel e cache). Letti i nuovi test e i runner. Nessuna riscrittura architetturale; fixture Vega e vendor intatti. Patch e log storici sono artefatti, non sorgenti: i loro whitespace grezzi sono conservati in diff_check_all.txt; controllo pulito obbligatorio su codice/test/harness/documenti. I nuovi file non tracciati sono letti direttamente e inventariati da executable_snapshot. Verificato workspace/registry.sqlite3 identico alla baseline, blob 3f0144953b93def5f9626af3a3dcd79e4bb6c998. Il delta da consegnare è lo stesso selezionato dall'exporter; runtime storico invariato escluso, nuovi/modificati runtime bloccati. Test del gate: 9 passed."
+    },
+    "oracle_mapping_and_exceptions": {
+      "status": "reviewed",
+      "evidence": "Confrontato il requisito §13 con schema_resolution.py, candidate_derivation.py e slices21/25/32 al pin 8b576eb; inventario SHA-256 e matrice docs/oracle_v1_chiusura.md. I test eseguono i producer v1 reali; FK ordinata diversamente in v1 è un difetto asserito, non una normalizzazione. Formula/manifest Excel, alias come relazioni, eventi distinti e blocchi coverage sono rappresentazioni esplicite; CLI/ID amministrativi e migrazione workspace v1 non applicabili. G15 non dipende soltanto dal golden v3."
+    },
+    "documentation_claims": {
+      "status": "reviewed",
+      "evidence": "Riletti rapporto, obiettivi, protocollo, diario, matrice e contratto dopo il run_20260930_114524: 153 test, G01–G18/COV/BIZ passed, Vega 12/12 e 19/19, browser e wheel. Confrontati conteggi con JUnit e JSON reali, hash del pacchetto e snapshot di 80 file invariati. Le prove storiche del 29 settembre e il primo ciclo G18 failed sono distinti dalla chiusura corrente. Baseline a7117e, HEAD iniziale 53bf0c3 e due snapshot separati; nessuna affermazione sulla storia dei push. Ispezionate le schermate correnti ui_overview.png, ui_mobile.png e ui_review_detail.png: navigazione, contenuti e dialogo leggibili. Workspace storico invariato fuori dal delta; manifest 3.0.0 storico, limiti/N.A. espliciti."
+    }
+  }
+}

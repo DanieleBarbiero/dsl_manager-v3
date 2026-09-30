@@ -1,0 +1,271 @@
+{
+  "ai_response_mode": "controlled_simulation_not_external_model",
+  "checks": [
+    {
+      "details": {
+        "errors": 0,
+        "partial": 0,
+        "results": [
+          {
+            "artifact_dir": "artifacts\\PARSE_d62542fed265280e9586d71f",
+            "diagnostics": [],
+            "duration_seconds": 1.406,
+            "evidence_count": 14,
+            "log": "logs\\PARSE_d62542fed265280e9586d71f.log",
+            "metadata": {
+              "ast_supported": true,
+              "basis": "syntax_hints",
+              "candidates": [
+                "oracle"
+              ],
+              "declared_version": null,
+              "dialect": "oracle",
+              "encoding": "utf-8-sig",
+              "legacy_features": []
+            },
+            "parse_id": "PARSE_d62542fed265280e9586d71f",
+            "parser": "sql/4",
+            "resource_enforcement": "parent_monitored",
+            "revision_id": "REV_0c300cb4a423f8accde7b564",
+            "status": "success"
+          },
+          {
+            "artifact_dir": "artifacts\\PARSE_77a1edeec7de9beba686b330",
+            "diagnostics": [],
+            "duration_seconds": 29.703,
+            "evidence_count": 3,
+            "log": "logs\\PARSE_77a1edeec7de9beba686b330.log",
+            "metadata": {
+              "chunk_contract": {
+                "minimum": 1,
+                "size": 5000,
+                "strategy": "heading_paragraph",
+                "version": "4"
+              }
+            },
+            "parse_id": "PARSE_77a1edeec7de9beba686b330",
+            "parser": "docling/2.128.0",
+            "resource_enforcement": "parent_monitored",
+            "revision_id": "REV_09e1e1f0ce61ef5ba76f64e4",
+            "status": "success"
+          },
+          {
+            "artifact_dir": "artifacts\\PARSE_8159e008249c2df1c70c6783",
+            "diagnostics": [],
+            "duration_seconds": 22.703,
+            "evidence_count": 4,
+            "log": "logs\\PARSE_8159e008249c2df1c70c6783.log",
+            "metadata": {
+              "chunk_contract": {
+                "minimum": 1,
+                "size": 5000,
+                "strategy": "heading_paragraph",
+                "version": "4"
+              }
+            },
+            "parse_id": "PARSE_8159e008249c2df1c70c6783",
+            "parser": "ooxml/2",
+            "resource_enforcement": "parent_monitored",
+            "revision_id": "REV_ccdd4404f4e4a2c752ee2659",
+            "status": "success"
+          },
+          {
+            "artifact_dir": "artifacts\\PARSE_54c1452070201569b4c681fe",
+            "diagnostics": [],
+            "duration_seconds": 0.64,
+            "evidence_count": 13,
+            "log": "logs\\PARSE_54c1452070201569b4c681fe.log",
+            "metadata": {},
+            "parse_id": "PARSE_54c1452070201569b4c681fe",
+            "parser": "xml_forms/3",
+            "resource_enforcement": "parent_monitored",
+            "revision_id": "REV_231a395cadbe1e4f8319409c",
+            "status": "success"
+          },
+          {
+            "artifact_dir": "artifacts\\PARSE_24ba689bc326df9a89ea9357",
+            "diagnostics": [],
+            "duration_seconds": 0.484,
+            "evidence_count": 5,
+            "log": "logs\\PARSE_24ba689bc326df9a89ea9357.log",
+            "metadata": {},
+            "parse_id": "PARSE_24ba689bc326df9a89ea9357",
+            "parser": "log/3",
+            "resource_enforcement": "parent_monitored",
+            "revision_id": "REV_54aa37b4ba8ff130f6a053e8",
+            "status": "success"
+          },
+          {
+            "artifact_dir": "artifacts\\PARSE_10e1fd4204c5220760503c7d",
+            "diagnostics": [],
+            "duration_seconds": 1.187,
+            "evidence_count": 17,
+            "log": "logs\\PARSE_10e1fd4204c5220760503c7d.log",
+            "metadata": {
+              "ast_supported": true,
+              "basis": "syntax_hints",
+              "candidates": [
+                "oracle"
+              ],
+              "declared_version": null,
+              "dialect": "oracle",
+              "encoding": "utf-8-sig",
+              "legacy_features": []
+            },
+            "parse_id": "PARSE_10e1fd4204c5220760503c7d",
+            "parser": "sql/4",
+            "resource_enforcement": "parent_monitored",
+            "revision_id": "REV_1405b7da46624bd98b68aee1",
+            "status": "success"
+          }
+        ],
+        "success": 6
+      },
+      "name": "sei_fonti_conversione_reale",
+      "passed": true
+    },
+    {
+      "details": null,
+      "name": "forms_quattro_item",
+      "passed": true
+    },
+    {
+      "details": null,
+      "name": "forms_operation_calls",
+      "passed": true
+    },
+    {
+      "details": null,
+      "name": "sql_nessuna_colonna_inventata",
+      "passed": true
+    },
+    {
+      "details": null,
+      "name": "excel_manifest_e_docling",
+      "passed": true
+    },
+    {
+      "details": null,
+      "name": "nessun_merge_senza_review",
+      "passed": true
+    },
+    {
+      "details": null,
+      "name": "log_nessun_falso_conflitto",
+      "passed": true
+    },
+    {
+      "details": null,
+      "name": "ai_policy_distinte",
+      "passed": true
+    },
+    {
+      "details": {
+        "external_model_called": false,
+        "simulation": true
+      },
+      "name": "ai_simulata_importata_pending",
+      "passed": true
+    },
+    {
+      "details": null,
+      "name": "ai_review_distinta_da_merge",
+      "passed": true
+    },
+    {
+      "details": null,
+      "name": "ai_inclusa_nel_dsl",
+      "passed": true
+    },
+    {
+      "details": [
+        {
+          "entity": "Priorità P1",
+          "id": "CONFLICT_cd36ea7db0d189f918d520e9",
+          "left": "FACT_7119698b28e177c1b8f19c0b",
+          "left_value": 60,
+          "property": "presa_in_carico_minuti",
+          "reason": "different_values_same_property",
+          "right": "FACT_b944d4e21b3b1653533385d6",
+          "right_value": 30
+        }
+      ],
+      "name": "conflitto_reale_p1",
+      "passed": true
+    },
+    {
+      "details": null,
+      "name": "diff_con_provenienza",
+      "passed": true
+    },
+    {
+      "details": null,
+      "name": "temporalita_pending",
+      "passed": true
+    },
+    {
+      "details": {
+        "dynamic": true,
+        "files": [
+          "artifacts\\DSL_ec0bb1411024c5f71df82ac8\\graph_dynamic.gexf"
+        ],
+        "include_conflicts": true,
+        "include_fact_nodes": true,
+        "include_sources": true,
+        "mode": "strict",
+        "snapshot_id": "DSL_ec0bb1411024c5f71df82ac8",
+        "validation": "offline_xsd_and_semantic",
+        "warnings": []
+      },
+      "name": "gexf_dinamico_validato",
+      "passed": true
+    },
+    {
+      "details": null,
+      "name": "riavvio_persistenza",
+      "passed": true
+    },
+    {
+      "details": null,
+      "name": "ripresa_pipeline_cache",
+      "passed": true
+    },
+    {
+      "details": null,
+      "name": "merge_idempotente",
+      "passed": true
+    },
+    {
+      "details": null,
+      "name": "integrita_sqlite",
+      "passed": true
+    }
+  ],
+  "code_provenance": {
+    "branch": "feat/deterministic-core-upgrade",
+    "dirty": true,
+    "head": "53bf0c31638199c26fb86c1523018680bf9c34c1",
+    "source_file_count": 42,
+    "source_snapshot_sha256": "b05c6c86037860bf92f7bce8cc72606d83b3a019bbb8f1c12cf3016eb4e09f84"
+  },
+  "final_snapshot": "DSL_ec0bb1411024c5f71df82ac8",
+  "historical_reference_commit": "c443b6a457b78229517a481fc5850dc8b44ecc3a",
+  "laboratory": "Vega M3",
+  "status": "passed",
+  "summary": {
+    "counts": {
+      "conflicts": 1,
+      "entities": 34,
+      "facts": 40,
+      "intervals": 1,
+      "mappings": 0,
+      "questions": 0,
+      "relations": 23
+    },
+    "evidence": 56,
+    "passed": 19,
+    "sources": 6
+  },
+  "timestamp": "2026-09-30T09:53:55.333191+00:00",
+  "workspace": "C:\\_Support\\dslm3_acceptance\\run_20260930_114524\\vega_integrated"
+}

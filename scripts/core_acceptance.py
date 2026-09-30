@@ -22,6 +22,7 @@ import xml.etree.ElementTree as ET
 
 from dslm3.common import dump_json, digest
 from dslm3.provenance import code_provenance
+from acceptance_closure import audit as closure_audit, executable_snapshot
 
 BASELINE = "a7117e061b393123e3b7b2ec22bf171687756447"
 GATES = {
@@ -42,6 +43,7 @@ GATES = {
     ],
     "G04": ["test_update_expression", "test_other_sql_shapes", "test_merge_branches"],
     "G05": [
+        "test_trigger_new_old_g05",
         "test_call_overload",
         "test_call_package_body",
         "test_resolver_import_order",
@@ -97,7 +99,21 @@ GATES = {
         "test_cov_07",
         "test_selection_coverage",
     ],
-    "G15": ["test_pinned_v1_ddl", "test_pinned_v1_db", "test_excel_exact"],
+    "G15": [
+        "test_pinned_v1_ddl",
+        "test_pinned_v1_db",
+        "test_excel_exact",
+        "test_pinned_v1_schema_resolution",
+        "test_pinned_v1_candidate_derivation_slice21",
+        "test_pinned_v1_slice25",
+        "test_pinned_v1_slice32",
+        "test_pinned_v1_oracle_source_inventory",
+        "test_forms_resolution",
+        "test_forms_items",
+        "test_provenance_atomic_batch",
+        "test_log_json_identical",
+        "test_ai_cannot_autoapprove",
+    ],
     "G16": [],
     "G17": ["test_windows_bytes", "test_schema2", "test_chunk_configuration"],
     "G18": [],
@@ -175,6 +191,7 @@ def main():
     record = {
         "baseline": BASELINE,
         "code_provenance": code_provenance(),
+        "executable_snapshot": executable_snapshot(root),
         "runtime": str(run),
         "environment": {
             "python": sys.executable,
@@ -236,6 +253,9 @@ def main():
         "src/dslm3",
         "tests",
         "scripts/core_acceptance.py",
+        "scripts/acceptance_closure.py",
+        "scripts/export_deterministic_patch.py",
+        "scripts/wheel_core_smoke.py",
     )
     junit = reports / "pytest.xml"
     command("pytest", sys.executable, "-m", "pytest", "-q", "--junitxml=" + str(junit))
@@ -294,6 +314,7 @@ def main():
             root / "scripts/wheel_core_smoke.py",
             run / "wheel_install",
             run / "wheel_workspace",
+            reports / "wheel_smoke.json",
             cwd=run,
         )
     fixtures = []
@@ -362,12 +383,6 @@ def main():
     }
     if os.name != "nt" or not args.shell_version.startswith("5.1"):
         record["gates"]["G17"]["status"] = "not_verified"
-    record["gates"]["G18"] = {
-        "status": "passed"
-        if all(c["exit_code"] == 0 for c in record["commands"])
-        else "failed",
-        "commands": list(commands),
-    }
     record["precision_tests"] = {
         key: evidence_for([prefix] if isinstance(prefix, str) else prefix)
         for key, prefix in {**COV, **BIZ}.items()
@@ -416,6 +431,12 @@ def main():
         record["code_provenance"]["source_snapshot_sha256"]
         == record["final_code_provenance"]["source_snapshot_sha256"]
     )
+    closure = closure_audit(root, reports, record)
+    dump_json(reports / "closure_checks.json", closure)
+    record["gates"]["G18"] = {
+        "status": closure["status"],
+        "report": "closure_checks.json",
+    }
     record["status"] = (
         "passed"
         if record["source_unchanged_during_run"]

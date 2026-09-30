@@ -95,6 +95,9 @@ def docling_convert(path: Path) -> dict:
     }
 
 
+WORKBOOK_CONTRACT = 2
+
+
 def parse_workbook(path: Path, data: bytes, revision: str, config: dict) -> ParseResult:
     limits = ExcelLimits.from_config(
         {**EXCEL_DEFAULTS, "max_file_bytes": config.get("max_file_bytes", 67108864)}
@@ -112,7 +115,7 @@ def parse_workbook(path: Path, data: bytes, revision: str, config: dict) -> Pars
         fragment_id_by_sequence={},
         next_fragment_number=1,
     )
-    result = ParseResult("ooxml/1")
+    result = ParseResult(f"ooxml/{WORKBOOK_CONTRACT}")
     manifest = built.manifest
     result.artifacts["workbook_manifest.json"] = manifest
     result.add(
@@ -162,18 +165,30 @@ def parse_workbook(path: Path, data: bytes, revision: str, config: dict) -> Pars
         ("external_links", "excel_explicit_reference"),
     ]:
         for item in manifest.get(key, []):
+            object_name = str(
+                item.get("name")
+                or item.get("display_name")
+                or item.get("relationship_id")
+            )
+            scope = str(item.get("scope", "sheet" if key == "tables" else "workbook"))
+            identity = "::".join(
+                [
+                    path.name,
+                    type_,
+                    scope,
+                    str(item.get("sheet_name") or "*"),
+                    object_name,
+                ]
+            )
+            if key == "external_links":
+                identity = path.name + "::" + object_name
             result.add(
                 type_,
                 json.dumps(item, ensure_ascii=False),
                 {
-                    "name": path.name
-                    + "::"
-                    + str(
-                        item.get("name")
-                        or item.get("display_name")
-                        or item.get("relationship_id")
-                    ),
                     **item,
+                    "object_name": object_name,
+                    "name": identity,
                 },
                 {
                     "part_name": item.get(

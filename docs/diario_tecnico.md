@@ -122,7 +122,7 @@ Docling serializza `valid_from` come `valid\\_from` nel Markdown. La conversione
 - Iterazione Windows 5.1: 132 passati e 1 regressione. Togliere il catch generico ValueError aveva esposto anche il ValueError usato intenzionalmente per un costrutto fuori subset. Introdotta `UnsupportedStatement` e catturata soltanto quella diagnosi prevista; un ValueError interno continua a propagarsi. Le due prove mirate sono passate. Conservata l'iterazione fallita e arrestati soltanto i relativi processi di acceptance.
 - Aggiunte e superate altre tre prove: DEFAULT NULL distinto da default assente e stringa 'NULL', PK SQLite senza falsa nullability, round-trip di SQL NULL/FALSE/stringa vuota Oracle/decimale esatto con rifiuto di payload malformati. La nuova esecuzione completa include anche queste prove.
 
-### Chiusura verificata del core
+### Chiusura storica del core — 29 settembre 2026
 
 - Esecuzione `run_20260929_160037`, Windows 11 x64, PowerShell **5.1.26100.9444**, Python **3.12.10 x64**: **136 passed, 0 failed, 0 skipped**, 328,81 secondi, due soli avvisi di deprecazione delle dipendenze. Pip check e lint F passati.
 - **G01–G18, COV-01–08, BIZ-01–08 tutti passed**. `reports/deterministic_core/final/acceptance.json` contiene nove comandi reali con exit code 0, prove e versioni; i dettagli COV/BIZ conservano attesi, osservazioni, candidate, locator e cicli di modifica.
@@ -131,3 +131,50 @@ Docling serializza `valid_from` come `valid\\_from` nel Markdown. La conversione
 - Hash dei sorgenti testati e del wheel installato identico: `bf94e472ffdbf04f7dffc7d62ec419da5a90461720ce78028a3dbfe7e50870d6` (42 file; Git assente nel wheel). Sorgenti invariati durante l'ultima acceptance.
 - Documentazione chiusa; manifest 3.0.0 mantenuto storico e non certificante gli hash correnti. La patch è esportata con indici temporanei, verifica Git forward/reverse, senza alterare l'indice reale. Esiti/hash/inventario in `reports/deterministic_core/delivery.json`.
 - Nessuna fixture Vega o implementazione vendor modificata, nessun ramo aggiuntivo, commit o scrittura remota. I limiti del subset SQL e dei backend non certificati restano espliciti nel rapporto corrente.
+
+
+## Pass di chiusura — 30 settembre 2026
+
+- Checkout inizialmente pulito su feat/deterministic-core-upgrade, HEAD
+  53bf0c31638199c26fb86c1523018680bf9c34c1. Il lavoro principale è già committato.
+  La baseline originaria e il padre rimangono a7117e061b393123e3b7b2ec22bf171687756447.
+  Le annotazioni precedenti su commit e remoto descrivono soltanto il lavoro
+  svolto il 29 settembre e non lo stato successivo del repository.
+- G05: prova esplicita di pseudorecord, classificazione e schema incompatibile.
+- Oracle v1 esteso senza leggere o cambiare il working tree v1. Il confronto
+  evidenzia l'ordinamento improprio delle liste FK nel deriver v1: v3 conserva
+  l'ordine originale. Nessuna normalizzazione distruttiva introdotta.
+- Due lacune effettive chiuse: base parent nota per colonne mancanti nel resolver;
+  identità Excel qualificate per scope/foglio e nome originale preservato.
+  Versione workbook ooxml/2 e chiave cache pertinente, nessuna migrazione SQLite.
+- G18 ora produce controlli nominati, hash, lettura dei report e revisione manuale
+  documentata. Export patch corretto per HEAD successivo alla baseline.
+- I primi test mirati hanno individuato errori nell'adattatore del confronto
+  (chiave reason, data_type, foreign_key, filtro del producer Excel e scope
+  workbook diverso dal foglio destinatario). Corrette le proiezioni senza
+  rimuovere asserzioni semantiche. Nessun expected failure o skip aggiunto.
+- Report della nuova acceptance in closure_20260930, separati da final/ storico.
+
+- Primo ciclo completo del 30 settembre: 152 test passed, Vega 12/12 e 19/19,
+  browser e wheel passed. G18 ha correttamente impedito una chiusura automatica:
+  l'inventario includeva il database workspace/registry.sqlite3 già presente e
+  invariato nella baseline (blob 3f0144953b93def5f9626af3a3dcd79e4bb6c998).
+  Corretto lo scope del controllo per usare lo stesso delta della patch; nessun
+  dato del workspace storico rimosso o alterato. Nuovi/modificati file runtime
+  restano vietati, con un nuovo test negativo. Prova non conclusiva conservata
+  in closure_20260930_gate_scope_01; nuovo collaudo integrale con harness corretto.
+
+### Chiusura corrente verificata
+
+- Run run_20260930_114524: **153 passed, 0 failed, 0 skipped**, 289,82 s pytest,
+  2 avvisi di deprecazione; **G01–G18 e COV/BIZ tutti passed**. Nove comandi
+  con exit code 0 su Windows 11 x64, PowerShell 5.1.26100.9444, Python 3.12.10 x64.
+- Vega deterministico 12/12, integrato 19/19, browser desktop/mobile e wheel
+  passati. Nuove schermate panoramica/mobile/review ispezionate.
+- Snapshot applicativo (anche nel wheel): `b05c6c86037860bf92f7bce8cc72606d83b3a019bbb8f1c12cf3016eb4e09f84`.
+  Snapshot eseguibile completo di 80 file: `14b4b0c8e16ce0da0945ff98ac8d34f8c579d355e01e67904a18b5add1265b51`.
+  HEAD iniziale 53bf0c3 e baseline a7117e sono distinti da entrambi gli hash.
+- Dopo il run vengono allineati solo documenti e revisione manuale; G18 viene
+  rieseguito senza modificare o riassegnare le prove. Runtime storico già nella
+  baseline preservato, escluso dalla patch; nessun file runtime nuovo consegnato.
+- Nessun nuovo branch, merge, push o altra scrittura remota in questo pass.

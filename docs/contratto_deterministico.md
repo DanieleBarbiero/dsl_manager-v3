@@ -50,3 +50,18 @@ Le policy sono allowlist nominate; non autorizzano AI né consolidamento implici
 La selezione tecnica usa la copertura per componente; il dominio può usare anche
 evidence già coperte. Un rifiuto non si aggira con una nuova estrazione AI.
 I limiti dei backend documentali già dichiarati restano in `formati_e_limiti.md`.
+
+
+### Precisazioni di chiusura del 30 settembre
+
+Un riferimento a colonna assente in una tabella nota conserva lo stato blocked
+unresolved, il reason_code column_absent_from_schema e la dichiarazione parent
+nei prerequisiti/basis. La rappresentazione espone così l'incompatibilità senza
+inventare una relazione o perdere l'informazione disponibile in v1.
+
+Il contratto workbook ooxml/2 qualifica named range e tabelle per workbook,
+scope e foglio; object_name conserva il nome originale. La chiave di parsing
+XLSX/XLSM comprende la versione del contratto e invalida le cache precedenti.
+Le formule complete, cache, dichiarazioni e manifest persistiti restano autorevoli;
+non si eseguono macro o link esterni e non si clona la proiezione regex v1 degli
+archi interni references.

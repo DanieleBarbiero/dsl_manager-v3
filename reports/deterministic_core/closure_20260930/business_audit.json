@@ -1,0 +1,3138 @@
+{
+  "ai_batches": [],
+  "candidates_before_review": [
+    {
+      "ai_audit": null,
+      "batch_id": "BATCH_eef06145d0020111b74e9626",
+      "batch_metadata": {
+        "contract_version": "4",
+        "rule_version": "4.0"
+      },
+      "batch_origin": "deterministic",
+      "created_at": "2026-09-30T09:57:09.255619+00:00",
+      "current_derivation": 1,
+      "current_parse": 1,
+      "current_revision": 1,
+      "decision_id": null,
+      "evidence_locators": [
+        {
+          "evidence_id": "EV_6e4d04a985b1c68dfd1b815c",
+          "locator": {
+            "char_end": 291,
+            "char_start": 0,
+            "end_exclusive": true,
+            "line_end": 9,
+            "line_start": 1,
+            "offset_unit": "character",
+            "representation": "decoded_source"
+          }
+        }
+      ],
+      "id": "CAND_19b3b6f24146be0bd312699c",
+      "leaf": 1,
+      "materialized": false,
+      "materialized_object_ids": [],
+      "parent_id": null,
+      "payload": {
+        "assertion_type": "explicit",
+        "attributes": {},
+        "candidate_id": "DER_d654e3224e7bbbe83a1fdb43",
+        "chunk_id": null,
+        "confidence": "high",
+        "derivation": {
+          "component": "declaration",
+          "context_fingerprint": "76d425175df1e507652348615647238d5a78329e46235e40299c3d3ce074fef4",
+          "resolution": {
+            "basis_evidence_ids": [
+              "EV_6e4d04a985b1c68dfd1b815c"
+            ],
+            "reason_code": "syntactic_extraction",
+            "status": "not_required"
+          },
+          "rule_version": "4.0"
+        },
+        "deterministic_contract": "4",
+        "entity_name": "ORDINE_PROVA.CK_ORDINE_PROVA_STATO",
+        "evidence_id": "EV_6e4d04a985b1c68dfd1b815c",
+        "evidence_text": "CREATE TABLE ORDINE_PROVA (\n    ID NUMBER PRIMARY KEY,\n    STATO VARCHAR2(20) NOT NULL,\n    TOTALE NUMBER(12, 2) NOT NULL,\n    CONSTRAINT CK_ORDINE_PROVA_STATO\n        CHECK (STATO IN ('BOZZA', 'CONFERMATO', 'ANNULLATO')),\n    CONSTRAINT CK_ORDINE_PROVA_TOTALE\n        CHECK (TOTALE >= 0)\n);",
+        "fact_type": "database_constraint",
+        "fragment_id": "EV_6e4d04a985b1c68dfd1b815c",
+        "property_name": "constraint",
+        "property_value": {
+          "columns": [
+            "STATO"
+          ],
+          "constraint_id": "ORDINE_PROVA.CK_ORDINE_PROVA_STATO",
+          "constraint_name": "CK_ORDINE_PROVA_STATO",
+          "constraint_type": "check",
+          "dialect": "oracle",
+          "expression": "STATO IN ('BOZZA', 'CONFERMATO', 'ANNULLATO')",
+          "expression_ast": {
+            "args": {
+              "expressions": [
+                {
+                  "node": "literal",
+                  "type": "string",
+                  "value": "BOZZA"
+                },
+                {
+                  "node": "literal",
+                  "type": "string",
+                  "value": "CONFERMATO"
+                },
+                {
+                  "node": "literal",
+                  "type": "string",
+                  "value": "ANNULLATO"
+                }
+              ],
+              "this": {
+                "name": "STATO",
+                "node": "column"
+              }
+            },
+            "node": "in"
+          },
+          "table": "ORDINE_PROVA"
+        },
+        "record_type": "candidate_fact",
+        "source_revision_id": "REV_8846309938f1a7d1febac47d"
+      },
+      "policy": "explicit_ddl_declaration_only/1",
+      "record_type": "candidate_fact",
+      "revision_id": "REV_8846309938f1a7d1febac47d",
+      "root_id": "CAND_19b3b6f24146be0bd312699c",
+      "rule": "ddl_declaration",
+      "source_path": "business.sql",
+      "source_status": "active",
+      "state": "pending"
+    },
+    {
+      "ai_audit": null,
+      "batch_id": "BATCH_eef06145d0020111b74e9626",
+      "batch_metadata": {
+        "contract_version": "4",
+        "rule_version": "4.0"
+      },
+      "batch_origin": "deterministic",
+      "created_at": "2026-09-30T09:57:09.255619+00:00",
+      "current_derivation": 1,
+      "current_parse": 1,
+      "current_revision": 1,
+      "decision_id": null,
+      "evidence_locators": [
+        {
+          "evidence_id": "EV_14680b9d9734d8f1612b4882",
+          "locator": {
+            "char_end": 291,
+            "char_start": 0,
+            "end_exclusive": true,
+            "line_end": 9,
+            "line_start": 1,
+            "offset_unit": "character",
+            "representation": "decoded_source"
+          }
+        }
+      ],
+      "id": "CAND_62c90de279b12edc1129350a",
+      "leaf": 1,
+      "materialized": false,
+      "materialized_object_ids": [],
+      "parent_id": null,
+      "payload": {
+        "assertion_type": "explicit",
+        "attributes": {
+          "column": "TOTALE",
+          "constraints": [
+            {
+              "columns": [
+                "TOTALE"
+              ],
+              "constraint_id": "ORDINE_PROVA.CK_ORDINE_PROVA_TOTALE",
+              "constraint_name": "CK_ORDINE_PROVA_TOTALE",
+              "constraint_type": "check",
+              "dialect": "oracle",
+              "expression": "TOTALE >= 0",
+              "expression_ast": {
+                "args": {
+                  "expression": {
+                    "node": "literal",
+                    "type": "number",
+                    "value": "0"
+                  },
+                  "this": {
+                    "name": "TOTALE",
+                    "node": "column"
+                  }
+                },
+                "node": "gte"
+              },
+              "table": "ORDINE_PROVA"
+            }
+          ],
+          "datatype": "NUMBER(12, 2)",
+          "datatype_ast": {
+            "args": {
+              "expressions": [
+                {
+                  "args": {
+                    "this": {
+                      "node": "literal",
+                      "type": "number",
+                      "value": "12"
+                    }
+                  },
+                  "node": "datatypeparam"
+                },
+                {
+                  "args": {
+                    "this": {
+                      "node": "literal",
+                      "type": "number",
+                      "value": "2"
+                    }
+                  },
+                  "node": "datatypeparam"
+                }
+              ],
+              "nested": false,
+              "this": "DECIMAL"
+            },
+            "node": "datatype"
+          },
+          "default": {
+            "expression_ast": null,
+            "present": false,
+            "sql": null
+          },
+          "dialect": "oracle",
+          "name": "ORDINE_PROVA.TOTALE",
+          "nullability_basis": "declared",
+          "nullability_declaration": "not_null",
+          "nullable": false,
+          "table": "ORDINE_PROVA"
+        },
+        "candidate_id": "DER_9a0863b1a343bb098d6d2c6f",
+        "chunk_id": null,
+        "confidence": "high",
+        "derivation": {
+          "component": "definition",
+          "context_fingerprint": "49796dc4708d5d42c8628e8381128838e963fd685b4b20d729d1fb3ce1f0d2b0",
+          "resolution": {
+            "basis_evidence_ids": [
+              "EV_14680b9d9734d8f1612b4882"
+            ],
+            "reason_code": "syntactic_extraction",
+            "status": "not_required"
+          },
+          "rule_version": "4.0"
+        },
+        "deterministic_contract": "4",
+        "entity_name": "ORDINE_PROVA.TOTALE",
+        "evidence_id": "EV_14680b9d9734d8f1612b4882",
+        "evidence_text": "CREATE TABLE ORDINE_PROVA (\n    ID NUMBER PRIMARY KEY,\n    STATO VARCHAR2(20) NOT NULL,\n    TOTALE NUMBER(12, 2) NOT NULL,\n    CONSTRAINT CK_ORDINE_PROVA_STATO\n        CHECK (STATO IN ('BOZZA', 'CONFERMATO', 'ANNULLATO')),\n    CONSTRAINT CK_ORDINE_PROVA_TOTALE\n        CHECK (TOTALE >= 0)\n);",
+        "fact_type": "database_column",
+        "fragment_id": "EV_14680b9d9734d8f1612b4882",
+        "property_name": "data_type",
+        "property_value": "NUMBER(12, 2)",
+        "record_type": "candidate_fact",
+        "source_revision_id": "REV_8846309938f1a7d1febac47d"
+      },
+      "policy": "explicit_ddl_column_only/1",
+      "record_type": "candidate_fact",
+      "revision_id": "REV_8846309938f1a7d1febac47d",
+      "root_id": "CAND_62c90de279b12edc1129350a",
+      "rule": "ddl_column",
+      "source_path": "business.sql",
+      "source_status": "active",
+      "state": "pending"
+    },
+    {
+      "ai_audit": null,
+      "batch_id": "BATCH_eef06145d0020111b74e9626",
+      "batch_metadata": {
+        "contract_version": "4",
+        "rule_version": "4.0"
+      },
+      "batch_origin": "deterministic",
+      "created_at": "2026-09-30T09:57:09.255619+00:00",
+      "current_derivation": 1,
+      "current_parse": 1,
+      "current_revision": 1,
+      "decision_id": null,
+      "evidence_locators": [
+        {
+          "evidence_id": "EV_0dd6c0a987d56ec1ea5fbd7a",
+          "locator": {
+            "char_end": 291,
+            "char_start": 0,
+            "end_exclusive": true,
+            "line_end": 9,
+            "line_start": 1,
+            "offset_unit": "character",
+            "representation": "decoded_source"
+          }
+        }
+      ],
+      "id": "CAND_f1698259bca0d387f592f04e",
+      "leaf": 1,
+      "materialized": false,
+      "materialized_object_ids": [],
+      "parent_id": null,
+      "payload": {
+        "assertion_type": "explicit",
+        "attributes": {
+          "column": "ID",
+          "constraints": [
+            {
+              "columns": [
+                "ID"
+              ],
+              "constraint_id": "CONSTRAINT_d5c6ae4e9b6bcc0f3333c6c5",
+              "constraint_name": null,
+              "constraint_type": "primary_key",
+              "dialect": "oracle",
+              "table": "ORDINE_PROVA"
+            }
+          ],
+          "datatype": "NUMBER",
+          "datatype_ast": {
+            "args": {
+              "nested": false,
+              "this": "DECIMAL"
+            },
+            "node": "datatype"
+          },
+          "default": {
+            "expression_ast": null,
+            "present": false,
+            "sql": null
+          },
+          "dialect": "oracle",
+          "name": "ORDINE_PROVA.ID",
+          "nullability_basis": "primary_key",
+          "nullability_declaration": "unspecified",
+          "nullable": false,
+          "table": "ORDINE_PROVA"
+        },
+        "candidate_id": "DER_f25d88d02666661752647ff6",
+        "chunk_id": null,
+        "confidence": "high",
+        "derivation": {
+          "component": "definition",
+          "context_fingerprint": "7b473577eb03241c54cf54de60557b3f6859ab226e704e483eed0af94cddf040",
+          "resolution": {
+            "basis_evidence_ids": [
+              "EV_0dd6c0a987d56ec1ea5fbd7a"
+            ],
+            "reason_code": "syntactic_extraction",
+            "status": "not_required"
+          },
+          "rule_version": "4.0"
+        },
+        "deterministic_contract": "4",
+        "entity_name": "ORDINE_PROVA.ID",
+        "evidence_id": "EV_0dd6c0a987d56ec1ea5fbd7a",
+        "evidence_text": "CREATE TABLE ORDINE_PROVA (\n    ID NUMBER PRIMARY KEY,\n    STATO VARCHAR2(20) NOT NULL,\n    TOTALE NUMBER(12, 2) NOT NULL,\n    CONSTRAINT CK_ORDINE_PROVA_STATO\n        CHECK (STATO IN ('BOZZA', 'CONFERMATO', 'ANNULLATO')),\n    CONSTRAINT CK_ORDINE_PROVA_TOTALE\n        CHECK (TOTALE >= 0)\n);",
+        "fact_type": "database_column",
+        "fragment_id": "EV_0dd6c0a987d56ec1ea5fbd7a",
+        "property_name": "data_type",
+        "property_value": "NUMBER",
+        "record_type": "candidate_fact",
+        "source_revision_id": "REV_8846309938f1a7d1febac47d"
+      },
+      "policy": "explicit_ddl_column_only/1",
+      "record_type": "candidate_fact",
+      "revision_id": "REV_8846309938f1a7d1febac47d",
+      "root_id": "CAND_f1698259bca0d387f592f04e",
+      "rule": "ddl_column",
+      "source_path": "business.sql",
+      "source_status": "active",
+      "state": "pending"
+    },
+    {
+      "ai_audit": null,
+      "batch_id": "BATCH_eef06145d0020111b74e9626",
+      "batch_metadata": {
+        "contract_version": "4",
+        "rule_version": "4.0"
+      },
+      "batch_origin": "deterministic",
+      "created_at": "2026-09-30T09:57:09.256628+00:00",
+      "current_derivation": 1,
+      "current_parse": 1,
+      "current_revision": 1,
+      "decision_id": null,
+      "evidence_locators": [
+        {
+          "evidence_id": "EV_afc1f9737b4994c7555c33b0",
+          "locator": {
+            "char_end": 291,
+            "char_start": 0,
+            "end_exclusive": true,
+            "line_end": 9,
+            "line_start": 1,
+            "offset_unit": "character",
+            "representation": "decoded_source"
+          }
+        }
+      ],
+      "id": "CAND_12c57b3219ee63fca8601d94",
+      "leaf": 1,
+      "materialized": false,
+      "materialized_object_ids": [],
+      "parent_id": null,
+      "payload": {
+        "assertion_type": "explicit",
+        "attributes": {
+          "dialect": "oracle",
+          "name": "ORDINE_PROVA",
+          "object_type": "table"
+        },
+        "candidate_id": "DER_289ae48c82244027eb284e8b",
+        "chunk_id": null,
+        "confidence": "high",
+        "derivation": {
+          "component": "declaration",
+          "context_fingerprint": "bbc0aa62539d50c610513acbe3c898f956f5921bbfdd4e8bb830dd471c011ff9",
+          "resolution": {
+            "basis_evidence_ids": [
+              "EV_afc1f9737b4994c7555c33b0"
+            ],
+            "reason_code": "syntactic_extraction",
+            "status": "not_required"
+          },
+          "rule_version": "4.0"
+        },
+        "deterministic_contract": "4",
+        "entity_name": "ORDINE_PROVA",
+        "evidence_id": "EV_afc1f9737b4994c7555c33b0",
+        "evidence_text": "CREATE TABLE ORDINE_PROVA (\n    ID NUMBER PRIMARY KEY,\n    STATO VARCHAR2(20) NOT NULL,\n    TOTALE NUMBER(12, 2) NOT NULL,\n    CONSTRAINT CK_ORDINE_PROVA_STATO\n        CHECK (STATO IN ('BOZZA', 'CONFERMATO', 'ANNULLATO')),\n    CONSTRAINT CK_ORDINE_PROVA_TOTALE\n        CHECK (TOTALE >= 0)\n);",
+        "fact_type": "database_table",
+        "fragment_id": "EV_afc1f9737b4994c7555c33b0",
+        "property_name": "object_type",
+        "property_value": "table",
+        "record_type": "candidate_fact",
+        "source_revision_id": "REV_8846309938f1a7d1febac47d"
+      },
+      "policy": "explicit_ddl_table_only/1",
+      "record_type": "candidate_fact",
+      "revision_id": "REV_8846309938f1a7d1febac47d",
+      "root_id": "CAND_12c57b3219ee63fca8601d94",
+      "rule": "ddl_table",
+      "source_path": "business.sql",
+      "source_status": "active",
+      "state": "pending"
+    },
+    {
+      "ai_audit": null,
+      "batch_id": "BATCH_eef06145d0020111b74e9626",
+      "batch_metadata": {
+        "contract_version": "4",
+        "rule_version": "4.0"
+      },
+      "batch_origin": "deterministic",
+      "created_at": "2026-09-30T09:57:09.256628+00:00",
+      "current_derivation": 1,
+      "current_parse": 1,
+      "current_revision": 1,
+      "decision_id": null,
+      "evidence_locators": [
+        {
+          "evidence_id": "EV_95cb6e415da803bc62babe88",
+          "locator": {
+            "char_end": 291,
+            "char_start": 0,
+            "end_exclusive": true,
+            "line_end": 9,
+            "line_start": 1,
+            "offset_unit": "character",
+            "representation": "decoded_source"
+          }
+        }
+      ],
+      "id": "CAND_9148091775825abe2c88de4a",
+      "leaf": 1,
+      "materialized": false,
+      "materialized_object_ids": [],
+      "parent_id": null,
+      "payload": {
+        "assertion_type": "explicit",
+        "attributes": {
+          "column": "STATO",
+          "constraints": [
+            {
+              "columns": [
+                "STATO"
+              ],
+              "constraint_id": "ORDINE_PROVA.CK_ORDINE_PROVA_STATO",
+              "constraint_name": "CK_ORDINE_PROVA_STATO",
+              "constraint_type": "check",
+              "dialect": "oracle",
+              "expression": "STATO IN ('BOZZA', 'CONFERMATO', 'ANNULLATO')",
+              "expression_ast": {
+                "args": {
+                  "expressions": [
+                    {
+                      "node": "literal",
+                      "type": "string",
+                      "value": "BOZZA"
+                    },
+                    {
+                      "node": "literal",
+                      "type": "string",
+                      "value": "CONFERMATO"
+                    },
+                    {
+                      "node": "literal",
+                      "type": "string",
+                      "value": "ANNULLATO"
+                    }
+                  ],
+                  "this": {
+                    "name": "STATO",
+                    "node": "column"
+                  }
+                },
+                "node": "in"
+              },
+              "table": "ORDINE_PROVA"
+            }
+          ],
+          "datatype": "VARCHAR2(20)",
+          "datatype_ast": {
+            "args": {
+              "expressions": [
+                {
+                  "args": {
+                    "this": {
+                      "node": "literal",
+                      "type": "number",
+                      "value": "20"
+                    }
+                  },
+                  "node": "datatypeparam"
+                }
+              ],
+              "nested": false,
+              "this": "VARCHAR"
+            },
+            "node": "datatype"
+          },
+          "default": {
+            "expression_ast": null,
+            "present": false,
+            "sql": null
+          },
+          "dialect": "oracle",
+          "name": "ORDINE_PROVA.STATO",
+          "nullability_basis": "declared",
+          "nullability_declaration": "not_null",
+          "nullable": false,
+          "table": "ORDINE_PROVA"
+        },
+        "candidate_id": "DER_8fe311df2d3bb89d102955c4",
+        "chunk_id": null,
+        "confidence": "high",
+        "derivation": {
+          "component": "definition",
+          "context_fingerprint": "9bfc2ddaa060f376d32f502c6c2edb239767c75821e5944e79bc295280808b4b",
+          "resolution": {
+            "basis_evidence_ids": [
+              "EV_95cb6e415da803bc62babe88"
+            ],
+            "reason_code": "syntactic_extraction",
+            "status": "not_required"
+          },
+          "rule_version": "4.0"
+        },
+        "deterministic_contract": "4",
+        "entity_name": "ORDINE_PROVA.STATO",
+        "evidence_id": "EV_95cb6e415da803bc62babe88",
+        "evidence_text": "CREATE TABLE ORDINE_PROVA (\n    ID NUMBER PRIMARY KEY,\n    STATO VARCHAR2(20) NOT NULL,\n    TOTALE NUMBER(12, 2) NOT NULL,\n    CONSTRAINT CK_ORDINE_PROVA_STATO\n        CHECK (STATO IN ('BOZZA', 'CONFERMATO', 'ANNULLATO')),\n    CONSTRAINT CK_ORDINE_PROVA_TOTALE\n        CHECK (TOTALE >= 0)\n);",
+        "fact_type": "database_column",
+        "fragment_id": "EV_95cb6e415da803bc62babe88",
+        "property_name": "data_type",
+        "property_value": "VARCHAR2(20)",
+        "record_type": "candidate_fact",
+        "source_revision_id": "REV_8846309938f1a7d1febac47d"
+      },
+      "policy": "explicit_ddl_column_only/1",
+      "record_type": "candidate_fact",
+      "revision_id": "REV_8846309938f1a7d1febac47d",
+      "root_id": "CAND_9148091775825abe2c88de4a",
+      "rule": "ddl_column",
+      "source_path": "business.sql",
+      "source_status": "active",
+      "state": "pending"
+    },
+    {
+      "ai_audit": null,
+      "batch_id": "BATCH_eef06145d0020111b74e9626",
+      "batch_metadata": {
+        "contract_version": "4",
+        "rule_version": "4.0"
+      },
+      "batch_origin": "deterministic",
+      "created_at": "2026-09-30T09:57:09.256628+00:00",
+      "current_derivation": 1,
+      "current_parse": 1,
+      "current_revision": 1,
+      "decision_id": null,
+      "evidence_locators": [
+        {
+          "evidence_id": "EV_b0e49822db6933aad3d7471a",
+          "locator": {
+            "char_end": 291,
+            "char_start": 0,
+            "end_exclusive": true,
+            "line_end": 9,
+            "line_start": 1,
+            "offset_unit": "character",
+            "representation": "decoded_source"
+          }
+        }
+      ],
+      "id": "CAND_b111e61236347f59a259b633",
+      "leaf": 1,
+      "materialized": false,
+      "materialized_object_ids": [],
+      "parent_id": null,
+      "payload": {
+        "assertion_type": "explicit",
+        "attributes": {},
+        "candidate_id": "DER_8844ef6715c3237b1aa200d0",
+        "chunk_id": null,
+        "confidence": "high",
+        "derivation": {
+          "component": "declaration",
+          "context_fingerprint": "9a2d5460c2c316ff7dfb98bae8d4d664a961dc57179e4684da604ccd0b395f73",
+          "resolution": {
+            "basis_evidence_ids": [
+              "EV_b0e49822db6933aad3d7471a"
+            ],
+            "reason_code": "syntactic_extraction",
+            "status": "not_required"
+          },
+          "rule_version": "4.0"
+        },
+        "deterministic_contract": "4",
+        "entity_name": "CONSTRAINT_d5c6ae4e9b6bcc0f3333c6c5",
+        "evidence_id": "EV_b0e49822db6933aad3d7471a",
+        "evidence_text": "CREATE TABLE ORDINE_PROVA (\n    ID NUMBER PRIMARY KEY,\n    STATO VARCHAR2(20) NOT NULL,\n    TOTALE NUMBER(12, 2) NOT NULL,\n    CONSTRAINT CK_ORDINE_PROVA_STATO\n        CHECK (STATO IN ('BOZZA', 'CONFERMATO', 'ANNULLATO')),\n    CONSTRAINT CK_ORDINE_PROVA_TOTALE\n        CHECK (TOTALE >= 0)\n);",
+        "fact_type": "database_constraint",
+        "fragment_id": "EV_b0e49822db6933aad3d7471a",
+        "property_name": "constraint",
+        "property_value": {
+          "columns": [
+            "ID"
+          ],
+          "constraint_id": "CONSTRAINT_d5c6ae4e9b6bcc0f3333c6c5",
+          "constraint_name": null,
+          "constraint_type": "primary_key",
+          "dialect": "oracle",
+          "table": "ORDINE_PROVA"
+        },
+        "record_type": "candidate_fact",
+        "source_revision_id": "REV_8846309938f1a7d1febac47d"
+      },
+      "policy": "explicit_ddl_declaration_only/1",
+      "record_type": "candidate_fact",
+      "revision_id": "REV_8846309938f1a7d1febac47d",
+      "root_id": "CAND_b111e61236347f59a259b633",
+      "rule": "ddl_declaration",
+      "source_path": "business.sql",
+      "source_status": "active",
+      "state": "pending"
+    },
+    {
+      "ai_audit": null,
+      "batch_id": "BATCH_eef06145d0020111b74e9626",
+      "batch_metadata": {
+        "contract_version": "4",
+        "rule_version": "4.0"
+      },
+      "batch_origin": "deterministic",
+      "created_at": "2026-09-30T09:57:09.256628+00:00",
+      "current_derivation": 1,
+      "current_parse": 1,
+      "current_revision": 1,
+      "decision_id": null,
+      "evidence_locators": [
+        {
+          "evidence_id": "EV_ee308c90fb9f57ca99152a29",
+          "locator": {
+            "char_end": 291,
+            "char_start": 0,
+            "end_exclusive": true,
+            "line_end": 9,
+            "line_start": 1,
+            "offset_unit": "character",
+            "representation": "decoded_source"
+          }
+        }
+      ],
+      "id": "CAND_caa16dd81b771a17b11bbe15",
+      "leaf": 1,
+      "materialized": false,
+      "materialized_object_ids": [],
+      "parent_id": null,
+      "payload": {
+        "assertion_type": "explicit",
+        "attributes": {},
+        "candidate_id": "DER_3e8e4dde6bcfeb74949e9599",
+        "chunk_id": null,
+        "confidence": "high",
+        "derivation": {
+          "component": "declaration",
+          "context_fingerprint": "d2a3cbfcfc8fe82cac8bdbe04d4d2c4100379ab9fae43bc1ba87091fc1a9df76",
+          "resolution": {
+            "basis_evidence_ids": [
+              "EV_ee308c90fb9f57ca99152a29"
+            ],
+            "reason_code": "syntactic_extraction",
+            "status": "not_required"
+          },
+          "rule_version": "4.0"
+        },
+        "deterministic_contract": "4",
+        "entity_name": "ORDINE_PROVA.CK_ORDINE_PROVA_TOTALE",
+        "evidence_id": "EV_ee308c90fb9f57ca99152a29",
+        "evidence_text": "CREATE TABLE ORDINE_PROVA (\n    ID NUMBER PRIMARY KEY,\n    STATO VARCHAR2(20) NOT NULL,\n    TOTALE NUMBER(12, 2) NOT NULL,\n    CONSTRAINT CK_ORDINE_PROVA_STATO\n        CHECK (STATO IN ('BOZZA', 'CONFERMATO', 'ANNULLATO')),\n    CONSTRAINT CK_ORDINE_PROVA_TOTALE\n        CHECK (TOTALE >= 0)\n);",
+        "fact_type": "database_constraint",
+        "fragment_id": "EV_ee308c90fb9f57ca99152a29",
+        "property_name": "constraint",
+        "property_value": {
+          "columns": [
+            "TOTALE"
+          ],
+          "constraint_id": "ORDINE_PROVA.CK_ORDINE_PROVA_TOTALE",
+          "constraint_name": "CK_ORDINE_PROVA_TOTALE",
+          "constraint_type": "check",
+          "dialect": "oracle",
+          "expression": "TOTALE >= 0",
+          "expression_ast": {
+            "args": {
+              "expression": {
+                "node": "literal",
+                "type": "number",
+                "value": "0"
+              },
+              "this": {
+                "name": "TOTALE",
+                "node": "column"
+              }
+            },
+            "node": "gte"
+          },
+          "table": "ORDINE_PROVA"
+        },
+        "record_type": "candidate_fact",
+        "source_revision_id": "REV_8846309938f1a7d1febac47d"
+      },
+      "policy": "explicit_ddl_declaration_only/1",
+      "record_type": "candidate_fact",
+      "revision_id": "REV_8846309938f1a7d1febac47d",
+      "root_id": "CAND_caa16dd81b771a17b11bbe15",
+      "rule": "ddl_declaration",
+      "source_path": "business.sql",
+      "source_status": "active",
+      "state": "pending"
+    }
+  ],
+  "coverage": {
+    "by_format_type_subtype": {
+      ".sql/ddl_column/default": 3,
+      ".sql/ddl_constraint/check": 2,
+      ".sql/ddl_constraint/primary_key": 1,
+      ".sql/ddl_table/default": 1
+    },
+    "candidate_review_states": {
+      "confirmed": 7
+    },
+    "complete": true,
+    "context_fingerprint": "56b0fbf3367e4637ff632e1525bc42571ec5a607c3f7131ae74c3b832ef045f8",
+    "contract_version": "4",
+    "counts": {
+      "active_evidence_count": 7,
+      "blocked_ambiguous_components": 0,
+      "blocked_inconsistent_components": 0,
+      "blocked_unresolved_components": 0,
+      "derived_components": 7,
+      "due_applicable_components": 7,
+      "due_missing_components": 0,
+      "evidence_only_components": 0,
+      "expected_components": 7,
+      "internal_errors": 0,
+      "parser_errors": 0,
+      "supported_components": 7,
+      "unclassified_components": 0,
+      "unclassified_evidence_count": 0,
+      "unsupported_components": 0
+    },
+    "effective_object_count": 7,
+    "evidence": [
+      {
+        "components": [
+          {
+            "applicability": "applicable",
+            "candidate_ids": [
+              "CAND_f1698259bca0d387f592f04e"
+            ],
+            "capability": "supported",
+            "context_fingerprint": "7b473577eb03241c54cf54de60557b3f6859ab226e704e483eed0af94cddf040",
+            "governance": {
+              "CAND_f1698259bca0d387f592f04e": "confirmed"
+            },
+            "key": "definition",
+            "outcome": "materialized_deterministically",
+            "prerequisites": [
+              {
+                "basis_evidence_ids": [
+                  "EV_0dd6c0a987d56ec1ea5fbd7a"
+                ],
+                "reason_code": "syntactic_extraction",
+                "status": "not_required"
+              }
+            ],
+            "reason_code": "syntactic_extraction",
+            "required_candidate_ids": [
+              "CAND_f1698259bca0d387f592f04e"
+            ],
+            "resolution": {
+              "basis_evidence_ids": [
+                "EV_0dd6c0a987d56ec1ea5fbd7a"
+              ],
+              "reason_code": "syntactic_extraction",
+              "status": "not_required"
+            },
+            "rule": "ddl_column",
+            "rule_version": "4.0"
+          }
+        ],
+        "evidence_id": "EV_0dd6c0a987d56ec1ea5fbd7a",
+        "format": ".sql",
+        "locator": {
+          "char_end": 291,
+          "char_start": 0,
+          "end_exclusive": true,
+          "line_end": 9,
+          "line_start": 1,
+          "offset_unit": "character",
+          "representation": "decoded_source"
+        },
+        "outcome": "materialized_deterministically",
+        "parser": "deterministic-parser/4:10e34e4867ae3a8b79d7347dc78038998b24c91bb843d8eded0297500df49f97",
+        "subtype": "default",
+        "type": "ddl_column"
+      },
+      {
+        "components": [
+          {
+            "applicability": "applicable",
+            "candidate_ids": [
+              "CAND_62c90de279b12edc1129350a"
+            ],
+            "capability": "supported",
+            "context_fingerprint": "49796dc4708d5d42c8628e8381128838e963fd685b4b20d729d1fb3ce1f0d2b0",
+            "governance": {
+              "CAND_62c90de279b12edc1129350a": "confirmed"
+            },
+            "key": "definition",
+            "outcome": "materialized_deterministically",
+            "prerequisites": [
+              {
+                "basis_evidence_ids": [
+                  "EV_14680b9d9734d8f1612b4882"
+                ],
+                "reason_code": "syntactic_extraction",
+                "status": "not_required"
+              }
+            ],
+            "reason_code": "syntactic_extraction",
+            "required_candidate_ids": [
+              "CAND_62c90de279b12edc1129350a"
+            ],
+            "resolution": {
+              "basis_evidence_ids": [
+                "EV_14680b9d9734d8f1612b4882"
+              ],
+              "reason_code": "syntactic_extraction",
+              "status": "not_required"
+            },
+            "rule": "ddl_column",
+            "rule_version": "4.0"
+          }
+        ],
+        "evidence_id": "EV_14680b9d9734d8f1612b4882",
+        "format": ".sql",
+        "locator": {
+          "char_end": 291,
+          "char_start": 0,
+          "end_exclusive": true,
+          "line_end": 9,
+          "line_start": 1,
+          "offset_unit": "character",
+          "representation": "decoded_source"
+        },
+        "outcome": "materialized_deterministically",
+        "parser": "deterministic-parser/4:10e34e4867ae3a8b79d7347dc78038998b24c91bb843d8eded0297500df49f97",
+        "subtype": "default",
+        "type": "ddl_column"
+      },
+      {
+        "components": [
+          {
+            "applicability": "applicable",
+            "candidate_ids": [
+              "CAND_19b3b6f24146be0bd312699c"
+            ],
+            "capability": "supported",
+            "context_fingerprint": "76d425175df1e507652348615647238d5a78329e46235e40299c3d3ce074fef4",
+            "governance": {
+              "CAND_19b3b6f24146be0bd312699c": "confirmed"
+            },
+            "key": "declaration",
+            "outcome": "materialized_deterministically",
+            "prerequisites": [
+              {
+                "basis_evidence_ids": [
+                  "EV_6e4d04a985b1c68dfd1b815c"
+                ],
+                "reason_code": "syntactic_extraction",
+                "status": "not_required"
+              }
+            ],
+            "reason_code": "syntactic_extraction",
+            "required_candidate_ids": [
+              "CAND_19b3b6f24146be0bd312699c"
+            ],
+            "resolution": {
+              "basis_evidence_ids": [
+                "EV_6e4d04a985b1c68dfd1b815c"
+              ],
+              "reason_code": "syntactic_extraction",
+              "status": "not_required"
+            },
+            "rule": "ddl_declaration",
+            "rule_version": "4.0"
+          }
+        ],
+        "evidence_id": "EV_6e4d04a985b1c68dfd1b815c",
+        "format": ".sql",
+        "locator": {
+          "char_end": 291,
+          "char_start": 0,
+          "end_exclusive": true,
+          "line_end": 9,
+          "line_start": 1,
+          "offset_unit": "character",
+          "representation": "decoded_source"
+        },
+        "outcome": "materialized_deterministically",
+        "parser": "deterministic-parser/4:10e34e4867ae3a8b79d7347dc78038998b24c91bb843d8eded0297500df49f97",
+        "subtype": "check",
+        "type": "ddl_constraint"
+      },
+      {
+        "components": [
+          {
+            "applicability": "applicable",
+            "candidate_ids": [
+              "CAND_9148091775825abe2c88de4a"
+            ],
+            "capability": "supported",
+            "context_fingerprint": "9bfc2ddaa060f376d32f502c6c2edb239767c75821e5944e79bc295280808b4b",
+            "governance": {
+              "CAND_9148091775825abe2c88de4a": "confirmed"
+            },
+            "key": "definition",
+            "outcome": "materialized_deterministically",
+            "prerequisites": [
+              {
+                "basis_evidence_ids": [
+                  "EV_95cb6e415da803bc62babe88"
+                ],
+                "reason_code": "syntactic_extraction",
+                "status": "not_required"
+              }
+            ],
+            "reason_code": "syntactic_extraction",
+            "required_candidate_ids": [
+              "CAND_9148091775825abe2c88de4a"
+            ],
+            "resolution": {
+              "basis_evidence_ids": [
+                "EV_95cb6e415da803bc62babe88"
+              ],
+              "reason_code": "syntactic_extraction",
+              "status": "not_required"
+            },
+            "rule": "ddl_column",
+            "rule_version": "4.0"
+          }
+        ],
+        "evidence_id": "EV_95cb6e415da803bc62babe88",
+        "format": ".sql",
+        "locator": {
+          "char_end": 291,
+          "char_start": 0,
+          "end_exclusive": true,
+          "line_end": 9,
+          "line_start": 1,
+          "offset_unit": "character",
+          "representation": "decoded_source"
+        },
+        "outcome": "materialized_deterministically",
+        "parser": "deterministic-parser/4:10e34e4867ae3a8b79d7347dc78038998b24c91bb843d8eded0297500df49f97",
+        "subtype": "default",
+        "type": "ddl_column"
+      },
+      {
+        "components": [
+          {
+            "applicability": "applicable",
+            "candidate_ids": [
+              "CAND_12c57b3219ee63fca8601d94"
+            ],
+            "capability": "supported",
+            "context_fingerprint": "bbc0aa62539d50c610513acbe3c898f956f5921bbfdd4e8bb830dd471c011ff9",
+            "governance": {
+              "CAND_12c57b3219ee63fca8601d94": "confirmed"
+            },
+            "key": "declaration",
+            "outcome": "materialized_deterministically",
+            "prerequisites": [
+              {
+                "basis_evidence_ids": [
+                  "EV_afc1f9737b4994c7555c33b0"
+                ],
+                "reason_code": "syntactic_extraction",
+                "status": "not_required"
+              }
+            ],
+            "reason_code": "syntactic_extraction",
+            "required_candidate_ids": [
+              "CAND_12c57b3219ee63fca8601d94"
+            ],
+            "resolution": {
+              "basis_evidence_ids": [
+                "EV_afc1f9737b4994c7555c33b0"
+              ],
+              "reason_code": "syntactic_extraction",
+              "status": "not_required"
+            },
+            "rule": "ddl_table",
+            "rule_version": "4.0"
+          }
+        ],
+        "evidence_id": "EV_afc1f9737b4994c7555c33b0",
+        "format": ".sql",
+        "locator": {
+          "char_end": 291,
+          "char_start": 0,
+          "end_exclusive": true,
+          "line_end": 9,
+          "line_start": 1,
+          "offset_unit": "character",
+          "representation": "decoded_source"
+        },
+        "outcome": "materialized_deterministically",
+        "parser": "deterministic-parser/4:10e34e4867ae3a8b79d7347dc78038998b24c91bb843d8eded0297500df49f97",
+        "subtype": "default",
+        "type": "ddl_table"
+      },
+      {
+        "components": [
+          {
+            "applicability": "applicable",
+            "candidate_ids": [
+              "CAND_b111e61236347f59a259b633"
+            ],
+            "capability": "supported",
+            "context_fingerprint": "9a2d5460c2c316ff7dfb98bae8d4d664a961dc57179e4684da604ccd0b395f73",
+            "governance": {
+              "CAND_b111e61236347f59a259b633": "confirmed"
+            },
+            "key": "declaration",
+            "outcome": "materialized_deterministically",
+            "prerequisites": [
+              {
+                "basis_evidence_ids": [
+                  "EV_b0e49822db6933aad3d7471a"
+                ],
+                "reason_code": "syntactic_extraction",
+                "status": "not_required"
+              }
+            ],
+            "reason_code": "syntactic_extraction",
+            "required_candidate_ids": [
+              "CAND_b111e61236347f59a259b633"
+            ],
+            "resolution": {
+              "basis_evidence_ids": [
+                "EV_b0e49822db6933aad3d7471a"
+              ],
+              "reason_code": "syntactic_extraction",
+              "status": "not_required"
+            },
+            "rule": "ddl_declaration",
+            "rule_version": "4.0"
+          }
+        ],
+        "evidence_id": "EV_b0e49822db6933aad3d7471a",
+        "format": ".sql",
+        "locator": {
+          "char_end": 291,
+          "char_start": 0,
+          "end_exclusive": true,
+          "line_end": 9,
+          "line_start": 1,
+          "offset_unit": "character",
+          "representation": "decoded_source"
+        },
+        "outcome": "materialized_deterministically",
+        "parser": "deterministic-parser/4:10e34e4867ae3a8b79d7347dc78038998b24c91bb843d8eded0297500df49f97",
+        "subtype": "primary_key",
+        "type": "ddl_constraint"
+      },
+      {
+        "components": [
+          {
+            "applicability": "applicable",
+            "candidate_ids": [
+              "CAND_caa16dd81b771a17b11bbe15"
+            ],
+            "capability": "supported",
+            "context_fingerprint": "d2a3cbfcfc8fe82cac8bdbe04d4d2c4100379ab9fae43bc1ba87091fc1a9df76",
+            "governance": {
+              "CAND_caa16dd81b771a17b11bbe15": "confirmed"
+            },
+            "key": "declaration",
+            "outcome": "materialized_deterministically",
+            "prerequisites": [
+              {
+                "basis_evidence_ids": [
+                  "EV_ee308c90fb9f57ca99152a29"
+                ],
+                "reason_code": "syntactic_extraction",
+                "status": "not_required"
+              }
+            ],
+            "reason_code": "syntactic_extraction",
+            "required_candidate_ids": [
+              "CAND_caa16dd81b771a17b11bbe15"
+            ],
+            "resolution": {
+              "basis_evidence_ids": [
+                "EV_ee308c90fb9f57ca99152a29"
+              ],
+              "reason_code": "syntactic_extraction",
+              "status": "not_required"
+            },
+            "rule": "ddl_declaration",
+            "rule_version": "4.0"
+          }
+        ],
+        "evidence_id": "EV_ee308c90fb9f57ca99152a29",
+        "format": ".sql",
+        "locator": {
+          "char_end": 291,
+          "char_start": 0,
+          "end_exclusive": true,
+          "line_end": 9,
+          "line_start": 1,
+          "offset_unit": "character",
+          "representation": "decoded_source"
+        },
+        "outcome": "materialized_deterministically",
+        "parser": "deterministic-parser/4:10e34e4867ae3a8b79d7347dc78038998b24c91bb843d8eded0297500df49f97",
+        "subtype": "check",
+        "type": "ddl_constraint"
+      }
+    ],
+    "fully_derived": true,
+    "parser_errors": [],
+    "rule_version": "4.0"
+  },
+  "dialect": "oracle",
+  "dialect_explicit": true,
+  "expected": {
+    "allowed_values": [
+      "BOZZA",
+      "CONFERMATO",
+      "ANNULLATO"
+    ],
+    "constraints": [
+      "ORDINE_PROVA.CK_ORDINE_PROVA_STATO",
+      "ORDINE_PROVA.CK_ORDINE_PROVA_TOTALE"
+    ],
+    "dialect": "oracle",
+    "explicit_not_null": [
+      "STATO",
+      "TOTALE"
+    ],
+    "forbidden_inferences": [
+      "workflow transitions",
+      "authorized actors",
+      "currency",
+      "accounting meaning",
+      "runtime state",
+      "inventory reservation"
+    ],
+    "precision": [
+      "12",
+      "2"
+    ],
+    "total_boundary": {
+      "node": "literal",
+      "type": "number",
+      "value": "0"
+    },
+    "total_operator": "gte"
+  },
+  "fixture": "tests\\fixtures\\deterministic\\business.sql",
+  "objects": [
+    {
+      "created_at": "2026-09-30T09:57:10.492275+00:00",
+      "id": "FACT_1fa4e4cda58dfdee20365098",
+      "kind": "fact",
+      "payload": {
+        "assertion_type": "explicit",
+        "attributes": {
+          "column": "ID",
+          "constraints": [
+            {
+              "columns": [
+                "ID"
+              ],
+              "constraint_id": "CONSTRAINT_d5c6ae4e9b6bcc0f3333c6c5",
+              "constraint_name": null,
+              "constraint_type": "primary_key",
+              "dialect": "oracle",
+              "table": "ORDINE_PROVA"
+            }
+          ],
+          "datatype": "NUMBER",
+          "datatype_ast": {
+            "args": {
+              "nested": false,
+              "this": "DECIMAL"
+            },
+            "node": "datatype"
+          },
+          "default": {
+            "expression_ast": null,
+            "present": false,
+            "sql": null
+          },
+          "dialect": "oracle",
+          "name": "ORDINE_PROVA.ID",
+          "nullability_basis": "primary_key",
+          "nullability_declaration": "unspecified",
+          "nullable": false,
+          "table": "ORDINE_PROVA"
+        },
+        "confidence": "high",
+        "entity_name": "ORDINE_PROVA.ID",
+        "fact_type": "database_column",
+        "property_name": "data_type",
+        "property_value": "NUMBER"
+      },
+      "semantic_key": "0e7ef68c5c675bca82c6de8cdbd44aaa1f61d1f872b23cb2be97b663c89a0264",
+      "supports": [
+        {
+          "candidate_id": "CAND_f1698259bca0d387f592f04e",
+          "candidate_payload": {
+            "assertion_type": "explicit",
+            "attributes": {
+              "column": "ID",
+              "constraints": [
+                {
+                  "columns": [
+                    "ID"
+                  ],
+                  "constraint_id": "CONSTRAINT_d5c6ae4e9b6bcc0f3333c6c5",
+                  "constraint_name": null,
+                  "constraint_type": "primary_key",
+                  "dialect": "oracle",
+                  "table": "ORDINE_PROVA"
+                }
+              ],
+              "datatype": "NUMBER",
+              "datatype_ast": {
+                "args": {
+                  "nested": false,
+                  "this": "DECIMAL"
+                },
+                "node": "datatype"
+              },
+              "default": {
+                "expression_ast": null,
+                "present": false,
+                "sql": null
+              },
+              "dialect": "oracle",
+              "name": "ORDINE_PROVA.ID",
+              "nullability_basis": "primary_key",
+              "nullability_declaration": "unspecified",
+              "nullable": false,
+              "table": "ORDINE_PROVA"
+            },
+            "candidate_id": "DER_f25d88d02666661752647ff6",
+            "chunk_id": null,
+            "confidence": "high",
+            "derivation": {
+              "component": "definition",
+              "context_fingerprint": "7b473577eb03241c54cf54de60557b3f6859ab226e704e483eed0af94cddf040",
+              "resolution": {
+                "basis_evidence_ids": [
+                  "EV_0dd6c0a987d56ec1ea5fbd7a"
+                ],
+                "reason_code": "syntactic_extraction",
+                "status": "not_required"
+              },
+              "rule_version": "4.0"
+            },
+            "deterministic_contract": "4",
+            "entity_name": "ORDINE_PROVA.ID",
+            "evidence_id": "EV_0dd6c0a987d56ec1ea5fbd7a",
+            "evidence_text": "CREATE TABLE ORDINE_PROVA (\n    ID NUMBER PRIMARY KEY,\n    STATO VARCHAR2(20) NOT NULL,\n    TOTALE NUMBER(12, 2) NOT NULL,\n    CONSTRAINT CK_ORDINE_PROVA_STATO\n        CHECK (STATO IN ('BOZZA', 'CONFERMATO', 'ANNULLATO')),\n    CONSTRAINT CK_ORDINE_PROVA_TOTALE\n        CHECK (TOTALE >= 0)\n);",
+            "fact_type": "database_column",
+            "fragment_id": "EV_0dd6c0a987d56ec1ea5fbd7a",
+            "property_name": "data_type",
+            "property_value": "NUMBER",
+            "record_type": "candidate_fact",
+            "source_revision_id": "REV_8846309938f1a7d1febac47d"
+          },
+          "created_at": "2026-09-30T09:57:10.492275+00:00",
+          "decision_id": "DEC_6889279fe0b59675f848b94a",
+          "object_id": "FACT_1fa4e4cda58dfdee20365098",
+          "rule": "ddl_column"
+        }
+      ]
+    },
+    {
+      "created_at": "2026-09-30T09:57:10.495168+00:00",
+      "id": "FACT_1fa82268b6aebe27793dbe0e",
+      "kind": "fact",
+      "payload": {
+        "assertion_type": "explicit",
+        "attributes": {},
+        "confidence": "high",
+        "entity_name": "CONSTRAINT_d5c6ae4e9b6bcc0f3333c6c5",
+        "fact_type": "database_constraint",
+        "property_name": "constraint",
+        "property_value": {
+          "columns": [
+            "ID"
+          ],
+          "constraint_id": "CONSTRAINT_d5c6ae4e9b6bcc0f3333c6c5",
+          "constraint_name": null,
+          "constraint_type": "primary_key",
+          "dialect": "oracle",
+          "table": "ORDINE_PROVA"
+        }
+      },
+      "semantic_key": "9dca1e7e70a692d60e50ff6b3124510e8f5f7748076a2b2af4735e627e7c89d9",
+      "supports": [
+        {
+          "candidate_id": "CAND_b111e61236347f59a259b633",
+          "candidate_payload": {
+            "assertion_type": "explicit",
+            "attributes": {},
+            "candidate_id": "DER_8844ef6715c3237b1aa200d0",
+            "chunk_id": null,
+            "confidence": "high",
+            "derivation": {
+              "component": "declaration",
+              "context_fingerprint": "9a2d5460c2c316ff7dfb98bae8d4d664a961dc57179e4684da604ccd0b395f73",
+              "resolution": {
+                "basis_evidence_ids": [
+                  "EV_b0e49822db6933aad3d7471a"
+                ],
+                "reason_code": "syntactic_extraction",
+                "status": "not_required"
+              },
+              "rule_version": "4.0"
+            },
+            "deterministic_contract": "4",
+            "entity_name": "CONSTRAINT_d5c6ae4e9b6bcc0f3333c6c5",
+            "evidence_id": "EV_b0e49822db6933aad3d7471a",
+            "evidence_text": "CREATE TABLE ORDINE_PROVA (\n    ID NUMBER PRIMARY KEY,\n    STATO VARCHAR2(20) NOT NULL,\n    TOTALE NUMBER(12, 2) NOT NULL,\n    CONSTRAINT CK_ORDINE_PROVA_STATO\n        CHECK (STATO IN ('BOZZA', 'CONFERMATO', 'ANNULLATO')),\n    CONSTRAINT CK_ORDINE_PROVA_TOTALE\n        CHECK (TOTALE >= 0)\n);",
+            "fact_type": "database_constraint",
+            "fragment_id": "EV_b0e49822db6933aad3d7471a",
+            "property_name": "constraint",
+            "property_value": {
+              "columns": [
+                "ID"
+              ],
+              "constraint_id": "CONSTRAINT_d5c6ae4e9b6bcc0f3333c6c5",
+              "constraint_name": null,
+              "constraint_type": "primary_key",
+              "dialect": "oracle",
+              "table": "ORDINE_PROVA"
+            },
+            "record_type": "candidate_fact",
+            "source_revision_id": "REV_8846309938f1a7d1febac47d"
+          },
+          "created_at": "2026-09-30T09:57:10.495168+00:00",
+          "decision_id": "DEC_93775447040b0969ec99f439",
+          "object_id": "FACT_1fa82268b6aebe27793dbe0e",
+          "rule": "ddl_declaration"
+        }
+      ]
+    },
+    {
+      "created_at": "2026-09-30T09:57:10.493267+00:00",
+      "id": "FACT_302f0ce2f70bccaf24cbcfde",
+      "kind": "fact",
+      "payload": {
+        "assertion_type": "explicit",
+        "attributes": {},
+        "confidence": "high",
+        "entity_name": "ORDINE_PROVA.CK_ORDINE_PROVA_STATO",
+        "fact_type": "database_constraint",
+        "property_name": "constraint",
+        "property_value": {
+          "columns": [
+            "STATO"
+          ],
+          "constraint_id": "ORDINE_PROVA.CK_ORDINE_PROVA_STATO",
+          "constraint_name": "CK_ORDINE_PROVA_STATO",
+          "constraint_type": "check",
+          "dialect": "oracle",
+          "expression": "STATO IN ('BOZZA', 'CONFERMATO', 'ANNULLATO')",
+          "expression_ast": {
+            "args": {
+              "expressions": [
+                {
+                  "node": "literal",
+                  "type": "string",
+                  "value": "BOZZA"
+                },
+                {
+                  "node": "literal",
+                  "type": "string",
+                  "value": "CONFERMATO"
+                },
+                {
+                  "node": "literal",
+                  "type": "string",
+                  "value": "ANNULLATO"
+                }
+              ],
+              "this": {
+                "name": "STATO",
+                "node": "column"
+              }
+            },
+            "node": "in"
+          },
+          "table": "ORDINE_PROVA"
+        }
+      },
+      "semantic_key": "b6b0720a3368810fa9f9a4e6dea0a35b346c5f8c58b6d1afc8ef56f2cb9139b7",
+      "supports": [
+        {
+          "candidate_id": "CAND_19b3b6f24146be0bd312699c",
+          "candidate_payload": {
+            "assertion_type": "explicit",
+            "attributes": {},
+            "candidate_id": "DER_d654e3224e7bbbe83a1fdb43",
+            "chunk_id": null,
+            "confidence": "high",
+            "derivation": {
+              "component": "declaration",
+              "context_fingerprint": "76d425175df1e507652348615647238d5a78329e46235e40299c3d3ce074fef4",
+              "resolution": {
+                "basis_evidence_ids": [
+                  "EV_6e4d04a985b1c68dfd1b815c"
+                ],
+                "reason_code": "syntactic_extraction",
+                "status": "not_required"
+              },
+              "rule_version": "4.0"
+            },
+            "deterministic_contract": "4",
+            "entity_name": "ORDINE_PROVA.CK_ORDINE_PROVA_STATO",
+            "evidence_id": "EV_6e4d04a985b1c68dfd1b815c",
+            "evidence_text": "CREATE TABLE ORDINE_PROVA (\n    ID NUMBER PRIMARY KEY,\n    STATO VARCHAR2(20) NOT NULL,\n    TOTALE NUMBER(12, 2) NOT NULL,\n    CONSTRAINT CK_ORDINE_PROVA_STATO\n        CHECK (STATO IN ('BOZZA', 'CONFERMATO', 'ANNULLATO')),\n    CONSTRAINT CK_ORDINE_PROVA_TOTALE\n        CHECK (TOTALE >= 0)\n);",
+            "fact_type": "database_constraint",
+            "fragment_id": "EV_6e4d04a985b1c68dfd1b815c",
+            "property_name": "constraint",
+            "property_value": {
+              "columns": [
+                "STATO"
+              ],
+              "constraint_id": "ORDINE_PROVA.CK_ORDINE_PROVA_STATO",
+              "constraint_name": "CK_ORDINE_PROVA_STATO",
+              "constraint_type": "check",
+              "dialect": "oracle",
+              "expression": "STATO IN ('BOZZA', 'CONFERMATO', 'ANNULLATO')",
+              "expression_ast": {
+                "args": {
+                  "expressions": [
+                    {
+                      "node": "literal",
+                      "type": "string",
+                      "value": "BOZZA"
+                    },
+                    {
+                      "node": "literal",
+                      "type": "string",
+                      "value": "CONFERMATO"
+                    },
+                    {
+                      "node": "literal",
+                      "type": "string",
+                      "value": "ANNULLATO"
+                    }
+                  ],
+                  "this": {
+                    "name": "STATO",
+                    "node": "column"
+                  }
+                },
+                "node": "in"
+              },
+              "table": "ORDINE_PROVA"
+            },
+            "record_type": "candidate_fact",
+            "source_revision_id": "REV_8846309938f1a7d1febac47d"
+          },
+          "created_at": "2026-09-30T09:57:10.493267+00:00",
+          "decision_id": "DEC_ddccf7072a09f77069d9f97f",
+          "object_id": "FACT_302f0ce2f70bccaf24cbcfde",
+          "rule": "ddl_declaration"
+        }
+      ]
+    },
+    {
+      "created_at": "2026-09-30T09:57:10.494271+00:00",
+      "id": "FACT_71132ea6ce2fcb37dff16da5",
+      "kind": "fact",
+      "payload": {
+        "assertion_type": "explicit",
+        "attributes": {
+          "column": "STATO",
+          "constraints": [
+            {
+              "columns": [
+                "STATO"
+              ],
+              "constraint_id": "ORDINE_PROVA.CK_ORDINE_PROVA_STATO",
+              "constraint_name": "CK_ORDINE_PROVA_STATO",
+              "constraint_type": "check",
+              "dialect": "oracle",
+              "expression": "STATO IN ('BOZZA', 'CONFERMATO', 'ANNULLATO')",
+              "expression_ast": {
+                "args": {
+                  "expressions": [
+                    {
+                      "node": "literal",
+                      "type": "string",
+                      "value": "BOZZA"
+                    },
+                    {
+                      "node": "literal",
+                      "type": "string",
+                      "value": "CONFERMATO"
+                    },
+                    {
+                      "node": "literal",
+                      "type": "string",
+                      "value": "ANNULLATO"
+                    }
+                  ],
+                  "this": {
+                    "name": "STATO",
+                    "node": "column"
+                  }
+                },
+                "node": "in"
+              },
+              "table": "ORDINE_PROVA"
+            }
+          ],
+          "datatype": "VARCHAR2(20)",
+          "datatype_ast": {
+            "args": {
+              "expressions": [
+                {
+                  "args": {
+                    "this": {
+                      "node": "literal",
+                      "type": "number",
+                      "value": "20"
+                    }
+                  },
+                  "node": "datatypeparam"
+                }
+              ],
+              "nested": false,
+              "this": "VARCHAR"
+            },
+            "node": "datatype"
+          },
+          "default": {
+            "expression_ast": null,
+            "present": false,
+            "sql": null
+          },
+          "dialect": "oracle",
+          "name": "ORDINE_PROVA.STATO",
+          "nullability_basis": "declared",
+          "nullability_declaration": "not_null",
+          "nullable": false,
+          "table": "ORDINE_PROVA"
+        },
+        "confidence": "high",
+        "entity_name": "ORDINE_PROVA.STATO",
+        "fact_type": "database_column",
+        "property_name": "data_type",
+        "property_value": "VARCHAR2(20)"
+      },
+      "semantic_key": "6d7c436ad6f184348a2c3aab4aee118f21a6a56904488e476608ca48a5e47ad8",
+      "supports": [
+        {
+          "candidate_id": "CAND_9148091775825abe2c88de4a",
+          "candidate_payload": {
+            "assertion_type": "explicit",
+            "attributes": {
+              "column": "STATO",
+              "constraints": [
+                {
+                  "columns": [
+                    "STATO"
+                  ],
+                  "constraint_id": "ORDINE_PROVA.CK_ORDINE_PROVA_STATO",
+                  "constraint_name": "CK_ORDINE_PROVA_STATO",
+                  "constraint_type": "check",
+                  "dialect": "oracle",
+                  "expression": "STATO IN ('BOZZA', 'CONFERMATO', 'ANNULLATO')",
+                  "expression_ast": {
+                    "args": {
+                      "expressions": [
+                        {
+                          "node": "literal",
+                          "type": "string",
+                          "value": "BOZZA"
+                        },
+                        {
+                          "node": "literal",
+                          "type": "string",
+                          "value": "CONFERMATO"
+                        },
+                        {
+                          "node": "literal",
+                          "type": "string",
+                          "value": "ANNULLATO"
+                        }
+                      ],
+                      "this": {
+                        "name": "STATO",
+                        "node": "column"
+                      }
+                    },
+                    "node": "in"
+                  },
+                  "table": "ORDINE_PROVA"
+                }
+              ],
+              "datatype": "VARCHAR2(20)",
+              "datatype_ast": {
+                "args": {
+                  "expressions": [
+                    {
+                      "args": {
+                        "this": {
+                          "node": "literal",
+                          "type": "number",
+                          "value": "20"
+                        }
+                      },
+                      "node": "datatypeparam"
+                    }
+                  ],
+                  "nested": false,
+                  "this": "VARCHAR"
+                },
+                "node": "datatype"
+              },
+              "default": {
+                "expression_ast": null,
+                "present": false,
+                "sql": null
+              },
+              "dialect": "oracle",
+              "name": "ORDINE_PROVA.STATO",
+              "nullability_basis": "declared",
+              "nullability_declaration": "not_null",
+              "nullable": false,
+              "table": "ORDINE_PROVA"
+            },
+            "candidate_id": "DER_8fe311df2d3bb89d102955c4",
+            "chunk_id": null,
+            "confidence": "high",
+            "derivation": {
+              "component": "definition",
+              "context_fingerprint": "9bfc2ddaa060f376d32f502c6c2edb239767c75821e5944e79bc295280808b4b",
+              "resolution": {
+                "basis_evidence_ids": [
+                  "EV_95cb6e415da803bc62babe88"
+                ],
+                "reason_code": "syntactic_extraction",
+                "status": "not_required"
+              },
+              "rule_version": "4.0"
+            },
+            "deterministic_contract": "4",
+            "entity_name": "ORDINE_PROVA.STATO",
+            "evidence_id": "EV_95cb6e415da803bc62babe88",
+            "evidence_text": "CREATE TABLE ORDINE_PROVA (\n    ID NUMBER PRIMARY KEY,\n    STATO VARCHAR2(20) NOT NULL,\n    TOTALE NUMBER(12, 2) NOT NULL,\n    CONSTRAINT CK_ORDINE_PROVA_STATO\n        CHECK (STATO IN ('BOZZA', 'CONFERMATO', 'ANNULLATO')),\n    CONSTRAINT CK_ORDINE_PROVA_TOTALE\n        CHECK (TOTALE >= 0)\n);",
+            "fact_type": "database_column",
+            "fragment_id": "EV_95cb6e415da803bc62babe88",
+            "property_name": "data_type",
+            "property_value": "VARCHAR2(20)",
+            "record_type": "candidate_fact",
+            "source_revision_id": "REV_8846309938f1a7d1febac47d"
+          },
+          "created_at": "2026-09-30T09:57:10.494271+00:00",
+          "decision_id": "DEC_b13f60bc2a55084d1b0701dd",
+          "object_id": "FACT_71132ea6ce2fcb37dff16da5",
+          "rule": "ddl_column"
+        }
+      ]
+    },
+    {
+      "created_at": "2026-09-30T09:57:10.494271+00:00",
+      "id": "FACT_a27a09d1db32d3052656e378",
+      "kind": "fact",
+      "payload": {
+        "assertion_type": "explicit",
+        "attributes": {
+          "dialect": "oracle",
+          "name": "ORDINE_PROVA",
+          "object_type": "table"
+        },
+        "confidence": "high",
+        "entity_name": "ORDINE_PROVA",
+        "fact_type": "database_table",
+        "property_name": "object_type",
+        "property_value": "table"
+      },
+      "semantic_key": "1bdfde0e03a6d2b0f4883c4e50d93de2c44a8f97b93b6a9491e51fd27841f05f",
+      "supports": [
+        {
+          "candidate_id": "CAND_12c57b3219ee63fca8601d94",
+          "candidate_payload": {
+            "assertion_type": "explicit",
+            "attributes": {
+              "dialect": "oracle",
+              "name": "ORDINE_PROVA",
+              "object_type": "table"
+            },
+            "candidate_id": "DER_289ae48c82244027eb284e8b",
+            "chunk_id": null,
+            "confidence": "high",
+            "derivation": {
+              "component": "declaration",
+              "context_fingerprint": "bbc0aa62539d50c610513acbe3c898f956f5921bbfdd4e8bb830dd471c011ff9",
+              "resolution": {
+                "basis_evidence_ids": [
+                  "EV_afc1f9737b4994c7555c33b0"
+                ],
+                "reason_code": "syntactic_extraction",
+                "status": "not_required"
+              },
+              "rule_version": "4.0"
+            },
+            "deterministic_contract": "4",
+            "entity_name": "ORDINE_PROVA",
+            "evidence_id": "EV_afc1f9737b4994c7555c33b0",
+            "evidence_text": "CREATE TABLE ORDINE_PROVA (\n    ID NUMBER PRIMARY KEY,\n    STATO VARCHAR2(20) NOT NULL,\n    TOTALE NUMBER(12, 2) NOT NULL,\n    CONSTRAINT CK_ORDINE_PROVA_STATO\n        CHECK (STATO IN ('BOZZA', 'CONFERMATO', 'ANNULLATO')),\n    CONSTRAINT CK_ORDINE_PROVA_TOTALE\n        CHECK (TOTALE >= 0)\n);",
+            "fact_type": "database_table",
+            "fragment_id": "EV_afc1f9737b4994c7555c33b0",
+            "property_name": "object_type",
+            "property_value": "table",
+            "record_type": "candidate_fact",
+            "source_revision_id": "REV_8846309938f1a7d1febac47d"
+          },
+          "created_at": "2026-09-30T09:57:10.494271+00:00",
+          "decision_id": "DEC_9239a1760cdd715e5840591a",
+          "object_id": "FACT_a27a09d1db32d3052656e378",
+          "rule": "ddl_table"
+        }
+      ]
+    },
+    {
+      "created_at": "2026-09-30T09:57:10.495168+00:00",
+      "id": "FACT_dc02f9bc3e55cdcd91d6c66c",
+      "kind": "fact",
+      "payload": {
+        "assertion_type": "explicit",
+        "attributes": {},
+        "confidence": "high",
+        "entity_name": "ORDINE_PROVA.CK_ORDINE_PROVA_TOTALE",
+        "fact_type": "database_constraint",
+        "property_name": "constraint",
+        "property_value": {
+          "columns": [
+            "TOTALE"
+          ],
+          "constraint_id": "ORDINE_PROVA.CK_ORDINE_PROVA_TOTALE",
+          "constraint_name": "CK_ORDINE_PROVA_TOTALE",
+          "constraint_type": "check",
+          "dialect": "oracle",
+          "expression": "TOTALE >= 0",
+          "expression_ast": {
+            "args": {
+              "expression": {
+                "node": "literal",
+                "type": "number",
+                "value": "0"
+              },
+              "this": {
+                "name": "TOTALE",
+                "node": "column"
+              }
+            },
+            "node": "gte"
+          },
+          "table": "ORDINE_PROVA"
+        }
+      },
+      "semantic_key": "f3408f5553fe179eed824315ff853560753ab38a01bc8d2fe6ace4d71222c86f",
+      "supports": [
+        {
+          "candidate_id": "CAND_caa16dd81b771a17b11bbe15",
+          "candidate_payload": {
+            "assertion_type": "explicit",
+            "attributes": {},
+            "candidate_id": "DER_3e8e4dde6bcfeb74949e9599",
+            "chunk_id": null,
+            "confidence": "high",
+            "derivation": {
+              "component": "declaration",
+              "context_fingerprint": "d2a3cbfcfc8fe82cac8bdbe04d4d2c4100379ab9fae43bc1ba87091fc1a9df76",
+              "resolution": {
+                "basis_evidence_ids": [
+                  "EV_ee308c90fb9f57ca99152a29"
+                ],
+                "reason_code": "syntactic_extraction",
+                "status": "not_required"
+              },
+              "rule_version": "4.0"
+            },
+            "deterministic_contract": "4",
+            "entity_name": "ORDINE_PROVA.CK_ORDINE_PROVA_TOTALE",
+            "evidence_id": "EV_ee308c90fb9f57ca99152a29",
+            "evidence_text": "CREATE TABLE ORDINE_PROVA (\n    ID NUMBER PRIMARY KEY,\n    STATO VARCHAR2(20) NOT NULL,\n    TOTALE NUMBER(12, 2) NOT NULL,\n    CONSTRAINT CK_ORDINE_PROVA_STATO\n        CHECK (STATO IN ('BOZZA', 'CONFERMATO', 'ANNULLATO')),\n    CONSTRAINT CK_ORDINE_PROVA_TOTALE\n        CHECK (TOTALE >= 0)\n);",
+            "fact_type": "database_constraint",
+            "fragment_id": "EV_ee308c90fb9f57ca99152a29",
+            "property_name": "constraint",
+            "property_value": {
+              "columns": [
+                "TOTALE"
+              ],
+              "constraint_id": "ORDINE_PROVA.CK_ORDINE_PROVA_TOTALE",
+              "constraint_name": "CK_ORDINE_PROVA_TOTALE",
+              "constraint_type": "check",
+              "dialect": "oracle",
+              "expression": "TOTALE >= 0",
+              "expression_ast": {
+                "args": {
+                  "expression": {
+                    "node": "literal",
+                    "type": "number",
+                    "value": "0"
+                  },
+                  "this": {
+                    "name": "TOTALE",
+                    "node": "column"
+                  }
+                },
+                "node": "gte"
+              },
+              "table": "ORDINE_PROVA"
+            },
+            "record_type": "candidate_fact",
+            "source_revision_id": "REV_8846309938f1a7d1febac47d"
+          },
+          "created_at": "2026-09-30T09:57:10.495168+00:00",
+          "decision_id": "DEC_00ca47a3baafffeccc7c0918",
+          "object_id": "FACT_dc02f9bc3e55cdcd91d6c66c",
+          "rule": "ddl_declaration"
+        }
+      ]
+    },
+    {
+      "created_at": "2026-09-30T09:57:10.493267+00:00",
+      "id": "FACT_fbd16481a2b4dff5455c06e1",
+      "kind": "fact",
+      "payload": {
+        "assertion_type": "explicit",
+        "attributes": {
+          "column": "TOTALE",
+          "constraints": [
+            {
+              "columns": [
+                "TOTALE"
+              ],
+              "constraint_id": "ORDINE_PROVA.CK_ORDINE_PROVA_TOTALE",
+              "constraint_name": "CK_ORDINE_PROVA_TOTALE",
+              "constraint_type": "check",
+              "dialect": "oracle",
+              "expression": "TOTALE >= 0",
+              "expression_ast": {
+                "args": {
+                  "expression": {
+                    "node": "literal",
+                    "type": "number",
+                    "value": "0"
+                  },
+                  "this": {
+                    "name": "TOTALE",
+                    "node": "column"
+                  }
+                },
+                "node": "gte"
+              },
+              "table": "ORDINE_PROVA"
+            }
+          ],
+          "datatype": "NUMBER(12, 2)",
+          "datatype_ast": {
+            "args": {
+              "expressions": [
+                {
+                  "args": {
+                    "this": {
+                      "node": "literal",
+                      "type": "number",
+                      "value": "12"
+                    }
+                  },
+                  "node": "datatypeparam"
+                },
+                {
+                  "args": {
+                    "this": {
+                      "node": "literal",
+                      "type": "number",
+                      "value": "2"
+                    }
+                  },
+                  "node": "datatypeparam"
+                }
+              ],
+              "nested": false,
+              "this": "DECIMAL"
+            },
+            "node": "datatype"
+          },
+          "default": {
+            "expression_ast": null,
+            "present": false,
+            "sql": null
+          },
+          "dialect": "oracle",
+          "name": "ORDINE_PROVA.TOTALE",
+          "nullability_basis": "declared",
+          "nullability_declaration": "not_null",
+          "nullable": false,
+          "table": "ORDINE_PROVA"
+        },
+        "confidence": "high",
+        "entity_name": "ORDINE_PROVA.TOTALE",
+        "fact_type": "database_column",
+        "property_name": "data_type",
+        "property_value": "NUMBER(12, 2)"
+      },
+      "semantic_key": "2d12923a22e78f27e7c1f5e9b1953878fac02a4add837c3cefd767160134c0e6",
+      "supports": [
+        {
+          "candidate_id": "CAND_62c90de279b12edc1129350a",
+          "candidate_payload": {
+            "assertion_type": "explicit",
+            "attributes": {
+              "column": "TOTALE",
+              "constraints": [
+                {
+                  "columns": [
+                    "TOTALE"
+                  ],
+                  "constraint_id": "ORDINE_PROVA.CK_ORDINE_PROVA_TOTALE",
+                  "constraint_name": "CK_ORDINE_PROVA_TOTALE",
+                  "constraint_type": "check",
+                  "dialect": "oracle",
+                  "expression": "TOTALE >= 0",
+                  "expression_ast": {
+                    "args": {
+                      "expression": {
+                        "node": "literal",
+                        "type": "number",
+                        "value": "0"
+                      },
+                      "this": {
+                        "name": "TOTALE",
+                        "node": "column"
+                      }
+                    },
+                    "node": "gte"
+                  },
+                  "table": "ORDINE_PROVA"
+                }
+              ],
+              "datatype": "NUMBER(12, 2)",
+              "datatype_ast": {
+                "args": {
+                  "expressions": [
+                    {
+                      "args": {
+                        "this": {
+                          "node": "literal",
+                          "type": "number",
+                          "value": "12"
+                        }
+                      },
+                      "node": "datatypeparam"
+                    },
+                    {
+                      "args": {
+                        "this": {
+                          "node": "literal",
+                          "type": "number",
+                          "value": "2"
+                        }
+                      },
+                      "node": "datatypeparam"
+                    }
+                  ],
+                  "nested": false,
+                  "this": "DECIMAL"
+                },
+                "node": "datatype"
+              },
+              "default": {
+                "expression_ast": null,
+                "present": false,
+                "sql": null
+              },
+              "dialect": "oracle",
+              "name": "ORDINE_PROVA.TOTALE",
+              "nullability_basis": "declared",
+              "nullability_declaration": "not_null",
+              "nullable": false,
+              "table": "ORDINE_PROVA"
+            },
+            "candidate_id": "DER_9a0863b1a343bb098d6d2c6f",
+            "chunk_id": null,
+            "confidence": "high",
+            "derivation": {
+              "component": "definition",
+              "context_fingerprint": "49796dc4708d5d42c8628e8381128838e963fd685b4b20d729d1fb3ce1f0d2b0",
+              "resolution": {
+                "basis_evidence_ids": [
+                  "EV_14680b9d9734d8f1612b4882"
+                ],
+                "reason_code": "syntactic_extraction",
+                "status": "not_required"
+              },
+              "rule_version": "4.0"
+            },
+            "deterministic_contract": "4",
+            "entity_name": "ORDINE_PROVA.TOTALE",
+            "evidence_id": "EV_14680b9d9734d8f1612b4882",
+            "evidence_text": "CREATE TABLE ORDINE_PROVA (\n    ID NUMBER PRIMARY KEY,\n    STATO VARCHAR2(20) NOT NULL,\n    TOTALE NUMBER(12, 2) NOT NULL,\n    CONSTRAINT CK_ORDINE_PROVA_STATO\n        CHECK (STATO IN ('BOZZA', 'CONFERMATO', 'ANNULLATO')),\n    CONSTRAINT CK_ORDINE_PROVA_TOTALE\n        CHECK (TOTALE >= 0)\n);",
+            "fact_type": "database_column",
+            "fragment_id": "EV_14680b9d9734d8f1612b4882",
+            "property_name": "data_type",
+            "property_value": "NUMBER(12, 2)",
+            "record_type": "candidate_fact",
+            "source_revision_id": "REV_8846309938f1a7d1febac47d"
+          },
+          "created_at": "2026-09-30T09:57:10.493267+00:00",
+          "decision_id": "DEC_a6f8e2320761c4be82cdf4c1",
+          "object_id": "FACT_fbd16481a2b4dff5455c06e1",
+          "rule": "ddl_column"
+        }
+      ]
+    }
+  ],
+  "parse": {
+    "errors": 0,
+    "partial": 0,
+    "results": [
+      {
+        "artifact_dir": "artifacts\\PARSE_ebc4ea2fbe75ffc714d9351e",
+        "diagnostics": [],
+        "duration_seconds": 1.219,
+        "evidence_count": 7,
+        "log": "logs\\PARSE_ebc4ea2fbe75ffc714d9351e.log",
+        "metadata": {
+          "ast_supported": true,
+          "basis": "override",
+          "candidates": [
+            "oracle"
+          ],
+          "declared_version": null,
+          "dialect": "oracle",
+          "encoding": "utf-8-sig",
+          "legacy_features": []
+        },
+        "parse_id": "PARSE_ebc4ea2fbe75ffc714d9351e",
+        "parser": "sql/4",
+        "resource_enforcement": "parent_monitored",
+        "revision_id": "REV_8846309938f1a7d1febac47d",
+        "status": "success"
+      }
+    ],
+    "success": 1
+  },
+  "selection": {
+    "domain_interpretation": {
+      "budgets": {
+        "max_chars": 10000000,
+        "max_evidence": 10000
+      },
+      "id": "AISEL_39b5fed4eb0535867ef2624e",
+      "items": [
+        {
+          "chars": 291,
+          "coverage": "pending",
+          "deterministic_coverage": {
+            "components": [
+              {
+                "applicability": "applicable",
+                "candidate_ids": [
+                  "CAND_f1698259bca0d387f592f04e"
+                ],
+                "capability": "supported",
+                "context_fingerprint": "7b473577eb03241c54cf54de60557b3f6859ab226e704e483eed0af94cddf040",
+                "governance": {
+                  "CAND_f1698259bca0d387f592f04e": "pending"
+                },
+                "key": "definition",
+                "outcome": "materialized_deterministically",
+                "prerequisites": [
+                  {
+                    "basis_evidence_ids": [
+                      "EV_0dd6c0a987d56ec1ea5fbd7a"
+                    ],
+                    "reason_code": "syntactic_extraction",
+                    "status": "not_required"
+                  }
+                ],
+                "reason_code": "syntactic_extraction",
+                "required_candidate_ids": [
+                  "CAND_f1698259bca0d387f592f04e"
+                ],
+                "resolution": {
+                  "basis_evidence_ids": [
+                    "EV_0dd6c0a987d56ec1ea5fbd7a"
+                  ],
+                  "reason_code": "syntactic_extraction",
+                  "status": "not_required"
+                },
+                "rule": "ddl_column",
+                "rule_version": "4.0"
+              }
+            ],
+            "evidence_id": "EV_0dd6c0a987d56ec1ea5fbd7a",
+            "format": ".sql",
+            "locator": {
+              "char_end": 291,
+              "char_start": 0,
+              "end_exclusive": true,
+              "line_end": 9,
+              "line_start": 1,
+              "offset_unit": "character",
+              "representation": "decoded_source"
+            },
+            "outcome": "materialized_deterministically",
+            "parser": "deterministic-parser/4:10e34e4867ae3a8b79d7347dc78038998b24c91bb843d8eded0297500df49f97",
+            "subtype": "default",
+            "type": "ddl_column"
+          },
+          "evidence_id": "EV_0dd6c0a987d56ec1ea5fbd7a",
+          "kind": "fragment",
+          "outcome": "included",
+          "path": "business.sql",
+          "rank": [
+            2,
+            "business.sql",
+            "EV_0dd6c0a987d56ec1ea5fbd7a"
+          ],
+          "reason_codes": [
+            "included_by_policy"
+          ],
+          "revision_id": "REV_8846309938f1a7d1febac47d",
+          "type": "ddl_column"
+        },
+        {
+          "chars": 291,
+          "coverage": "pending",
+          "deterministic_coverage": {
+            "components": [
+              {
+                "applicability": "applicable",
+                "candidate_ids": [
+                  "CAND_62c90de279b12edc1129350a"
+                ],
+                "capability": "supported",
+                "context_fingerprint": "49796dc4708d5d42c8628e8381128838e963fd685b4b20d729d1fb3ce1f0d2b0",
+                "governance": {
+                  "CAND_62c90de279b12edc1129350a": "pending"
+                },
+                "key": "definition",
+                "outcome": "materialized_deterministically",
+                "prerequisites": [
+                  {
+                    "basis_evidence_ids": [
+                      "EV_14680b9d9734d8f1612b4882"
+                    ],
+                    "reason_code": "syntactic_extraction",
+                    "status": "not_required"
+                  }
+                ],
+                "reason_code": "syntactic_extraction",
+                "required_candidate_ids": [
+                  "CAND_62c90de279b12edc1129350a"
+                ],
+                "resolution": {
+                  "basis_evidence_ids": [
+                    "EV_14680b9d9734d8f1612b4882"
+                  ],
+                  "reason_code": "syntactic_extraction",
+                  "status": "not_required"
+                },
+                "rule": "ddl_column",
+                "rule_version": "4.0"
+              }
+            ],
+            "evidence_id": "EV_14680b9d9734d8f1612b4882",
+            "format": ".sql",
+            "locator": {
+              "char_end": 291,
+              "char_start": 0,
+              "end_exclusive": true,
+              "line_end": 9,
+              "line_start": 1,
+              "offset_unit": "character",
+              "representation": "decoded_source"
+            },
+            "outcome": "materialized_deterministically",
+            "parser": "deterministic-parser/4:10e34e4867ae3a8b79d7347dc78038998b24c91bb843d8eded0297500df49f97",
+            "subtype": "default",
+            "type": "ddl_column"
+          },
+          "evidence_id": "EV_14680b9d9734d8f1612b4882",
+          "kind": "fragment",
+          "outcome": "included",
+          "path": "business.sql",
+          "rank": [
+            2,
+            "business.sql",
+            "EV_14680b9d9734d8f1612b4882"
+          ],
+          "reason_codes": [
+            "included_by_policy"
+          ],
+          "revision_id": "REV_8846309938f1a7d1febac47d",
+          "type": "ddl_column"
+        },
+        {
+          "chars": 291,
+          "coverage": "pending",
+          "deterministic_coverage": {
+            "components": [
+              {
+                "applicability": "applicable",
+                "candidate_ids": [
+                  "CAND_19b3b6f24146be0bd312699c"
+                ],
+                "capability": "supported",
+                "context_fingerprint": "76d425175df1e507652348615647238d5a78329e46235e40299c3d3ce074fef4",
+                "governance": {
+                  "CAND_19b3b6f24146be0bd312699c": "pending"
+                },
+                "key": "declaration",
+                "outcome": "materialized_deterministically",
+                "prerequisites": [
+                  {
+                    "basis_evidence_ids": [
+                      "EV_6e4d04a985b1c68dfd1b815c"
+                    ],
+                    "reason_code": "syntactic_extraction",
+                    "status": "not_required"
+                  }
+                ],
+                "reason_code": "syntactic_extraction",
+                "required_candidate_ids": [
+                  "CAND_19b3b6f24146be0bd312699c"
+                ],
+                "resolution": {
+                  "basis_evidence_ids": [
+                    "EV_6e4d04a985b1c68dfd1b815c"
+                  ],
+                  "reason_code": "syntactic_extraction",
+                  "status": "not_required"
+                },
+                "rule": "ddl_declaration",
+                "rule_version": "4.0"
+              }
+            ],
+            "evidence_id": "EV_6e4d04a985b1c68dfd1b815c",
+            "format": ".sql",
+            "locator": {
+              "char_end": 291,
+              "char_start": 0,
+              "end_exclusive": true,
+              "line_end": 9,
+              "line_start": 1,
+              "offset_unit": "character",
+              "representation": "decoded_source"
+            },
+            "outcome": "materialized_deterministically",
+            "parser": "deterministic-parser/4:10e34e4867ae3a8b79d7347dc78038998b24c91bb843d8eded0297500df49f97",
+            "subtype": "check",
+            "type": "ddl_constraint"
+          },
+          "evidence_id": "EV_6e4d04a985b1c68dfd1b815c",
+          "kind": "fragment",
+          "outcome": "included",
+          "path": "business.sql",
+          "rank": [
+            2,
+            "business.sql",
+            "EV_6e4d04a985b1c68dfd1b815c"
+          ],
+          "reason_codes": [
+            "included_by_policy"
+          ],
+          "revision_id": "REV_8846309938f1a7d1febac47d",
+          "type": "ddl_constraint"
+        },
+        {
+          "chars": 291,
+          "coverage": "pending",
+          "deterministic_coverage": {
+            "components": [
+              {
+                "applicability": "applicable",
+                "candidate_ids": [
+                  "CAND_9148091775825abe2c88de4a"
+                ],
+                "capability": "supported",
+                "context_fingerprint": "9bfc2ddaa060f376d32f502c6c2edb239767c75821e5944e79bc295280808b4b",
+                "governance": {
+                  "CAND_9148091775825abe2c88de4a": "pending"
+                },
+                "key": "definition",
+                "outcome": "materialized_deterministically",
+                "prerequisites": [
+                  {
+                    "basis_evidence_ids": [
+                      "EV_95cb6e415da803bc62babe88"
+                    ],
+                    "reason_code": "syntactic_extraction",
+                    "status": "not_required"
+                  }
+                ],
+                "reason_code": "syntactic_extraction",
+                "required_candidate_ids": [
+                  "CAND_9148091775825abe2c88de4a"
+                ],
+                "resolution": {
+                  "basis_evidence_ids": [
+                    "EV_95cb6e415da803bc62babe88"
+                  ],
+                  "reason_code": "syntactic_extraction",
+                  "status": "not_required"
+                },
+                "rule": "ddl_column",
+                "rule_version": "4.0"
+              }
+            ],
+            "evidence_id": "EV_95cb6e415da803bc62babe88",
+            "format": ".sql",
+            "locator": {
+              "char_end": 291,
+              "char_start": 0,
+              "end_exclusive": true,
+              "line_end": 9,
+              "line_start": 1,
+              "offset_unit": "character",
+              "representation": "decoded_source"
+            },
+            "outcome": "materialized_deterministically",
+            "parser": "deterministic-parser/4:10e34e4867ae3a8b79d7347dc78038998b24c91bb843d8eded0297500df49f97",
+            "subtype": "default",
+            "type": "ddl_column"
+          },
+          "evidence_id": "EV_95cb6e415da803bc62babe88",
+          "kind": "fragment",
+          "outcome": "included",
+          "path": "business.sql",
+          "rank": [
+            2,
+            "business.sql",
+            "EV_95cb6e415da803bc62babe88"
+          ],
+          "reason_codes": [
+            "included_by_policy"
+          ],
+          "revision_id": "REV_8846309938f1a7d1febac47d",
+          "type": "ddl_column"
+        },
+        {
+          "chars": 291,
+          "coverage": "pending",
+          "deterministic_coverage": {
+            "components": [
+              {
+                "applicability": "applicable",
+                "candidate_ids": [
+                  "CAND_12c57b3219ee63fca8601d94"
+                ],
+                "capability": "supported",
+                "context_fingerprint": "bbc0aa62539d50c610513acbe3c898f956f5921bbfdd4e8bb830dd471c011ff9",
+                "governance": {
+                  "CAND_12c57b3219ee63fca8601d94": "pending"
+                },
+                "key": "declaration",
+                "outcome": "materialized_deterministically",
+                "prerequisites": [
+                  {
+                    "basis_evidence_ids": [
+                      "EV_afc1f9737b4994c7555c33b0"
+                    ],
+                    "reason_code": "syntactic_extraction",
+                    "status": "not_required"
+                  }
+                ],
+                "reason_code": "syntactic_extraction",
+                "required_candidate_ids": [
+                  "CAND_12c57b3219ee63fca8601d94"
+                ],
+                "resolution": {
+                  "basis_evidence_ids": [
+                    "EV_afc1f9737b4994c7555c33b0"
+                  ],
+                  "reason_code": "syntactic_extraction",
+                  "status": "not_required"
+                },
+                "rule": "ddl_table",
+                "rule_version": "4.0"
+              }
+            ],
+            "evidence_id": "EV_afc1f9737b4994c7555c33b0",
+            "format": ".sql",
+            "locator": {
+              "char_end": 291,
+              "char_start": 0,
+              "end_exclusive": true,
+              "line_end": 9,
+              "line_start": 1,
+              "offset_unit": "character",
+              "representation": "decoded_source"
+            },
+            "outcome": "materialized_deterministically",
+            "parser": "deterministic-parser/4:10e34e4867ae3a8b79d7347dc78038998b24c91bb843d8eded0297500df49f97",
+            "subtype": "default",
+            "type": "ddl_table"
+          },
+          "evidence_id": "EV_afc1f9737b4994c7555c33b0",
+          "kind": "fragment",
+          "outcome": "included",
+          "path": "business.sql",
+          "rank": [
+            2,
+            "business.sql",
+            "EV_afc1f9737b4994c7555c33b0"
+          ],
+          "reason_codes": [
+            "included_by_policy"
+          ],
+          "revision_id": "REV_8846309938f1a7d1febac47d",
+          "type": "ddl_table"
+        },
+        {
+          "chars": 291,
+          "coverage": "pending",
+          "deterministic_coverage": {
+            "components": [
+              {
+                "applicability": "applicable",
+                "candidate_ids": [
+                  "CAND_b111e61236347f59a259b633"
+                ],
+                "capability": "supported",
+                "context_fingerprint": "9a2d5460c2c316ff7dfb98bae8d4d664a961dc57179e4684da604ccd0b395f73",
+                "governance": {
+                  "CAND_b111e61236347f59a259b633": "pending"
+                },
+                "key": "declaration",
+                "outcome": "materialized_deterministically",
+                "prerequisites": [
+                  {
+                    "basis_evidence_ids": [
+                      "EV_b0e49822db6933aad3d7471a"
+                    ],
+                    "reason_code": "syntactic_extraction",
+                    "status": "not_required"
+                  }
+                ],
+                "reason_code": "syntactic_extraction",
+                "required_candidate_ids": [
+                  "CAND_b111e61236347f59a259b633"
+                ],
+                "resolution": {
+                  "basis_evidence_ids": [
+                    "EV_b0e49822db6933aad3d7471a"
+                  ],
+                  "reason_code": "syntactic_extraction",
+                  "status": "not_required"
+                },
+                "rule": "ddl_declaration",
+                "rule_version": "4.0"
+              }
+            ],
+            "evidence_id": "EV_b0e49822db6933aad3d7471a",
+            "format": ".sql",
+            "locator": {
+              "char_end": 291,
+              "char_start": 0,
+              "end_exclusive": true,
+              "line_end": 9,
+              "line_start": 1,
+              "offset_unit": "character",
+              "representation": "decoded_source"
+            },
+            "outcome": "materialized_deterministically",
+            "parser": "deterministic-parser/4:10e34e4867ae3a8b79d7347dc78038998b24c91bb843d8eded0297500df49f97",
+            "subtype": "primary_key",
+            "type": "ddl_constraint"
+          },
+          "evidence_id": "EV_b0e49822db6933aad3d7471a",
+          "kind": "fragment",
+          "outcome": "included",
+          "path": "business.sql",
+          "rank": [
+            2,
+            "business.sql",
+            "EV_b0e49822db6933aad3d7471a"
+          ],
+          "reason_codes": [
+            "included_by_policy"
+          ],
+          "revision_id": "REV_8846309938f1a7d1febac47d",
+          "type": "ddl_constraint"
+        },
+        {
+          "chars": 291,
+          "coverage": "pending",
+          "deterministic_coverage": {
+            "components": [
+              {
+                "applicability": "applicable",
+                "candidate_ids": [
+                  "CAND_caa16dd81b771a17b11bbe15"
+                ],
+                "capability": "supported",
+                "context_fingerprint": "d2a3cbfcfc8fe82cac8bdbe04d4d2c4100379ab9fae43bc1ba87091fc1a9df76",
+                "governance": {
+                  "CAND_caa16dd81b771a17b11bbe15": "pending"
+                },
+                "key": "declaration",
+                "outcome": "materialized_deterministically",
+                "prerequisites": [
+                  {
+                    "basis_evidence_ids": [
+                      "EV_ee308c90fb9f57ca99152a29"
+                    ],
+                    "reason_code": "syntactic_extraction",
+                    "status": "not_required"
+                  }
+                ],
+                "reason_code": "syntactic_extraction",
+                "required_candidate_ids": [
+                  "CAND_caa16dd81b771a17b11bbe15"
+                ],
+                "resolution": {
+                  "basis_evidence_ids": [
+                    "EV_ee308c90fb9f57ca99152a29"
+                  ],
+                  "reason_code": "syntactic_extraction",
+                  "status": "not_required"
+                },
+                "rule": "ddl_declaration",
+                "rule_version": "4.0"
+              }
+            ],
+            "evidence_id": "EV_ee308c90fb9f57ca99152a29",
+            "format": ".sql",
+            "locator": {
+              "char_end": 291,
+              "char_start": 0,
+              "end_exclusive": true,
+              "line_end": 9,
+              "line_start": 1,
+              "offset_unit": "character",
+              "representation": "decoded_source"
+            },
+            "outcome": "materialized_deterministically",
+            "parser": "deterministic-parser/4:10e34e4867ae3a8b79d7347dc78038998b24c91bb843d8eded0297500df49f97",
+            "subtype": "check",
+            "type": "ddl_constraint"
+          },
+          "evidence_id": "EV_ee308c90fb9f57ca99152a29",
+          "kind": "fragment",
+          "outcome": "included",
+          "path": "business.sql",
+          "rank": [
+            2,
+            "business.sql",
+            "EV_ee308c90fb9f57ca99152a29"
+          ],
+          "reason_codes": [
+            "included_by_policy"
+          ],
+          "revision_id": "REV_8846309938f1a7d1febac47d",
+          "type": "ddl_constraint"
+        }
+      ],
+      "policy_version": "4",
+      "route": "domain_interpretation",
+      "selected_chars": 2037,
+      "selected_count": 7,
+      "state_hash": "54fdf7e7bcc97fe38b65cf99e5d3e0a974fdc62bec1e95810ed4c314598a05ff"
+    },
+    "technical_extraction": {
+      "budgets": {
+        "max_chars": 10000000,
+        "max_evidence": 10000
+      },
+      "id": "AISEL_695b042dc675492023f2d784",
+      "items": [
+        {
+          "chars": 291,
+          "coverage": "pending",
+          "deterministic_coverage": {
+            "components": [
+              {
+                "applicability": "applicable",
+                "candidate_ids": [
+                  "CAND_f1698259bca0d387f592f04e"
+                ],
+                "capability": "supported",
+                "context_fingerprint": "7b473577eb03241c54cf54de60557b3f6859ab226e704e483eed0af94cddf040",
+                "governance": {
+                  "CAND_f1698259bca0d387f592f04e": "pending"
+                },
+                "key": "definition",
+                "outcome": "materialized_deterministically",
+                "prerequisites": [
+                  {
+                    "basis_evidence_ids": [
+                      "EV_0dd6c0a987d56ec1ea5fbd7a"
+                    ],
+                    "reason_code": "syntactic_extraction",
+                    "status": "not_required"
+                  }
+                ],
+                "reason_code": "syntactic_extraction",
+                "required_candidate_ids": [
+                  "CAND_f1698259bca0d387f592f04e"
+                ],
+                "resolution": {
+                  "basis_evidence_ids": [
+                    "EV_0dd6c0a987d56ec1ea5fbd7a"
+                  ],
+                  "reason_code": "syntactic_extraction",
+                  "status": "not_required"
+                },
+                "rule": "ddl_column",
+                "rule_version": "4.0"
+              }
+            ],
+            "evidence_id": "EV_0dd6c0a987d56ec1ea5fbd7a",
+            "format": ".sql",
+            "locator": {
+              "char_end": 291,
+              "char_start": 0,
+              "end_exclusive": true,
+              "line_end": 9,
+              "line_start": 1,
+              "offset_unit": "character",
+              "representation": "decoded_source"
+            },
+            "outcome": "materialized_deterministically",
+            "parser": "deterministic-parser/4:10e34e4867ae3a8b79d7347dc78038998b24c91bb843d8eded0297500df49f97",
+            "subtype": "default",
+            "type": "ddl_column"
+          },
+          "evidence_id": "EV_0dd6c0a987d56ec1ea5fbd7a",
+          "kind": "fragment",
+          "outcome": "excluded",
+          "path": "business.sql",
+          "rank": [
+            2,
+            "business.sql",
+            "EV_0dd6c0a987d56ec1ea5fbd7a"
+          ],
+          "reason_codes": [
+            "deterministic_components_complete"
+          ],
+          "revision_id": "REV_8846309938f1a7d1febac47d",
+          "type": "ddl_column"
+        },
+        {
+          "chars": 291,
+          "coverage": "pending",
+          "deterministic_coverage": {
+            "components": [
+              {
+                "applicability": "applicable",
+                "candidate_ids": [
+                  "CAND_62c90de279b12edc1129350a"
+                ],
+                "capability": "supported",
+                "context_fingerprint": "49796dc4708d5d42c8628e8381128838e963fd685b4b20d729d1fb3ce1f0d2b0",
+                "governance": {
+                  "CAND_62c90de279b12edc1129350a": "pending"
+                },
+                "key": "definition",
+                "outcome": "materialized_deterministically",
+                "prerequisites": [
+                  {
+                    "basis_evidence_ids": [
+                      "EV_14680b9d9734d8f1612b4882"
+                    ],
+                    "reason_code": "syntactic_extraction",
+                    "status": "not_required"
+                  }
+                ],
+                "reason_code": "syntactic_extraction",
+                "required_candidate_ids": [
+                  "CAND_62c90de279b12edc1129350a"
+                ],
+                "resolution": {
+                  "basis_evidence_ids": [
+                    "EV_14680b9d9734d8f1612b4882"
+                  ],
+                  "reason_code": "syntactic_extraction",
+                  "status": "not_required"
+                },
+                "rule": "ddl_column",
+                "rule_version": "4.0"
+              }
+            ],
+            "evidence_id": "EV_14680b9d9734d8f1612b4882",
+            "format": ".sql",
+            "locator": {
+              "char_end": 291,
+              "char_start": 0,
+              "end_exclusive": true,
+              "line_end": 9,
+              "line_start": 1,
+              "offset_unit": "character",
+              "representation": "decoded_source"
+            },
+            "outcome": "materialized_deterministically",
+            "parser": "deterministic-parser/4:10e34e4867ae3a8b79d7347dc78038998b24c91bb843d8eded0297500df49f97",
+            "subtype": "default",
+            "type": "ddl_column"
+          },
+          "evidence_id": "EV_14680b9d9734d8f1612b4882",
+          "kind": "fragment",
+          "outcome": "excluded",
+          "path": "business.sql",
+          "rank": [
+            2,
+            "business.sql",
+            "EV_14680b9d9734d8f1612b4882"
+          ],
+          "reason_codes": [
+            "deterministic_components_complete"
+          ],
+          "revision_id": "REV_8846309938f1a7d1febac47d",
+          "type": "ddl_column"
+        },
+        {
+          "chars": 291,
+          "coverage": "pending",
+          "deterministic_coverage": {
+            "components": [
+              {
+                "applicability": "applicable",
+                "candidate_ids": [
+                  "CAND_19b3b6f24146be0bd312699c"
+                ],
+                "capability": "supported",
+                "context_fingerprint": "76d425175df1e507652348615647238d5a78329e46235e40299c3d3ce074fef4",
+                "governance": {
+                  "CAND_19b3b6f24146be0bd312699c": "pending"
+                },
+                "key": "declaration",
+                "outcome": "materialized_deterministically",
+                "prerequisites": [
+                  {
+                    "basis_evidence_ids": [
+                      "EV_6e4d04a985b1c68dfd1b815c"
+                    ],
+                    "reason_code": "syntactic_extraction",
+                    "status": "not_required"
+                  }
+                ],
+                "reason_code": "syntactic_extraction",
+                "required_candidate_ids": [
+                  "CAND_19b3b6f24146be0bd312699c"
+                ],
+                "resolution": {
+                  "basis_evidence_ids": [
+                    "EV_6e4d04a985b1c68dfd1b815c"
+                  ],
+                  "reason_code": "syntactic_extraction",
+                  "status": "not_required"
+                },
+                "rule": "ddl_declaration",
+                "rule_version": "4.0"
+              }
+            ],
+            "evidence_id": "EV_6e4d04a985b1c68dfd1b815c",
+            "format": ".sql",
+            "locator": {
+              "char_end": 291,
+              "char_start": 0,
+              "end_exclusive": true,
+              "line_end": 9,
+              "line_start": 1,
+              "offset_unit": "character",
+              "representation": "decoded_source"
+            },
+            "outcome": "materialized_deterministically",
+            "parser": "deterministic-parser/4:10e34e4867ae3a8b79d7347dc78038998b24c91bb843d8eded0297500df49f97",
+            "subtype": "check",
+            "type": "ddl_constraint"
+          },
+          "evidence_id": "EV_6e4d04a985b1c68dfd1b815c",
+          "kind": "fragment",
+          "outcome": "excluded",
+          "path": "business.sql",
+          "rank": [
+            2,
+            "business.sql",
+            "EV_6e4d04a985b1c68dfd1b815c"
+          ],
+          "reason_codes": [
+            "deterministic_components_complete"
+          ],
+          "revision_id": "REV_8846309938f1a7d1febac47d",
+          "type": "ddl_constraint"
+        },
+        {
+          "chars": 291,
+          "coverage": "pending",
+          "deterministic_coverage": {
+            "components": [
+              {
+                "applicability": "applicable",
+                "candidate_ids": [
+                  "CAND_9148091775825abe2c88de4a"
+                ],
+                "capability": "supported",
+                "context_fingerprint": "9bfc2ddaa060f376d32f502c6c2edb239767c75821e5944e79bc295280808b4b",
+                "governance": {
+                  "CAND_9148091775825abe2c88de4a": "pending"
+                },
+                "key": "definition",
+                "outcome": "materialized_deterministically",
+                "prerequisites": [
+                  {
+                    "basis_evidence_ids": [
+                      "EV_95cb6e415da803bc62babe88"
+                    ],
+                    "reason_code": "syntactic_extraction",
+                    "status": "not_required"
+                  }
+                ],
+                "reason_code": "syntactic_extraction",
+                "required_candidate_ids": [
+                  "CAND_9148091775825abe2c88de4a"
+                ],
+                "resolution": {
+                  "basis_evidence_ids": [
+                    "EV_95cb6e415da803bc62babe88"
+                  ],
+                  "reason_code": "syntactic_extraction",
+                  "status": "not_required"
+                },
+                "rule": "ddl_column",
+                "rule_version": "4.0"
+              }
+            ],
+            "evidence_id": "EV_95cb6e415da803bc62babe88",
+            "format": ".sql",
+            "locator": {
+              "char_end": 291,
+              "char_start": 0,
+              "end_exclusive": true,
+              "line_end": 9,
+              "line_start": 1,
+              "offset_unit": "character",
+              "representation": "decoded_source"
+            },
+            "outcome": "materialized_deterministically",
+            "parser": "deterministic-parser/4:10e34e4867ae3a8b79d7347dc78038998b24c91bb843d8eded0297500df49f97",
+            "subtype": "default",
+            "type": "ddl_column"
+          },
+          "evidence_id": "EV_95cb6e415da803bc62babe88",
+          "kind": "fragment",
+          "outcome": "excluded",
+          "path": "business.sql",
+          "rank": [
+            2,
+            "business.sql",
+            "EV_95cb6e415da803bc62babe88"
+          ],
+          "reason_codes": [
+            "deterministic_components_complete"
+          ],
+          "revision_id": "REV_8846309938f1a7d1febac47d",
+          "type": "ddl_column"
+        },
+        {
+          "chars": 291,
+          "coverage": "pending",
+          "deterministic_coverage": {
+            "components": [
+              {
+                "applicability": "applicable",
+                "candidate_ids": [
+                  "CAND_12c57b3219ee63fca8601d94"
+                ],
+                "capability": "supported",
+                "context_fingerprint": "bbc0aa62539d50c610513acbe3c898f956f5921bbfdd4e8bb830dd471c011ff9",
+                "governance": {
+                  "CAND_12c57b3219ee63fca8601d94": "pending"
+                },
+                "key": "declaration",
+                "outcome": "materialized_deterministically",
+                "prerequisites": [
+                  {
+                    "basis_evidence_ids": [
+                      "EV_afc1f9737b4994c7555c33b0"
+                    ],
+                    "reason_code": "syntactic_extraction",
+                    "status": "not_required"
+                  }
+                ],
+                "reason_code": "syntactic_extraction",
+                "required_candidate_ids": [
+                  "CAND_12c57b3219ee63fca8601d94"
+                ],
+                "resolution": {
+                  "basis_evidence_ids": [
+                    "EV_afc1f9737b4994c7555c33b0"
+                  ],
+                  "reason_code": "syntactic_extraction",
+                  "status": "not_required"
+                },
+                "rule": "ddl_table",
+                "rule_version": "4.0"
+              }
+            ],
+            "evidence_id": "EV_afc1f9737b4994c7555c33b0",
+            "format": ".sql",
+            "locator": {
+              "char_end": 291,
+              "char_start": 0,
+              "end_exclusive": true,
+              "line_end": 9,
+              "line_start": 1,
+              "offset_unit": "character",
+              "representation": "decoded_source"
+            },
+            "outcome": "materialized_deterministically",
+            "parser": "deterministic-parser/4:10e34e4867ae3a8b79d7347dc78038998b24c91bb843d8eded0297500df49f97",
+            "subtype": "default",
+            "type": "ddl_table"
+          },
+          "evidence_id": "EV_afc1f9737b4994c7555c33b0",
+          "kind": "fragment",
+          "outcome": "excluded",
+          "path": "business.sql",
+          "rank": [
+            2,
+            "business.sql",
+            "EV_afc1f9737b4994c7555c33b0"
+          ],
+          "reason_codes": [
+            "deterministic_components_complete"
+          ],
+          "revision_id": "REV_8846309938f1a7d1febac47d",
+          "type": "ddl_table"
+        },
+        {
+          "chars": 291,
+          "coverage": "pending",
+          "deterministic_coverage": {
+            "components": [
+              {
+                "applicability": "applicable",
+                "candidate_ids": [
+                  "CAND_b111e61236347f59a259b633"
+                ],
+                "capability": "supported",
+                "context_fingerprint": "9a2d5460c2c316ff7dfb98bae8d4d664a961dc57179e4684da604ccd0b395f73",
+                "governance": {
+                  "CAND_b111e61236347f59a259b633": "pending"
+                },
+                "key": "declaration",
+                "outcome": "materialized_deterministically",
+                "prerequisites": [
+                  {
+                    "basis_evidence_ids": [
+                      "EV_b0e49822db6933aad3d7471a"
+                    ],
+                    "reason_code": "syntactic_extraction",
+                    "status": "not_required"
+                  }
+                ],
+                "reason_code": "syntactic_extraction",
+                "required_candidate_ids": [
+                  "CAND_b111e61236347f59a259b633"
+                ],
+                "resolution": {
+                  "basis_evidence_ids": [
+                    "EV_b0e49822db6933aad3d7471a"
+                  ],
+                  "reason_code": "syntactic_extraction",
+                  "status": "not_required"
+                },
+                "rule": "ddl_declaration",
+                "rule_version": "4.0"
+              }
+            ],
+            "evidence_id": "EV_b0e49822db6933aad3d7471a",
+            "format": ".sql",
+            "locator": {
+              "char_end": 291,
+              "char_start": 0,
+              "end_exclusive": true,
+              "line_end": 9,
+              "line_start": 1,
+              "offset_unit": "character",
+              "representation": "decoded_source"
+            },
+            "outcome": "materialized_deterministically",
+            "parser": "deterministic-parser/4:10e34e4867ae3a8b79d7347dc78038998b24c91bb843d8eded0297500df49f97",
+            "subtype": "primary_key",
+            "type": "ddl_constraint"
+          },
+          "evidence_id": "EV_b0e49822db6933aad3d7471a",
+          "kind": "fragment",
+          "outcome": "excluded",
+          "path": "business.sql",
+          "rank": [
+            2,
+            "business.sql",
+            "EV_b0e49822db6933aad3d7471a"
+          ],
+          "reason_codes": [
+            "deterministic_components_complete"
+          ],
+          "revision_id": "REV_8846309938f1a7d1febac47d",
+          "type": "ddl_constraint"
+        },
+        {
+          "chars": 291,
+          "coverage": "pending",
+          "deterministic_coverage": {
+            "components": [
+              {
+                "applicability": "applicable",
+                "candidate_ids": [
+                  "CAND_caa16dd81b771a17b11bbe15"
+                ],
+                "capability": "supported",
+                "context_fingerprint": "d2a3cbfcfc8fe82cac8bdbe04d4d2c4100379ab9fae43bc1ba87091fc1a9df76",
+                "governance": {
+                  "CAND_caa16dd81b771a17b11bbe15": "pending"
+                },
+                "key": "declaration",
+                "outcome": "materialized_deterministically",
+                "prerequisites": [
+                  {
+                    "basis_evidence_ids": [
+                      "EV_ee308c90fb9f57ca99152a29"
+                    ],
+                    "reason_code": "syntactic_extraction",
+                    "status": "not_required"
+                  }
+                ],
+                "reason_code": "syntactic_extraction",
+                "required_candidate_ids": [
+                  "CAND_caa16dd81b771a17b11bbe15"
+                ],
+                "resolution": {
+                  "basis_evidence_ids": [
+                    "EV_ee308c90fb9f57ca99152a29"
+                  ],
+                  "reason_code": "syntactic_extraction",
+                  "status": "not_required"
+                },
+                "rule": "ddl_declaration",
+                "rule_version": "4.0"
+              }
+            ],
+            "evidence_id": "EV_ee308c90fb9f57ca99152a29",
+            "format": ".sql",
+            "locator": {
+              "char_end": 291,
+              "char_start": 0,
+              "end_exclusive": true,
+              "line_end": 9,
+              "line_start": 1,
+              "offset_unit": "character",
+              "representation": "decoded_source"
+            },
+            "outcome": "materialized_deterministically",
+            "parser": "deterministic-parser/4:10e34e4867ae3a8b79d7347dc78038998b24c91bb843d8eded0297500df49f97",
+            "subtype": "check",
+            "type": "ddl_constraint"
+          },
+          "evidence_id": "EV_ee308c90fb9f57ca99152a29",
+          "kind": "fragment",
+          "outcome": "excluded",
+          "path": "business.sql",
+          "rank": [
+            2,
+            "business.sql",
+            "EV_ee308c90fb9f57ca99152a29"
+          ],
+          "reason_codes": [
+            "deterministic_components_complete"
+          ],
+          "revision_id": "REV_8846309938f1a7d1febac47d",
+          "type": "ddl_constraint"
+        }
+      ],
+      "policy_version": "4",
+      "route": "technical_extraction",
+      "selected_chars": 0,
+      "selected_count": 0,
+      "state_hash": "54fdf7e7bcc97fe38b65cf99e5d3e0a974fdc62bec1e95810ed4c314598a05ff"
+    }
+  },
+  "snapshot_id": "DSL_c37c7fb5459278af024094c2",
+  "versions": {
+    "contract": "4",
+    "parser": "sql/4",
+    "rule": "4.0"
+  }
+}

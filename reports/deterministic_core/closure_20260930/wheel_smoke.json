@@ -1,0 +1,13 @@
+{
+  "code_provenance": {
+    "branch": null,
+    "dirty": null,
+    "head": null,
+    "source_file_count": 42,
+    "source_snapshot_sha256": "b05c6c86037860bf92f7bce8cc72606d83b3a019bbb8f1c12cf3016eb4e09f84"
+  },
+  "coverage_complete": true,
+  "installed_package": "C:\\_Support\\dslm3_acceptance\\run_20260930_114524\\wheel_install\\dslm3",
+  "parsed_sources": 6,
+  "status": "passed"
+}

@@ -1,0 +1,1479 @@
+{
+  "status": "passed",
+  "baseline": "a7117e061b393123e3b7b2ec22bf171687756447",
+  "tested_starting_head": "53bf0c31638199c26fb86c1523018680bf9c34c1",
+  "branch": "feat/deterministic-core-upgrade",
+  "patch": "reports/deterministic_core/closure_20260930/change.patch",
+  "patch_bytes": 13423585,
+  "patch_sha256": "e5c18d3a5f27afdd45fccbbf03863d45041df50be14c97485b00e45a30543ccf",
+  "patch_file_count": 242,
+  "files": [
+    {
+      "path": ".gitignore",
+      "size": 822,
+      "working_file_sha256": "f7ee9bf7244de8f34d74e087eb409c640fb7d2d63befd8c587d555fe6ed7eda9",
+      "operation": "present"
+    },
+    {
+      "path": "README.md",
+      "size": 5093,
+      "working_file_sha256": "86edc4ce7ccde32fb5776266298f2438aed166d3dac9aee4a7f8d98fbb768449",
+      "operation": "present"
+    },
+    {
+      "path": "START_HERE.md",
+      "size": 1789,
+      "working_file_sha256": "560a3dc0210e101ee34d060e050fe55a707486fe0f41451ef74570d394577486",
+      "operation": "present"
+    },
+    {
+      "path": "docs/architettura.md",
+      "size": 6036,
+      "working_file_sha256": "c025aea3e0bf8c3e4d50c7a5d803e52aa3dfaf247595d877bc207d48f18c9c20",
+      "operation": "present"
+    },
+    {
+      "path": "docs/contratto_deterministico.md",
+      "size": 4459,
+      "working_file_sha256": "2a61fc1b8f210628ce9af4cce620d69993a28d6180aef65d25a4235b714fcec6",
+      "operation": "present"
+    },
+    {
+      "path": "docs/copertura_deterministica.md",
+      "size": 9869,
+      "working_file_sha256": "36bf9cccdb126d77f22a7ae60bc186dc5330d3a821d3ab8ed0c664dace86e926",
+      "operation": "present"
+    },
+    {
+      "path": "docs/diario_tecnico.md",
+      "size": 21404,
+      "working_file_sha256": "e07a0a0d19f9b019102705e7d640a62507a5777defa433e0ea16fc786448136c",
+      "operation": "present"
+    },
+    {
+      "path": "docs/formati_e_limiti.md",
+      "size": 6489,
+      "working_file_sha256": "3a02d9b50615b65b0a2207410cd4ac1d8fbd2ae4a97ce4118161db34c21dad1d",
+      "operation": "present"
+    },
+    {
+      "path": "docs/manuale_operativo.md",
+      "size": 15064,
+      "working_file_sha256": "43441bc74c52d00e6b3083380b072b785e8bf772eaba40dd6b751a578a9cbc8f",
+      "operation": "present"
+    },
+    {
+      "path": "docs/matrice_parita.md",
+      "size": 8219,
+      "working_file_sha256": "8429750c7031b15af90b1682f0911685ffeae650c26dcc1dcbad1f228875e801",
+      "operation": "present"
+    },
+    {
+      "path": "docs/obiettivi.md",
+      "size": 6104,
+      "working_file_sha256": "5c0164f489d4d796fbafbe6712eb358a42d8320a35d74e4683f3a7f0ed18f502",
+      "operation": "present"
+    },
+    {
+      "path": "docs/oracle_v1_chiusura.md",
+      "size": 8211,
+      "working_file_sha256": "63897a17f70f7f9563fa6de83fd290cc92fb172d95c4dce763253fcc189b6a82",
+      "operation": "present"
+    },
+    {
+      "path": "docs/oracle_v1_inventory.json",
+      "size": 2707,
+      "working_file_sha256": "068344e2f3cb9e4bd97879e4ab485d3646fdc9add5e622e00df04e6374d7b1b9",
+      "operation": "present"
+    },
+    {
+      "path": "docs/protocollo_ripresa.md",
+      "size": 4899,
+      "working_file_sha256": "10b5f8d1ff431b94de72b7f3f49d18d1fe594822ea8e9adf18090b53f2f5e993",
+      "operation": "present"
+    },
+    {
+      "path": "docs/rapporto_core_deterministico.md",
+      "size": 13946,
+      "working_file_sha256": "53071eec2e2f4645fdf65abb526bc15855cd6ab7edb624ec6e6074d022e5f2b8",
+      "operation": "present"
+    },
+    {
+      "path": "docs/rapporto_finale.md",
+      "size": 5324,
+      "working_file_sha256": "790052960232bb119e0ea8422c7b8869ced35c991a0930eb58efc9798a4c3f3e",
+      "operation": "present"
+    },
+    {
+      "path": "docs/revisione_chiusura_core.json",
+      "size": 3895,
+      "working_file_sha256": "49a1ee73a02498d62d0aae0fadca977a661d0e11772caad0f64f289c13f8accc",
+      "operation": "present"
+    },
+    {
+      "path": "docs/verifica_core_windows.md",
+      "size": 6374,
+      "working_file_sha256": "ea77c1ae7a37856097fa503d8bbcd72d35f043b63ba70c3ecdc1839f01590504",
+      "operation": "present"
+    },
+    {
+      "path": "release_manifest.json",
+      "size": 25103,
+      "working_file_sha256": "1cccad89464f3bdf2636d1a272312e91da6ab9b9bbbb979407410baefc252918",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/baseline_pytest.log",
+      "size": 1056,
+      "working_file_sha256": "5de158a4f81f80734efa9b2b6b78cacfa566383fe15115a03ce80038fc58e539",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/browser_02/ui_overview.png",
+      "size": 109792,
+      "working_file_sha256": "31bfdd04b1e9637dfee776c1b93598a2138d19acd357f7855bef47c5cf21bc3b",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930/acceptance.json",
+      "size": 48802,
+      "working_file_sha256": "9a567aad3127d15015eeb586d3c92b5e46504cf4e31ee146838faf4933f65a59",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930/acceptance.md",
+      "size": 10162,
+      "working_file_sha256": "b7e2656cfa353103945c62120091e15df5b864c6e46e6fefef77b1fcdde794d8",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930/browser.log",
+      "size": 1048,
+      "working_file_sha256": "0cd4a27730c6de40f342c3feef9fcefde27bb1b8b7d3017cd12a9c64c9816cb2",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930/browser/browser_result.json",
+      "size": 386,
+      "working_file_sha256": "c3633e13bbfa2a22ebed6a3cdf9458521742eb2bfb9e0f61e0f4122e42ca24c6",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930/browser/ui_knowledge.png",
+      "size": 689229,
+      "working_file_sha256": "7cd642c36b33cc5d4453da0f6ddfd2e13e2b1d6a9097ebcad998acc385144660",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930/browser/ui_mobile.png",
+      "size": 33783,
+      "working_file_sha256": "2d0f48b0aa21b9e83fdfe0decc8aa34ac80e6f444161179f771a6e4bb3920612",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930/browser/ui_overview.png",
+      "size": 110615,
+      "working_file_sha256": "13a45d24631533c035942439e1ed7b642a5a082b8d9d2617fe523355c9d2cdb3",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930/browser/ui_review.png",
+      "size": 107891,
+      "working_file_sha256": "97385a6c6aa3f9951279294d8d89c7eac2af6a0e647343c488b9be04e32f1ee2",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930/browser/ui_review_detail.png",
+      "size": 103318,
+      "working_file_sha256": "c7cb7fed84d1e14b88ab15c68297f50fa20f91a1470e5a3e1b825bd6031c248f",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930/build.log",
+      "size": 9324,
+      "working_file_sha256": "3fc53108e87733a8f30cf1536ff4ed49004129d54022723970465d7460329545",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930/business_audit.json",
+      "size": 110845,
+      "working_file_sha256": "4e668214d71399a97d245a84916795e90e2ec92bbc804dad7b6c148c47ec77dd",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930/closure_checks.json",
+      "size": 35256,
+      "working_file_sha256": "8a5e942ca1083f22239036601de18eada92361af9e525b12f0ff458eca2978c1",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930/decrement_audit.json",
+      "size": 170520,
+      "working_file_sha256": "3c691cc8ee310223827c3a7d96e29859af78dcc6a2a35b19b980ba9af6d7da1d",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930/details/BIZ-01-02-05-06-08.json",
+      "size": 217957,
+      "working_file_sha256": "3b1cca9e8bd18c39ab9fe7251d63aa1042408a8ee4545d3e5c2f66cdc04bd90d",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930/details/BIZ-03-04-07.json",
+      "size": 92322,
+      "working_file_sha256": "6d0b0f9d41f051fbb89946b28098a61cef0afec68ffd28c6b725c9e1969fb89c",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930/details/BIZ-04-positive.json",
+      "size": 31768,
+      "working_file_sha256": "da20d69b9a3cd1e3be732006411fff39820f71aa41a5f497b306b96a58944120",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930/details/COV-01.json",
+      "size": 19030,
+      "working_file_sha256": "371d7b8aaa68c0f7e3923ae605dfb6ac74a68d272ca3733c40b0da98d4bcbef6",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930/details/COV-02.json",
+      "size": 23545,
+      "working_file_sha256": "5bd13c456aafd8bef5080b49188946527ea242bc589e85737e9c753793ad80aa",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930/details/COV-03.json",
+      "size": 13841,
+      "working_file_sha256": "d3f9f5788ec43bdc2c0096b82a8bb5a253dc470b19e8249840479c27e78ec43e",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930/details/COV-04.json",
+      "size": 26393,
+      "working_file_sha256": "7fa83ad37c83e080b1eaa08700a93f13252db72c1aae2a5773dcc730c6f62c80",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930/details/COV-05.json",
+      "size": 46083,
+      "working_file_sha256": "2da923993229fe0d7df5c899058907c646b9961c32ea4921cc9eaf1d7e416711",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930/details/COV-06.json",
+      "size": 134396,
+      "working_file_sha256": "844318a5f9c84c2e50420b7bef0c86e13058f444f0ac9c8f2dd7b60bd50df9ee",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930/details/COV-07-confirmed.json",
+      "size": 32219,
+      "working_file_sha256": "ee9bebd882864dfa740c37d0065f42e66c1abda34a46b25d59db57a01f864273",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930/details/COV-07-pending.json",
+      "size": 32181,
+      "working_file_sha256": "aafd3ef0470d81f4317013929715432e5711599831af23e654a77569d4369077",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930/details/COV-07-rejected.json",
+      "size": 32370,
+      "working_file_sha256": "348dbca91afbd92d44f9600ebf63cf23c74366085b0b23a2d2693930803aab06",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930/details/COV-08.json",
+      "size": 2717,
+      "working_file_sha256": "48c542a2796b9e2c13cf1e3df5f58503197698e3c5442dc404557d88323475ee",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930/details/G05-trigger.json",
+      "size": 1326,
+      "working_file_sha256": "82161217f5282c602708e699cba0a609ac3c150d0079687d442d3de7e2b58a3b",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930/details/G15-oracle-inventory.json",
+      "size": 2914,
+      "working_file_sha256": "8ed6169854a51b0497288826013b39dc08a4acfef5072d4dad32ea324c059ce1",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930/details/G15-schema-resolution.json",
+      "size": 1289,
+      "working_file_sha256": "d896b561dea662c7317efed9192e536b0ac36556942788a0ff58ba1465bcf8d0",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930/details/G15-slice21.json",
+      "size": 11005,
+      "working_file_sha256": "58beabcc82321f74cd7b522f27d17991ee7096e4cc069f7ab499d601fc46ed47",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930/details/G15-slice25.json",
+      "size": 96841,
+      "working_file_sha256": "5f9225b84d46d34db35d3b929855fae1125dd3574531f0fb2f438835a8808438",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930/details/G15-slice32.json",
+      "size": 8667,
+      "working_file_sha256": "208ee0550a9fc33a5f30d716b881d8d77023f81008b2ec5003eebb1c6abde36a",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930/diff_check_all.txt",
+      "size": 6542,
+      "working_file_sha256": "d01409a064ca4401fa4cb60ab0c91fa2f90b688c616e824d7c6fb0262a8dd41a",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930/diff_stat.txt",
+      "size": 9155,
+      "working_file_sha256": "4d9517cff9524ea9fb41851a7b63121ca55576fea75cfa6a0d72d08b4932f7f9",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930/lint.log",
+      "size": 19,
+      "working_file_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930/pip_check.log",
+      "size": 31,
+      "working_file_sha256": "672aec65a45bed50e70229c70934a7eebf0462595c459b83023027645d57cccf",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930/pytest.log",
+      "size": 1138,
+      "working_file_sha256": "4197ab1e36d581e6e7a972ec821e02b5e9fc0dd0694f64e94fdf96ce23eadcbc",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930/pytest.xml",
+      "size": 19610,
+      "working_file_sha256": "c49950bfcc990c362498240b0ee5d5e9aa13e1fac3b28a22c04ec9a1a61d6907",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930/source_diff.patch",
+      "size": 237344,
+      "working_file_sha256": "7abbfb30ad1fb01eab142131726dfa4091c352f853baeebf680d0bdfbd6f20d6",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930/vega_ai_controllata/risposta_01.jsonl",
+      "size": 430,
+      "working_file_sha256": "d85fd05b97c8fc7196692bff74d51427de24379575060f6957ea9a03cd2e39cf",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930/vega_ai_controllata/risposta_02.jsonl",
+      "size": 522,
+      "working_file_sha256": "58a2ccafa81d3acb6783b8382e8f5def399144e8b425acb787c3b880a96f330a",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930/vega_deterministic.json",
+      "size": 561963,
+      "working_file_sha256": "d31d35345437d591d6f7074714da44a59a227caaa0b4e1fc844bff55a76ae4b0",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930/vega_deterministic.log",
+      "size": 359,
+      "working_file_sha256": "0982e693478e0f1048b3be14347776bdeb69e7246ff54b6f7c7223131fe212a6",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930/vega_integrated.json",
+      "size": 7924,
+      "working_file_sha256": "369d7aae33f14a85d4e5b44f1b81585b511b62155e6e5d9c2a27e36797f5f2b5",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930/vega_integrated.log",
+      "size": 222,
+      "working_file_sha256": "be8590da8e12ab7a63176309d4d0c3a40213a926f1015286b268288a561f5985",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930/wheel_install.log",
+      "size": 169,
+      "working_file_sha256": "a9651d3d4780dd2fe74ecea43bb4fef7a48e1394eabf035e3f1e9028d51fff62",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930/wheel_smoke.json",
+      "size": 388,
+      "working_file_sha256": "79334dab7c8aa6247e9f6d58bbdab7a4ca5fd8debd267cd9e236dc9be6607041",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930/wheel_smoke.log",
+      "size": 262,
+      "working_file_sha256": "12987d9779f275487e90fb6fc59fb9d8e4817fd7ca4a7ab25b8e3834f2cd8b59",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930_gate_scope_01/README.md",
+      "size": 520,
+      "working_file_sha256": "16b6610986eab6eade395db47ad719d25177d2933b731a84ee4a733363ff3aaf",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930_gate_scope_01/acceptance.json",
+      "size": 48800,
+      "working_file_sha256": "ca19aff4a17d61bad36e241dfe23c45e535108f7ec669eedc876377826c6b513",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930_gate_scope_01/acceptance.md",
+      "size": 10162,
+      "working_file_sha256": "8baa1b7a674602c3de93e2ad7b045723c6b0f00cb7dbfd04fab8b32e9d46d091",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930_gate_scope_01/browser.log",
+      "size": 398,
+      "working_file_sha256": "4249885295daaa157f42d3ca3530fa6f3c9e58560ab4692bee43ce3f6f899804",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930_gate_scope_01/browser/browser_result.json",
+      "size": 386,
+      "working_file_sha256": "c3633e13bbfa2a22ebed6a3cdf9458521742eb2bfb9e0f61e0f4122e42ca24c6",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930_gate_scope_01/browser/ui_knowledge.png",
+      "size": 692590,
+      "working_file_sha256": "5fe6d43622bfd257d93ceb660f44073437944abb38551769b1be66b117e49b21",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930_gate_scope_01/browser/ui_mobile.png",
+      "size": 33783,
+      "working_file_sha256": "2d0f48b0aa21b9e83fdfe0decc8aa34ac80e6f444161179f771a6e4bb3920612",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930_gate_scope_01/browser/ui_overview.png",
+      "size": 110520,
+      "working_file_sha256": "ba89ccd254b58c2e2e0eb584cc2260694196799af203bcf3063a333d23d534b9",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930_gate_scope_01/browser/ui_review.png",
+      "size": 114938,
+      "working_file_sha256": "67eff935cf93cf6e28dc86c0b959fd9b72ecc201722ff36bd2633d270c238c5e",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930_gate_scope_01/browser/ui_review_detail.png",
+      "size": 105814,
+      "working_file_sha256": "912c6b31fcb295cfa287178460ee75e21ff7377a8ad6e1640f11fab055845fc6",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930_gate_scope_01/build.log",
+      "size": 9324,
+      "working_file_sha256": "69c031020e0120868ae995a6151901c7e716b08fc567a1d061b2c39c6839a233",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930_gate_scope_01/business_audit.json",
+      "size": 110845,
+      "working_file_sha256": "a0d7b1b2e90c0632fe098b8ecb932cd3497cdde5aca6e02b09e02ee9659f684b",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930_gate_scope_01/closure_checks.json",
+      "size": 22644,
+      "working_file_sha256": "e09db88638ce41d98ceb694eb2cc8b0f4d62d2e1b20ee562e7b428e1eaca84a3",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930_gate_scope_01/decrement_audit.json",
+      "size": 170520,
+      "working_file_sha256": "03233505e1f16569829e78ba6226933836bd9dda2842f29c17b3593c2682efb8",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930_gate_scope_01/details/BIZ-01-02-05-06-08.json",
+      "size": 217957,
+      "working_file_sha256": "5c651aa6ee238c7f495d99335a97658e808518bbe48856f7468e81307c1ecd75",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930_gate_scope_01/details/BIZ-03-04-07.json",
+      "size": 92322,
+      "working_file_sha256": "8e4dcaeb1e23ec31d8f1cbd0c9bb166ccb88f7bf3bdc6fa6a5a408596ef7afe0",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930_gate_scope_01/details/BIZ-04-positive.json",
+      "size": 31768,
+      "working_file_sha256": "da20d69b9a3cd1e3be732006411fff39820f71aa41a5f497b306b96a58944120",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930_gate_scope_01/details/COV-01.json",
+      "size": 19030,
+      "working_file_sha256": "371d7b8aaa68c0f7e3923ae605dfb6ac74a68d272ca3733c40b0da98d4bcbef6",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930_gate_scope_01/details/COV-02.json",
+      "size": 23545,
+      "working_file_sha256": "5bd13c456aafd8bef5080b49188946527ea242bc589e85737e9c753793ad80aa",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930_gate_scope_01/details/COV-03.json",
+      "size": 13841,
+      "working_file_sha256": "d3f9f5788ec43bdc2c0096b82a8bb5a253dc470b19e8249840479c27e78ec43e",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930_gate_scope_01/details/COV-04.json",
+      "size": 26393,
+      "working_file_sha256": "7fa83ad37c83e080b1eaa08700a93f13252db72c1aae2a5773dcc730c6f62c80",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930_gate_scope_01/details/COV-05.json",
+      "size": 46083,
+      "working_file_sha256": "2da923993229fe0d7df5c899058907c646b9961c32ea4921cc9eaf1d7e416711",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930_gate_scope_01/details/COV-06.json",
+      "size": 134396,
+      "working_file_sha256": "d2cf53ac725f2ab2a52ea1a6043440c522a59668abccdff0ec1da859bb5196f2",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930_gate_scope_01/details/COV-07-confirmed.json",
+      "size": 32219,
+      "working_file_sha256": "ee9bebd882864dfa740c37d0065f42e66c1abda34a46b25d59db57a01f864273",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930_gate_scope_01/details/COV-07-pending.json",
+      "size": 32181,
+      "working_file_sha256": "aafd3ef0470d81f4317013929715432e5711599831af23e654a77569d4369077",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930_gate_scope_01/details/COV-07-rejected.json",
+      "size": 32370,
+      "working_file_sha256": "348dbca91afbd92d44f9600ebf63cf23c74366085b0b23a2d2693930803aab06",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930_gate_scope_01/details/COV-08.json",
+      "size": 2717,
+      "working_file_sha256": "48c542a2796b9e2c13cf1e3df5f58503197698e3c5442dc404557d88323475ee",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930_gate_scope_01/details/G05-trigger.json",
+      "size": 1326,
+      "working_file_sha256": "82161217f5282c602708e699cba0a609ac3c150d0079687d442d3de7e2b58a3b",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930_gate_scope_01/details/G15-oracle-inventory.json",
+      "size": 2914,
+      "working_file_sha256": "8ed6169854a51b0497288826013b39dc08a4acfef5072d4dad32ea324c059ce1",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930_gate_scope_01/details/G15-schema-resolution.json",
+      "size": 1289,
+      "working_file_sha256": "d896b561dea662c7317efed9192e536b0ac36556942788a0ff58ba1465bcf8d0",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930_gate_scope_01/details/G15-slice21.json",
+      "size": 11005,
+      "working_file_sha256": "58beabcc82321f74cd7b522f27d17991ee7096e4cc069f7ab499d601fc46ed47",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930_gate_scope_01/details/G15-slice25.json",
+      "size": 96841,
+      "working_file_sha256": "5f9225b84d46d34db35d3b929855fae1125dd3574531f0fb2f438835a8808438",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930_gate_scope_01/details/G15-slice32.json",
+      "size": 8667,
+      "working_file_sha256": "208ee0550a9fc33a5f30d716b881d8d77023f81008b2ec5003eebb1c6abde36a",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930_gate_scope_01/diff_check_all.txt",
+      "size": 6542,
+      "working_file_sha256": "d01409a064ca4401fa4cb60ab0c91fa2f90b688c616e824d7c6fb0262a8dd41a",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930_gate_scope_01/diff_stat.txt",
+      "size": 9155,
+      "working_file_sha256": "1f8ea645ef77d1877a9cff46671fccdea907e814ebc79798a2363fc3084a1a14",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930_gate_scope_01/lint.log",
+      "size": 19,
+      "working_file_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930_gate_scope_01/pip_check.log",
+      "size": 31,
+      "working_file_sha256": "672aec65a45bed50e70229c70934a7eebf0462595c459b83023027645d57cccf",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930_gate_scope_01/pytest.log",
+      "size": 1138,
+      "working_file_sha256": "0c390aa8c89efa7b05273893c9e87e489b70afbd22459d6d64ec5b0c9bfa60b7",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930_gate_scope_01/pytest.xml",
+      "size": 19460,
+      "working_file_sha256": "89e9e335b8c982566fe2c436ec6da123a39dfb29026c03e4d1214268700b1bd8",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930_gate_scope_01/vega_ai_controllata/risposta_01.jsonl",
+      "size": 430,
+      "working_file_sha256": "d85fd05b97c8fc7196692bff74d51427de24379575060f6957ea9a03cd2e39cf",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930_gate_scope_01/vega_ai_controllata/risposta_02.jsonl",
+      "size": 522,
+      "working_file_sha256": "58a2ccafa81d3acb6783b8382e8f5def399144e8b425acb787c3b880a96f330a",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930_gate_scope_01/vega_deterministic.json",
+      "size": 561963,
+      "working_file_sha256": "3812b6dee2ab01616c1d731a17371a122b4cdbb7fc84623b2d3c1f6b6986dbdb",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930_gate_scope_01/vega_deterministic.log",
+      "size": 359,
+      "working_file_sha256": "0982e693478e0f1048b3be14347776bdeb69e7246ff54b6f7c7223131fe212a6",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930_gate_scope_01/vega_integrated.json",
+      "size": 7925,
+      "working_file_sha256": "4c677fd1a96de66f6d21507f1e4e3168c23ab85ad09d258406412b561a180572",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930_gate_scope_01/vega_integrated.log",
+      "size": 222,
+      "working_file_sha256": "be8590da8e12ab7a63176309d4d0c3a40213a926f1015286b268288a561f5985",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930_gate_scope_01/wheel_install.log",
+      "size": 169,
+      "working_file_sha256": "bb66b5af6a8bf35c78de9b302b073539865674328034ed7fed58f9a1cdbe2a4a",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930_gate_scope_01/wheel_smoke.json",
+      "size": 388,
+      "working_file_sha256": "aaa3f1c9fb62651cac8d189e2f813cd4eb864b8fb01d3dae04d60639c2722e53",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/closure_20260930_gate_scope_01/wheel_smoke.log",
+      "size": 262,
+      "working_file_sha256": "12987d9779f275487e90fb6fc59fb9d8e4817fd7ca4a7ab25b8e3834f2cd8b59",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/delivery.json",
+      "size": 28828,
+      "working_file_sha256": "e59fde1b38d196a3a329cdce61a5c47dc9bdd9f12c324f40fb8e6e6a954e719b",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/final/acceptance.json",
+      "size": 38008,
+      "working_file_sha256": "37be231d51b569144fd7ea6e817e3447b0a9ca31ba86d7672591f953a6fe5712",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/final/acceptance.md",
+      "size": 9553,
+      "working_file_sha256": "c9cb500c6ef8e054e75314854ef036bc194df138168a4a8cdfccd1b8d2c852ec",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/final/browser.log",
+      "size": 0,
+      "working_file_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/final/browser/browser_result.json",
+      "size": 386,
+      "working_file_sha256": "c3633e13bbfa2a22ebed6a3cdf9458521742eb2bfb9e0f61e0f4122e42ca24c6",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/final/browser/ui_knowledge.png",
+      "size": 692712,
+      "working_file_sha256": "54dbe6d49b7261f9d2fb26849d82bc737cea3984320d3323e8b2978fa4000027",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/final/browser/ui_mobile.png",
+      "size": 33783,
+      "working_file_sha256": "2d0f48b0aa21b9e83fdfe0decc8aa34ac80e6f444161179f771a6e4bb3920612",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/final/browser/ui_overview.png",
+      "size": 110660,
+      "working_file_sha256": "6ad9bf3e41a63ee4eb5685b97b02ff8bb0f02c643f7693a784444aaf4191d252",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/final/browser/ui_review.png",
+      "size": 111411,
+      "working_file_sha256": "0c200c0c2cea7420f4c4c7d970eea65260d963664e08f33bf909b36122dd8288",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/final/browser/ui_review_detail.png",
+      "size": 102073,
+      "working_file_sha256": "74cfcf0387bf30a359cb9f25d540e9a4469cb383fcdec63c0e264d3c3596f906",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/final/build.log",
+      "size": 9324,
+      "working_file_sha256": "59df36312f786e0a4cea1b75dd188265e1e420f8b6e0faae573f9a2773ed90d6",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/final/business_audit.json",
+      "size": 110845,
+      "working_file_sha256": "41ec4c41c18d75fe28662138e7079f92899df92c247893c5c13bfd38db3f4b33",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/final/decrement_audit.json",
+      "size": 170520,
+      "working_file_sha256": "60917783c6cad12fcc24cbaf53c8558b6b13c154250dd43d4b41e15d1f6c201c",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/final/details/BIZ-01-02-05-06-08.json",
+      "size": 217957,
+      "working_file_sha256": "d17b57eaa9e43f910a81445624a6b16c862a25330be8ade33018f43f1d612c34",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/final/details/BIZ-03-04-07.json",
+      "size": 92322,
+      "working_file_sha256": "e7a741c7d9c6218e47d8c0ee7ac95d327ae51642533f279982f9f80660b85a3f",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/final/details/BIZ-04-positive.json",
+      "size": 31768,
+      "working_file_sha256": "da20d69b9a3cd1e3be732006411fff39820f71aa41a5f497b306b96a58944120",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/final/details/COV-01.json",
+      "size": 17442,
+      "working_file_sha256": "95caa71da38f73d14b79c43b5bcdd26d65b32e6f7701f64e6eda9b2602b6112d",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/final/details/COV-02.json",
+      "size": 23545,
+      "working_file_sha256": "5bd13c456aafd8bef5080b49188946527ea242bc589e85737e9c753793ad80aa",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/final/details/COV-03.json",
+      "size": 13841,
+      "working_file_sha256": "d3f9f5788ec43bdc2c0096b82a8bb5a253dc470b19e8249840479c27e78ec43e",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/final/details/COV-04.json",
+      "size": 26393,
+      "working_file_sha256": "7fa83ad37c83e080b1eaa08700a93f13252db72c1aae2a5773dcc730c6f62c80",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/final/details/COV-05.json",
+      "size": 46083,
+      "working_file_sha256": "2da923993229fe0d7df5c899058907c646b9961c32ea4921cc9eaf1d7e416711",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/final/details/COV-06.json",
+      "size": 128718,
+      "working_file_sha256": "6964d8f678bf53efa9c741d26edf2d3428b7149f6da526a459b27b8c700ca574",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/final/details/COV-07-confirmed.json",
+      "size": 32219,
+      "working_file_sha256": "ee9bebd882864dfa740c37d0065f42e66c1abda34a46b25d59db57a01f864273",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/final/details/COV-07-pending.json",
+      "size": 32181,
+      "working_file_sha256": "aafd3ef0470d81f4317013929715432e5711599831af23e654a77569d4369077",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/final/details/COV-07-rejected.json",
+      "size": 32370,
+      "working_file_sha256": "348dbca91afbd92d44f9600ebf63cf23c74366085b0b23a2d2693930803aab06",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/final/details/COV-08.json",
+      "size": 2717,
+      "working_file_sha256": "48c542a2796b9e2c13cf1e3df5f58503197698e3c5442dc404557d88323475ee",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/final/lint.log",
+      "size": 19,
+      "working_file_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/final/pip_check.log",
+      "size": 31,
+      "working_file_sha256": "672aec65a45bed50e70229c70934a7eebf0462595c459b83023027645d57cccf",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/final/pytest.log",
+      "size": 1057,
+      "working_file_sha256": "a9f4927ddd7db80458e066020f76455dde72b18ce03a50249604081d4a50b08b",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/final/pytest.xml",
+      "size": 17395,
+      "working_file_sha256": "1904ef3a9cfa1d291842501b83e6bb6232227b474a9e818dada4149cf45bc6cc",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/final/vega_ai_controllata/risposta_01.jsonl",
+      "size": 430,
+      "working_file_sha256": "d85fd05b97c8fc7196692bff74d51427de24379575060f6957ea9a03cd2e39cf",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/final/vega_ai_controllata/risposta_02.jsonl",
+      "size": 522,
+      "working_file_sha256": "58a2ccafa81d3acb6783b8382e8f5def399144e8b425acb787c3b880a96f330a",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/final/vega_deterministic.json",
+      "size": 561963,
+      "working_file_sha256": "852fe85e553b572636ea1991f30b1e94ce8b4c4e949585a2fba13eb394dca66f",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/final/vega_deterministic.log",
+      "size": 359,
+      "working_file_sha256": "0982e693478e0f1048b3be14347776bdeb69e7246ff54b6f7c7223131fe212a6",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/final/vega_integrated.json",
+      "size": 7925,
+      "working_file_sha256": "da0b41b6839ba5862246d8cd70c979119ee548d1eb0cf3d1717ed4e252cbfb85",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/final/vega_integrated.log",
+      "size": 222,
+      "working_file_sha256": "be8590da8e12ab7a63176309d4d0c3a40213a926f1015286b268288a561f5985",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/final/visual_review.json",
+      "size": 656,
+      "working_file_sha256": "60fc6a25321fc3b0be4b76abb21853610950087e2c4c348cd4be42801a01a271",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/final/wheel_install.log",
+      "size": 169,
+      "working_file_sha256": "a43729767341f712d97a0fa2370caee17306259ab18e962c2d69785ebf041f7e",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/final/wheel_smoke.log",
+      "size": 262,
+      "working_file_sha256": "11f0b0774cc2b8a66b802c5b1a0e7ee266976ad4a0252ef3af85e7a212274d43",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/final_edge_cases.xml",
+      "size": 1033,
+      "working_file_sha256": "084b4b476699548d2ef44b54ccc04ad3dee080bf2b867bc3e6ac367607bf6b85",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/iteration_01.xml",
+      "size": 16698,
+      "working_file_sha256": "c19550a7a99dff194effc6b1a9512179d63859260add0079b4be15128c96dcfd",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/iteration_complete_01/acceptance.json",
+      "size": 28403,
+      "working_file_sha256": "1047c5684c0f7d40aa5e15690777b7cd506bd93d000942a1c0912cb587af4a55",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/iteration_complete_01/acceptance.md",
+      "size": 7372,
+      "working_file_sha256": "db7c06e8868607b43ddd3719de3d62455d4a287054bc747b55f53eaedd2321f4",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/iteration_complete_01/browser.log",
+      "size": 3648,
+      "working_file_sha256": "f0dc431a062a2e68e9a699f693abbb549927ec6d805bdac808cfb9ba01fa2c22",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/iteration_complete_01/browser/browser_result.json",
+      "size": 386,
+      "working_file_sha256": "c3633e13bbfa2a22ebed6a3cdf9458521742eb2bfb9e0f61e0f4122e42ca24c6",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/iteration_complete_01/browser/ui_knowledge.png",
+      "size": 692749,
+      "working_file_sha256": "038e05a28d559fbf01e1de89f444ced638e2b183daab62bce2d9a3999eeea7c7",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/iteration_complete_01/browser/ui_mobile.png",
+      "size": 33783,
+      "working_file_sha256": "2d0f48b0aa21b9e83fdfe0decc8aa34ac80e6f444161179f771a6e4bb3920612",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/iteration_complete_01/browser/ui_overview.png",
+      "size": 110691,
+      "working_file_sha256": "12b339d9fe43847b8da416505ad83d90f6497dd6e3a5094bc2eb10736b8c5378",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/iteration_complete_01/browser/ui_review.png",
+      "size": 110946,
+      "working_file_sha256": "423eb51397481ba5ef1e053f8c11d2ba232a9bb8ab608e3b5a7cd97edd92426d",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/iteration_complete_01/browser/ui_review_detail.png",
+      "size": 106530,
+      "working_file_sha256": "26ab0ad01a6b349886b0ce9ac07a6e74e6163a07a77384a7ee26a3d18d448fbb",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/iteration_complete_01/build.log",
+      "size": 9324,
+      "working_file_sha256": "e6d6d4ad99f2c98afe420808032a7b17f03948bc0ca7a487102a11230c5af2c8",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/iteration_complete_01/business_audit.json",
+      "size": 110734,
+      "working_file_sha256": "d6c82e702c8bd7b61cc4519b5a3d5dc1028fcb052e65496fa4b4e25c08f70800",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/iteration_complete_01/decrement_audit.json",
+      "size": 170409,
+      "working_file_sha256": "694cdef5bb1e63d8eb34be1c787a311f1263a885cdcb26ffaa40f16b1142cd8f",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/iteration_complete_01/lint.log",
+      "size": 19,
+      "working_file_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/iteration_complete_01/pip_check.log",
+      "size": 31,
+      "working_file_sha256": "672aec65a45bed50e70229c70934a7eebf0462595c459b83023027645d57cccf",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/iteration_complete_01/pytest.log",
+      "size": 1057,
+      "working_file_sha256": "04726573483136772c46496dbf139a59ea3a0d2526a87531a42c1d23fe310be1",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/iteration_complete_01/pytest.xml",
+      "size": 16086,
+      "working_file_sha256": "84e55f0d17690287022d38f95c2ab8843cdb67c636befca3dd7e07a53b9ea5d5",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/iteration_complete_01/vega_ai_controllata/risposta_01.jsonl",
+      "size": 430,
+      "working_file_sha256": "d85fd05b97c8fc7196692bff74d51427de24379575060f6957ea9a03cd2e39cf",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/iteration_complete_01/vega_ai_controllata/risposta_02.jsonl",
+      "size": 522,
+      "working_file_sha256": "58a2ccafa81d3acb6783b8382e8f5def399144e8b425acb787c3b880a96f330a",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/iteration_complete_01/vega_deterministic.json",
+      "size": 561881,
+      "working_file_sha256": "1359627324961287ea404dad6aeaa4d7543716edfdec3e9228378a2e46f76745",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/iteration_complete_01/vega_deterministic.log",
+      "size": 359,
+      "working_file_sha256": "0982e693478e0f1048b3be14347776bdeb69e7246ff54b6f7c7223131fe212a6",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/iteration_complete_01/vega_integrated.log",
+      "size": 1487,
+      "working_file_sha256": "74381be871404d85b2483672068a1553af7009124acd94a5f9c1613b659b863e",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/iteration_complete_01/wheel_install.log",
+      "size": 169,
+      "working_file_sha256": "d2a7a336cf0b052ec056fdecc85107d7d8d78b522d35dd5cd9b705fdb76f7026",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/iteration_complete_01/wheel_smoke.log",
+      "size": 262,
+      "working_file_sha256": "80a3f4f41154bb7b1925dc09ad38daf31127309550bafb9db5633500f8f9e1cf",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/iteration_complete_02/acceptance.json",
+      "size": 3612,
+      "working_file_sha256": "364f793c2b18e903ce2e992dd63f6474c0c936992689fa5f6a376afa658a7f8e",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/iteration_complete_02/details/BIZ-01-02-05-06-08.json",
+      "size": 217957,
+      "working_file_sha256": "68c56d2173424ca3dacbad0a867235a6f667262d60e1effe0e78eec44f896262",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/iteration_complete_02/details/BIZ-03-04-07.json",
+      "size": 92322,
+      "working_file_sha256": "db00cda8d0215bbcf022e40a7ed88481aee5670b64aafbc319c51949e25b756f",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/iteration_complete_02/details/BIZ-04-positive.json",
+      "size": 31768,
+      "working_file_sha256": "da20d69b9a3cd1e3be732006411fff39820f71aa41a5f497b306b96a58944120",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/iteration_complete_02/details/COV-01.json",
+      "size": 17442,
+      "working_file_sha256": "95caa71da38f73d14b79c43b5bcdd26d65b32e6f7701f64e6eda9b2602b6112d",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/iteration_complete_02/details/COV-02.json",
+      "size": 23545,
+      "working_file_sha256": "5bd13c456aafd8bef5080b49188946527ea242bc589e85737e9c753793ad80aa",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/iteration_complete_02/details/COV-03.json",
+      "size": 13841,
+      "working_file_sha256": "d3f9f5788ec43bdc2c0096b82a8bb5a253dc470b19e8249840479c27e78ec43e",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/iteration_complete_02/details/COV-04.json",
+      "size": 26393,
+      "working_file_sha256": "7fa83ad37c83e080b1eaa08700a93f13252db72c1aae2a5773dcc730c6f62c80",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/iteration_complete_02/details/COV-05.json",
+      "size": 46083,
+      "working_file_sha256": "2da923993229fe0d7df5c899058907c646b9961c32ea4921cc9eaf1d7e416711",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/iteration_complete_02/details/COV-06.json",
+      "size": 128718,
+      "working_file_sha256": "5bcd8ecff8a4c2130a7615824de6463a88a45b5fe5024cfd6d4dc369a086bed8",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/iteration_complete_02/details/COV-07-confirmed.json",
+      "size": 32219,
+      "working_file_sha256": "ee9bebd882864dfa740c37d0065f42e66c1abda34a46b25d59db57a01f864273",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/iteration_complete_02/details/COV-07-pending.json",
+      "size": 32181,
+      "working_file_sha256": "aafd3ef0470d81f4317013929715432e5711599831af23e654a77569d4369077",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/iteration_complete_02/details/COV-07-rejected.json",
+      "size": 32370,
+      "working_file_sha256": "348dbca91afbd92d44f9600ebf63cf23c74366085b0b23a2d2693930803aab06",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/iteration_complete_02/details/COV-08.json",
+      "size": 2717,
+      "working_file_sha256": "48c542a2796b9e2c13cf1e3df5f58503197698e3c5442dc404557d88323475ee",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/iteration_complete_02/lint.log",
+      "size": 19,
+      "working_file_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/iteration_complete_02/pip_check.log",
+      "size": 31,
+      "working_file_sha256": "672aec65a45bed50e70229c70934a7eebf0462595c459b83023027645d57cccf",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/iteration_complete_02/precision.xml",
+      "size": 642,
+      "working_file_sha256": "3b559e2c1d3bb4b5519de2147f230bb186e68c046686dddcd4f436e3298f20c0",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/iteration_complete_02/pytest.log",
+      "size": 6487,
+      "working_file_sha256": "f60de1689324ca486f169780ac03fc822edef9535bd8f161e68af94e27e2e618",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/iteration_complete_02/pytest.xml",
+      "size": 22173,
+      "working_file_sha256": "a680c47bbadf43c0f2d80f012e6f35c233e13f6cb1d08e15d7a18cea2cf971af",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/iteration_complete_02/vega_deterministic.log",
+      "size": 0,
+      "working_file_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/targeted_02.xml",
+      "size": 2927,
+      "working_file_sha256": "742cbc36f8f8fb958ffab31d1d03fbc40ccb40f29dcee95b31e5b7ef3ebf7655",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/targeted_03.xml",
+      "size": 13080,
+      "working_file_sha256": "c6b266ab78076f8b5b2cc82d5040031cb67107176042221290996cb9bc8980cb",
+      "operation": "present"
+    },
+    {
+      "path": "reports/deterministic_core/vega_deterministic_01.json",
+      "size": 512361,
+      "working_file_sha256": "716d82d91276c37452e7cf212dcfcc1ee86698670584b294a7dbef38c6e1380c",
+      "operation": "present"
+    },
+    {
+      "path": "scripts/acceptance_closure.py",
+      "size": 17241,
+      "working_file_sha256": "a10be212aed7799249a209ad814f882c7dc7e0f01cecd44ee24e80a411313a0e",
+      "operation": "present"
+    },
+    {
+      "path": "scripts/browser_check.py",
+      "size": 8042,
+      "working_file_sha256": "affb89bc559cf263cbef2a13d1cb4f065e61fb31b9eb0da8badad9feaf43d1d2",
+      "operation": "present"
+    },
+    {
+      "path": "scripts/check_deterministic_core.ps1",
+      "size": 1741,
+      "working_file_sha256": "b3d40070c1311cf5700041fc080bf3ee1cefac9394d8ffd537c0e7bd83614292",
+      "operation": "present"
+    },
+    {
+      "path": "scripts/core_acceptance.py",
+      "size": 21074,
+      "working_file_sha256": "4f7d6a15d4153dbe335b60f192b54bebe1034195925de07cfc2dad8645cff520",
+      "operation": "present"
+    },
+    {
+      "path": "scripts/export_deterministic_patch.py",
+      "size": 6203,
+      "working_file_sha256": "c4ef80fa6599e8cc426da0d1098679bea2ef05ced1381bfc0a1c5435e794309e",
+      "operation": "present"
+    },
+    {
+      "path": "scripts/wheel_core_smoke.py",
+      "size": 1437,
+      "working_file_sha256": "efadeacef5e035d44bb7a1079ee08d173e50da6a027254bfd2015656d824c7ed",
+      "operation": "present"
+    },
+    {
+      "path": "src/dslm3/ai.py",
+      "size": 27123,
+      "working_file_sha256": "63269e19d43dbcce5c0b4d85e3996a24e523a7affc45038dea4b84f745a9268f",
+      "operation": "present"
+    },
+    {
+      "path": "src/dslm3/cli.py",
+      "size": 5482,
+      "working_file_sha256": "9b5cd5f52ead56379f227def5550b9802ec0096c24872055be9652c7efa94d27",
+      "operation": "present"
+    },
+    {
+      "path": "src/dslm3/common.py",
+      "size": 2775,
+      "working_file_sha256": "64757cabe0cbdfb774e985553bcf376a158db689b49e5c6f60f862ecc35c9575",
+      "operation": "present"
+    },
+    {
+      "path": "src/dslm3/deterministic.py",
+      "size": 22920,
+      "working_file_sha256": "2c2c20c2488c75e8c020a3ff3e0c8ca1238e5cae3f79ee1587d9a9e726447acd",
+      "operation": "present"
+    },
+    {
+      "path": "src/dslm3/deterministic_lab.py",
+      "size": 5640,
+      "working_file_sha256": "9c1c0773fbf2ea2b902f58646f350787a869953e54564634548f3373a9a9fcfe",
+      "operation": "present"
+    },
+    {
+      "path": "src/dslm3/exports.py",
+      "size": 38465,
+      "working_file_sha256": "55b6e247843ad66012848a12db676dc82cba40faac9a09cd147e65ada7099067",
+      "operation": "present"
+    },
+    {
+      "path": "src/dslm3/knowledge.py",
+      "size": 39820,
+      "working_file_sha256": "62687fdae7f1898a22f4280987a30e016ef783eb38d1deb896b40161bbd266f1",
+      "operation": "present"
+    },
+    {
+      "path": "src/dslm3/lab.py",
+      "size": 8935,
+      "working_file_sha256": "fed29489beb3e77c25580ae9d0eb62f80f304a9fbb23203c6a0f1240187c820d",
+      "operation": "present"
+    },
+    {
+      "path": "src/dslm3/parsers/base.py",
+      "size": 4715,
+      "working_file_sha256": "7fc6adb62383a6d5267987f0040dd1712c006c81750da2586151b3a60a1b6962",
+      "operation": "present"
+    },
+    {
+      "path": "src/dslm3/parsers/documents.py",
+      "size": 28476,
+      "working_file_sha256": "7873ac6c0b61d6045752c505f184c591806a032974761fcbf810824b5471ac02",
+      "operation": "present"
+    },
+    {
+      "path": "src/dslm3/parsers/sql.py",
+      "size": 30676,
+      "working_file_sha256": "a6d8bd7880e04e4e1e56a14603d7d9ef8e08c5e29d1ec9842ffb11c7fe1da8b1",
+      "operation": "present"
+    },
+    {
+      "path": "src/dslm3/parsers/sql_shapes.py",
+      "size": 13152,
+      "working_file_sha256": "4d6cf607f3eb5793a2d09d18ec4b4bfe914c377d4e728d8163fc489740b5607b",
+      "operation": "present"
+    },
+    {
+      "path": "src/dslm3/provenance.py",
+      "size": 1371,
+      "working_file_sha256": "d934d00801eb605fe3ee0cc40158ae3c476954241345210b53b30f3a128ce176",
+      "operation": "present"
+    },
+    {
+      "path": "src/dslm3/resolution.py",
+      "size": 8342,
+      "working_file_sha256": "30dbe0946ee9c7e9ea5581e9041fe865bcfc7ac8b72f113804844eba444e5a56",
+      "operation": "present"
+    },
+    {
+      "path": "src/dslm3/service.py",
+      "size": 22786,
+      "working_file_sha256": "2bd86bec0c1a3d88ee3d74235b19e519c38951b6ab41da93a1f28c9e2f96c384",
+      "operation": "present"
+    },
+    {
+      "path": "src/dslm3/static/app.js",
+      "size": 45752,
+      "working_file_sha256": "f6f65e68b627687b86eeb8c7b01f07d1fb0a780ccbce97152d62e88f4a9b069e",
+      "operation": "present"
+    },
+    {
+      "path": "src/dslm3/storage.py",
+      "size": 15615,
+      "working_file_sha256": "0f781b4f92f9d7aac6f52d5352ad41b99006b7249b2ef62d4197c50049ecc302",
+      "operation": "present"
+    },
+    {
+      "path": "src/dslm3/web.py",
+      "size": 20573,
+      "working_file_sha256": "042c662da72924c726e57d6635878eba05d2a67f84a7b934a0855fe376fc0ad4",
+      "operation": "present"
+    },
+    {
+      "path": "src/dslm3/worker.py",
+      "size": 1115,
+      "working_file_sha256": "09dfb883786659e750edbd2c790591bb7814f011126aeee565b7c28a54f92883",
+      "operation": "present"
+    },
+    {
+      "path": "tests/fixtures/deterministic/business.sql",
+      "size": 292,
+      "working_file_sha256": "eb0a93f6ac9283912499d2a2ce9a0b11443593b2900f80104cc35b4742b2f091",
+      "operation": "present"
+    },
+    {
+      "path": "tests/fixtures/deterministic/decrement.sql",
+      "size": 200,
+      "working_file_sha256": "e48c20a3a27a52c15182f3190ef4bee969fee1a6f224f8f5c0d6649ab9a700a3",
+      "operation": "present"
+    },
+    {
+      "path": "tests/fixtures/deterministic/expected_business.json",
+      "size": 501,
+      "working_file_sha256": "89b030fa072d9f70b2b7639ae026d46fd3fd25537acd1c740198e6455182790a",
+      "operation": "present"
+    },
+    {
+      "path": "tests/test_acceptance_closure.py",
+      "size": 3310,
+      "working_file_sha256": "29fb1b2916052e50ab4f83326a16b3663d122f96961c9c941972c7d06ae17f5b",
+      "operation": "present"
+    },
+    {
+      "path": "tests/test_ai_exports.py",
+      "size": 8060,
+      "working_file_sha256": "11531c034a35733d9c70423ed55f24324adb79a676566a9fc11908848b164635",
+      "operation": "present"
+    },
+    {
+      "path": "tests/test_deterministic_closure.py",
+      "size": 21675,
+      "working_file_sha256": "d9f63dff7823d09dc8a7c7c0e90dfae031cd8935e32e5ece217103ba32053f97",
+      "operation": "present"
+    },
+    {
+      "path": "tests/test_deterministic_core.py",
+      "size": 24981,
+      "working_file_sha256": "9963a39527abef159b41c09511887d75b6355255f082c7ce488082c514febb3d",
+      "operation": "present"
+    },
+    {
+      "path": "tests/test_deterministic_lifecycle.py",
+      "size": 15169,
+      "working_file_sha256": "c9cbbc87da347e85a203a279bf990a7dd43976ada3aac66d2cad3ed764496e49",
+      "operation": "present"
+    },
+    {
+      "path": "tests/test_deterministic_oracle.py",
+      "size": 5401,
+      "working_file_sha256": "d98fd97898430118d5f4e8a356a689227b3733a66b5e5dd6e4d60cb1cf89adc3",
+      "operation": "present"
+    },
+    {
+      "path": "tests/test_deterministic_precision.py",
+      "size": 3225,
+      "working_file_sha256": "daa86a4fbb33e69dd3f91531d79202fee4f2aabaa171ecc2a75c1fab48c08f41",
+      "operation": "present"
+    },
+    {
+      "path": "tests/test_knowledge.py",
+      "size": 7510,
+      "working_file_sha256": "9b2383efd8029783f13416c1aeaadb6a9dba9d58a874aaac10858fc8d15ab582",
+      "operation": "present"
+    },
+    {
+      "path": "tests/test_resume_regressions.py",
+      "size": 12100,
+      "working_file_sha256": "d0c84561812e07ef7807c90aeeba6e3a19f7120f71af5ea7b8fc780b829ea62f",
+      "operation": "present"
+    },
+    {
+      "path": "tests/test_v1_parity_regressions.py",
+      "size": 6407,
+      "working_file_sha256": "89a59dda9a3c6e7a7b8e2ad9df4c4e40a16c3c40e073789786ed905720638ed3",
+      "operation": "present"
+    }
+  ],
+  "checks": {
+    "baseline_forward_apply": "passed",
+    "changed_reverse_apply": "passed",
+    "real_index_unchanged": true,
+    "branch_unchanged": true,
+    "vega_and_vendor_unchanged": true
+  },
+  "acceptance_source_snapshot": "b05c6c86037860bf92f7bce8cc72606d83b3a019bbb8f1c12cf3016eb4e09f84",
+  "excluded_transport_and_self_references": [
+    "reports/deterministic_core/change.patch",
+    "reports/deterministic_core/closure_20260930/change.patch",
+    "reports/deterministic_core/closure_20260930/delivery.json"
+  ],
+  "temporary_indexes": "C:\\Users\\dbarbiero\\AppData\\Local\\Temp\\dslm3_patch_indexes_9xy1maaz",
+  "encoding": "Native Git binary output, no PowerShell text redirection; Git normalizes tracked text according to repository settings"
+}

@@ -18,7 +18,7 @@ if (-not $ProjectPython) {
 if (-not (Test-Path -LiteralPath $ProjectPython)) { throw 'Python executable not found.' }
 & $ProjectPython -c "import sys,struct; assert sys.version_info[:2]==(3,12); assert struct.calcsize('P')==8; import pytest,sqlglot,docling,playwright; print(sys.executable)"
 if ($LASTEXITCODE -ne 0) { throw 'Python 3.12 x64 or project dependencies unavailable. Install editable .[dev].' }
-if (-not $ReportDirectory) { $ReportDirectory = Join-Path $RepoV3 'reports\deterministic_core\final' }
+if (-not $ReportDirectory) { $ReportDirectory = Join-Path $RepoV3 ('reports\deterministic_core\run_' + (Get-Date -Format 'yyyyMMdd_HHmmss')) }
 $Runner = Join-Path $PSScriptRoot 'core_acceptance.py'
 $RunnerArgs = @($Runner, '--report-dir', $ReportDirectory, '--shell-version', $PSVersionTable.PSVersion.ToString())
 if ($RuntimeRoot) { $RunnerArgs += @('--runtime-root', $RuntimeRoot) }

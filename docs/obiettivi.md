@@ -1,6 +1,6 @@
 # DSLM3 — obiettivi, gate e protocollo anti-drift
 
-## Incarico corrente — core deterministico, 2026-09-29
+## Pass corrente — chiusura core deterministico, 2026-09-30
 
 Branch locale `feat/deterministic-core-upgrade`, baseline
 `a7117e061b393123e3b7b2ec22bf171687756447`, padre `fix/vega-quality-backlog`.
@@ -10,10 +10,12 @@ qui sotto documentano la storia; non attestano questa modifica.
 Contratto e registro: [contratto v4](contratto_deterministico.md),
 [copertura per componente](copertura_deterministica.md).
 G01–G18, COV-01–08 e BIZ-01–08 sono tracciati con test e attesi nel
-[rapporto eseguibile](../reports/deterministic_core/final/acceptance.json).
-Stato conclusivo: **G01–G18, COV-01–08, BIZ-01–08 passed** su Windows nativo
-PowerShell 5.1 e Python 3.12.10 x64. Suite 136 passed, zero failed/skipped;
-Vega deterministico 12/12, integrato 19/19, browser e wheel verificati.
+[rapporto eseguibile](../reports/deterministic_core/closure_20260930/acceptance.json).
+Chiusura verificata: **G01–G18, COV-01–08 e BIZ-01–08 passed**, 153 test
+passati, zero falliti/saltati; Vega 12/12 e 19/19, browser e wheel passati.
+Il commit iniziale del pass è
+`53bf0c31638199c26fb86c1523018680bf9c34c1`; la baseline originaria resta distinta.
+Il collaudo con 136 test del 29 settembre è storico e non certifica questo pass.
 Il [rapporto corrente](rapporto_core_deterministico.md) delimita il subset e
 i limiti. Il manifest 3.0.0 rimane storico e non certifica gli hash modificati.
 
@@ -61,7 +63,7 @@ dell'acceptance core; le prove 3.0.0 rimangono storiche.
 
 - [x] UI: percorso `00 → 01 → 02 → 03 → 02 → 04 → 02 → 05 → 06`, con 02 come gate ricorrente e pipeline rapida come scorciatoia.
 - [x] Workspace: registry locale, create/register/switch/forget, isolamento e switch bloccato durante job attivi.
-- [x] Regressioni: `tests/test_workspaces.py`, `tests/test_web.py`, suite completa 136 passed.
+- [x] Regressioni: `tests/test_workspaces.py`, `tests/test_web.py`, suite completa del 29 settembre: 136 passed (prova storica).
 - [x] Browser: navigazione e selettore workspace in Chromium desktop/mobile.
 - [x] Vega integrato: nuovo workspace, 19/19; prova deterministica separata 12/12.
 - [x] Documentazione: README, manuale, architettura, limiti, diario, protocollo e START_HERE allineati.
