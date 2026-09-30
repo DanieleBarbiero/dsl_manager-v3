@@ -51,3 +51,4 @@ Thumbs.db
 !reports/deterministic_core/change.patch
 !reports/deterministic_core/closure_20260930/change.patch
 !reports/deterministic_core/closure_20260930/source_diff.patch
+workspace/
