@@ -2,6 +2,11 @@
 
 Refreshing never executes or reattributes tests. Tested HEAD and executable file
 hashes are immutable inputs; a changed source/test/harness requires a new run.
+
+Report directories may live either inside or outside the repository. External
+report directories are treated as transient run evidence: they must not force
+versioned documentation or release_manifest.json to point at a machine-local
+absolute path.
 """
 
 from __future__ import annotations
@@ -129,6 +134,40 @@ def unsupported_gate_claims(record, cases):
     return unsupported
 
 
+def report_reference(root, reports):
+    """Describe a report directory without assuming it is under the repo root."""
+    root = root.resolve()
+    reports = reports.resolve()
+    try:
+        relative = reports.relative_to(root).as_posix()
+    except ValueError:
+        return {
+            "scope": "external",
+            "directory": str(reports),
+            "acceptance": str(reports / "acceptance.json"),
+        }
+    return {
+        "scope": "repository",
+        "directory": relative,
+        "acceptance": relative + "/acceptance.json",
+    }
+
+
+def repository_file(root, relative_path):
+    """True only for an existing, non-escaping path rooted in the repository."""
+    if not isinstance(relative_path, str) or not relative_path:
+        return False
+    candidate = Path(relative_path)
+    if candidate.is_absolute():
+        return False
+    try:
+        resolved = (root / candidate).resolve()
+        resolved.relative_to(root.resolve())
+    except (OSError, ValueError):
+        return False
+    return resolved.is_file()
+
+
 def audit(root, reports, record):
     checks = []
 
@@ -251,19 +290,31 @@ def audit(root, reports, record):
         },
     )
 
-    relative = reports.relative_to(root).as_posix()
+    report_ref = report_reference(root, reports)
     docs = {
         p: sha((root / p).read_bytes()) if (root / p).is_file() else None for p in DOCS
     }
     report_text = (root / "docs/rapporto_core_deterministico.md").read_text(
         encoding="utf-8"
     )
-    required = [BASELINE, BRANCH, head, "snapshot", "storich", relative]
+
+    # Versioned documentation must describe the durable project state. A transient
+    # external report path is intentionally not required to appear in committed docs.
+    required = [BASELINE, BRANCH, "snapshot", "storich"]
+    if report_ref["scope"] == "repository":
+        required.extend([head, report_ref["directory"]])
     check(
         "required_documentation_and_provenance",
         all(docs.values()) and all(t in report_text for t in required),
-        {"document_sha256": docs, "report_required_tokens": required},
+        {
+            "document_sha256": docs,
+            "report_required_tokens": required,
+            "report_scope": report_ref["scope"],
+            "current_report": report_ref["acceptance"],
+            "current_head": head,
+        },
     )
+
     manifest = json.loads((root / "release_manifest.json").read_text(encoding="utf-8"))
     historical_manifest = json.loads(git(root, "show", head + ":release_manifest.json"))
     preserved_release_fields = [
@@ -274,11 +325,20 @@ def audit(root, reports, record):
         "release_date",
         "version",
     ]
+
+    canonical_acceptance = manifest.get("current_change_acceptance")
+    if report_ref["scope"] == "repository":
+        acceptance_pointer_ok = canonical_acceptance == report_ref["acceptance"]
+    else:
+        # An external certification run is ephemeral and must not rewrite the
+        # canonical, repository-relative acceptance pointer in the manifest.
+        acceptance_pointer_ok = repository_file(root, canonical_acceptance)
+
     check(
         "release_manifest_historical_scope",
         manifest.get("status")
         == "historical_manifest_not_rebuilt_for_deterministic_core"
-        and manifest.get("current_change_acceptance") == relative + "/acceptance.json"
+        and acceptance_pointer_ok
         and manifest.get("current_change_report")
         == "docs/rapporto_core_deterministico.md"
         and "storica" in manifest.get("manifest_scope", "")
@@ -294,6 +354,15 @@ def audit(root, reports, record):
                 "current_change_acceptance",
                 "current_change_report",
             ]
+        }
+        | {
+            "report_scope": report_ref["scope"],
+            "current_run_acceptance": report_ref["acceptance"],
+            "canonical_pointer_check": (
+                "matches current repository report"
+                if report_ref["scope"] == "repository"
+                else "preserved repository-relative canonical report"
+            ),
         },
     )
 
@@ -326,7 +395,8 @@ def audit(root, reports, record):
             "historical_report": historical,
             "historical_sha256": sha(historical_bytes),
             "historical_tested_provenance": old["code_provenance"],
-            "current_report": relative + "/acceptance.json",
+            "current_report": report_ref["acceptance"],
+            "report_scope": report_ref["scope"],
             "note": "The historical dirty-tree run is not attributed to the present HEAD.",
         },
     )
