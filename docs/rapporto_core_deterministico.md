@@ -206,11 +206,14 @@ Le iterazioni e i motivi di correzione restano nel diario e nei report
 precedenti della stessa cartella. `final/` rimane storico; solo `closure_20260930/` identifica il nuovo collaudo.
 
 
-Il checkout contiene un workspace storico già tracciato nella baseline,
-compreso `workspace/registry.sqlite3`; è rimasto invariato ed è escluso dal delta
-da consegnare. G18 registra i blob di questi file preesistenti. Qualsiasi nuovo
-o modificato file runtime nel delta fallisce il controllo: l'esclusione non è
-una deroga per database introdotti da questo pass.
+Durante la chiusura G18 il checkout conteneva ancora il workspace storico già
+tracciato nella baseline, compreso `workspace/registry.sqlite3`; quella prova lo
+registrava come runtime preesistente invariato e fuori dal delta del core.
+Successivamente, nel commit `fd520b1` sul branch Vega, `workspace/` è stato
+rimosso dal versionamento e aggiunto a `.gitignore`, senza cancellarne la copia
+locale. Il workspace è quindi runtime locale e non fa parte della consegna da
+promuovere a `main`. Questo cleanup non modifica il core certificato e rende
+storico il precedente riferimento G18 al workspace versionato.
 
 
 Il controllo whitespace di sorgenti, test, harness e documentazione è pulito.

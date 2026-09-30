@@ -178,3 +178,20 @@ Docling serializza `valid_from` come `valid\\_from` nel Markdown. La conversione
   rieseguito senza modificare o riassegnare le prove. Runtime storico già nella
   baseline preservato, escluso dalla patch; nessun file runtime nuovo consegnato.
 - Nessun nuovo branch, merge, push o altra scrittura remota in questo pass.
+
+## 2026-09-30 — pulizia pre-promozione Vega → main
+
+- Il branch `feat/deterministic-core-upgrade` è stato integrato in
+  `fix/vega-quality-backlog` tramite fast-forward, preservando esattamente lo
+  snapshot del core già certificato.
+- Prima della promozione a `main` è stato verificato il delta completo. La
+  directory `workspace/` conteneva esclusivamente stato runtime persistente già
+  versionato nelle baseline precedenti: registry SQLite, log, artefatti di
+  parsing, output AI e copie del corpus.
+- Con il commit `fd520b1` (`remove runtime workspace from version control`)
+  l'intera directory `workspace/` è stata rimossa dall'indice Git e aggiunta a
+  `.gitignore`; i file locali sono stati preservati.
+- Il cleanup non modifica sorgenti, test o logica applicativa. Le precedenti
+  annotazioni G18 che descrivono il workspace storico come tracciato restano
+  valide come documentazione del collaudo svolto prima di questa pulizia, ma non
+  descrivono più lo stato corrente del branch Vega.

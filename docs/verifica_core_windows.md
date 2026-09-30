@@ -108,6 +108,8 @@ I report storici non vengono riscritti per ripulire il diff.
 
 
 L'inventario di consegna coincide con il delta dalla baseline più i file nuovi.
-Il checkout contiene un workspace storico tracciato: G18 ne registra i blob e
-lo preserva, ma non lo include nella patch se invariato. Un database o qualunque
-file sotto workspace/ nuovo o modificato rimane un errore, coperto da test.
+Nel collaudo G18 del core il checkout conteneva ancora un workspace storico
+tracciato e invariato. Dalla successiva pulizia di promozione (`fd520b1`),
+`workspace/` non è più versionato ed è ignorato da Git. Le verifiche devono usare
+workspace runtime locali o temporanei e non devono introdurre file sotto
+`workspace/` nel repository.

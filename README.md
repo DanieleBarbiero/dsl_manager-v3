@@ -25,6 +25,7 @@ bash avvia.sh
 ```
 
 Su Windows sostituire `.venv/bin/python` con `.venv\Scripts\python.exe`. Per fermare il server usare Ctrl+C nella console. Il workspace rimane persistente.
+La directory predefinita `workspace/` è runtime locale persistente ed è esclusa dal versionamento Git.
 
 ## Workspace multipli e test pulito
 
