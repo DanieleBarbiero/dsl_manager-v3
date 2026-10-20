@@ -23,6 +23,7 @@ Thumbs.db
 
 # VS Code workspace-local noise
 .vscode/*.log
+.vs/
 
 # misc
 *.bat
