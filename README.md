@@ -18,18 +18,18 @@ bash installa.sh
 bash avvia.sh
 ```
 
-È possibile scegliere workspace e porta dalla CLI:
+È possibile scegliere il contenitore dei workspace e la porta dalla CLI:
 
 ```bash
-.venv/bin/python -m dslm3 --workspace ./mio_workspace serve --port 8765
+.venv/bin/python -m dslm3 --workspace ./workspaces serve --port 8765
 ```
 
 Su Windows sostituire `.venv/bin/python` con `.venv\Scripts\python.exe`. Per fermare il server usare Ctrl+C nella console. Il workspace rimane persistente.
-La directory predefinita `workspace/` è runtime locale persistente ed è esclusa dal versionamento Git.
+La directory predefinita `workspaces/` è il contenitore locale dei workspace persistenti ed è esclusa dal versionamento Git. All’avvio DSLM3 non crea alcun workspace al suo interno; le sottodirectory che contengono già `project.json` e `registry.sqlite3` vengono rilevate come workspace esistenti.
 
 ## Workspace multipli e test pulito
 
-La UI registra più workspace indipendenti in `.dslm3-workspaces.json`, accanto al workspace predefinito. Il selettore laterale permette di creare un workspace vuoto, registrare un workspace DSLM3 esistente, cambiare workspace e dimenticare una voce senza cancellarne i file. Un singolo server ha un solo workspace attivo per volta e non consente lo switch mentre un job è queued/running.
+La UI gestisce più workspace indipendenti sotto `workspaces/` e mantiene `.dslm3-workspaces.json` accanto al contenitore per eventuali registrazioni esplicite. Il selettore laterale permette di creare un workspace vuoto, registrare un workspace DSLM3 esistente, cambiare workspace e dimenticare una voce senza cancellarne i file. Un singolo server ha un solo workspace attivo per volta e non consente lo switch mentre un job è queued/running.
 
 Per un test davvero pulito è preferibile creare un **nuovo workspace** dalla UI. In alternativa, a server fermo, si può svuotare la directory del workspace: al riavvio DSLM3 ricrea `project.json`, `registry.sqlite3` e le directory runtime; poi **Carica il laboratorio** riacquisisce Vega.
 

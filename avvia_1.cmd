@@ -6,5 +6,5 @@ if not exist ".venv\Scripts\python.exe" (
   pause
   exit /b 1
 )
-".venv\Scripts\python.exe" -m dslm3 --workspace "%~dp0workspace" serve %*
+".venv\Scripts\python.exe" -m dslm3 --workspace "%~dp0workspaces" serve %*
 if errorlevel 1 pause

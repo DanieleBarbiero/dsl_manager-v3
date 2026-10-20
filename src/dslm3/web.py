@@ -197,23 +197,34 @@ def dispatch(app: Application, operation: str, args: dict):
 
 
 class ActiveApplication:
-    def __init__(self, application: Application):
+    def __init__(self, application: Application | None):
         self._current = application
 
     @property
+    def has_current(self) -> bool:
+        return self._current is not None
+
+    @property
     def current(self) -> Application:
+        if self._current is None:
+            raise DomainError(
+                "workspace_missing",
+                "Nessun workspace attivo. Creane o selezionane uno.",
+                409,
+            )
         return self._current
 
     def switch(self, application: Application) -> None:
         self._current = application
 
     def __getattr__(self, name):
-        return getattr(self._current, name)
+        return getattr(self.current, name)
 
 
-def create_app(workspace: str | Path) -> FastAPI:
-    application = ActiveApplication(Application(workspace))
-    registry = WorkspaceRegistry(workspace)
+def create_app(workspaces: str | Path) -> FastAPI:
+    registry = WorkspaceRegistry(workspaces)
+    initial = registry.startup_workspace()
+    application = ActiveApplication(Application(initial) if initial is not None else None)
     token = secrets.token_urlsafe(32)
     jobs = {}
     lock = threading.Lock()
@@ -280,11 +291,13 @@ def create_app(workspace: str | Path) -> FastAPI:
 
     @api.get("/api/bootstrap")
     def bootstrap():
+        active = application.current.root if application.has_current else None
         return {
             "token": token,
             "version": __version__,
-            "workspace": str(application.root),
-            "workspace_id": registry.workspace_id(application.root),
+            "workspaces": str(registry.root),
+            "workspace": str(active) if active is not None else None,
+            "workspace_id": registry.workspace_id(active) if active is not None else None,
         }
 
     def require_workspace_idle():
@@ -300,7 +313,8 @@ def create_app(workspace: str | Path) -> FastAPI:
 
     @api.get("/api/workspaces")
     def workspaces():
-        return registry.list(application.root)
+        active = application.current.root if application.has_current else None
+        return registry.list(active)
 
     @api.post("/api/workspaces")
     async def workspace_action(request: Request):
@@ -342,7 +356,8 @@ def create_app(workspace: str | Path) -> FastAPI:
             entry = registry.add(target, body.get("name"))
             if body.get("activate", True):
                 application.switch(candidate)
-            return {"workspace": entry, **registry.list(application.root)}
+            active = application.current.root if application.has_current else None
+            return {"workspace": entry, **registry.list(active)}
         if operation == "switch":
             if not isinstance(body.get("id"), str):
                 raise DomainError("workspace_missing", "ID workspace mancante.")
@@ -359,12 +374,13 @@ def create_app(workspace: str | Path) -> FastAPI:
                     409,
                 )
             application.switch(Application(target))
-            return registry.list(application.root)
+            return registry.list(application.current.root)
         if operation == "forget":
             if not isinstance(body.get("id"), str):
                 raise DomainError("workspace_missing", "ID workspace mancante.")
-            registry.forget(body["id"], application.root)
-            return registry.list(application.root)
+            active = application.current.root if application.has_current else None
+            registry.forget(body["id"], active)
+            return registry.list(active)
         raise DomainError(
             "invalid_workspace_action",
             "Operazione workspace non riconosciuta.",
