@@ -93,9 +93,15 @@ async function action(operation, args = {}) {
     }
 }
 async function refresh() {
-    const names = ['status', 'sources', 'candidates', 'knowledge', 'plans', 'packages', 'snapshots', 'temporal', 'config', 'runs', 'workspaces'];
+    const workspaces = await api('workspaces');
+    if (!workspaces.active_id) {
+        data = {workspaces};
+        render();
+        return
+    }
+    const names = ['status', 'sources', 'candidates', 'knowledge', 'plans', 'packages', 'snapshots', 'temporal', 'config', 'runs'];
     const values = await Promise.all(names.map(x => api(x)));
-    data = Object.fromEntries(names.map((x, i) => [x, values[i]]));
+    data = {workspaces, ...Object.fromEntries(names.map((x, i) => [x, values[i]]))};
     render()
 }
 
@@ -107,11 +113,18 @@ function route() {
 }
 
 function render() {
+    if (!data.workspaces) return;
+    renderWorkspaceControls();
+    if (!data.workspaces.active_id) {
+        $('#page-title').textContent = 'Workspace';
+        $$('nav a').forEach(a => a.classList.remove('active'));
+        $('#content').innerHTML = `<div class="card"><h2>Nessun workspace attivo</h2><p class="muted">La directory <span class="mono">${esc(data.workspaces.root)}</span> è il contenitore dei workspace. L'avvio non crea automaticamente un workspace al suo interno.</p><div class="actions">${button('Gestisci workspace','workspace-manage','','primary')}</div></div>`;
+        return
+    }
     if (!data.status) return;
     $('#page-title').textContent = titles[page];
     $$('nav a').forEach(a => a.classList.toggle('active', a.dataset.page === page));
     $('#content').innerHTML = views[page]();
-    renderWorkspaceControls();
     decoratePage();
     bindFilters()
 }
@@ -148,7 +161,11 @@ function renderWorkspaceControls() {
         box = $('#workspace-switcher')
     }
     const select = $('#workspace-select');
-    select.innerHTML = data.workspaces.items.map(w => `<option value="${esc(w.id)}" ${w.id===data.workspaces.active_id?'selected':''}>${esc(w.name)}${w.available?'':' · non disponibile'}</option>`).join('');
+    const noActive = data.workspaces.active_id ? '' : '<option value="" selected>Nessun workspace attivo</option>';
+    select.innerHTML = noActive + (data.workspaces.items.length
+        ? data.workspaces.items.map(w => `<option value="${esc(w.id)}" ${w.id===data.workspaces.active_id?'selected':''}>${esc(w.name)}${w.available?'':' · non disponibile'}</option>`).join('')
+        : '<option value="">Nessun workspace disponibile</option>');
+    select.disabled = !data.workspaces.items.length;
     select.onchange = async () => {
         if (select.value === data.workspaces.active_id) return;
         const result = await workspaceAction('switch', {
@@ -157,7 +174,7 @@ function renderWorkspaceControls() {
         if (result) location.hash = 'overview'
     };
     const active = data.workspaces.items.find(w => w.id === data.workspaces.active_id);
-    $('#workspace-path').textContent = active?.path || data.status.workspace
+    $('#workspace-path').textContent = active?.path || data.workspaces.root
 }
 
 function decorateReviewPage() {
@@ -418,7 +435,7 @@ async function clickAction(a) {
         id = a.dataset.id;
     if (op === 'workspace-manage') {
         const w = data.workspaces;
-        show('Workspace', `<p class="muted">Ogni workspace conserva un registry, corpus, revisioni, review, package AI, snapshot e log indipendenti. Dimenticare una voce non cancella nessun file.</p><div class="item-list">${w.items.map(x=>`<div class="item"><div class="item-head"><strong>${esc(x.name)}</strong>${x.active?badge('success','Attivo'):badge(x.available?'info':'error',x.available?'Disponibile':'Non disponibile')}</div><p class="mono">${esc(x.path)}</p>${x.active?'':`<div class="actions">${button('Dimentica','workspace-forget',`data-id="${x.id}"`)}</div>`}</div>`).join('')}</div><div class="card"><h3>Crea o registra</h3>${formField('workspace-name','Nome visualizzato (opzionale)')}${formField('workspace-path-input','Percorso assoluto del workspace')}<div class="actions">${button('Crea nuovo e attiva','workspace-create','','primary')}${button('Registra esistente e attiva','workspace-register')}</div><p class="small muted">Crea nuovo accetta solo una directory assente o vuota. Registra esistente richiede project.json e registry.sqlite3.</p></div>`);
+        show('Workspace', `<p class="muted">Ogni workspace conserva un registry, corpus, revisioni, review, package AI, snapshot e log indipendenti. Dimenticare una voce non cancella nessun file.</p><div class="item-list">${w.items.map(x=>`<div class="item"><div class="item-head"><strong>${esc(x.name)}</strong>${x.active?badge('success','Attivo'):badge(x.available?'info':'error',x.available?'Disponibile':'Non disponibile')}</div><p class="mono">${esc(x.path)}</p>${x.active||x.discovered?'':`<div class="actions">${button('Dimentica','workspace-forget',`data-id="${x.id}"`)}</div>`}</div>`).join('')}</div><div class="card"><h3>Crea o registra</h3>${formField('workspace-name','Nome visualizzato (opzionale)')}${formField('workspace-path-input','Percorso assoluto del workspace')}<div class="actions">${button('Crea nuovo e attiva','workspace-create','','primary')}${button('Registra esistente e attiva','workspace-register')}</div><p class="small muted">Crea nuovo accetta solo una directory assente o vuota. Registra esistente richiede project.json e registry.sqlite3.</p></div>`);
         return
     }
     if (op === 'workspace-create' || op === 'workspace-register') {
@@ -617,7 +634,7 @@ try {
     const b = await api('bootstrap');
     token = b.token;
     $('#version').textContent = 'v' + b.version;
-    $('#workspace-path').textContent = b.workspace;
+    $('#workspace-path').textContent = b.workspace || b.workspaces;
     prepareNavigation();
     await refresh();
     route()

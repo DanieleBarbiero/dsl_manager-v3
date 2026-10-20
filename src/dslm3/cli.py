@@ -9,6 +9,7 @@ from pathlib import Path
 from dslm3.common import DomainError
 from dslm3.service import Application
 from dslm3.web import dispatch
+from dslm3.workspaces import WorkspaceRegistry
 
 
 def main(argv=None):
@@ -18,8 +19,8 @@ def main(argv=None):
     parser.add_argument(
         "--workspace",
         "-w",
-        default="workspace",
-        help="Directory del workspace persistente",
+        default="workspaces",
+        help="Directory del workspace o del contenitore workspaces per la UI",
     )
     commands = parser.add_subparsers(dest="command", required=True)
     serve = commands.add_parser("serve", help="Avvia la UI web locale")
@@ -91,7 +92,6 @@ def main(argv=None):
     action.add_argument("--args", default="{}")
     action.add_argument("--args-file")
     args = parser.parse_args(argv)
-    app = Application(args.workspace)
     try:
         if args.command == "serve":
             import uvicorn
@@ -108,6 +108,16 @@ def main(argv=None):
                 log_level="info",
             )
             return 0
+        workspace_path = Path(args.workspace).expanduser().resolve()
+        if workspace_path.name.casefold() == "workspaces":
+            selected = WorkspaceRegistry(workspace_path).startup_workspace()
+            if selected is None:
+                raise DomainError(
+                    "workspace_missing",
+                    "Nessun workspace DSLM3 disponibile sotto workspaces.",
+                )
+            workspace_path = selected
+        app = Application(workspace_path)
         if args.command in {"status", "init"}:
             result = app.status()
         else:

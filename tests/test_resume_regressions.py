@@ -223,7 +223,11 @@ def test_partial_pipeline_and_cli_are_visible(tmp_path):
 
 @pytest.mark.parametrize("paths", ["null", "{}", "[12]", '"wrong"'])
 def test_upload_path_types_are_rejected(tmp_path, paths):
-    with TestClient(create_app(tmp_path)) as client:
+    workspaces = tmp_path / "workspaces"
+    workspace = workspaces / "upload_test"
+    Application(workspace)
+
+    with TestClient(create_app(workspaces)) as client:
         token = client.get("/api/bootstrap").json()["token"]
         r = client.post(
             "/api/upload",

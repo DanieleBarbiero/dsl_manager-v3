@@ -1,10 +1,14 @@
 import time
 from fastapi.testclient import TestClient
+from dslm3.service import Application
 from dslm3.web import create_app
 
 
 def test_web_real_flow_and_local_security(tmp_path):
-    app = create_app(tmp_path / "web")
+    workspaces = tmp_path / "workspaces"
+    workspace = workspaces / "web"
+    Application(workspace)
+    app = create_app(workspaces)
     with TestClient(app) as client:
         assert client.get("/").status_code == 200
         assert "DSL Manager" in client.get("/").text
@@ -25,7 +29,7 @@ def test_web_real_flow_and_local_security(tmp_path):
             ).status_code
             == 400
         )
-        fixture = tmp_path / "web" / "ai" / "outbox" / "windows-path.txt"
+        fixture = workspace / "ai" / "outbox" / "windows-path.txt"
         fixture.parent.mkdir(parents=True, exist_ok=True)
         fixture.write_bytes(b"ok")
         downloaded = client.get(
