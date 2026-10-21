@@ -18,7 +18,7 @@ from dslm3 import __version__
 from dslm3.common import DomainError, safe_relative, within, now
 from dslm3.service import Application
 from dslm3.workspaces import WorkspaceRegistry
-from dslm3.knowledge import Knowledge, POLICIES
+from dslm3.knowledge import Knowledge, POLICIES, RULE_POLICIES
 from dslm3.temporal import Temporal
 from dslm3.ai import AI
 from dslm3.exports import Exports
@@ -104,7 +104,7 @@ def dispatch(app: Application, operation: str, args: dict):
         if args.get("profile") == "manual":
             values = {**values, "automatic_policies": []}
         if "automatic_policies" in values and set(values["automatic_policies"]) - set(
-            POLICIES.values()
+            RULE_POLICIES.values()
         ):
             raise DomainError("unknown_policy", "Policy automatica sconosciuta.")
         return app.store.configure(values, args.get("expected_hash"))

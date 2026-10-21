@@ -209,13 +209,31 @@ class Application:
             )
         from dslm3.parsers.documents import decode
 
-        needs_schema = source.suffix.lower() in SQL_EXTENSIONS and bool(
+        suffix = source.suffix.lower()
+        text = decode(source.read_bytes())[0] if suffix in SQL_EXTENSIONS else ""
+        needs_schema = suffix in SQL_EXTENSIONS and bool(
             re.search(
                 r"\b(?:PROCEDURE|FUNCTION|TRIGGER|VIEW|SELECT|UPDATE|INSERT|DELETE|MERGE|BEGIN|DECLARE)\b",
-                decode(source.read_bytes())[0],
+                text,
                 re.I,
             )
         )
+        java_contract = None
+        if config.get("java_analysis") == "on":
+            from dslm3.parsers import java
+
+            # Only Java-affected files get a new cache key: others keep reusing
+            # their parse when the flag changes.
+            if suffix == ".java" or (
+                suffix in SQL_EXTENSIONS
+                and (java.JAVA_HEADLESS.match(text) or java.has_java_units(text))
+            ):
+                java_contract = {
+                    "parser": java.PARSER,
+                    "grammar": java.grammar_version() or "unavailable",
+                }
+            if suffix in SQL_EXTENSIONS and java.looks_like_java(text):
+                needs_schema = False
         schema = dict(self.schema() if schema is None else schema)
         # Local declarations are parsed from the same bytes, not an external
         # prerequisite. Exclude them from the context key to avoid self-invalidation.
@@ -238,6 +256,8 @@ class Application:
             from dslm3.parsers.documents import WORKBOOK_CONTRACT
 
             relevant["workbook_contract"] = WORKBOOK_CONTRACT
+        if java_contract:
+            relevant["java_contract"] = java_contract
         parser_version = "deterministic-parser/4:" + digest(relevant)
         cached = self.store.one(
             "SELECT * FROM parses WHERE revision_id=? AND parser_version=? AND status IN ('success','partial') ORDER BY created_at DESC LIMIT 1",

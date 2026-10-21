@@ -18,13 +18,18 @@ CODE_TYPES = {
     "sql_type_body",
 }
 DATA_TYPES = {"ddl_table", "ddl_view", "ddl_materialized view", "ddl_synonym"}
+# Java units have their own index: a PL/SQL call never resolves to a Java method.
+JAVA_TYPES = {"java_class", "java_method"}
 
 
 def segments(name, dialect="oracle"):
-    """Quoted dots remain part of one identifier; unquoted SQL names fold to upper."""
+    """Quoted dots remain part of one identifier; unquoted SQL names fold to upper.
+    Java names are case-sensitive and kept as written."""
     return tuple(
         p[1:-1].replace(p[0] * 2, p[0])
         if p[0] in {'"', "`", "["}
+        else p
+        if dialect == "java"
         else p.lower()
         if dialect == "postgres"
         else p.upper()
@@ -44,19 +49,24 @@ class Resolver:
                 if e["type"] == "ddl_column"
                 else "code_unit"
                 if e["type"] in CODE_TYPES
+                else "java_unit"
+                if e["type"] in JAVA_TYPES
                 else None
             )
             if kind:
                 self.index[kind].append(e)
 
     def resolve(self, raw, kind="data_object"):
-        key = segments(raw)
+        key = segments(raw, "java") if kind == "java_unit" else segments(raw)
         rows = [
             e
             for e in self.index[kind]
             if segments(e["data"]["name"], e["data"].get("dialect"))[-len(key) :]
             == segments(raw, e["data"].get("dialect"))
         ]
+        if kind == "java_unit":
+            # Java targets are complete binary names: no suffix match.
+            rows = [e for e in rows if segments(e["data"]["name"], "java") == key]
         body_fallback = False
         if not rows and kind == "code_unit":
             # A body-only package declares callable members too. Prefer an exact
@@ -77,6 +87,13 @@ class Resolver:
         signatures = {canonical(e["data"]) for e in rows}
         if kind == "code_unit":
             signatures = {(canonical(e["data"]), e["text"]) for e in rows}
+        if kind == "java_unit":
+            # The same unit loaded by several files is one declaration; overloads
+            # (different signatures) remain ambiguous.
+            signatures = {
+                canonical({k: v for k, v in e["data"].items() if k != "container"})
+                for e in rows
+            }
         if kind == "data_object":
             signatures = set()
             for e in rows:

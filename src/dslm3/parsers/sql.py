@@ -25,6 +25,18 @@ UNIT = re.compile(
     + r")",
     re.I,
 )
+# Oracle Java units and call specifications: recognized only with java_analysis on.
+JAVA_UNIT = re.compile(
+    r"\bCREATE\s+(?:OR\s+REPLACE\s+)?(?:AND\s+(?:RESOLVE|COMPILE)\s+)?(?:(?:NOFORCE|EDITIONABLE|NONEDITIONABLE)\s+)*JAVA\s+(SOURCE|RESOURCE|CLASS)\b(?:\s+NAMED\s+("
+    + IDENT
+    + r"))?",
+    re.I,
+)
+JAVA_CALL_SPEC = re.compile(r"\b(?:AS|IS)\s+LANGUAGE\s+JAVA\s+NAME\b", re.I)
+JAVA_SLASH = re.compile(r"(?m)^[ \t]*/[ \t\r]*$")
+JAVA_NEXT = re.compile(
+    r"(?im)^[ \t]*CREATE\s+(?:OR\s+REPLACE\s+)?(?:(?:AND\s+(?:RESOLVE|COMPILE)|NOFORCE|EDITIONABLE|NONEDITIONABLE|FORCE|NO\s+FORCE|GLOBAL\s+TEMPORARY|UNIQUE|PUBLIC)\s+)*(?:JAVA|TABLE|VIEW|INDEX|SEQUENCE|SYNONYM|PACKAGE|PROCEDURE|FUNCTION|TRIGGER|TYPE|MATERIALIZED)\b"
+)
 CONTEXT = (exp.Select, exp.Update, exp.Delete, exp.Insert, exp.Merge)
 
 
@@ -179,7 +191,47 @@ def identify(text: str, dialect: str = "auto") -> dict:
     }
 
 
-def units(text: str):
+def java_regions(text: str, prepared: str) -> tuple[str, list, list]:
+    """Blank Oracle Java units, whose quotes and comments are not SQL ones.
+
+    An inline JAVA SOURCE ends, like in SQL*Plus, at the first line holding only
+    "/" (also before CR), else at the next CREATE header at line start outside
+    Java comments and literals; external units end at their semicolon.
+    Returns the blanked text, the (start, end) regions and extra terminators.
+    """
+    from dslm3.parsers.java import mask_java
+
+    work = list(prepared)
+    regions, slashes = [], []
+    pos = 0
+    while m := JAVA_UNIT.search(mask_literals("".join(work[pos:]))):
+        head, header_end = pos + m.start(), pos + m.end()
+        slash = JAVA_SLASH.search(text, header_end)
+        stop = slash.start() if slash else len(text)
+        following = JAVA_NEXT.search(mask_java(text[head:stop]), header_end - head)
+        if following:
+            stop = head + following.start()
+        clause = re.search(r"\b(AS|USING)\b", mask_literals(text[header_end:stop]), re.I)
+        if clause and (clause[1].upper() == "USING" or m[1].upper() != "SOURCE"):
+            tail = header_end + clause.end()
+            semicolon = mask_literals(text[tail:stop]).find(";")
+            if semicolon >= 0:
+                stop = tail + semicolon + 1
+        ends_at_slash = slash is not None and stop == slash.start()
+        if ends_at_slash:
+            slashes.extend([slash.start(), slash.end()])
+            for i in range(slash.start(), slash.end()):
+                if work[i] != "\n":
+                    work[i] = " "
+        for i in range(head, stop):
+            if work[i] != "\n":
+                work[i] = " "
+        regions.append((head, stop))
+        pos = slash.end() if ends_at_slash else stop
+    return "".join(work), regions, slashes
+
+
+def units(text: str, java: bool = False):
     # Remove client directives before masking dollar strings: DELIMITER $$ is
     # not a PostgreSQL dollar-quoted literal. All replacements preserve offsets.
     cleaned = list(text)
@@ -208,6 +260,10 @@ def units(text: str):
         terminators.extend([m.start(), m.end()])
         blank(m.start(), m.end())
     prepared = "".join(cleaned)
+    regions = []
+    if java:
+        prepared, regions, slashes = java_regions(text, prepared)
+        terminators.extend(slashes)
     masked = mask_literals(prepared)
     starts = [
         m.start()
@@ -218,7 +274,17 @@ def units(text: str):
         )
     ]
     boundaries = sorted(set([0, len(text), *starts, *terminators]))
+    if regions:
+        edges = {x for region in regions for x in region}
+        boundaries = sorted(
+            {b for b in boundaries if not any(a < b < z for a, z in regions)} | edges
+        )
+    java_starts = {a for a, _ in regions}
     for left, right in zip(boundaries, boundaries[1:]):
+        if left in java_starts:
+            last = len(text[left:right].rstrip())
+            yield left, left + last, text[left : left + last]
+            continue
         block = prepared[left:right]
         meaningful = mask_literals(block).strip()
         if not meaningful:
@@ -382,7 +448,7 @@ def embedded_sql(body: str):
 
 
 def parse_sql(
-    text: str, dialect: str = "auto", schema: dict | None = None
+    text: str, dialect: str = "auto", schema: dict | None = None, java: bool = False
 ) -> ParseResult:
     result = ParseResult("sql/4")
     info = identify(text, dialect)
@@ -403,8 +469,10 @@ def parse_sql(
             "dialect_lexical_only",
             "Dialetto riconosciuto: conservazione lessicale; AST generico solo dove accettato.",
         )
-    spans = list(units(text))
+    spans = list(units(text, java))
     for _, _, raw in spans:
+        if java and JAVA_UNIT.match(raw):
+            continue
         if not re.search(r"\bCREATE\s+TABLE\b", mask_literals(raw), re.I):
             continue
         try:
@@ -423,6 +491,10 @@ def parse_sql(
             ]
     for start, end, raw in spans:
         loc = location(text, start, end)
+        header = JAVA_UNIT.match(raw) if java else None
+        if header:
+            _java_source(result, raw, start, text, header)
+            continue
         unit = UNIT.search(mask_literals(raw))
         anonymous = re.match(r"\s*(?:DECLARE|BEGIN)\b", mask_literals(raw), re.I)
         if unit or anonymous:
@@ -450,6 +522,8 @@ def parse_sql(
             }
             data["parameters"] = sorted(parameters)
             result.add("sql_" + kind, raw, data, loc)
+            if java and unit:
+                _java_call_specs(result, raw, start, text, name, unit, kind, read)
             masked = mask_literals(raw)
             first_begin = re.search(r"\bBEGIN\b", masked, re.I)
             body_offset = (
@@ -801,3 +875,129 @@ def _statement(
                 unit=owner,
                 **{k: v for k, v in item.items() if k != "reason"},
             )
+
+
+def _literal(raw: str, pos: int) -> tuple[str, int]:
+    """Value and end offset of the SQL string literal opening at `pos`."""
+    i = pos + 1
+    out = []
+    while i < len(raw):
+        if raw[i] == "'":
+            if raw[i + 1 : i + 2] == "'":
+                out.append("'")
+                i += 2
+                continue
+            return "".join(out), i + 1
+        out.append(raw[i])
+        i += 1
+    return "".join(out), len(raw)
+
+
+def _java_call_specs(result, raw, start, text, name, unit, kind, read):
+    """AS LANGUAGE JAVA NAME '...' bindings: explicit calls to a Java method."""
+    masked = mask_literals(raw)
+    members = []
+    if kind in {"package", "package_body", "type", "type_body"}:
+        members = [
+            (
+                unit.end() + m.start(),
+                sql_name(sqlglot.parse_one(m[2], into=exp.Table, read=read)),
+            )
+            for m in re.finditer(
+                r"\b(PROCEDURE|FUNCTION)\s+(" + IDENT + r")", masked[unit.end() :], re.I
+            )
+        ]
+    for spec in JAVA_CALL_SPEC.finditer(masked):
+        # Literals are masked: the opening quote is located on the raw text.
+        quote = re.match(r"\s*'", raw[spec.end() :])
+        value, stop = (
+            _literal(raw, spec.end() + quote.end() - 1) if quote else ("", spec.end())
+        )
+        m = re.match(
+            r"\s*([\w$./]+)\s*(\([^)]*\))?\s*(?:return\s+([\w$./\[\]]+))?",
+            value,
+            re.I,
+        )
+        if not m or not re.search(r"[./]", m[1]):
+            result.warn(
+                "java_call_spec_unparsed",
+                "Call specification Java non interpretabile: nessuna dipendenza.",
+                unit=name,
+            )
+            continue
+        owner = [member for offset, member in members if offset < spec.start()]
+        binary = m[1]
+        # Oracle accepts binary names: com/acme/Util, Outer$Inner (not Outer$1).
+        target = re.sub(r"\$(?=[A-Za-z_])", ".", binary.replace("/", "."))
+        data = {
+            "source": name + ("." + owner[-1] if owner else ""),
+            "relation_type": "calls",
+            "target": target,
+            "target_kind": "java_unit",
+            "binding": "java_call_spec",
+            "java_signature": re.sub(r"\s+", "", m[2] or "()").replace("/", "."),
+        }
+        if target != binary:
+            data["java_binary_target"] = binary
+        if m[3]:
+            data["java_return"] = m[3].replace("/", ".")
+        result.add(
+            "sql_java_call_spec",
+            raw[spec.start() : stop],
+            data,
+            location(text, start + spec.start(), start + stop),
+        )
+
+
+def _java_name(declared: str, kind: str) -> dict:
+    """NAMED clause: quoted parts keep their case, unquoted ones are uppercased."""
+    parts = [
+        quoted.replace('""', '"') if quoted else plain.upper()
+        for quoted, plain in re.findall(
+            r'"((?:""|[^"])+)"|([A-Za-z_#$][\w$#]*)', declared
+        )
+    ]
+    data = {}
+    if len(parts) == 2:
+        data["schema"], short = parts
+    else:
+        short = ".".join(parts)
+    name = short.replace("/", ".") if kind in {"source", "class"} else short
+    if name != short:
+        data["declared_name"] = short
+    return {"name": name, **data}
+
+
+def _java_source(result, raw, start, text, header):
+    """CREATE JAVA SOURCE/CLASS/RESOURCE: inline sources are parsed as Java."""
+    from dslm3.parsers.java import analyze
+
+    kind = header[1].lower()
+    clause = re.search(r"\b(AS|USING)\b", mask_literals(raw[header.end() :]), re.I)
+    inline = bool(clause) and clause[1].upper() == "AS" and kind == "source"
+    data = {
+        "name": None,
+        **(_java_name(header[2], kind) if header[2] else {}),
+        "unit_type": "java_" + kind,
+        "dialect": "java",
+        "storage": "inline" if inline else "external",
+    }
+    result.add("sql_java_source", raw, data, location(text, start, start + len(raw)))
+    if not inline:
+        result.warn(
+            "java_binary_not_analyzed",
+            "Unita' Java esterna (classe, risorsa o file): contenuto non analizzato.",
+            unit=data["name"],
+        )
+        return
+    body_start = header.end() + clause.end()
+    first = len(result.evidence)
+    tops = analyze(
+        result, raw[body_start:], text, start + body_start, container=data["name"]
+    )
+    if data["name"] is None and tops:
+        # Oracle names an unnamed source after its first top-level type.
+        data["name"], data["name_basis"] = tops[0], "derived_from_source"
+        for evidence in result.evidence[first:]:
+            if "container" in evidence["data"]:
+                evidence["data"]["container"] = tops[0]
