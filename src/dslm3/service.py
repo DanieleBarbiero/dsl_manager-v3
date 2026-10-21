@@ -193,7 +193,12 @@ class Application:
         return {k: sorted(set(v)) for k, v in schema.items()}
 
     def parse(
-        self, revision: str, schema: dict | None = None, retry: bool = False
+        self,
+        revision: str,
+        schema: dict | None = None,
+        retry: bool = False,
+        *,
+        refresh_derivations: bool = True,
     ) -> dict:
         row = self.store.one(
             "SELECT r.*,s.path FROM revisions r JOIN sources s ON s.id=r.source_id WHERE r.id=?",
@@ -292,7 +297,8 @@ class Application:
                         "INSERT INTO parse_evidence SELECT ?,evidence_id FROM parse_evidence WHERE parse_id=?",
                         (activation, cached["id"]),
                     )
-            self._refresh_derivations()
+            if refresh_derivations:
+                self._refresh_derivations()
             return {**summary, "cached": True}
         parse_id = uid("PARSE", [revision, parser_version, now()])
         started = time.monotonic()
@@ -424,7 +430,8 @@ class Application:
                     "INSERT OR IGNORE INTO parse_evidence VALUES(?,?)",
                     (parse_id, ident),
                 )
-        self._refresh_derivations()
+        if refresh_derivations:
+            self._refresh_derivations()
         self.store.log("parse", **summary)
         return summary
 
@@ -445,19 +452,35 @@ class Application:
             )
             ordered.append((not has_ddl, s["path"], s["current_revision"]))
         results = []
-        for _, _, revision in sorted(ordered):
-            results.append(self.parse(revision, self.schema(), retry=retry))
-        # Finish SQL against the complete declaration set, independent of import
-        # order. Cache hits do not duplicate evidence or administrative parses.
-        final_schema = self.schema()
-        for index, (_, path, revision) in enumerate(sorted(ordered)):
-            if (
-                Path(path).suffix.lower() in SQL_EXTENSIONS
-                and results[index]["status"] != "error"
-            ):
-                refreshed = self.parse(revision, final_schema)
-                if not refreshed.get("cached"):
-                    results[index] = refreshed
+        try:
+            for _, _, revision in sorted(ordered):
+                results.append(
+                    self.parse(
+                        revision,
+                        self.schema(),
+                        retry=retry,
+                        refresh_derivations=False,
+                    )
+                )
+            # Finish SQL against the complete declaration set, independent of import
+            # order. Cache hits do not duplicate evidence or administrative parses.
+            final_schema = self.schema()
+            for index, (_, path, revision) in enumerate(sorted(ordered)):
+                if (
+                    Path(path).suffix.lower() in SQL_EXTENSIONS
+                    and results[index]["status"] != "error"
+                ):
+                    refreshed = self.parse(
+                        revision,
+                        final_schema,
+                        refresh_derivations=False,
+                    )
+                    if not refreshed.get("cached"):
+                        results[index] = refreshed
+        finally:
+            # Recompute the global deterministic state once per batch instead of
+            # once per source/cache hit. This is the expensive operation.
+            self._refresh_derivations()
         return {
             "results": results,
             "success": sum(x["status"] == "success" for x in results),
