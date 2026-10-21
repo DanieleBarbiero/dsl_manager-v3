@@ -17,6 +17,7 @@
 | `lab.py` | Laboratorio Vega riproducibile, con AI simulata esplicita |
 | `deterministic.py`, `resolution.py` | Registro componenti, inventario atteso, verifica copertura e risoluzione strutturale condivisa |
 | `parsers/sql_shapes.py` | Forme AST canoniche, literal tipizzati, vincoli e statement SQL |
+| `parsers/java.py` | Analisi Java opzionale (flag `java_analysis`, extra `java`): unità, metodi e dipendenze certe via tree-sitter-java, envelope e call specification Oracle |
 | `deterministic_lab.py`, `provenance.py` | Laboratorio senza AI e identificazione del codice realmente eseguito |
 
 ## Flusso e confini
@@ -30,6 +31,8 @@ La migrazione SQLite 2 aggiunge `current_parse` e l'appartenenza dei candidati a
 La migrazione 3 lascia intatte le migrazioni precedenti e aggiunge `deterministic_active`: indice ricostruibile dei candidati attualmente attesi. `current_derivation` integra l'eleggibilità dei supporti con versione regola e contesto risolutivo. Rimuovere una dichiarazione, cambiare schema o regola invalida il supporto corrente senza cancellare review, candidati o snapshot; ripristinare lo stesso contesto riattiva l'identità precedente. L'indice si aggiorna anche prima di una nuova derivazione, dopo ingest/scan/parse e riapertura.
 
 Il registro v4 inventaria i componenti di ogni evidenza prima di confrontarli con i candidati persistiti. Ogni componente distingue supporto, applicabilità, risoluzione, payload attesi e governance. Nessun tipo non registrato equivale implicitamente a evidence-only. L'identità dei fatti SQL include proprietario, occorrenza e ramo dello statement; default, nullability, vincoli e AST restano attributi strutturati fino agli export e al diff. Le dipendenze risolte conservano premesse e fingerprint; i blocchi rimangono visibili e non producono relazioni inventate.
+
+L'analisi Java è un percorso opzionale e isolato. Con `java_analysis=off` il dispatch, la chiave di cache e il digest di configurazione sono quelli precedenti e nessun modulo Java viene importato. Con il flag attivo solo i file con unità Java Oracle, sorgenti headless o estensione `.java` ricevono un contratto `java_contract` nella chiave di cache; gli altri riusano il parse esistente. Le unità Java hanno un indice di risoluzione proprio (`java_unit`), sensibile alle maiuscole e senza match per suffisso: una chiamata PL/SQL non risolve mai su un metodo Java. Le regole `java_unit`, `java_dependency` e `sql_java_call_spec` hanno policy opt-in fuori dal profilo conservativo.
 
 La storia resta disponibile; la revoca non cancella un oggetto fisico. La riconciliazione chiude il lavoro derivante da decisioni mutate e gli export normali ne verificano lo stato. Lo snapshot conserva supporti, citazioni, hash e sorgenti, separati dalle strutture semantiche.
 

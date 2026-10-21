@@ -9,7 +9,7 @@ from collections import Counter
 from pathlib import PurePosixPath
 
 from dslm3.common import DomainError, canonical, digest, uid
-from dslm3.resolution import Resolver, CODE_TYPES
+from dslm3.resolution import Resolver, CODE_TYPES, JAVA_TYPES
 
 CONTRACT_VERSION = "4"
 RULE_VERSION = "4.0"
@@ -56,6 +56,10 @@ EVIDENCE_ONLY = {
     "ddl_grant": "observed_access_declaration",
     "ddl_revoke": "observed_access_declaration",
 }
+# Emitted only with java_analysis on: own rules, policies and resolution index.
+JAVA_DECLARATIONS = JAVA_TYPES | {"sql_java_source"}
+JAVA_RELATIONS = {"java_dependency", "sql_java_call_spec"}
+JAVA_EVIDENCE = JAVA_DECLARATIONS | JAVA_RELATIONS | {"java_unparsed"}
 REGISTERED = (
     DDL_OBJECTS
     | CODE_TYPES
@@ -63,6 +67,7 @@ REGISTERED = (
     | EXCEL
     | STRUCTURED
     | EVIDENCE_ONLY.keys()
+    | JAVA_EVIDENCE
     | {
         "ddl_column",
         "ddl_constraint",
@@ -120,7 +125,9 @@ PARSER_TYPES = {
         "sql_dependency",
         "sql_unparsed",
         "sql_anonymous_block",
-    },
+    }
+    | JAVA_EVIDENCE,
+    "java": JAVA_TYPES | {"java_dependency", "java_unparsed"},
     "xml_forms": set(XML_TYPES)
     | {
         "xml_dependency",
@@ -258,7 +265,9 @@ def inventory(evidence):
             and subtype not in CONSTRAINTS
             or kind == "sql_statement"
             and subtype not in STATEMENTS
-            or kind in {"sql_dependency", "xml_dependency", "xml_button_operation"}
+            or kind
+            in {"sql_dependency", "xml_dependency", "xml_button_operation"}
+            | JAVA_RELATIONS
             and subtype not in RELATIONS
         )
         if unknown:
@@ -359,6 +368,29 @@ def inventory(evidence):
                     capability="unsupported",
                     reason="dynamic_sql_not_executed",
                 )
+        elif kind == "java_unparsed":
+            component(
+                "unparsed", capability="unsupported", reason="java_syntax_not_analyzed"
+            )
+        elif kind in JAVA_DECLARATIONS:
+            if d["name"] is None:
+                component(
+                    "declaration",
+                    capability="unsupported",
+                    reason="java_unnamed_external_unit",
+                )
+            else:
+                # The Oracle object (ShellExec::JAVA_SOURCE) is distinct from its class.
+                fact(
+                    "declaration",
+                    d["name"]
+                    + ("::" + d["unit_type"].upper() if kind == "sql_java_source" else ""),
+                    "unit_type",
+                    d["unit_type"],
+                    "java_code_unit",
+                    "java_unit",
+                    d,
+                )
         elif kind in XML_TYPES:
             fact(
                 "definition",
@@ -371,7 +403,11 @@ def inventory(evidence):
                 XML_TYPES[kind],
                 "xml_structure",
             )
-        elif kind in {"sql_dependency", "xml_dependency", "xml_button_operation"}:
+        elif (
+            kind
+            in {"sql_dependency", "xml_dependency", "xml_button_operation"}
+            | JAVA_RELATIONS
+        ):
             if d.get("builtin"):
                 fact(
                     "builtin",
@@ -422,7 +458,7 @@ def inventory(evidence):
                     "target_entity": res["canonical_target"],
                     "attributes": attrs,
                     "assertion_type": "observed"
-                    if kind == "sql_dependency"
+                    if kind in {"sql_dependency"} | JAVA_RELATIONS
                     else "explicit",
                 },
                 kind,

@@ -27,6 +27,14 @@ POLICIES = {
     "excel_named_range": "explicit_excel_named_range_only/1",
     "excel_table": "explicit_excel_table_only/1",
 }
+# Java analysis rules are opt-in: outside POLICIES, so the conservative profile and
+# existing allowlists never accept Java candidates without naming these policies.
+OPT_IN_POLICIES = {
+    "java_unit": "explicit_java_code_unit_only/1",
+    "java_dependency": "observed_java_code_dependency_only/1",
+    "sql_java_call_spec": "observed_java_call_spec_only/1",
+}
+RULE_POLICIES = {**POLICIES, **OPT_IN_POLICIES}
 # Keep existing workspaces compatible with the pre-fix policy identifier.
 LEGACY_POLICY_ALIASES = {
     "explicit_xml_button_operation_only/1": "explicit_xml_button_operation_pending/1"
@@ -402,7 +410,7 @@ class Knowledge:
         rows = self.store.rows(query + " ORDER BY created_at,id", tuple(args))
         for row in rows:
             row["payload"] = json.loads(row["payload"])
-            row["policy"] = POLICIES.get(row["rule"])
+            row["policy"] = RULE_POLICIES.get(row["rule"])
             source = self.store.one(
                 "SELECT s.path FROM revisions r JOIN sources s ON s.id=r.source_id WHERE r.id=?",
                 (row["payload"]["source_revision_id"],),
@@ -519,7 +527,7 @@ class Knowledge:
             )
             if (
                 not configured_ok
-                or POLICIES.get(c["rule"]) != actor_id
+                or RULE_POLICIES.get(c["rule"]) != actor_id
                 or not c["current_derivation"]
             ):
                 raise DomainError(

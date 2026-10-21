@@ -125,6 +125,9 @@ DEFAULT_CONFIG = {
     "ai_max_chars": 10000000,
     "graph_max_elements": 1000000,
 }
+# Optional keys are absent while at their default, so existing configuration
+# digests (config_hash, AI state_hash) are unchanged until a key is enabled.
+OPTIONAL_CONFIG = {"java_analysis": "off"}
 
 
 class Store:
@@ -202,7 +205,7 @@ class Store:
             raise DomainError(
                 "config_conflict", "La configurazione è cambiata: ricaricare.", 409
             )
-        unknown = set(values) - set(DEFAULT_CONFIG)
+        unknown = set(values) - set(DEFAULT_CONFIG) - set(OPTIONAL_CONFIG)
         if unknown:
             raise DomainError(
                 "invalid_config", f"Chiavi sconosciute: {sorted(unknown)}"
@@ -260,6 +263,11 @@ class Store:
                 raise DomainError(
                     "invalid_config", f"{key} deve essere una lista di stringhe."
                 )
+        if merged.get("java_analysis", "off") not in {"off", "on"}:
+            raise DomainError("invalid_config", "java_analysis deve essere off oppure on.")
+        for key, default in OPTIONAL_CONFIG.items():
+            if merged.get(key) == default:
+                merged.pop(key)
         dump_json(self.root / "project.json", merged)
         return {"config": merged, "hash": digest(merged)}
 

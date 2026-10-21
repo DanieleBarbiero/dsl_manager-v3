@@ -104,6 +104,29 @@ eseguito e non genera target dalle stringhe. Il parser cattura soltanto gli erro
 di sintassi previsti; gli errori interni arrivano al worker come errori, senza
 essere trasformati in successi evidence-only.
 
+## Java Oracle (flag `java_analysis`)
+
+Con il flag attivo il parser emette `sql_java_source`, `java_class`,
+`java_method`, `java_dependency`, `sql_java_call_spec` e `java_unparsed`. Sono
+tipi registrati: l'inventario non ha componenti `unclassified`.
+
+| Evidence | Componente | Regola / esito |
+|---|---|---|
+| `sql_java_source`, `java_class`, `java_method` | Dichiarazione `java_code_unit` | `java_unit`; l'oggetto Oracle (`ShellExec::JAVA_SOURCE`) è distinto dalla classe `ShellExec` |
+| `sql_java_source` senza nome | Dichiarazione | `unsupported`, `java_unnamed_external_unit` |
+| `java_dependency` | Relazione `calls` | `java_dependency`, risolta sull'indice `java_unit` |
+| `sql_java_call_spec` | Relazione `calls` da unità SQL a metodo Java | `sql_java_call_spec`, con firma e ritorno come attributi |
+| `java_unparsed` | Testo non analizzato | `unsupported`, `java_syntax_not_analyzed` |
+
+La risoluzione `java_unit` è esatta: un overload (stesso nome, firme diverse) è
+`ambiguous/multiple_targets`; lo stesso sorgente caricato da più file è una sola
+dichiarazione. Le policy `explicit_java_code_unit_only/1`,
+`observed_java_code_dependency_only/1` e `observed_java_call_spec_only/1` sono
+opt-in: non fanno parte del profilo conservativo e vanno nominate in
+`automatic_policies`. La selezione AI tecnica tratta `sql_java_source`,
+`java_class` e `java_method` come le altre evidence tecniche; gli export
+riportano il tipo `java_code_unit`.
+
 ## Persistenza, upgrade e AI
 
 La migrazione 3 conserva le migrazioni 1 e 2 con i checksum originali.

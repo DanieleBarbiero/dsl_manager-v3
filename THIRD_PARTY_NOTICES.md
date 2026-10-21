@@ -15,4 +15,6 @@ Gli import dei moduli riutilizzati sono adattati al namespace `dslm3.vendor`; la
 
 Le dipendenze vengono installate dai loro distributori e conservano le rispettive licenze: Docling e docling-core, SQLGlot, FastAPI/Starlette, Uvicorn, PyTorch, OpenCV, NumPy, lxml, openpyxl, xlrd, pyxlsb, odfpy, PyYAML, Beautiful Soup, charset-normalizer, psutil e gli strumenti di test. `requirements-tested-linux.txt` registra le versioni effettivamente installate; non costituisce una sublicenza.
 
+L'analisi SQL/Java opzionale (extra `java`, flag `java_analysis`) usa `tree-sitter` e la grammatica `tree-sitter-java` 0.23.5 (licenza MIT, copyright (c) 2017 Ayman Nadeem), installata dal distributore come wheel nativa e importata solo con il flag attivo.
+
 Le risorse GEXF 1.3 mantengono il file `src/dslm3/resources/gexf/LICENSE.txt` e il manifest SHA-256 di origine. I modelli scaricati da Docling/RapidOCR mantengono le condizioni dei rispettivi fornitori; non sono inclusi nei sorgenti consegnati.

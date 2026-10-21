@@ -1,0 +1,436 @@
+{
+ "default_config_digest": "62b95667c46d3fa747a406f0ad50cc396050c39c4ea03b194fac044ea249ac46",
+ "dispatch": {
+  "ShellExec.java": {
+   "error": "DomainError",
+   "reason": "unsupported_format"
+  },
+  "Widget.java": {
+   "error": "DomainError",
+   "reason": "unsupported_format"
+  },
+  "call_spec.sql": {
+   "sha256": "38a6ee1616fbe4ea87ebedbf4c0a8abc9a1d9c30b3b4f8a904ad736374239d62"
+  },
+  "create_in_text.sql": {
+   "sha256": "f554c8739027053966bb2987a4efcd034cd1e04150f58fc934716fe810c1169d"
+  },
+  "crlf_envelope.sql": {
+   "sha256": "238dd4053be31316825094a2b1ab5f3aea51a421d15702f136c5338a19941dad"
+  },
+  "deep.sql": {
+   "sha256": "ca8c416a575f31de54ef770432f42bfe7d9ea0ad5bb50cbb26068bb5351ea585"
+  },
+  "empty.sql": {
+   "sha256": "fe2f3cf17beecb4667a265125ffc4004bd5c2df1b08b3b3e82897eadc5581140"
+  },
+  "envelope.sql": {
+   "sha256": "ac9e4ea464c6613afb24ef2d7b62004fe2d547d930090f44070cda91a6efae95"
+  },
+  "external.sql": {
+   "sha256": "dbeb8800deb15c7f4f230eecdc6829da834af9aa7290b26fd6ea886048ce75f9"
+  },
+  "external_named.sql": {
+   "sha256": "ca7606f5f7ee88951bb2d67eb5ffa31c7ba1a67c19e637432fe3ddc525910027"
+  },
+  "force_view.sql": {
+   "sha256": "39edaa5723deada7a5c295eae47cd5f70b583f4a395666ec48f199c97a880f52"
+  },
+  "java_identifiers.sql": {
+   "sha256": "40381c0b1830948bd110e645686026705817dc4cda3b37024b22a42ad11adab4"
+  },
+  "java_in_comment.sql": {
+   "sha256": "3da5b60027a1f895bf1c37368f022a2c47960d186d549273142f0738fb6ef184"
+  },
+  "java_in_string.sql": {
+   "sha256": "aa476ea3c82c999eb78a9ae08786742c1e57575862e768dc926a3c1a5d50abcf"
+  },
+  "language_c.sql": {
+   "sha256": "2d3f275801413ad3bb117392f91314d338ded921fd83a31c5b0a9671f221cda4"
+  },
+  "mixed.sql": {
+   "sha256": "17c33dd2f66b0d909fd1285a93e6b829691a20503c3939043368e6cc95ae269c"
+  },
+  "multi_no_slash.sql": {
+   "sha256": "2f93b09323767e42f319258a9208eca9108d9f1780baec450137e777f9524948"
+  },
+  "mysql_delimiter.sql": {
+   "sha256": "5f82223d296098c0607bbfad4ffea4078698ef3032399243e4a98aa35921b470"
+  },
+  "package.sql": {
+   "sha256": "7176b85037f35b6bd62d0ddf6c39266ec9d57b4479416a1f3200b952e5090aa3"
+  },
+  "plsql_package.sql": {
+   "sha256": "05b81527aca358e76f2b105ca3032d6cf80604d1122618b421093b3d5fab27aa"
+  },
+  "postgres_dollar.sql": {
+   "sha256": "cd9d632f19c5746acc5a406cbbe24d206ae268fb3aac68816b9d31d5f91b2f75"
+  },
+  "raw.sql": {
+   "sha256": "232e3be3a23bafa6870332ddcb50138450dd6d57a51f08fc44061ccd8f600f63"
+  },
+  "slash_in_comment.sql": {
+   "sha256": "218a74a9d284cd004869212596eef208e1eeb87919ddafb495dd71d63657f5c6"
+  },
+  "slash_names.sql": {
+   "sha256": "318206e2b6ac5deef7b4ee32921072baa94307abfd51399a12e8767d60504fb9"
+  },
+  "slash_only.sql": {
+   "sha256": "fe2f3cf17beecb4667a265125ffc4004bd5c2df1b08b3b3e82897eadc5581140"
+  },
+  "sqlplus.sql": {
+   "sha256": "c0f4e58767863bd072748541cdd33ee80b7cede42fccd9d6588fe42439d1ffc2"
+  },
+  "tsql_go.sql": {
+   "sha256": "d088aa374805115a52a3ddb07f0d6ba3adcb228ca62ae2e73fd5c43153a6503f"
+  },
+  "type_spec.sql": {
+   "sha256": "c21fe1cd9638e3ef6fa446a32a91466a12b0c1f3f2573a521dd8c189c251c7ab"
+  },
+  "unterminated.sql": {
+   "sha256": "45a78ce8a09f61b0e670b198555d6368ba2c131e06940935c612383eacb9a134"
+  },
+  "whitespace.sql": {
+   "sha256": "fe2f3cf17beecb4667a265125ffc4004bd5c2df1b08b3b3e82897eadc5581140"
+  },
+  "widget_envelope.sql": {
+   "sha256": "6494971fcebb161fd460564af8a87fda3c1fefff044f0352d98eb9588865ebd6"
+  }
+ },
+ "inventory": {
+  "java:call_spec": {
+   "sha256": "540bac3fde5f6da8ae1c2b4065875cdac45a7f3c4b13531b94baac735216bc99"
+  },
+  "java:create_in_text": {
+   "sha256": "b61f9ac23ad5cdd9b5955a379685b2f485aa848f951cf9c743f6e259a411fadf"
+  },
+  "java:crlf_envelope": {
+   "sha256": "86f1d47b12d56390ae85bd7c7e4ed8ba2d713e99c215f1b2f9a06590e9a5ac2c"
+  },
+  "java:deep": {
+   "sha256": "f4f43ab6cb50201c3f50b3a6b05e5fda5a8111c8b7d5e59a174e2597f49c9ae5"
+  },
+  "java:envelope": {
+   "sha256": "5380fdda5ab3ac5dd94732daaa530158a0deb784edd0a215079cc8d3ea21ff53"
+  },
+  "java:external": {
+   "sha256": "734af54009dd9ebf67505f775173d1d1770135bd6682bec02f57e75a52745a6d"
+  },
+  "java:external_named": {
+   "sha256": "7bed8fbfb4e7d08b45e41c2f7ceb380f69482e76e4042f5b6df5b80d65ad48db"
+  },
+  "java:mixed": {
+   "sha256": "03e3a382d83bb9923d567aeb1823aa263fba343a507f1c360358dfec45ebaf44"
+  },
+  "java:multi_no_slash": {
+   "sha256": "3854b931afe31d18d0ef563646584a3fef11b6215e79772272880a322762f8d7"
+  },
+  "java:package": {
+   "sha256": "936006ca828c008f3e0884d7adc025d25f02d0b22cef0b81503f507435e0a200"
+  },
+  "java:raw": {
+   "sha256": "9df1f907d7e6da1165afd1e5c24f6a98ac05f11acbd1c3baef1b787255761704"
+  },
+  "java:slash_in_comment": {
+   "sha256": "13c7475f3a7355a0b6fdfccfdfe7bc2dd52bd7a7696ea0aa1cd1a790ec40c7d9"
+  },
+  "java:slash_names": {
+   "sha256": "349a4efc2c7a1a5483d9fa2a7aa0b1089b755794f5d89aec797d123a56955bda"
+  },
+  "java:type_spec": {
+   "sha256": "390234c70fc0d43733883464f6c8923665980865b27288925c9974cf89153807"
+  },
+  "java:widget_envelope": {
+   "sha256": "73b16359d5ab12e8e9d0f977d831bd436a8d379e155d98c3d1b6dee7a54b83fa"
+  },
+  "repo:src/dslm3/resources/vega/database/schema_vega.sql": {
+   "sha256": "8b48badefe60edbb015811d011a971c3e7c8ec59e812856a46b2905fb1c74d77"
+  },
+  "repo:src/dslm3/resources/vega/plsql/logica_vega.sql": {
+   "sha256": "88f82c6ebe14a08991b4248af3aa743f8e76e670ba81dfd8aa6df359f42fe7cb"
+  },
+  "repo:tests/fixtures/deterministic/business.sql": {
+   "sha256": "1c861ea28fe63c97cf6d23c46e24aa6104af40426d54cc011902cedc28d5d212"
+  },
+  "repo:tests/fixtures/deterministic/decrement.sql": {
+   "sha256": "eaca394490ffdf8a10c8401d3272cd1827bc738bc26cf83629624ab35b42f93c"
+  },
+  "sql:empty": {
+   "sha256": "afc291c37ce11d467303560fde923b192c53e39c722dfde6d593fe505ca929ae"
+  },
+  "sql:force_view": {
+   "sha256": "e21e70b3f9d93f2929da829a9eca7d6c7652ba8b88d39a323965b6ec8d2f7b50"
+  },
+  "sql:java_identifiers": {
+   "sha256": "19abb68066d05a7e6185cc1c56e543cb9784959c1272c349e5355e4f83741363"
+  },
+  "sql:java_in_comment": {
+   "sha256": "0ac2659c246eedd2973c6086d76f26a07b97e5130a4ad383348aa39e7127798b"
+  },
+  "sql:java_in_string": {
+   "sha256": "3563655ded6108efd79ec309610454f40ff171cdcd8bd7e12c340d1812d3a855"
+  },
+  "sql:language_c": {
+   "sha256": "f72ee1e9b9de9ec67f9b1aa63acd4bae3e98f8e0e05c521038b74aa8803474ec"
+  },
+  "sql:mysql_delimiter": {
+   "sha256": "2736065487846b8a14c90ad6026f88f2b452b77f7136ce09455767536f4cbf89"
+  },
+  "sql:plsql_package": {
+   "sha256": "d35d8dd86a5c35077490bbfdcfa4dc6198ecc9d9ba7f0abf03e8cf10c0231079"
+  },
+  "sql:postgres_dollar": {
+   "sha256": "136e66ca035e5dfbc70d73a22d866bd48584ad11ddfb8289d9c3eebe74163e7a"
+  },
+  "sql:slash_only": {
+   "sha256": "afc291c37ce11d467303560fde923b192c53e39c722dfde6d593fe505ca929ae"
+  },
+  "sql:sqlplus": {
+   "sha256": "20c386818a68fed1f93df277128dfce8d84be0b909549d25cd6b503bb6e1cc6c"
+  },
+  "sql:tsql_go": {
+   "error": "AttributeError",
+   "reason": null
+  },
+  "sql:unterminated": {
+   "sha256": "e0268e555b7d24f09223f409acc578499cd9ee4625fb431ae4ee7bf273fc7530"
+  },
+  "sql:whitespace": {
+   "sha256": "afc291c37ce11d467303560fde923b192c53e39c722dfde6d593fe505ca929ae"
+  }
+ },
+ "parse_sql": {
+  "java:call_spec:auto": {
+   "sha256": "30867a928c9daf3495bf8b0aad7e732c63cc791b7301c2d21f476531aef13e56"
+  },
+  "java:call_spec:oracle": {
+   "sha256": "71af7a92d2b3caa020b622216fdaafb2f62177d5f9a70be5b0dfd0e3ef26b2cd"
+  },
+  "java:create_in_text:auto": {
+   "sha256": "79c1f0d34b3d4abb9e8948df8d963da64bf8efe3b30d34b59c5fdea956f6da18"
+  },
+  "java:create_in_text:oracle": {
+   "sha256": "e3f04d4dc42b81aebaf85afa91ea0548c45b2d8e84d6d37a3b32748412bf8abd"
+  },
+  "java:crlf_envelope:auto": {
+   "sha256": "b92bdd02232362517ec4ff546e09824f6250436a3173fc3fa0237e7fb18d0f2f"
+  },
+  "java:crlf_envelope:oracle": {
+   "sha256": "e7fff303976638a5fc077c4cfcfcaa42bbc02dc4cea1eb8e6a338409a9f3db88"
+  },
+  "java:deep:auto": {
+   "sha256": "ff38990656adc04efe492833a12357fb9a8e227d4d0cac33db727732151d031f"
+  },
+  "java:deep:oracle": {
+   "sha256": "896eeff5a86080555e9883be20a82712c752589b5894f8e012cb6be1c2c98a32"
+  },
+  "java:envelope:auto": {
+   "sha256": "d0f7f7c6dd1115743f66d9f4f6ae0fbf801382848af0ecf4a9de7f4a00f1ffea"
+  },
+  "java:envelope:oracle": {
+   "sha256": "bf4939f2a1ad58f29649381a2ee764b8cb7e692eb51be83be8410e098c75ca5e"
+  },
+  "java:external:auto": {
+   "sha256": "d0af4493da5df2d3b615188f2992ff39cbc58814cfa681e62490c8f2574c3728"
+  },
+  "java:external:oracle": {
+   "sha256": "177931b207bbe672fcb022735378106eae5e08e1dd6337fc50b2eeecf4a24847"
+  },
+  "java:external_named:auto": {
+   "sha256": "97f12b81abe4791decdd40b5f1396be9de12e2b4f114c6afc415ba5a65f0e9b6"
+  },
+  "java:external_named:oracle": {
+   "sha256": "828ab50561672798d70260a9fd5d2ef360ad648a8cfcb9ed215d64a236e34302"
+  },
+  "java:mixed:auto": {
+   "sha256": "8349dad36d8c69e6eb6bee50159586ce6e030bb0be8b86b633f1077abb1508f9"
+  },
+  "java:mixed:oracle": {
+   "sha256": "4690cdc65ed27d2269e5416d28fa9a33b587e92125dd714815b36ba944d9298b"
+  },
+  "java:multi_no_slash:auto": {
+   "sha256": "64f867051cbb019c8b9d1efff9b52b3c1ac636c4c1de96305bc9addd6137819f"
+  },
+  "java:multi_no_slash:oracle": {
+   "sha256": "daf4173c88db9f87fabe84403c25bdcd6e6e886682d8a99f11656a48d862a59d"
+  },
+  "java:package:auto": {
+   "sha256": "4f66d6c8ce8a87a2913bd3c177f59043e60675834ecba9fd8fd5791584558bf8"
+  },
+  "java:package:oracle": {
+   "sha256": "bcd838dd3fffc6b3e8cfb99258abbda4cc4fc817772b28139fa545b505c4d03b"
+  },
+  "java:raw:auto": {
+   "sha256": "1a0e653dcbfef44fbd0d01f195ca608600a085bfc74ba767e7794f48b50f8cbb"
+  },
+  "java:raw:oracle": {
+   "sha256": "17f27e119259c590e6ac273a17886a417e0bc74db2aa22172369e15a557affbd"
+  },
+  "java:slash_in_comment:auto": {
+   "sha256": "14658013887f9b3d159a8254bb57f865f0a964cfcab4ab1e286329e7eda928bb"
+  },
+  "java:slash_in_comment:oracle": {
+   "sha256": "aa0aab658fad4acf38dac6aa3a81337594fe5a65496d910cd465172122f1167b"
+  },
+  "java:slash_names:auto": {
+   "sha256": "1b1a37c341b5e492047c31e4a06c4351a6c7b0846d610fbdafb5d45799c23ab3"
+  },
+  "java:slash_names:oracle": {
+   "sha256": "30fecdfbffc6095e3c9ec7d0653eedf747690ca200eedd4709a09975b5927ad1"
+  },
+  "java:type_spec:auto": {
+   "sha256": "e957ae90ae9179a7822ca5c6a98cfd9503c90a5c755110c64a0e712ebdd9992a"
+  },
+  "java:type_spec:oracle": {
+   "sha256": "159ffe5c37df9682b31508bbd61838b490b6d07b268d3ddc2d4587013e3c2c9f"
+  },
+  "java:widget_envelope:auto": {
+   "sha256": "3954c26a22b72a996e70d5a081952c1dc317001eff4b30a000c1ee4e31509a63"
+  },
+  "java:widget_envelope:oracle": {
+   "sha256": "59bddbc66daf07ebd194a609da98c20b70de682bc6e81c4280b7a832a7ac0f64"
+  },
+  "repo:src/dslm3/resources/vega/database/schema_vega.sql:auto": {
+   "sha256": "2c2e4938862e58ae7d19027cdca43527106ec3bcc313952b9e62be55106c09dd"
+  },
+  "repo:src/dslm3/resources/vega/database/schema_vega.sql:oracle": {
+   "sha256": "49bcd94b8be4376c92b074f04bf0e0a8e2ad990ece19a4457946e4f4f3ff168f"
+  },
+  "repo:src/dslm3/resources/vega/plsql/logica_vega.sql:auto": {
+   "sha256": "d31df5668580b05f9bd89540cebccf8231e357fc10830e1ab26d87a398a0e4f2"
+  },
+  "repo:src/dslm3/resources/vega/plsql/logica_vega.sql:oracle": {
+   "sha256": "77290121664abfa79ec1a31c59d76199affc42efbf840e57cb0cfeebb38b09a3"
+  },
+  "repo:tests/fixtures/deterministic/business.sql:auto": {
+   "sha256": "a0d5dd822ea1b630055f66dc2596e46aa5401484dde08523d869bac2aca863ed"
+  },
+  "repo:tests/fixtures/deterministic/business.sql:oracle": {
+   "sha256": "6d48f5cd84e87aa9f99593aa182709a30297d0914fc63e816e62c482dd75cece"
+  },
+  "repo:tests/fixtures/deterministic/decrement.sql:auto": {
+   "sha256": "576a5a96b619c2d8d308f9a08744ff0742647e4cf9f845212f90d86e4b95d91f"
+  },
+  "repo:tests/fixtures/deterministic/decrement.sql:oracle": {
+   "sha256": "653ab061dca32c24974a7e06ff3d2257c368e9a64bffd9d16c1f2c7c4c0080fb"
+  },
+  "sql:empty:auto": {
+   "sha256": "251b9002872e35489c01a0b398ef0936d2356a681a516a94498c6ba9199ddb18"
+  },
+  "sql:empty:oracle": {
+   "sha256": "e51a0d524aabe0365b0ddf5ef267f7a4d1e66f474685b852e6445a3445ff2b96"
+  },
+  "sql:force_view:auto": {
+   "sha256": "ceceb5a5cbcdbad5af1ecbd42d757074b37e350a0ae0b058f3754484c70a8c82"
+  },
+  "sql:force_view:oracle": {
+   "sha256": "2af8526a1d813764140de7fef8dc5b57a6f6691d6c52f762ed2d0709e4df13c6"
+  },
+  "sql:java_identifiers:auto": {
+   "sha256": "364a8152d39d999826fd0ffc9b5e502c88a1ce525b8fc7b816cea4cdf1314a3a"
+  },
+  "sql:java_identifiers:oracle": {
+   "sha256": "7db1a3b0aa133b7c838316dd18eda8c359af7146bf4cef7d5c4736a37f6f58da"
+  },
+  "sql:java_in_comment:auto": {
+   "sha256": "bda971f249ea7cb7e1a712ab80d49fb584c2dacf3a04a62ec6b013c484f9b3d4"
+  },
+  "sql:java_in_comment:oracle": {
+   "sha256": "b21d7b28d62c0efb64e5ebe9883c8332d1f2244e241b9ae7d8905993513516f7"
+  },
+  "sql:java_in_string:auto": {
+   "sha256": "e1761fd48a6fc6e83750c9634ce19677d0dbc37f896f28835d617c8ae4048a57"
+  },
+  "sql:java_in_string:oracle": {
+   "sha256": "eea66df295f01d954475182e70ae34dd288108c38349bd7f0bd884832374719f"
+  },
+  "sql:language_c:auto": {
+   "sha256": "fe904f317177bba4c440c04f65997f37bd4bfc71dd7c5cc327b69bbc2bf8bae8"
+  },
+  "sql:language_c:oracle": {
+   "sha256": "272e00c69877eecaad7253d02e4013ae9dab1dc0b4db80c7e4e3f35f05ae105d"
+  },
+  "sql:mysql_delimiter:auto": {
+   "sha256": "53a2a167d10037d39660e3ee340423f03a971871d595933e218dc279e1175c79"
+  },
+  "sql:mysql_delimiter:oracle": {
+   "sha256": "b004c7fb47f929d101d5fe72b97be86fec94580c78775b91e1021f9b79979985"
+  },
+  "sql:plsql_package:auto": {
+   "sha256": "4ef91eec27d5bb356443b8addb20e7d315e246997846051dc529582221b411b1"
+  },
+  "sql:plsql_package:oracle": {
+   "sha256": "4f320f9704a65078ed7a6a0d6700b696f9efe38f7e32452ed8a8f461047989db"
+  },
+  "sql:postgres_dollar:auto": {
+   "sha256": "72698fa5ce173d07092e6ee931eb47c1b82c013fae6cb0d1fdec8f60ab028061"
+  },
+  "sql:postgres_dollar:oracle": {
+   "sha256": "666c1977f1a91e137edc11c0b1e572bf799a5169a63b4cb1c90c8d382b0a8cf8"
+  },
+  "sql:slash_only:auto": {
+   "sha256": "251b9002872e35489c01a0b398ef0936d2356a681a516a94498c6ba9199ddb18"
+  },
+  "sql:slash_only:oracle": {
+   "sha256": "e51a0d524aabe0365b0ddf5ef267f7a4d1e66f474685b852e6445a3445ff2b96"
+  },
+  "sql:sqlplus:auto": {
+   "sha256": "310e6fcce94d15816feffe253b082e8bb0d9baf88e53847a2cec7d63200f75fd"
+  },
+  "sql:sqlplus:oracle": {
+   "sha256": "7341fcb4af87c2fc0ba8fc7d022011ad3f5dcc818c88d142aa49166b36a681d2"
+  },
+  "sql:tsql_go:auto": {
+   "sha256": "84c94b5d4cc8d059bd4c287136c08bd7d265e9f2182befc093f4ed936a72cd83"
+  },
+  "sql:tsql_go:oracle": {
+   "error": "AttributeError",
+   "reason": null
+  },
+  "sql:unterminated:auto": {
+   "sha256": "7f2652b970ceeda2e53ed1d747c20adac22dfc14281bb0932a41e181f65416c9"
+  },
+  "sql:unterminated:oracle": {
+   "sha256": "88e10479b4e2fd5b21053bb93370d183c8508442dbd0949cc5fb36072067614e"
+  },
+  "sql:whitespace:auto": {
+   "sha256": "251b9002872e35489c01a0b398ef0936d2356a681a516a94498c6ba9199ddb18"
+  },
+  "sql:whitespace:oracle": {
+   "sha256": "e51a0d524aabe0365b0ddf5ef267f7a4d1e66f474685b852e6445a3445ff2b96"
+  }
+ },
+ "parser_version": {
+  "ShellExec.java": "deterministic-parser/4:10e34e4867ae3a8b79d7347dc78038998b24c91bb843d8eded0297500df49f97",
+  "envelope.sql": "deterministic-parser/4:10e34e4867ae3a8b79d7347dc78038998b24c91bb843d8eded0297500df49f97",
+  "java_identifiers.sql": "deterministic-parser/4:21957549dc4aaf3f7050104888d60a94e5534c4658748f7ed3a43c1cc8f020a1",
+  "mixed.sql": "deterministic-parser/4:21957549dc4aaf3f7050104888d60a94e5534c4658748f7ed3a43c1cc8f020a1",
+  "plsql_package.sql": "deterministic-parser/4:21957549dc4aaf3f7050104888d60a94e5534c4658748f7ed3a43c1cc8f020a1",
+  "raw.sql": "deterministic-parser/4:10e34e4867ae3a8b79d7347dc78038998b24c91bb843d8eded0297500df49f97"
+ },
+ "source_commit": "fbfe694",
+ "technical": [
+  "ddl_column",
+  "ddl_constraint",
+  "ddl_table",
+  "excel_region",
+  "sql_function",
+  "sql_package",
+  "sql_package_body",
+  "sql_procedure",
+  "sql_statement",
+  "sql_trigger",
+  "sql_type",
+  "sql_type_body",
+  "sql_unparsed",
+  "xml_button",
+  "xml_button_operation",
+  "xml_field",
+  "xml_form"
+ ],
+ "versions": {
+  "sqlglot": "30.18.0",
+  "sqlparse": "0.6.0"
+ },
+ "workspace_config_digest": "62b95667c46d3fa747a406f0ad50cc396050c39c4ea03b194fac044ea249ac46"
+}

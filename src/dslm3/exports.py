@@ -113,6 +113,7 @@ class Exports:
                         "ddl_table": "database_table",
                         "ddl_column": "database_column",
                         "sql_unit": "database_code_unit",
+                        "java_unit": "java_code_unit",
                         "log_event": "log_event",
                         "excel_workbook": "excel_workbook",
                         "excel_sheet": "excel_sheet",

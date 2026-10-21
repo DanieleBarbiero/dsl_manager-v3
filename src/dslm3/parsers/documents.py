@@ -742,9 +742,11 @@ def _parse_document(
         ".tpb",
         ".tps",
     }:
-        from dslm3.parsers.sql import parse_sql
-
         text, encoding = decode(data)
+        if config.get("java_analysis") == "on":
+            from dslm3.parsers.java import parse_sql_java as parse_sql
+        else:
+            from dslm3.parsers.sql import parse_sql
         result = parse_sql(text, config.get("sql_dialect", "auto"), schema)
         result.metadata["encoding"] = encoding
         return result
@@ -782,6 +784,13 @@ def _parse_document(
         )
         if normalized["conversion_status"] == "partial_success":
             result.status = "partial"
+        return result
+    if suffix == ".java" and config.get("java_analysis") == "on":
+        from dslm3.parsers.java import parse_java
+
+        text, encoding = decode(data)
+        result = parse_java(text)
+        result.metadata["encoding"] = encoding
         return result
     raise DomainError(
         "unsupported_format",
